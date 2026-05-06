@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research & Publications | Primrose Tax Law</title>
+  <meta name="description" content="Research and publications by Primrose Watson. Published in the Canadian Tax Foundation and Tax Hyperion. Current LLM research on Canadian tax reform at Dalhousie University.">
+  <link rel="icon" href="assets/images/icon-gold.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1C1C1C;
+      background: #F5F0EB;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
+    }
+
+    .accent-serif {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 120px 0;
+    }
+
+    /* ============================================
+       COMPONENTS
+       ============================================ */
+    .sage-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-sage {
+      background: #7C9A8E;
+      color: #fff;
+    }
+
+    .btn-sage:hover {
+      background: #6b8a7d;
+      opacity: 1;
+    }
+
+    .btn-cream {
+      background: #F5F0EB;
+      color: #1C1C1C;
+    }
+
+    .btn-cream:hover {
+      background: #EDE7DF;
+      opacity: 1;
+    }
+
+    .btn-outline-cream {
+      background: transparent;
+      color: #F5F0EB;
+      border: 1.5px solid rgba(245, 240, 235, 0.3);
+    }
+
+    .btn-outline-cream:hover {
+      border-color: rgba(245, 240, 235, 0.6);
+      opacity: 1;
+    }
+
+    .btn-dark {
+      background: #1C1C1C;
+      color: #F5F0EB;
+    }
+
+    .btn-dark:hover {
+      background: #2a2a2a;
+      opacity: 1;
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: #1C1C1C;
+      border: 1.5px solid rgba(28, 28, 28, 0.2);
+    }
+
+    .btn-outline-dark:hover {
+      border-color: rgba(28, 28, 28, 0.5);
+      opacity: 1;
+    }
+
+    /* ============================================
+       FADE-IN ANIMATION
+       ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       1. NAVIGATION
+       ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background: #1C1C1C;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      color: #F5F0EB;
+    }
+
+    .nav-brand-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-brand-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      margin: 0 6px;
+      position: relative;
+      top: -1px;
+    }
+
+    .nav-brand-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      opacity: 0.55;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(245, 240, 235, 0.55);
+      letter-spacing: 0.01em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .nav-links a.active {
+      color: #F5F0EB;
+    }
+
+    .nav-cta-wrap {
+      margin-left: 12px;
+    }
+
+    .nav-cta-wrap .btn {
+      padding: 10px 22px;
+      font-size: 13px;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #F5F0EB;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      background: #1C1C1C;
+      padding: 24px;
+      z-index: 999;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-menu a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 8px 0;
+      color: rgba(245, 240, 235, 0.7);
+    }
+
+    .mobile-menu .btn {
+      width: fit-content;
+      margin-top: 8px;
+    }
+
+    /* ============================================
+       2. HERO
+       ============================================ */
+    .hero {
+      padding: 64px 0 0 0;
+      background: #F5F0EB;
+    }
+
+    .hero-inner {
+      padding: 100px 0 120px;
+    }
+
+    .hero-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+    }
+
+    .hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      color: #1C1C1C;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 .accent-serif {
+      color: #4A6B5D;
+    }
+
+    .hero-subtext {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(28, 28, 28, 0.5);
+      max-width: 560px;
+    }
+
+    /* ============================================
+       3. CURRENT RESEARCH (BLACK BG)
+       ============================================ */
+    .current-research {
+      background: #1C1C1C;
+      padding: 120px 0;
+    }
+
+    .research-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7C9A8E;
+      margin-bottom: 48px;
+    }
+
+    .research-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .research-left h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 48px;
+      color: #F5F0EB;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 32px;
+    }
+
+    .research-institution {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #C2B9A7;
+      margin-bottom: 12px;
+      letter-spacing: 0.01em;
+    }
+
+    .research-degree {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: rgba(245, 240, 235, 0.35);
+      letter-spacing: 0.04em;
+      margin-bottom: 40px;
+    }
+
+    .research-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: #7C9A8E;
+      margin-top: 8px;
+    }
+
+    .research-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .research-pull-quote {
+      border-left: 3px solid #7C9A8E;
+      padding-left: 32px;
+    }
+
+    .research-pull-quote p {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 24px;
+      line-height: 1.5;
+      color: rgba(245, 240, 235, 0.6);
+    }
+
+    /* ============================================
+       4. PUBLICATIONS (CREAM BG)
+       ============================================ */
+    .publications {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .pub-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 56px;
+    }
+
+    .pub-list {
+      max-width: 880px;
+    }
+
+    .pub-entry {
+      padding: 40px 0;
+      border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .pub-entry:first-child {
+      border-top: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .pub-entry-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 12px;
+    }
+
+    .pub-entry-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.35;
+      color: #1C1C1C;
+      letter-spacing: -0.3px;
+    }
+
+    .pub-entry-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .pub-entry-tag--sage {
+      background: rgba(124, 154, 142, 0.12);
+      color: #7C9A8E;
+    }
+
+    .pub-entry-tag--sand {
+      background: rgba(194, 185, 167, 0.2);
+      color: #8C8275;
+    }
+
+    .pub-entry-source {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #7C9A8E;
+      margin-bottom: 10px;
+    }
+
+    .pub-entry-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(28, 28, 28, 0.45);
+      max-width: 640px;
+    }
+
+    /* ============================================
+       5. CONFERENCES (CREAM BG)
+       ============================================ */
+    .conferences {
+      background: #F5F0EB;
+      padding: 0 0 120px 0;
+    }
+
+    .conf-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 20px;
+    }
+
+    .conf-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: rgba(28, 28, 28, 0.5);
+      margin-bottom: 40px;
+    }
+
+    .conf-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 680px;
+    }
+
+    .conf-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(28, 28, 28, 0.06);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #1C1C1C;
+    }
+
+    .conf-item:first-child {
+      border-top: 1px solid rgba(28, 28, 28, 0.06);
+    }
+
+    .conf-item .sage-dot {
+      width: 8px;
+      height: 8px;
+    }
+
+    .conf-detail {
+      font-weight: 400;
+      color: rgba(28, 28, 28, 0.4);
+      margin-left: 4px;
+    }
+
+    .conf-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(28, 28, 28, 0.35);
+      margin-top: 28px;
+      font-style: italic;
+    }
+
+    /* ============================================
+       6. TOPICS OF INTEREST (BLACK BG)
+       ============================================ */
+    .topics {
+      background: #1C1C1C;
+      padding: 120px 0;
+    }
+
+    .topics-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7C9A8E;
+      margin-bottom: 48px;
+    }
+
+    .topics-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .topic-pill {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: 1px solid rgba(245, 240, 235, 0.1);
+      color: rgba(245, 240, 235, 0.6);
+      background: rgba(245, 240, 235, 0.04);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .topic-pill:hover {
+      border-color: rgba(124, 154, 142, 0.3);
+      color: #F5F0EB;
+      background: rgba(124, 154, 142, 0.1);
+    }
+
+    /* ============================================
+       7. CTA (SAGE BG)
+       ============================================ */
+    .cta-section {
+      background: #4A6B5D;
+      padding: 120px 24px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 52px);
+      color: #F5F0EB;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .cta-section .cta-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: rgba(245, 240, 235, 0.5);
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================
+       8. FOOTER
+       ============================================ */
+    .footer {
+      background: #111111;
+      padding: 80px 24px 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand img {
+      height: 24px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(245, 240, 235, 0.4);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h5 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(245, 240, 235, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245, 240, 235, 0.55);
+      margin-bottom: 12px;
+    }
+
+    .footer-col a:hover {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(245, 240, 235, 0.06);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    /* ============================================
+       RESPONSIVE -- 1024px
+       ============================================ */
+    @media (max-width: 1024px) {
+      .research-layout {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE -- 768px
+       ============================================ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta-wrap {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 8vw, 56px);
+        letter-spacing: -2px;
+      }
+
+      .hero-inner {
+        padding: 72px 0 80px;
+      }
+
+      .current-research {
+        padding: 80px 0;
+      }
+
+      .research-left h2 {
+        font-size: 36px;
+      }
+
+      .research-pull-quote p {
+        font-size: 20px;
+      }
+
+      .publications {
+        padding: 80px 0;
+      }
+
+      .pub-entry-header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .conferences {
+        padding: 0 0 80px 0;
+      }
+
+      .topics {
+        padding: 80px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE -- 480px
+       ============================================ */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+        letter-spacing: -1.5px;
+      }
+
+      .hero-inner {
+        padding: 56px 0 64px;
+      }
+
+      .research-left h2 {
+        font-size: 28px;
+      }
+
+      .research-pull-quote p {
+        font-size: 18px;
+      }
+
+      .pub-entry-title {
+        font-size: 18px;
+      }
+
+      .topic-pill {
+        font-size: 13px;
+        padding: 12px 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta-section {
+        padding: 80px 20px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-buttons .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       1. NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-name">PRIMROSE</span>
+        <span class="nav-brand-dot"></span>
+        <span class="nav-brand-sub">/ TAX LAW</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#practice">(01) Practice</a>
+        <a href="index.html#process-section">(02) Approach</a>
+        <a href="index.html#about">(03) About</a>
+        <a href="research.html" class="active">(04) Publications</a>
+        <a href="index.html#contact">(05) Contact</a>
+      </div>
+      <div class="nav-cta-wrap">
+        <a href="index.html#contact" class="btn btn-sage">Refer a Client &#8599;</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#practice">(01) Practice</a>
+    <a href="index.html#process-section">(02) Approach</a>
+    <a href="index.html#about">(03) About</a>
+    <a href="research.html">(04) Publications</a>
+    <a href="index.html#contact">(05) Contact</a>
+    <a href="index.html#contact" class="btn btn-sage">Refer a Client &#8599;</a>
+  </div>
+
+  <!-- ============================================
+       2. HERO
+       ============================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner fade-in">
+        <div class="hero-label">Research & Publications</div>
+        <h1>SHAPING THE <span class="accent-serif">future.</span></h1>
+        <p class="hero-subtext">Beyond practice&thinsp;&mdash;&thinsp;researching and writing on the evolution of Canadian tax law.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       3. CURRENT RESEARCH (BLACK BG)
+       ============================================ -->
+  <section class="current-research">
+    <div class="container">
+      <div class="research-label fade-in">Current Research</div>
+      <div class="research-layout">
+        <div class="research-left fade-in">
+          <h2>Canadian Tax Reform</h2>
+          <div class="research-institution">Schulich School of Law, Dalhousie University</div>
+          <div class="research-degree">Master of Laws (LLM)</div>
+          <div class="research-status">
+            <span class="research-status-dot"></span>
+            In progress&thinsp;&mdash;&thinsp;Expected completion 2027
+          </div>
+        </div>
+        <div class="research-pull-quote fade-in">
+          <p>Investigating how Canadian income tax legislation can evolve to better serve taxpayers, practitioners, and the public interest. This research examines the structural foundations of the Income Tax Act and proposes frameworks for meaningful reform.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       4. PUBLICATIONS (CREAM BG)
+       ============================================ -->
+  <section class="publications" id="publications">
+    <div class="container">
+      <div class="pub-label fade-in">Publications</div>
+      <div class="pub-list fade-in">
+
+        <!-- Entry 1 -->
+        <div class="pub-entry">
+          <div class="pub-entry-header">
+            <div class="pub-entry-title">CRA Audit/Assessment Practices 2022</div>
+            <span class="pub-entry-tag pub-entry-tag--sage">Canadian Tax Foundation</span>
+          </div>
+          <div class="pub-entry-source">Canadian Tax Foundation, 2022</div>
+          <div class="pub-entry-desc">Analysis of evolving audit and assessment practices by the Canada Revenue Agency.</div>
+        </div>
+
+        <!-- Entry 2 -->
+        <div class="pub-entry">
+          <div class="pub-entry-header">
+            <div class="pub-entry-title">Intercorporate Shareholdings and 110.6(15)(b)&thinsp;&mdash;&thinsp;Are You Offside?</div>
+            <span class="pub-entry-tag pub-entry-tag--sand">Tax Hyperion</span>
+          </div>
+          <div class="pub-entry-source">Tax Hyperion, Vol. 18, Issue 2, March&ndash;April 2021</div>
+          <div class="pub-entry-desc">Examining the intersection of intercorporate shareholdings and the capital gains exemption.</div>
+        </div>
+
+        <!-- Entry 3 -->
+        <div class="pub-entry">
+          <div class="pub-entry-header">
+            <div class="pub-entry-title">The Client, Accountant and Lawyer: A Necessary Relationship</div>
+            <span class="pub-entry-tag pub-entry-tag--sand">Tax Hyperion</span>
+          </div>
+          <div class="pub-entry-source">Tax Hyperion, Vol. 16, Issue 5, September&ndash;October 2019</div>
+          <div class="pub-entry-desc">Exploring the collaborative relationship between clients, their accountants, and tax lawyers in Canadian practice.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       5. CONFERENCES & SPEAKING (CREAM BG)
+       ============================================ -->
+  <section class="conferences">
+    <div class="container">
+      <div class="conf-label fade-in">Conferences & Speaking</div>
+      <div class="conf-desc fade-in">Active participant in the Canadian tax community.</div>
+      <div class="conf-list fade-in">
+        <div class="conf-item">
+          <span class="sage-dot"></span>
+          Canadian Tax Foundation<span class="conf-detail">&thinsp;&mdash;&thinsp;Annual Conference</span>
+        </div>
+        <div class="conf-item">
+          <span class="sage-dot"></span>
+          Canadian Tax Foundation<span class="conf-detail">&thinsp;&mdash;&thinsp;Pacific Regional Conference (Vancouver)</span>
+        </div>
+        <div class="conf-item">
+          <span class="sage-dot"></span>
+          Canadian Tax Foundation<span class="conf-detail">&thinsp;&mdash;&thinsp;Ontario Regional Conference (Toronto)</span>
+        </div>
+        <div class="conf-item">
+          <span class="sage-dot"></span>
+          Canadian Tax Foundation<span class="conf-detail">&thinsp;&mdash;&thinsp;Atlantic Regional Conference</span>
+        </div>
+      </div>
+      <p class="conf-note fade-in">Conference photos and speaking engagements updated annually.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       6. TOPICS OF INTEREST (BLACK BG)
+       ============================================ -->
+  <section class="topics">
+    <div class="container">
+      <div class="topics-label fade-in">Topics of Interest</div>
+      <div class="topics-grid fade-in">
+        <span class="topic-pill">General Anti-Avoidance Rule (GAAR)</span>
+        <span class="topic-pill">Alternative Minimum Tax</span>
+        <span class="topic-pill">Expanded CRA Audit Powers</span>
+        <span class="topic-pill">Mandatory Disclosure Rules</span>
+        <span class="topic-pill">Solicitor-Client Privilege</span>
+        <span class="topic-pill">Trust Reporting Requirements</span>
+        <span class="topic-pill">Intergenerational Business Transfers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       7. CTA (SAGE BG)
+       ============================================ -->
+  <section class="cta-section" id="contact">
+    <div class="container fade-in">
+      <h2>Want to discuss the research?</h2>
+      <p class="cta-sub">Connect with Primrose on LinkedIn or get in touch directly.</p>
+      <div class="cta-buttons">
+        <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer" class="btn btn-cream">LinkedIn &#8599;</a>
+        <a href="index.html#contact" class="btn btn-outline-cream">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       8. FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-dark.png" alt="Primrose Tax Law">
+          <p>Implementing corporate and trust reorganizations across all nine common law provinces.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Practice</h5>
+          <a href="index.html#practice">Section 85 Rollovers</a>
+          <a href="index.html#practice">Estate Freezes</a>
+          <a href="index.html#practice">Trust Settlements</a>
+          <a href="index.html#practice">Butterfly Reorganizations</a>
+          <a href="index.html#practice">Tax Opinions</a>
+        </div>
+        <div class="footer-col">
+          <h5>Firm</h5>
+          <a href="index.html#process-section">For Tax Advisors</a>
+          <a href="index.html#process-section">For Business Owners</a>
+          <a href="index.html#about">About</a>
+          <a href="research.html">Writing</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="index.html#contact">Refer a Client</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Primrose Tax Law Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    // ---- HAMBURGER MENU ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ---- FADE-IN ANIMATIONS (IntersectionObserver) ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      fadeEls.forEach(function (el) {
+        observer.observe(el);
+      });
+    } else {
+      fadeEls.forEach(function (el) {
+        el.classList.add('visible');
+      });
+    }
+
+    // ---- SMOOTH SCROLL FOR ANCHOR LINKS ----
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

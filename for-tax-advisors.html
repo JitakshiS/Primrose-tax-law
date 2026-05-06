@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Tax Advisors | Primrose Tax Law</title>
+  <meta name="description" content="Primrose Tax Law implements the corporate and trust reorganizations your tax plan requires. Fixed fees, no competition, solicitor-client privilege.">
+  <link rel="icon" href="assets/images/icon-gold.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1C1C1C;
+      background: #F5F0EB;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
+    }
+
+    .accent-serif {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 120px 0;
+    }
+
+    /* ============================================
+       COMPONENTS
+       ============================================ */
+    .sage-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-sage {
+      background: #7C9A8E;
+      color: #fff;
+    }
+
+    .btn-sage:hover {
+      background: #6b8a7d;
+      opacity: 1;
+    }
+
+    .btn-cream {
+      background: #F5F0EB;
+      color: #1C1C1C;
+    }
+
+    .btn-cream:hover {
+      background: #EDE7DF;
+      opacity: 1;
+    }
+
+    .btn-outline-cream {
+      background: transparent;
+      color: #F5F0EB;
+      border: 1.5px solid rgba(245, 240, 235, 0.3);
+    }
+
+    .btn-outline-cream:hover {
+      border-color: rgba(245, 240, 235, 0.6);
+      opacity: 1;
+    }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: #1C1C1C;
+      border: 1.5px solid rgba(28, 28, 28, 0.2);
+    }
+
+    .btn-outline-dark:hover {
+      border-color: rgba(28, 28, 28, 0.5);
+      opacity: 1;
+    }
+
+    /* ============================================
+       FADE-IN ANIMATION
+       ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       1. NAVIGATION
+       ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background: #1C1C1C;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      color: #F5F0EB;
+    }
+
+    .nav-brand-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-brand-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      margin: 0 6px;
+      position: relative;
+      top: -1px;
+    }
+
+    .nav-brand-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      opacity: 0.55;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(245, 240, 235, 0.55);
+      letter-spacing: 0.01em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .nav-links a.nav-active {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .nav-cta-wrap {
+      margin-left: 12px;
+    }
+
+    .nav-cta-wrap .btn {
+      padding: 10px 22px;
+      font-size: 13px;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #F5F0EB;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      background: #1C1C1C;
+      padding: 24px;
+      z-index: 999;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-menu a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 8px 0;
+      color: rgba(245, 240, 235, 0.7);
+    }
+
+    .mobile-menu a.nav-active {
+      color: #F5F0EB;
+    }
+
+    .mobile-menu .btn {
+      width: fit-content;
+      margin-top: 8px;
+    }
+
+    /* ============================================
+       2. HERO (Tax Advisors)
+       ============================================ */
+    .ta-hero {
+      padding-top: 64px;
+      background: #F5F0EB;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .ta-hero-inner {
+      padding: 100px 0 120px;
+      max-width: 760px;
+    }
+
+    .ta-hero-label {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7C9A8E;
+      background: rgba(124, 154, 142, 0.12);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+
+    .ta-hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+      color: #1C1C1C;
+      margin-bottom: 28px;
+    }
+
+    .ta-hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      color: rgba(28, 28, 28, 0.5);
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    /* ============================================
+       3. NON-COMPETITION PROMISE
+       ============================================ */
+    .promise {
+      background: #1C1C1C;
+      padding: 120px 0;
+    }
+
+    .promise-headline {
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      color: #F5F0EB;
+      margin-bottom: 64px;
+    }
+
+    .promise-headline .heavy {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+    }
+
+    .promise-headline .accent-serif {
+      color: #C2B9A7;
+    }
+
+    .promise-points {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      max-width: 720px;
+    }
+
+    .promise-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding-left: 20px;
+      border-left: 2px solid rgba(124, 154, 142, 0.3);
+    }
+
+    .promise-point .sage-dot {
+      margin-top: 8px;
+      width: 8px;
+      height: 8px;
+    }
+
+    .promise-point p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: rgba(245, 240, 235, 0.6);
+    }
+
+    /* ============================================
+       4. IMPLEMENTATION SCOPE (Practice Areas)
+       ============================================ */
+    .scope {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .scope-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 12px;
+    }
+
+    .scope-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      color: rgba(28, 28, 28, 0.5);
+      margin-bottom: 48px;
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .scope-cell {
+      background: #1C1C1C;
+      border: 1px solid rgba(245, 240, 235, 0.06);
+      padding: 36px 28px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      cursor: default;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .scope-cell:hover {
+      background: #252525;
+      border-color: rgba(124, 154, 142, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .scope-cell-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #7C9A8E;
+      margin-bottom: auto;
+      letter-spacing: 0.06em;
+    }
+
+    .scope-cell-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: #F5F0EB;
+      line-height: 1.3;
+    }
+
+    /* ============================================
+       5. HOW IT WORKS (5-Step Process)
+       ============================================ */
+    .process {
+      background: #1C1C1C;
+      padding: 120px 0;
+      color: #F5F0EB;
+    }
+
+    .process-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7C9A8E;
+      margin-bottom: 64px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(245, 240, 235, 0.08);
+    }
+
+    .process-step {
+      padding: 48px 32px 48px 0;
+      border-right: 1px solid rgba(245, 240, 235, 0.06);
+      position: relative;
+    }
+
+    .process-step:last-child {
+      border-right: none;
+    }
+
+    .process-step:not(:first-child) {
+      padding-left: 32px;
+    }
+
+    .process-step-num {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 56px;
+      color: #7C9A8E;
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .process-step-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+      color: #F5F0EB;
+    }
+
+    .process-step-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(245, 240, 235, 0.4);
+    }
+
+    /* ============================================
+       6. COVERAGE
+       ============================================ */
+    .coverage {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .coverage-headline {
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      color: #1C1C1C;
+      margin-bottom: 48px;
+    }
+
+    .coverage-headline .heavy {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+    }
+
+    .coverage-headline .accent-serif {
+      color: #4A6B5D;
+    }
+
+    .coverage-offices {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1C1C1C;
+      margin-bottom: 16px;
+    }
+
+    .coverage-provinces {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: rgba(28, 28, 28, 0.5);
+      line-height: 1.8;
+    }
+
+    /* ============================================
+       7. FEE MODEL
+       ============================================ */
+    .fee-model {
+      background: #F5F0EB;
+      padding: 0 0 120px;
+    }
+
+    .fee-card {
+      border: 2px solid rgba(124, 154, 142, 0.3);
+      border-radius: 16px;
+      padding: 56px 64px;
+    }
+
+    .fee-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 32px;
+      letter-spacing: -0.5px;
+      color: #1C1C1C;
+      margin-bottom: 16px;
+    }
+
+    .fee-card-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: rgba(28, 28, 28, 0.5);
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+
+    .fee-points {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .fee-point {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .fee-point .sage-dot {
+      width: 8px;
+      height: 8px;
+    }
+
+    .fee-point p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: #1C1C1C;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       8. TESTIMONIALS
+       ============================================ */
+    .testimonials {
+      background: #F5F0EB;
+      padding: 0 0 120px;
+    }
+
+    .testimonial-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 48px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #FAFAF8;
+      border-radius: 12px;
+      border: 1px solid rgba(28, 28, 28, 0.06);
+      padding: 40px;
+      position: relative;
+    }
+
+    .testimonial-quote-mark {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1;
+      color: #7C9A8E;
+      opacity: 0.15;
+      position: absolute;
+      top: 24px;
+      left: 36px;
+    }
+
+    .testimonial-card p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(28, 28, 28, 0.45);
+      margin-top: 32px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-attr {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: rgba(28, 28, 28, 0.3);
+    }
+
+    /* ============================================
+       9. REFER A CLIENT CTA
+       ============================================ */
+    .refer-cta {
+      background: #1C1C1C;
+      padding: 120px 0;
+    }
+
+    .refer-cta-inner {
+      max-width: 640px;
+    }
+
+    .refer-cta h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 52px);
+      color: #F5F0EB;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+
+    .refer-cta-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      color: rgba(245, 240, 235, 0.5);
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
+
+    /* Referral Form */
+    .referral-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-field label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(245, 240, 235, 0.4);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(245, 240, 235, 0.12);
+      background: rgba(245, 240, 235, 0.06);
+      color: #F5F0EB;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: #7C9A8E;
+    }
+
+    .form-field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(245,240,235,0.4)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .form-field select option {
+      background: #1C1C1C;
+      color: #F5F0EB;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      margin-top: 8px;
+    }
+
+    /* ============================================
+       10. FOOTER
+       ============================================ */
+    .footer {
+      background: #111111;
+      padding: 80px 24px 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand img {
+      height: 24px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(245, 240, 235, 0.4);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h5 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(245, 240, 235, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245, 240, 235, 0.55);
+      margin-bottom: 12px;
+    }
+
+    .footer-col a:hover {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(245, 240, 235, 0.06);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    /* ============================================
+       RESPONSIVE -- 1024px
+       ============================================ */
+    @media (max-width: 1024px) {
+      .scope-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .process-step:nth-child(3) {
+        border-right: none;
+      }
+
+      .process-step:nth-child(4) {
+        padding-left: 0;
+        border-top: 1px solid rgba(245, 240, 235, 0.06);
+      }
+
+      .process-step:nth-child(5) {
+        border-top: 1px solid rgba(245, 240, 235, 0.06);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .fee-card {
+        padding: 40px 36px;
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE -- 768px
+       ============================================ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta-wrap {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .ta-hero-inner {
+        padding: 80px 0 80px;
+      }
+
+      .ta-hero h1 {
+        font-size: clamp(32px, 7vw, 48px);
+        letter-spacing: -1.5px;
+      }
+
+      .promise {
+        padding: 80px 0;
+      }
+
+      .scope {
+        padding: 80px 0;
+      }
+
+      .scope-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process {
+        padding: 80px 0;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .process-step {
+        border-right: none;
+        border-bottom: 1px solid rgba(245, 240, 235, 0.06);
+        padding: 36px 0;
+      }
+
+      .process-step:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .process-step:last-child {
+        border-bottom: none;
+      }
+
+      .process-step:nth-child(3) {
+        border-right: none;
+      }
+
+      .process-step:nth-child(4),
+      .process-step:nth-child(5) {
+        border-top: none;
+      }
+
+      .coverage {
+        padding: 80px 0;
+      }
+
+      .fee-model {
+        padding: 0 0 80px;
+      }
+
+      .testimonials {
+        padding: 0 0 80px;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .refer-cta {
+        padding: 80px 0;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE -- 480px
+       ============================================ */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .ta-hero h1 {
+        font-size: 32px;
+        letter-spacing: -1px;
+      }
+
+      .ta-hero-inner {
+        padding: 60px 0 60px;
+      }
+
+      .promise-headline {
+        font-size: 36px;
+        letter-spacing: -1.5px;
+      }
+
+      .coverage-headline {
+        font-size: 36px;
+        letter-spacing: -1.5px;
+      }
+
+      .scope-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .scope-cell {
+        padding: 24px;
+      }
+
+      .fee-card {
+        padding: 28px 24px;
+      }
+
+      .fee-card h3 {
+        font-size: 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .refer-cta h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       1. NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="nav-brand-name">PRIMROSE</span>
+        <span class="nav-brand-dot"></span>
+        <span class="nav-brand-sub">/ TAX LAW</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#practice">(01) Practice</a>
+        <a href="index.html#process-section">(02) Approach</a>
+        <a href="for-tax-advisors.html" class="nav-active">(03) For Tax Advisors</a>
+        <a href="index.html#about">(04) About</a>
+        <a href="index.html#publications">(05) Writing</a>
+      </div>
+      <div class="nav-cta-wrap">
+        <a href="#refer" class="btn btn-sage">Refer a Client &#8599;</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#practice">(01) Practice</a>
+    <a href="index.html#process-section">(02) Approach</a>
+    <a href="for-tax-advisors.html" class="nav-active">(03) For Tax Advisors</a>
+    <a href="index.html#about">(04) About</a>
+    <a href="index.html#publications">(05) Writing</a>
+    <a href="#refer" class="btn btn-sage">Refer a Client &#8599;</a>
+  </div>
+
+  <!-- ============================================
+       2. HERO
+       ============================================ -->
+  <section class="ta-hero">
+    <div class="container">
+      <div class="ta-hero-inner fade-in">
+        <span class="ta-hero-label">For Tax Advisors</span>
+        <h1>We implement the plan you design.</h1>
+        <p class="ta-hero-sub">You design the tax strategy. We handle the corporate and trust reorganizations that follow&thinsp;&mdash;&thinsp;across all nine common law provinces, on your instruction.</p>
+        <a href="#refer" class="btn btn-sage">Refer a Client &#8599;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       3. NON-COMPETITION PROMISE
+       ============================================ -->
+  <section class="promise fade-in">
+    <div class="container">
+      <div class="promise-headline">
+        <span class="heavy">YOUR CLIENT </span><span class="accent-serif">stays yours.</span>
+      </div>
+      <div class="promise-points">
+        <div class="promise-point">
+          <span class="sage-dot"></span>
+          <p>We do not provide tax planning advice to your client.</p>
+        </div>
+        <div class="promise-point">
+          <span class="sage-dot"></span>
+          <p>We implement the plan you design. Your client relationship stays with you.</p>
+        </div>
+        <div class="promise-point">
+          <span class="sage-dot"></span>
+          <p>Solicitor-client privilege extended to tax planning communications where permissible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       4. IMPLEMENTATION SCOPE
+       ============================================ -->
+  <section class="scope" id="scope">
+    <div class="container">
+      <div class="scope-label fade-in">Implementation Scope</div>
+      <p class="scope-desc fade-in">The legal work that follows your tax plan.</p>
+      <div class="scope-grid fade-in">
+        <div class="scope-cell">
+          <div class="scope-cell-code">S.85</div>
+          <div class="scope-cell-title">Section 85 Rollovers</div>
+        </div>
+        <div class="scope-cell">
+          <div class="scope-cell-code">S.86</div>
+          <div class="scope-cell-title">Share Reorganizations</div>
+        </div>
+        <div class="scope-cell">
+          <div class="scope-cell-code">S.51</div>
+          <div class="scope-cell-title">Share Conversions</div>
+        </div>
+        <div class="scope-cell">
+          <div class="scope-cell-code">BFLY</div>
+          <div class="scope-cell-title">Butterfly Reorganizations</div>
+        </div>
+        <div class="scope-cell">
+          <div class="scope-cell-code">EFRZ</div>
+          <div class="scope-cell-title">Estate Freezes</div>
+        </div>
+        <div class="scope-cell">
+          <div class="scope-cell-code">FAM-T</div>
+          <div class="scope-cell-title">Family Trust Settlements</div>
+        </div>
+        <div class="scope-cell">
+          <div class="scope-cell-code">21YR</div>
+          <div class="scope-cell-title">21-Year Trust Planning</div>
+        </div>
+        <div class="scope-cell">
+          <div class="scope-cell-code">PMP</div>
+          <div class="scope-cell-title">Post-Mortem Pipeline</div>
+        </div>
+        <div class="scope-cell">
+          <div class="scope-cell-code">TAX-OP</div>
+          <div class="scope-cell-title">Tax Opinions &amp; Memos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       5. HOW IT WORKS (5 Steps)
+       ============================================ -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="process-label fade-in">How It Works</div>
+      <div class="process-steps fade-in">
+        <div class="process-step">
+          <div class="process-step-num">01</div>
+          <div class="process-step-title">Referral</div>
+          <div class="process-step-desc">You refer a client or reach out to discuss a file.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">02</div>
+          <div class="process-step-title">Scoping</div>
+          <div class="process-step-desc">We review the file and provide a fixed-fee quote within one business day.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">03</div>
+          <div class="process-step-title">Engagement</div>
+          <div class="process-step-desc">Letter of engagement signed. We begin implementation from your tax plan.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">04</div>
+          <div class="process-step-title">Implementation</div>
+          <div class="process-step-desc">Drafting resolutions, elections, trust deeds. Electronic minute books maintained throughout.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">05</div>
+          <div class="process-step-title">Completion</div>
+          <div class="process-step-desc">File delivered. Your client relationship stays with you. Ongoing registry renewals available.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       6. COVERAGE
+       ============================================ -->
+  <section class="coverage fade-in">
+    <div class="container">
+      <div class="coverage-headline">
+        <span class="heavy">NINE PROVINCES. </span><span class="accent-serif">Four offices.</span>
+      </div>
+      <p class="coverage-offices">Halifax &middot; Toronto &middot; Calgary &middot; Vancouver</p>
+      <p class="coverage-provinces">BC, Alberta, Saskatchewan, Manitoba, Ontario, New Brunswick, Nova Scotia, PEI, Newfoundland &amp; Labrador</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       7. FEE MODEL
+       ============================================ -->
+  <section class="fee-model">
+    <div class="container fade-in">
+      <div class="fee-card">
+        <h3>Transparent Fixed Fees</h3>
+        <p class="fee-card-desc">Every engagement starts with a clear scope and a fixed fee&thinsp;&mdash;&thinsp;quoted before work begins. No hourly billing, no surprises.</p>
+        <div class="fee-points">
+          <div class="fee-point">
+            <span class="sage-dot"></span>
+            <p>Fixed-fee billing on every file</p>
+          </div>
+          <div class="fee-point">
+            <span class="sage-dot"></span>
+            <p>Scope and fee quoted within one business day</p>
+          </div>
+          <div class="fee-point">
+            <span class="sage-dot"></span>
+            <p>Electronic billing with multiple payment options</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       8. TESTIMONIALS
+       ============================================ -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonial-label fade-in">What Tax Advisors Say</div>
+      <div class="testimonial-grid fade-in">
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <p>Testimonial pending&thinsp;&mdash;&thinsp;available upon launch.</p>
+          <span class="testimonial-attr">CPA Firm &middot; City &middot; Matter type</span>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-quote-mark">&ldquo;</span>
+          <p>Testimonial pending&thinsp;&mdash;&thinsp;available upon launch.</p>
+          <span class="testimonial-attr">CPA Firm &middot; City &middot; Matter type</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       9. REFER A CLIENT
+       ============================================ -->
+  <section class="refer-cta" id="refer">
+    <div class="container">
+      <div class="refer-cta-inner fade-in">
+        <h2>Ready to refer a client?</h2>
+        <p class="refer-cta-sub">We respond within one business day with a clear scope and fixed fee.</p>
+        <form class="referral-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="your-name">Your Name</label>
+              <input type="text" id="your-name" name="your-name" placeholder="Full name">
+            </div>
+            <div class="form-field">
+              <label for="your-firm">Your Firm</label>
+              <input type="text" id="your-firm" name="your-firm" placeholder="Firm name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="client-name">Client Name</label>
+              <input type="text" id="client-name" name="client-name" placeholder="Client name">
+            </div>
+            <div class="form-field">
+              <label for="matter-type">Matter Type</label>
+              <select id="matter-type" name="matter-type">
+                <option value="" disabled selected>Select matter type</option>
+                <option value="s85">Section 85 Rollover</option>
+                <option value="s86">Share Reorganization</option>
+                <option value="s51">Share Conversion</option>
+                <option value="butterfly">Butterfly Reorganization</option>
+                <option value="estate-freeze">Estate Freeze</option>
+                <option value="family-trust">Family Trust Settlement</option>
+                <option value="21yr">21-Year Trust Planning</option>
+                <option value="post-mortem">Post-Mortem Pipeline</option>
+                <option value="tax-opinion">Tax Opinion / Memo</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Brief description of the file or any relevant details"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-sage">Submit Referral &#8599;</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       10. FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-dark.png" alt="Primrose Tax Law">
+          <p>Implementing corporate and trust reorganizations across all nine common law provinces.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Practice</h5>
+          <a href="index.html#practice">Section 85 Rollovers</a>
+          <a href="index.html#practice">Estate Freezes</a>
+          <a href="index.html#practice">Trust Settlements</a>
+          <a href="index.html#practice">Butterfly Reorganizations</a>
+          <a href="index.html#practice">Tax Opinions</a>
+        </div>
+        <div class="footer-col">
+          <h5>Firm</h5>
+          <a href="for-tax-advisors.html">For Tax Advisors</a>
+          <a href="index.html#process-section">For Business Owners</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#publications">Writing</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="#refer">Contact</a>
+          <a href="#refer">Refer a Client</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Primrose Tax Law Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    // ---- HAMBURGER MENU ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ---- FADE-IN ANIMATIONS (IntersectionObserver) ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      fadeEls.forEach(function (el) {
+        observer.observe(el);
+      });
+    } else {
+      fadeEls.forEach(function (el) {
+        el.classList.add('visible');
+      });
+    }
+
+    // ---- SMOOTH SCROLL FOR ANCHOR LINKS ----
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

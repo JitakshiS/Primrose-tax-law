@@ -1242,84 +1242,80 @@
 
     .pub-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: rgba(28, 28, 28, 0.4);
       margin-bottom: 48px;
     }
 
-    .pub-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .pub-card {
-      background: #FAFAF8;
-      border-radius: 12px;
-      padding: 36px;
+    .pub-list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
     }
 
-    .pub-card-source {
+    .pub-entry {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 40px;
+      align-items: start;
+      padding: 40px 0;
+      border-top: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .pub-entry:last-child {
+      border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .pub-entry-source {
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #7C9A8E;
+      margin-bottom: 12px;
     }
 
-    .pub-card h4 {
+    .pub-entry-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 18px;
-      line-height: 1.35;
-      flex-grow: 1;
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: #1C1C1C;
     }
 
-    .pub-card-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .pub-card-year {
+    .pub-entry-desc {
       font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      color: rgba(28, 28, 28, 0.35);
+      font-size: 15px;
+      color: rgba(28, 28, 28, 0.45);
+      line-height: 1.6;
     }
 
-    .pub-card-tag {
+    .pub-entry-meta {
+      text-align: right;
+      padding-top: 4px;
+    }
+
+    .pub-entry-year {
       font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      background: rgba(182, 143, 74, 0.12);
-      color: #C2B9A7;
-      padding: 4px 10px;
-      border-radius: 100px;
+      font-weight: 900;
+      font-size: 32px;
+      color: rgba(28, 28, 28, 0.12);
+      margin-bottom: 8px;
     }
 
-    .pub-tag {
+    .pub-entry-tag {
       display: inline-block;
+      font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       font-weight: 500;
       padding: 4px 12px;
       border-radius: 100px;
-      margin-bottom: 12px;
-    }
-
-    .pub-tag--sage {
       background: rgba(124, 154, 142, 0.12);
       color: #7C9A8E;
-    }
-
-    .pub-tag--sand {
-      background: rgba(194, 185, 167, 0.2);
-      color: #8C8275;
     }
 
     /* ============================================
@@ -1617,8 +1613,23 @@
         order: -1;
       }
 
-      .pub-grid {
+      .about-v2-layout {
         grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-v2-card-photo {
+        width: 200px;
+        height: 260px;
+      }
+
+      .pub-entry {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .pub-entry-meta {
+        text-align: left;
+        display: flex;
+        align-items: center;
         gap: 16px;
       }
 
@@ -1747,6 +1758,189 @@
         gap: 16px;
         padding: 0 16px;
       }
+    }
+
+    /* ABOUT V2 — Bold Editorial Calling Card */
+    .about-v2 {
+      background: #2a1f1a;
+      padding: 140px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-v2::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.1;
+      background-image: radial-gradient(circle, rgba(245,240,235,0.25) 1px, transparent 1px);
+      background-size: 14px 14px;
+      pointer-events: none;
+    }
+
+    .about-v2-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7C9A8E;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-v2-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: start;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-v2-card {
+      background: #F5F0EB;
+      padding: 48px;
+      position: relative;
+      border-radius: 4px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+    }
+
+    .about-v2-card::before,
+    .about-v2-card::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid rgba(28,28,28,0.15);
+    }
+
+    .about-v2-card::before {
+      top: 16px;
+      left: 16px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .about-v2-card::after {
+      bottom: 16px;
+      right: 16px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .about-v2-card-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(48px, 6vw, 80px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      text-transform: uppercase;
+      color: #1C1C1C;
+      margin-bottom: 4px;
+    }
+
+    .about-v2-card-name .accent-serif {
+      display: block;
+    }
+
+    .about-v2-card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.4);
+      margin-top: 16px;
+      margin-bottom: 40px;
+    }
+
+    .about-v2-card-photo {
+      width: 280px;
+      height: 340px;
+      float: right;
+      margin: -20px -8px 20px 32px;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    .about-v2-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      filter: grayscale(100%) contrast(1.1);
+    }
+
+    .about-v2-card-photo-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(28,28,28,0.3);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .about-v2-card-contact {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(28,28,28,0.5);
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+
+    .about-v2-card-edition {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: rgba(28,28,28,0.25);
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .about-v2-right {
+      color: #F5F0EB;
+    }
+
+    .about-v2-quote {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 28px;
+      line-height: 1.4;
+      color: rgba(245,240,235,0.7);
+      margin-bottom: 48px;
+    }
+
+    .about-v2-cred-group {
+      margin-bottom: 28px;
+    }
+
+    .about-v2-cred-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7C9A8E;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(245,240,235,0.06);
+    }
+
+    .about-v2-cred-item {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245,240,235,0.55);
+      line-height: 1.8;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .about-v2-cred-item::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #7C9A8E;
     }
   </style>
 </head>
@@ -2093,37 +2287,94 @@
   </section>
 
   <!-- ============================================
+       8b. ABOUT V2 — Bold Editorial Style (for comparison)
+       ============================================ -->
+  <section class="about-v2 fade-in">
+    <div class="container">
+      <div class="about-v2-label">About — Version B</div>
+      <div class="about-v2-layout">
+        <div class="about-v2-card">
+          <div class="about-v2-card-name">PRIM<span class="accent-serif">rose.</span></div>
+          <div class="about-v2-card-title">Watson, JD · Founder · Counsel</div>
+          <div class="about-v2-card-photo">
+            <img src="assets/images/headshot.jpg" alt="Primrose Watson">
+            <div class="about-v2-card-photo-label">FIG. 01 &nbsp; P. WATSON</div>
+          </div>
+          <div class="about-v2-card-contact">
+            hello@primrosetax.law<br>
+            +1 902 000 0000<br>
+            1741 Lower Water St., Halifax<br>
+            CA · NS · B3J 0J2
+          </div>
+          <div class="about-v2-card-edition">ED. I / I — 2026</div>
+        </div>
+        <div class="about-v2-right">
+          <div class="about-v2-quote">"Built on quiet rigour and a deep respect for the work accountants already do."</div>
+          <div class="about-v2-cred-group">
+            <div class="about-v2-cred-label">Edu</div>
+            <div class="about-v2-cred-item">JD · Schulich Law (Dalhousie)</div>
+            <div class="about-v2-cred-item">LLM (Cand.) · Tax Reform</div>
+            <div class="about-v2-cred-item">B.Comm Finance · Dalhousie</div>
+          </div>
+          <div class="about-v2-cred-group">
+            <div class="about-v2-cred-label">Cert</div>
+            <div class="about-v2-cred-item">CPA In-Depth Tax I, II, III</div>
+            <div class="about-v2-cred-item">Canadian Tax Foundation</div>
+            <div class="about-v2-cred-item">Canadian Bar Association</div>
+          </div>
+          <div class="about-v2-cred-group">
+            <div class="about-v2-cred-label">Bar</div>
+            <div class="about-v2-cred-item">Law Society of BC, AB, ON</div>
+            <div class="about-v2-cred-item">Nova Scotia Barristers</div>
+          </div>
+          <div class="about-v2-cred-group">
+            <div class="about-v2-cred-label">Reach</div>
+            <div class="about-v2-cred-item">9 common law provinces</div>
+            <div class="about-v2-cred-item">HFX · TOR · YYC · YVR</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
        9. PUBLICATIONS
        ============================================ -->
   <section class="publications" id="publications">
     <div class="container">
       <div class="pub-label fade-in">Publications & Writing</div>
-      <div class="pub-grid fade-in">
-        <div class="pub-card">
-          <span class="pub-tag pub-tag--sage">Canadian Tax Foundation</span>
-          <span class="pub-card-source">Canadian Tax Foundation</span>
-          <h4>CRA Audit/Assessment Practices 2022</h4>
-          <div class="pub-card-meta">
-            <span class="pub-card-year">2022</span>
-            <span class="pub-card-tag">Tax Advisors</span>
+      <div class="pub-list fade-in">
+        <div class="pub-entry">
+          <div>
+            <div class="pub-entry-source">Canadian Tax Foundation</div>
+            <div class="pub-entry-title">CRA Audit/Assessment Practices 2022</div>
+            <div class="pub-entry-desc">Analysis of evolving audit and assessment practices by the Canada Revenue Agency and their impact on tax planning.</div>
+          </div>
+          <div class="pub-entry-meta">
+            <div class="pub-entry-year">2022</div>
+            <span class="pub-entry-tag">Tax Advisors</span>
           </div>
         </div>
-        <div class="pub-card">
-          <span class="pub-tag pub-tag--sand">Tax Hyperion</span>
-          <span class="pub-card-source">Tax Hyperion</span>
-          <h4>Intercorporate Shareholdings and 110.6(15)(b)&thinsp;&mdash;&thinsp;Are You Offside?</h4>
-          <div class="pub-card-meta">
-            <span class="pub-card-year">2021</span>
-            <span class="pub-card-tag">Tax Advisors</span>
+        <div class="pub-entry">
+          <div>
+            <div class="pub-entry-source">Tax Hyperion · Vol. 18, Issue 2</div>
+            <div class="pub-entry-title">Intercorporate Shareholdings and 110.6(15)(b) — Are You Offside?</div>
+            <div class="pub-entry-desc">Examining the intersection of intercorporate shareholdings and the capital gains exemption under Canadian tax law.</div>
+          </div>
+          <div class="pub-entry-meta">
+            <div class="pub-entry-year">2021</div>
+            <span class="pub-entry-tag">Tax Advisors</span>
           </div>
         </div>
-        <div class="pub-card">
-          <span class="pub-tag pub-tag--sand">Tax Hyperion</span>
-          <span class="pub-card-source">Tax Hyperion</span>
-          <h4>The Client, Accountant and Lawyer: A Necessary Relationship</h4>
-          <div class="pub-card-meta">
-            <span class="pub-card-year">2019</span>
-            <span class="pub-card-tag">General</span>
+        <div class="pub-entry">
+          <div>
+            <div class="pub-entry-source">Tax Hyperion · Vol. 16, Issue 5</div>
+            <div class="pub-entry-title">The Client, Accountant and Lawyer: A Necessary Relationship</div>
+            <div class="pub-entry-desc">Exploring the collaborative dynamic between clients, their accountants, and tax lawyers in Canadian practice.</div>
+          </div>
+          <div class="pub-entry-meta">
+            <div class="pub-entry-year">2019</div>
+            <span class="pub-entry-tag">General</span>
           </div>
         </div>
       </div>

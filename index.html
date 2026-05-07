@@ -1153,12 +1153,63 @@
       padding-top: 24px;
     }
 
-    .about-headshot {
+    .circular-headshot {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      margin: 0 auto;
+    }
+
+    .circular-photo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow:
+        12px 12px 24px rgba(0,0,0,0.4),
+        -8px -8px 20px rgba(255,255,255,0.03);
+    }
+
+    .circular-photo img {
       width: 100%;
-      height: 440px;
+      height: 100%;
       object-fit: cover;
       object-position: center 12%;
-      border-radius: 12px;
+    }
+
+    .circular-text-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      animation: spin-text 25s linear infinite;
+    }
+
+    .circular-text-path {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      fill: rgba(245, 240, 235, 0.3);
+    }
+
+    .circular-headshot:hover .circular-text-svg {
+      animation-duration: 15s;
+    }
+
+    .circular-headshot:hover .circular-text-path {
+      fill: #7C9A8E;
+      transition: fill 0.3s;
+    }
+
+    @keyframes spin-text {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     .about-quote {
@@ -2014,7 +2065,21 @@
         </div>
 
         <div class="about-right">
-          <img src="assets/images/headshot.jpg" alt="Primrose Watson" class="about-headshot">
+          <div class="circular-headshot">
+            <div class="circular-photo">
+              <img src="assets/images/headshot.jpg" alt="Primrose Watson">
+            </div>
+            <svg class="circular-text-svg" viewBox="0 0 400 400">
+              <defs>
+                <path id="circlePath" d="M 200,200 m -170,0 a 170,170 0 1,1 340,0 a 170,170 0 1,1 -340,0" fill="none"/>
+              </defs>
+              <text>
+                <textPath href="#circlePath" class="circular-text-path">
+                  TAX LAW · NINE PROVINCES · BC · AB · ON · NS · CANADIAN TAX FOUNDATION · JD · LLM · CPA IN-DEPTH ·
+                </textPath>
+              </text>
+            </svg>
+          </div>
           <div class="about-quote">
             "The only way to get out is if no one can hurt you. That's why I became a lawyer."
           </div>

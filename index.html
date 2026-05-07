@@ -1791,10 +1791,7 @@
       margin-bottom: 72px;
       position: relative;
       z-index: 2;
-      max-width: 1400px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 0 40px;
+      padding: 0 64px;
     }
 
     .about-v2-heading {
@@ -1829,13 +1826,12 @@
     .about-v2-layout {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
-      gap: 56px;
+      gap: 64px;
       align-items: start;
       position: relative;
       z-index: 2;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 40px;
+      max-width: 100%;
+      padding: 0 64px;
     }
 
     /* ---- BUSINESS CARD (left) ---- */
@@ -1922,7 +1918,7 @@
     /* Inner card grid: text left, photo right */
     .about-v2-card-inner {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       flex: 1;
       position: relative;
       z-index: 1;
@@ -1975,14 +1971,16 @@
     .about-v2-card-photo-col {
       position: relative;
       overflow: hidden;
+      padding: 20px 20px 20px 0;
     }
 
     .about-v2-card-photo-col img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 18%;
+      object-position: center top;
       filter: contrast(1.05) brightness(0.95);
+      border-radius: 4px;
     }
 
     .about-v2-card-photo-overlay {

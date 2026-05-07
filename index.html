@@ -1613,15 +1613,6 @@
         order: -1;
       }
 
-      .about-v2-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .about-v2-card-photo {
-        width: 200px;
-        height: 260px;
-      }
-
       .pub-entry {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -1760,9 +1751,12 @@
       }
     }
 
-    /* ABOUT V2 — Bold Editorial Calling Card */
+    /* ============================================
+       ABOUT V2 — Bold Editorial Calling Card
+       ============================================ */
     .about-v2 {
-      background: #2a1f1a;
+      background: #1C1C1C;
+      background-image: radial-gradient(ellipse at 30% 50%, rgba(74,107,93,0.08) 0%, transparent 60%);
       padding: 140px 0;
       position: relative;
       overflow: hidden;
@@ -1772,9 +1766,9 @@
       content: '';
       position: absolute;
       inset: 0;
-      opacity: 0.1;
-      background-image: radial-gradient(circle, rgba(245,240,235,0.25) 1px, transparent 1px);
-      background-size: 14px 14px;
+      opacity: 0.12;
+      background-image: radial-gradient(circle, rgba(245,240,235,0.3) 1px, transparent 1px);
+      background-size: 16px 16px;
       pointer-events: none;
     }
 
@@ -1789,158 +1783,370 @@
       z-index: 2;
     }
 
+    /* Section heading row */
+    .about-v2-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 72px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-v2-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(56px, 8vw, 100px);
+      color: #F5F0EB;
+      letter-spacing: -4px;
+      line-height: 0.9;
+    }
+
+    .about-v2-heading .accent-serif {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #C2B9A7;
+    }
+
+    .about-v2-header-meta {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 235, 0.3);
+      text-align: right;
+      max-width: 220px;
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+
+    /* Two-column layout: card + credentials */
     .about-v2-layout {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 64px;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 56px;
       align-items: start;
       position: relative;
       z-index: 2;
     }
 
+    /* ---- BUSINESS CARD (left) ---- */
     .about-v2-card {
       background: #F5F0EB;
-      padding: 48px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      aspect-ratio: 7 / 4;
+      transform: rotate(-1.4deg);
+      box-shadow: 0 60px 80px -40px rgba(0,0,0,0.5), 0 30px 40px -20px rgba(0,0,0,0.4);
       position: relative;
       border-radius: 4px;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    .about-v2-card::before,
-    .about-v2-card::after {
-      content: '';
+    /* Corner registration marks via extra elements */
+    .about-v2-card-corners {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .about-v2-card-corners .corner {
       position: absolute;
       width: 20px;
       height: 20px;
-      border: 1.5px solid rgba(28,28,28,0.15);
     }
 
+    .about-v2-card-corners .corner--tl {
+      top: 14px;
+      left: 14px;
+      border-top: 1.5px solid rgba(28,28,28,0.15);
+      border-left: 1.5px solid rgba(28,28,28,0.15);
+    }
+
+    .about-v2-card-corners .corner--tr {
+      top: 14px;
+      right: 14px;
+      border-top: 1.5px solid rgba(28,28,28,0.15);
+      border-right: 1.5px solid rgba(28,28,28,0.15);
+    }
+
+    .about-v2-card-corners .corner--bl {
+      bottom: 14px;
+      left: 14px;
+      border-bottom: 1.5px solid rgba(28,28,28,0.15);
+      border-left: 1.5px solid rgba(28,28,28,0.15);
+    }
+
+    .about-v2-card-corners .corner--br {
+      bottom: 14px;
+      right: 14px;
+      border-bottom: 1.5px solid rgba(28,28,28,0.15);
+      border-right: 1.5px solid rgba(28,28,28,0.15);
+    }
+
+    /* Paper texture overlay on card */
     .about-v2-card::before {
-      top: 16px;
-      left: 16px;
-      border-right: none;
-      border-bottom: none;
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 40%, rgba(255,255,255,0.2), transparent 60%),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 1px,
+          rgba(0,0,0,0.012) 1px,
+          rgba(0,0,0,0.012) 3px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 2px,
+          rgba(0,0,0,0.006) 2px,
+          rgba(0,0,0,0.006) 5px
+        );
+      pointer-events: none;
+      z-index: 2;
     }
 
-    .about-v2-card::after {
-      bottom: 16px;
-      right: 16px;
-      border-left: none;
-      border-top: none;
+    /* Inner card grid: text left, photo right */
+    .about-v2-card-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-v2-card-left {
+      padding: 40px 32px 28px 40px;
+      display: flex;
+      flex-direction: column;
     }
 
     .about-v2-card-name {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: clamp(48px, 6vw, 80px);
-      line-height: 0.95;
-      letter-spacing: -3px;
+      font-size: clamp(56px, 7vw, 96px);
+      line-height: 0.9;
+      letter-spacing: -4px;
       text-transform: uppercase;
       color: #1C1C1C;
-      margin-bottom: 4px;
+      margin-bottom: 0;
     }
 
     .about-v2-card-name .accent-serif {
-      display: block;
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #4A6B5D;
+      text-transform: none;
     }
 
     .about-v2-card-title {
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: rgba(28,28,28,0.4);
-      margin-top: 16px;
-      margin-bottom: 40px;
-    }
-
-    .about-v2-card-photo {
-      width: 280px;
-      height: 340px;
-      float: right;
-      margin: -20px -8px 20px 32px;
-      overflow: hidden;
-      border-radius: 4px;
-    }
-
-    .about-v2-card-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 12%;
-      filter: grayscale(100%) contrast(1.1);
-    }
-
-    .about-v2-card-photo-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: rgba(28,28,28,0.3);
-      margin-top: 8px;
-      text-align: center;
+      margin-top: 12px;
     }
 
     .about-v2-card-contact {
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: rgba(28,28,28,0.5);
-      line-height: 1.8;
-      margin-top: 24px;
+      font-size: 12px;
+      color: rgba(28,28,28,0.45);
+      line-height: 1.9;
+      margin-top: auto;
     }
 
+    /* Photo column */
+    .about-v2-card-photo-col {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-v2-card-photo-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+      filter: grayscale(85%) contrast(1.08) brightness(0.95);
+    }
+
+    .about-v2-card-photo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.35), transparent);
+    }
+
+    .about-v2-card-photo-overlay span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,240,235,0.6);
+    }
+
+    /* Edition stamp */
     .about-v2-card-edition {
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: rgba(28,28,28,0.25);
-      margin-top: 32px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.2);
       text-align: center;
+      padding: 10px 0 12px;
+      position: relative;
+      z-index: 1;
     }
 
+    /* ---- CREDENTIALS SLIP (right) ---- */
     .about-v2-right {
+      background: rgba(245,240,235,0.04);
+      border: 1px solid rgba(245,240,235,0.18);
+      border-radius: 4px;
+      padding: 32px 28px;
+      transform: rotate(1.2deg);
       color: #F5F0EB;
     }
 
     .about-v2-quote {
       font-family: 'Instrument Serif', serif;
       font-style: italic;
-      font-size: 28px;
-      line-height: 1.4;
+      font-size: 24px;
+      line-height: 1.45;
       color: rgba(245,240,235,0.7);
-      margin-bottom: 48px;
+      margin-bottom: 28px;
+    }
+
+    .about-v2-quote-rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(245,240,235,0.1);
+      margin-bottom: 28px;
     }
 
     .about-v2-cred-group {
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .about-v2-cred-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: #7C9A8E;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(245,240,235,0.06);
+      margin-bottom: 10px;
     }
 
     .about-v2-cred-item {
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       color: rgba(245,240,235,0.55);
-      line-height: 1.8;
+      line-height: 1.85;
       padding-left: 16px;
       position: relative;
     }
 
     .about-v2-cred-item::before {
-      content: '•';
+      content: '\2022';
       position: absolute;
       left: 0;
       color: #7C9A8E;
+    }
+
+    /* ---- ANNOTATION BAR (bottom) ---- */
+    .about-v2-annotation-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-v2-annotation-item {
+      border-top: 1px solid rgba(245,240,235,0.1);
+      padding-top: 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(245,240,235,0.35);
+    }
+
+    /* ---- ABOUT V2 RESPONSIVE 768px ---- */
+    @media (max-width: 768px) {
+      .about-v2-header {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .about-v2-header-meta {
+        text-align: left;
+      }
+
+      .about-v2-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-v2-card {
+        transform: rotate(0deg);
+        aspect-ratio: auto;
+      }
+
+      .about-v2-card-inner {
+        grid-template-columns: 1.2fr 1fr;
+      }
+
+      .about-v2-card-name {
+        font-size: clamp(40px, 8vw, 64px);
+      }
+
+      .about-v2-right {
+        transform: rotate(0deg);
+      }
+
+      .about-v2-annotation-bar {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .about-v2-annotation-item {
+        padding: 12px 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-v2-card-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .about-v2-card-photo-col {
+        height: 200px;
+      }
+
+      .about-v2-card-left {
+        padding: 28px 24px 20px;
+      }
+
+      .about-v2-card-name {
+        font-size: 40px;
+        letter-spacing: -2px;
+      }
     }
   </style>
 </head>
@@ -2287,34 +2493,64 @@
   </section>
 
   <!-- ============================================
-       8b. ABOUT V2 — Bold Editorial Style (for comparison)
+       8b. ABOUT V2 — Bold Editorial Calling Card
        ============================================ -->
   <section class="about-v2 fade-in">
     <div class="container">
       <div class="about-v2-label">About — Version B</div>
-      <div class="about-v2-layout">
-        <div class="about-v2-card">
-          <div class="about-v2-card-name">PRIM<span class="accent-serif">rose.</span></div>
-          <div class="about-v2-card-title">Watson, JD · Founder · Counsel</div>
-          <div class="about-v2-card-photo">
-            <img src="assets/images/headshot.jpg" alt="Primrose Watson">
-            <div class="about-v2-card-photo-label">FIG. 01 &nbsp; P. WATSON</div>
-          </div>
-          <div class="about-v2-card-contact">
-            hello@primrosetax.law<br>
-            +1 902 000 0000<br>
-            1741 Lower Water St., Halifax<br>
-            CA · NS · B3J 0J2
-          </div>
-          <div class="about-v2-card-edition">ED. I / I — 2026</div>
+
+      <!-- Section heading -->
+      <div class="about-v2-header">
+        <div class="about-v2-heading">
+          A FOCUSED PRACTICE<br><span class="accent-serif">of one.</span>
         </div>
+        <div class="about-v2-header-meta">
+          Presented as a calling card — HFX, NS &middot; 2026
+        </div>
+      </div>
+
+      <!-- Two-column: card + credentials slip -->
+      <div class="about-v2-layout">
+
+        <!-- Business Card -->
+        <div class="about-v2-card">
+          <div class="about-v2-card-corners">
+            <span class="corner corner--tl"></span>
+            <span class="corner corner--tr"></span>
+            <span class="corner corner--bl"></span>
+            <span class="corner corner--br"></span>
+          </div>
+          <div class="about-v2-card-inner">
+            <div class="about-v2-card-left">
+              <div class="about-v2-card-name">PRIM<br><span class="accent-serif">rose.</span></div>
+              <div class="about-v2-card-title">Watson, JD &middot; Founder &middot; Counsel</div>
+              <div class="about-v2-card-contact">
+                hello@primrosetax.law<br>
+                +1 902 000 0000<br>
+                1741 Lower Water St. Halifax<br>
+                CA &middot; NS &middot; B3J 0J2
+              </div>
+            </div>
+            <div class="about-v2-card-photo-col">
+              <img src="assets/images/headshot.jpg" alt="Primrose Watson">
+              <div class="about-v2-card-photo-overlay">
+                <span>Fig. 01</span>
+                <span>P. Watson</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-v2-card-edition">ED. I / I &mdash; 2026</div>
+        </div>
+
+        <!-- Credentials Slip -->
         <div class="about-v2-right">
-          <div class="about-v2-quote">"Built on quiet rigour and a deep respect for the work accountants already do."</div>
+          <div class="about-v2-quote">&ldquo;Built on quiet rigour and a deep respect for the work accountants already do.&rdquo;</div>
+          <div class="about-v2-quote-rule"></div>
           <div class="about-v2-cred-group">
             <div class="about-v2-cred-label">Edu</div>
-            <div class="about-v2-cred-item">JD · Schulich Law (Dalhousie)</div>
-            <div class="about-v2-cred-item">LLM (Cand.) · Tax Reform</div>
-            <div class="about-v2-cred-item">B.Comm Finance · Dalhousie</div>
+            <div class="about-v2-cred-item">JD &middot; Schulich Law (Dalhousie)</div>
+            <div class="about-v2-cred-item">LLM (Cand.) &middot; Tax Reform</div>
+            <div class="about-v2-cred-item">B.Comm Finance &middot; Dalhousie</div>
           </div>
           <div class="about-v2-cred-group">
             <div class="about-v2-cred-label">Cert</div>
@@ -2330,10 +2566,19 @@
           <div class="about-v2-cred-group">
             <div class="about-v2-cred-label">Reach</div>
             <div class="about-v2-cred-item">9 common law provinces</div>
-            <div class="about-v2-cred-item">HFX · TOR · YYC · YVR</div>
+            <div class="about-v2-cred-item">HFX &middot; TOR &middot; YYC &middot; YVR</div>
           </div>
         </div>
+
       </div>
+
+      <!-- Annotation bar -->
+      <div class="about-v2-annotation-bar">
+        <div class="about-v2-annotation-item">Member &middot; Canadian Tax Foundation</div>
+        <div class="about-v2-annotation-item">Solicitor-client privilege protected</div>
+        <div class="about-v2-annotation-item">Available by referral &amp; appointment</div>
+      </div>
+
     </div>
   </section>
 

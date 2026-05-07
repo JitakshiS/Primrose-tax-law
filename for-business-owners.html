@@ -250,8 +250,9 @@
       opacity: 1;
     }
 
-    .nav-links a.active {
+    .nav-links a.nav-active {
       color: #F5F0EB;
+      opacity: 1;
     }
 
     .nav-cta-wrap {
@@ -308,7 +309,7 @@
       color: rgba(245, 240, 235, 0.7);
     }
 
-    .mobile-menu a.active {
+    .mobile-menu a.nav-active {
       color: #F5F0EB;
     }
 
@@ -429,7 +430,7 @@
 
     .wwh-card h3 {
       font-family: 'DM Sans', sans-serif;
-      font-weight: 700;
+      font-weight: 900;
       font-size: 18px;
       line-height: 1.3;
       color: #1C1C1C;
@@ -919,20 +920,17 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-brand">
-        <span class="nav-brand-name">PRIMROSE</span>
-        <span class="nav-brand-dot"></span>
-        <span class="nav-brand-sub">/ TAX LAW</span>
+        <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 28px;">
       </a>
       <div class="nav-links">
-        <a href="index.html#practice">(01) Practice</a>
-        <a href="index.html#process-section">(02) Approach</a>
-        <a href="index.html#about">(03) About</a>
-        <a href="index.html#publications">(04) Writing</a>
-        <a href="for-business-owners.html" class="active">(05) For Business Owners</a>
-        <a href="#contact">(06) Contact</a>
+        <a href="for-tax-advisors.html">For Tax Advisors</a>
+        <a href="for-business-owners.html" class="nav-active" style="color: #F5F0EB; opacity: 1;">For Business Owners</a>
+        <a href="index.html#about">About</a>
+        <a href="research.html">Publications</a>
+        <a href="index.html#contact">Contact</a>
       </div>
       <div class="nav-cta-wrap">
-        <a href="#contact" class="btn btn-sage">Get Started &#8599;</a>
+        <a href="#contact" class="btn btn-sage">Refer a Client &#8599;</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span>
@@ -944,13 +942,12 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#practice">(01) Practice</a>
-    <a href="index.html#process-section">(02) Approach</a>
-    <a href="index.html#about">(03) About</a>
-    <a href="index.html#publications">(04) Writing</a>
-    <a href="for-business-owners.html" class="active">(05) For Business Owners</a>
-    <a href="#contact">(06) Contact</a>
-    <a href="#contact" class="btn btn-sage">Get Started &#8599;</a>
+    <a href="for-tax-advisors.html">For Tax Advisors</a>
+    <a href="for-business-owners.html" class="nav-active">For Business Owners</a>
+    <a href="index.html#about">About</a>
+    <a href="research.html">Publications</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="#contact" class="btn btn-sage">Refer a Client &#8599;</a>
   </div>
 
   <!-- ============================================
@@ -960,7 +957,7 @@
     <div class="container">
       <div class="hero-inner fade-in">
         <div class="hero-label">For Business Owners</div>
-        <h1>Your accountant designed the strategy.<br>We handle the <span class="accent-serif">legal side.</span></h1>
+        <h1>Your accountant designed the strategy.<br><span class="accent-serif">We handle the legal side.</span></h1>
         <p class="hero-sub">When your tax plan calls for corporate restructuring, estate freezes, or trust settlements&thinsp;&mdash;&thinsp;we implement the legal work your accountant has designed.</p>
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-dark">Get Started &#8599;</a>
@@ -1111,16 +1108,16 @@
         </div>
         <div class="footer-col">
           <h5>Firm</h5>
-          <a href="index.html#process-section">For Tax Advisors</a>
+          <a href="for-tax-advisors.html">For Tax Advisors</a>
           <a href="for-business-owners.html">For Business Owners</a>
           <a href="index.html#about">About</a>
-          <a href="index.html#publications">Writing</a>
+          <a href="research.html">Writing</a>
         </div>
         <div class="footer-col">
           <h5>Connect</h5>
           <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="#contact">Contact</a>
-          <a href="#contact">Refer a Client</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="index.html#contact">Refer a Client</a>
         </div>
       </div>
       <div class="footer-bottom">

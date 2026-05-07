@@ -250,8 +250,9 @@
       opacity: 1;
     }
 
-    .nav-links a.active {
+    .nav-links a.nav-active {
       color: #F5F0EB;
+      opacity: 1;
     }
 
     .nav-cta-wrap {
@@ -306,6 +307,10 @@
       font-size: 13px;
       padding: 8px 0;
       color: rgba(245, 240, 235, 0.7);
+    }
+
+    .mobile-menu a.nav-active {
+      color: #F5F0EB;
     }
 
     .mobile-menu .btn {
@@ -494,7 +499,7 @@
 
     .pub-entry-title {
       font-family: 'DM Sans', sans-serif;
-      font-weight: 700;
+      font-weight: 900;
       font-size: 22px;
       line-height: 1.35;
       color: #1C1C1C;
@@ -650,7 +655,7 @@
        7. CTA (SAGE BG)
        ============================================ */
     .cta-section {
-      background: #4A6B5D;
+      background: #1C1C1C;
       padding: 120px 24px;
       text-align: center;
     }
@@ -896,16 +901,14 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-brand">
-        <span class="nav-brand-name">PRIMROSE</span>
-        <span class="nav-brand-dot"></span>
-        <span class="nav-brand-sub">/ TAX LAW</span>
+        <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 28px;">
       </a>
       <div class="nav-links">
-        <a href="index.html#practice">(01) Practice</a>
-        <a href="index.html#process-section">(02) Approach</a>
-        <a href="index.html#about">(03) About</a>
-        <a href="research.html" class="active">(04) Publications</a>
-        <a href="index.html#contact">(05) Contact</a>
+        <a href="for-tax-advisors.html">For Tax Advisors</a>
+        <a href="for-business-owners.html">For Business Owners</a>
+        <a href="index.html#about">About</a>
+        <a href="research.html" class="nav-active" style="color: #F5F0EB; opacity: 1;">Publications</a>
+        <a href="index.html#contact">Contact</a>
       </div>
       <div class="nav-cta-wrap">
         <a href="index.html#contact" class="btn btn-sage">Refer a Client &#8599;</a>
@@ -920,11 +923,11 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#practice">(01) Practice</a>
-    <a href="index.html#process-section">(02) Approach</a>
-    <a href="index.html#about">(03) About</a>
-    <a href="research.html">(04) Publications</a>
-    <a href="index.html#contact">(05) Contact</a>
+    <a href="for-tax-advisors.html">For Tax Advisors</a>
+    <a href="for-business-owners.html">For Business Owners</a>
+    <a href="index.html#about">About</a>
+    <a href="research.html" class="nav-active">Publications</a>
+    <a href="index.html#contact">Contact</a>
     <a href="index.html#contact" class="btn btn-sage">Refer a Client &#8599;</a>
   </div>
 
@@ -1087,8 +1090,8 @@
         </div>
         <div class="footer-col">
           <h5>Firm</h5>
-          <a href="index.html#process-section">For Tax Advisors</a>
-          <a href="index.html#process-section">For Business Owners</a>
+          <a href="for-tax-advisors.html">For Tax Advisors</a>
+          <a href="for-business-owners.html">For Business Owners</a>
           <a href="index.html#about">About</a>
           <a href="research.html">Writing</a>
         </div>

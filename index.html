@@ -2220,12 +2220,12 @@
 
       <!-- Headline -->
       <div class="hero-headline fade-in">
-        <h1>The legal hand behind your <span class="accent-serif">tax plan.</span></h1>
+        <h1>Your client <span class="accent-serif">stays yours.</span></h1>
       </div>
 
       <!-- Sub grid -->
       <div class="hero-sub-grid fade-in">
-        <p class="hero-desc">Implementing corporate and trust reorganizations across all nine common law provinces <img src="https://flagcdn.com/w40/ca.png" alt="Canada" style="display: inline-block; height: 18px; vertical-align: middle; margin: 0 4px; border-radius: 2px;"> on instruction from your tax plan.</p>
+        <p class="hero-desc">We implement the legal structure your tax plan requires&thinsp;&mdash;&thinsp;without conflict, without competition, on your instruction. Corporate and trust reorganizations across all nine common law provinces. <img src="https://flagcdn.com/w40/ca.png" alt="Canada" style="display: inline-block; height: 18px; vertical-align: middle; margin: 0 4px; border-radius: 2px;"></p>
         <div class="hero-meta-blocks">
           <div class="hero-meta-block">
             <span class="meta-label">THE WORK</span>
@@ -2298,21 +2298,7 @@
   </div>
 
   <!-- ============================================
-       4. PHILOSOPHY / POSITION
-       ============================================ -->
-  <section class="philosophy fade-in">
-    <div class="container">
-      <div class="philosophy-inner">
-        <div class="philosophy-label">Our Position</div>
-        <div class="philosophy-statement">
-          We are the legal hand behind the tax plan. Accountants design the strategy. <span class="highlight">We implement it</span>&thinsp;&mdash;&thinsp;without conflict, without competition, on your instruction.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       5. PRACTICE AREAS
+       4. PRACTICE AREAS
        ============================================ -->
   <section class="practice" id="practice">
     <div class="container">
@@ -2675,20 +2661,26 @@
        ============================================ -->
   <section class="cta-section" id="contact">
     <div class="container fade-in">
-      <h2>Get in touch.</h2>
+      <h2>Ready to work together?</h2>
       <p class="cta-sub">We respond within one business day.</p>
-      <form id="contactForm" style="max-width: 600px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 16px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <input type="text" id="contact-name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
-          <input type="email" id="contact-email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
-        </div>
-        <input type="text" id="contact-subject" placeholder="Subject" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
-        <textarea id="contact-message" placeholder="Your message — please do not include confidential details of your matter." rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; resize: vertical;"></textarea>
-        <div style="display: flex; gap: 16px; justify-content: center; margin-top: 8px;">
-          <button type="submit" class="btn btn-cream">Send Message &#8599;</button>
-          <a href="for-tax-advisors.html#refer" class="btn btn-outline-cream">Refer a Client</a>
-        </div>
-      </form>
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
+        <button id="contactToggle" class="btn btn-cream" onclick="document.getElementById('contactFormWrap').style.display = document.getElementById('contactFormWrap').style.display === 'none' ? 'block' : 'none'; this.innerHTML = document.getElementById('contactFormWrap').style.display === 'none' ? 'Contact Us &#8599;' : 'Close &#10005;'">Contact Us &#8599;</button>
+        <a href="for-tax-advisors.html#refer" class="btn btn-outline-cream">Refer a Client</a>
+      </div>
+      <div id="contactFormWrap" style="display: none; max-width: 600px; margin: 32px auto 0; animation: fadeSlideDown 0.3s ease;">
+        <style>@keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }</style>
+        <form id="contactForm" style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <input type="text" id="contact-name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+            <input type="email" id="contact-email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+          </div>
+          <input type="text" id="contact-subject" placeholder="Subject" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+          <textarea id="contact-message" placeholder="Your message — please do not include confidential details of your matter." rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; resize: vertical;"></textarea>
+          <div style="text-align: center; margin-top: 8px;">
+            <button type="submit" class="btn btn-cream">Send Message &#8599;</button>
+          </div>
+        </form>
+      </div>
       <div style="display: flex; justify-content: center; gap: 32px; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(245,240,235,0.5);">
         <a href="mailto:hello@primrosetax.ca" style="color: rgba(245,240,235,0.5);">hello@primrosetax.ca</a>
         <a href="tel:+19025100430" style="color: rgba(245,240,235,0.5);">+1 (902) 510-0430</a>

@@ -1762,6 +1762,11 @@
       overflow: hidden;
     }
 
+    .about-v2 > .container {
+      max-width: 1440px;
+      padding: 0 64px;
+    }
+
     .about-v2::before {
       content: '';
       position: absolute;
@@ -1791,7 +1796,6 @@
       margin-bottom: 72px;
       position: relative;
       z-index: 2;
-      padding: 0 64px;
     }
 
     .about-v2-heading {
@@ -1831,7 +1835,6 @@
       position: relative;
       z-index: 2;
       max-width: 100%;
-      padding: 0 64px;
     }
 
     /* ---- BUSINESS CARD (left) ---- */
@@ -2092,6 +2095,10 @@
 
     /* ---- ABOUT V2 RESPONSIVE 768px ---- */
     @media (max-width: 768px) {
+      .about-v2 > .container {
+        padding: 0 24px;
+      }
+
       .about-v2-header {
         flex-direction: column;
         gap: 16px;
@@ -2423,6 +2430,7 @@
           <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" alt="Financial documents and calculator — delivery" class="process-image" data-step-img="2">
         </div>
       </div>
+      <div class="process-image-credit fade-in" style="font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(28,28,28,0.3); text-align: right; margin-top: 12px;">Images used for illustrative purposes only.</div>
       <div class="process-privilege fade-in">
         <span class="sage-dot"></span>
         <p>Solicitor-client privilege extended to tax planning communications where permissible.</p>

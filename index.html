@@ -2220,7 +2220,7 @@
 
       <!-- Headline -->
       <div class="hero-headline fade-in">
-        <h1>Your client <span class="accent-serif">stays yours.</span></h1>
+        <h1>We implement the plan. <span class="accent-serif">You keep the client.</span></h1>
       </div>
 
       <!-- Sub grid -->
@@ -2668,14 +2668,17 @@
         <a href="for-tax-advisors.html#refer" class="btn btn-outline-cream">Refer a Client</a>
       </div>
       <div id="contactFormWrap" style="display: none; max-width: 600px; margin: 32px auto 0; animation: fadeSlideDown 0.3s ease;">
-        <style>@keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }</style>
+        <style>
+          @keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+          #contactForm input::placeholder, #contactForm textarea::placeholder { color: rgba(245,240,235,0.5); opacity: 1; }
+        </style>
         <form id="contactForm" style="display: flex; flex-direction: column; gap: 16px;">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <input type="text" id="contact-name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
-            <input type="email" id="contact-email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+            <input type="text" id="contact-name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; --placeholder-color: rgba(245,240,235,0.5);">
+            <input type="email" id="contact-email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; --placeholder-color: rgba(245,240,235,0.5);">
           </div>
-          <input type="text" id="contact-subject" placeholder="Subject" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
-          <textarea id="contact-message" placeholder="Your message — please do not include confidential details of your matter." rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; resize: vertical;"></textarea>
+          <input type="text" id="contact-subject" placeholder="Subject" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; --placeholder-color: rgba(245,240,235,0.5);">
+          <textarea id="contact-message" placeholder="Your message — please do not include confidential details of your matter." rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; --placeholder-color: rgba(245,240,235,0.5); resize: vertical;"></textarea>
           <div style="text-align: center; margin-top: 8px;">
             <button type="submit" class="btn btn-cream">Send Message &#8599;</button>
           </div>

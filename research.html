@@ -1118,9 +1118,24 @@
     <div class="container fade-in">
       <h2>Want to discuss the research?</h2>
       <p class="cta-sub">Connect with Primrose on LinkedIn or get in touch directly.</p>
-      <div class="cta-buttons">
-        <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer" class="btn btn-cream">LinkedIn &#8599;</a>
-        <a href="#contact" class="btn btn-outline-cream">Contact</a>
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
+        <button class="btn btn-cream" onclick="var w=document.getElementById('researchContactWrap'); w.style.display=w.style.display==='none'?'block':'none'; this.innerHTML=w.style.display==='none'?'Contact Us &#8599;':'Close &#10005;'">Contact Us &#8599;</button>
+        <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-cream">LinkedIn &#8599;</a>
+      </div>
+      <div id="researchContactWrap" style="display: none; max-width: 600px; margin: 32px auto 0;">
+        <style>#researchContactForm input::placeholder, #researchContactForm textarea::placeholder { color: rgba(245,240,235,0.5); opacity: 1; }</style>
+        <form id="researchContactForm" style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <input type="text" name="name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+            <input type="email" name="email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+          </div>
+          <textarea name="message" placeholder="Your message" rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; resize: vertical;"></textarea>
+          <div style="text-align: center;"><button type="submit" class="btn btn-cream">Send Message &#8599;</button></div>
+        </form>
+      </div>
+      <div style="display: flex; justify-content: center; gap: 32px; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(245,240,235,0.5);">
+        <a href="mailto:hello@primrosetax.ca" style="color: rgba(245,240,235,0.5);">hello@primrosetax.ca</a>
+        <a href="tel:+19025100430" style="color: rgba(245,240,235,0.5);">+1 (902) 510-0430</a>
       </div>
     </div>
   </section>

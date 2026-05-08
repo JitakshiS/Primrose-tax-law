@@ -993,13 +993,28 @@
   <!-- ============================================
        7. CTA
        ============================================ -->
-  <section class="cta-section">
+  <section class="cta-section" id="contact">
     <div class="container fade-in">
       <h2>Ready to work together?</h2>
       <p class="cta-sub">We respond within one business day.</p>
-      <div class="cta-buttons">
-        <a href="for-tax-advisors.html" class="btn btn-cream">Refer a Client &#8599;</a>
-        <a href="mailto:hello@primrosetax.ca" class="btn btn-outline-cream">Contact Us</a>
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
+        <button class="btn btn-cream" onclick="var w=document.getElementById('aboutContactWrap'); w.style.display=w.style.display==='none'?'block':'none'; this.innerHTML=w.style.display==='none'?'Contact Us &#8599;':'Close &#10005;'">Contact Us &#8599;</button>
+        <a href="for-tax-advisors.html#refer" class="btn btn-outline-cream">Refer a Client</a>
+      </div>
+      <div id="aboutContactWrap" style="display: none; max-width: 600px; margin: 32px auto 0;">
+        <style>#aboutContactForm input::placeholder, #aboutContactForm textarea::placeholder { color: rgba(245,240,235,0.5); opacity: 1; }</style>
+        <form id="aboutContactForm" style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <input type="text" name="name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+            <input type="email" name="email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+          </div>
+          <textarea name="message" placeholder="Your message — please do not include confidential details." rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; resize: vertical;"></textarea>
+          <div style="text-align: center;"><button type="submit" class="btn btn-cream">Send Message &#8599;</button></div>
+        </form>
+      </div>
+      <div style="display: flex; justify-content: center; gap: 32px; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(245,240,235,0.5);">
+        <a href="mailto:hello@primrosetax.ca" style="color: rgba(245,240,235,0.5);">hello@primrosetax.ca</a>
+        <a href="tel:+19025100430" style="color: rgba(245,240,235,0.5);">+1 (902) 510-0430</a>
       </div>
     </div>
   </section>

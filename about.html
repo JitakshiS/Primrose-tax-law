@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For Business Owners | Primrose Tax Law</title>
-  <meta name="description" content="Your accountant designed the strategy. We handle the legal side — corporate restructuring, estate freezes, trust settlements, and tax opinions across Canada.">
+  <title>About | Primrose Tax Law</title>
+  <meta name="description" content="Primrose Tax Law is a Canadian tax law firm practising corporate tax and trust law for owner-managers across all nine common law provinces.">
   <link rel="icon" href="assets/images/icon-gold.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,27 +106,6 @@
       transition: all 0.3s ease;
       border: none;
       text-decoration: none;
-    }
-
-    .btn-dark {
-      background: #1C1C1C;
-      color: #F5F0EB;
-    }
-
-    .btn-dark:hover {
-      background: #2a2a2a;
-      opacity: 1;
-    }
-
-    .btn-outline-dark {
-      background: transparent;
-      color: #1C1C1C;
-      border: 1.5px solid rgba(28, 28, 28, 0.2);
-    }
-
-    .btn-outline-dark:hover {
-      border-color: rgba(28, 28, 28, 0.5);
-      opacity: 1;
     }
 
     .btn-sage {
@@ -250,11 +229,6 @@
       opacity: 1;
     }
 
-    .nav-links a.nav-active {
-      color: #F5F0EB;
-      opacity: 1;
-    }
-
     .nav-cta-wrap {
       margin-left: 12px;
     }
@@ -309,312 +283,155 @@
       color: rgba(245, 240, 235, 0.7);
     }
 
-    .mobile-menu a.nav-active {
-      color: #F5F0EB;
-    }
-
     .mobile-menu .btn {
       width: fit-content;
       margin-top: 8px;
     }
 
     /* ============================================
-       2. HERO
+       2. ABOUT HERO
        ============================================ */
-    .hero {
+    .about-hero {
       padding: 64px 0 0 0;
       background: #F5F0EB;
     }
 
-    .hero-inner {
-      padding: 80px 0 100px;
+    .about-hero-inner {
+      padding: 100px 0 120px;
     }
 
-    .hero-label {
+    .about-hero-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #7C9A8E;
-      margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hero-label::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #7C9A8E;
-      flex-shrink: 0;
-    }
-
-    .hero h1 {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 900;
-      font-size: clamp(40px, 5vw, 64px);
-      line-height: 1.1;
-      letter-spacing: -2px;
-      color: #1C1C1C;
-      margin-bottom: 28px;
-      max-width: 800px;
-    }
-
-    .hero h1 .accent-serif {
-      color: #4A6B5D;
-    }
-
-    .hero-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
-      line-height: 1.6;
-      color: rgba(28, 28, 28, 0.5);
-      max-width: 600px;
-      margin-bottom: 40px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    /* ============================================
-       3. WHAT WE HANDLE
-       ============================================ */
-    .what-we-handle {
-      background: #F5F0EB;
-      padding: 0 0 120px;
-    }
-
-    .wwh-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: rgba(28, 28, 28, 0.4);
       margin-bottom: 48px;
     }
 
-    .wwh-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .wwh-card {
-      background: #FAFAF8;
-      border-radius: 12px;
-      padding: 36px;
-      border: 1px solid rgba(28, 28, 28, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      transition: transform 0.3s ease;
-    }
-
-    .wwh-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .wwh-card-icon {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #7C9A8E;
-      flex-shrink: 0;
-    }
-
-    .wwh-card h3 {
+    .about-hero-heading {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
+      font-size: clamp(48px, 6vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      color: #1C1C1C;
+      margin-bottom: 40px;
+    }
+
+    .about-hero-heading .accent-serif {
+      color: #4A6B5D;
+    }
+
+    .about-hero-sub {
+      font-family: 'DM Sans', sans-serif;
       font-size: 18px;
-      line-height: 1.3;
-      color: #1C1C1C;
-    }
-
-    .wwh-card p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
       line-height: 1.6;
-      color: rgba(28, 28, 28, 0.45);
-    }
-
-    /* ============================================
-       4. HOW IT WORKS
-       ============================================ */
-    .how-it-works {
-      background: #1C1C1C;
-      padding: 120px 0;
-      color: #F5F0EB;
-    }
-
-    .hiw-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #7C9A8E;
-      margin-bottom: 64px;
-    }
-
-    .hiw-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: 1px solid rgba(245, 240, 235, 0.08);
-    }
-
-    .hiw-step {
-      padding: 48px 40px 48px 0;
-      border-right: 1px solid rgba(245, 240, 235, 0.06);
-      position: relative;
-    }
-
-    .hiw-step:last-child {
-      border-right: none;
-    }
-
-    .hiw-step:not(:first-child) {
-      padding-left: 40px;
-    }
-
-    .hiw-step-num {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 900;
-      font-size: 64px;
-      color: #7C9A8E;
-      line-height: 1;
-      margin-bottom: 24px;
-      letter-spacing: -2px;
-    }
-
-    .hiw-step-title {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 900;
-      font-size: 22px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 16px;
-      color: #F5F0EB;
-    }
-
-    .hiw-step-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      color: rgba(245, 240, 235, 0.4);
-    }
-
-    /* ============================================
-       5. YOUR TEAM STAYS YOURS
-       ============================================ */
-    .reassurance {
-      background: #F5F0EB;
-      padding: 120px 0;
-    }
-
-    .reassurance-card {
-      border-left: 4px solid #7C9A8E;
-      padding: 48px 56px;
-      background: #FAFAF8;
-      border-radius: 0 12px 12px 0;
-      max-width: 800px;
-    }
-
-    .reassurance-card h2 {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 900;
-      font-size: clamp(28px, 3.5vw, 40px);
-      line-height: 1.2;
-      letter-spacing: -1px;
-      color: #1C1C1C;
-      margin-bottom: 20px;
-    }
-
-    .reassurance-card p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(28, 28, 28, 0.5);
+      color: rgba(28, 28, 28, 0.55);
       max-width: 640px;
     }
 
     /* ============================================
-       6. CREDENTIALS
+       3. FOUNDER
        ============================================ */
-    .credentials {
-      background: #F5F0EB;
-      padding: 0 0 120px;
+    .founder {
+      background: #1C1C1C;
+      padding: 120px 0;
     }
 
-    .cred-inner {
+    .founder-layout {
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 56px;
-      align-items: start;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
     }
 
-    .cred-headshot {
-      width: 200px;
-      height: 240px;
-      object-fit: cover;
-      object-position: center 12%;
+    .founder-photo {
       border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(245, 240, 235, 0.08);
     }
 
-    .cred-content {
-      padding-top: 8px;
+    .founder-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      aspect-ratio: 3 / 4;
     }
 
-    .cred-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(28, 28, 28, 0.4);
-      margin-bottom: 24px;
-    }
-
-    .cred-name {
+    .founder-name {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 28px;
-      letter-spacing: -0.5px;
-      color: #1C1C1C;
-      margin-bottom: 4px;
+      font-size: clamp(32px, 4vw, 48px);
+      color: #F5F0EB;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 8px;
     }
 
-    .cred-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: rgba(28, 28, 28, 0.4);
+    .founder-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #7C9A8E;
       margin-bottom: 32px;
     }
 
-    .cred-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
+    .founder-bio {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(245, 240, 235, 0.55);
+      max-width: 520px;
     }
 
-    .cred-block-label {
+    .founder-bio p {
+      margin-bottom: 20px;
+    }
+
+    .founder-bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ============================================
+       4. CREDENTIALS
+       ============================================ */
+    .credentials {
+      background: #E9E2D2;
+      padding: 120px 0;
+    }
+
+    .credentials-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 48px;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .credential-col-label {
       font-family: 'DM Sans', sans-serif;
       font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: #7C9A8E;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .cred-block-label::before {
+    .credential-col-label::before {
       content: '';
       width: 6px;
       height: 6px;
@@ -623,7 +440,7 @@
       flex-shrink: 0;
     }
 
-    .cred-block-item {
+    .credential-item {
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       color: rgba(28, 28, 28, 0.55);
@@ -632,15 +449,111 @@
       border-left: 2px solid rgba(124, 154, 142, 0.2);
     }
 
-    .cred-bar {
-      margin-top: 28px;
+    /* ============================================
+       5. VALUES
+       ============================================ */
+    .values {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .values-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 48px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .value-card {
+      background: #FAFAF8;
+      border: 1px solid rgba(28, 28, 28, 0.06);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .value-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      color: #1C1C1C;
+      margin-bottom: 16px;
+    }
+
+    .value-card p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(28, 28, 28, 0.5);
+    }
+
+    /* ============================================
+       6. HOW WE WORK
+       ============================================ */
+    .how-we-work {
+      background: #1C1C1C;
+      padding: 120px 0;
+    }
+
+    .hww-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7C9A8E;
+      margin-bottom: 48px;
+    }
+
+    .hww-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .hww-item {
+      border: 1px solid rgba(245, 240, 235, 0.08);
+      border-radius: 12px;
+      padding: 32px 24px;
+    }
+
+    .hww-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      margin-bottom: 20px;
+    }
+
+    .hww-item h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #F5F0EB;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .hww-item p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(245, 240, 235, 0.4);
     }
 
     /* ============================================
        7. CTA
        ============================================ */
     .cta-section {
-      background: #7C9A8E;
+      background: #4A6B5D;
       padding: 120px 24px;
       text-align: center;
     }
@@ -657,7 +570,7 @@
     .cta-section .cta-sub {
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
-      color: rgba(245, 240, 235, 0.55);
+      color: rgba(245, 240, 235, 0.5);
       margin-bottom: 40px;
     }
 
@@ -750,12 +663,23 @@
        RESPONSIVE -- 1024px
        ============================================ */
     @media (max-width: 1024px) {
-      .wwh-grid {
-        grid-template-columns: 1fr 1fr;
+      .founder-layout {
+        gap: 48px;
       }
 
-      .cred-inner {
-        gap: 40px;
+      .credentials-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .hww-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
 
       .footer-grid {
@@ -780,60 +704,61 @@
         display: flex;
       }
 
-      .hero h1 {
-        font-size: clamp(32px, 7vw, 48px);
-        letter-spacing: -1.5px;
+      .about-hero-heading {
+        font-size: clamp(36px, 8vw, 56px);
+        letter-spacing: -2px;
       }
 
-      .wwh-grid {
-        grid-template-columns: 1fr 1fr;
+      .about-hero-inner {
+        padding: 80px 0 80px;
       }
 
-      .hiw-steps {
+      .founder {
+        padding: 80px 0;
+      }
+
+      .founder-layout {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 40px;
       }
 
-      .hiw-step {
-        border-right: none;
-        border-bottom: 1px solid rgba(245, 240, 235, 0.06);
-        padding: 36px 0;
+      .founder-photo img {
+        aspect-ratio: 4 / 3;
       }
 
-      .hiw-step:last-child {
-        border-bottom: none;
+      .credentials {
+        padding: 80px 0;
       }
 
-      .hiw-step:not(:first-child) {
-        padding-left: 0;
-      }
-
-      .reassurance-card {
-        padding: 36px 40px;
-      }
-
-      .cred-inner {
+      .credentials-grid {
         grid-template-columns: 1fr;
         gap: 32px;
       }
 
-      .cred-headshot {
-        width: 160px;
-        height: 200px;
+      .values {
+        padding: 80px 0;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .how-we-work {
+        padding: 80px 0;
+      }
+
+      .hww-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
       }
 
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .how-it-works,
-      .reassurance,
-      .credentials {
+      .section-padding {
         padding: 80px 0;
-      }
-
-      .what-we-handle {
-        padding-bottom: 80px;
       }
     }
 
@@ -845,47 +770,34 @@
         padding: 0 20px;
       }
 
-      .hero h1 {
-        font-size: 32px;
-        letter-spacing: -1px;
+      .about-hero-heading {
+        font-size: 36px;
+        letter-spacing: -1.5px;
       }
 
-      .hero-inner {
-        padding: 60px 0 80px;
+      .founder-name {
+        font-size: 28px;
       }
 
-      .hero-buttons {
-        flex-direction: column;
-        align-items: flex-start;
+      .credentials-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
 
-      .hero-buttons .btn {
-        width: 100%;
-      }
-
-      .wwh-grid {
+      .values-grid {
         grid-template-columns: 1fr;
       }
 
-      .wwh-card {
+      .value-card {
         padding: 28px;
       }
 
-      .hiw-step-num {
-        font-size: 48px;
-      }
-
-      .reassurance-card {
-        padding: 28px 24px;
-      }
-
-      .cred-grid {
+      .hww-grid {
         grid-template-columns: 1fr;
       }
 
-      .cred-headshot {
-        width: 140px;
-        height: 180px;
+      .hww-item {
+        padding: 24px 20px;
       }
 
       .footer-grid {
@@ -924,13 +836,13 @@
       </a>
       <div class="nav-links">
         <a href="for-tax-advisors.html">For Tax Advisors</a>
-        <a href="for-business-owners.html" class="nav-active" style="color: #F5F0EB; opacity: 1;">For Business Owners</a>
-        <a href="about.html">About</a>
+        <a href="for-business-owners.html">For Business Owners</a>
+        <a href="about.html" class="nav-active" style="color: #F5F0EB; opacity: 1;">About</a>
         <a href="research.html">Publications</a>
-        <a href="#contact">Contact</a>
+        <a href="mailto:hello@primrosetax.ca">Contact</a>
       </div>
       <div class="nav-cta-wrap">
-        <a href="#contact" class="btn btn-sage">Refer a Client &#8599;</a>
+        <a href="for-tax-advisors.html" class="btn btn-sage">Refer a Client &#8599;</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span>
@@ -943,132 +855,132 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="for-tax-advisors.html">For Tax Advisors</a>
-    <a href="for-business-owners.html" class="nav-active">For Business Owners</a>
-    <a href="about.html">About</a>
+    <a href="for-business-owners.html">For Business Owners</a>
+    <a href="about.html" style="color: #F5F0EB;">About</a>
     <a href="research.html">Publications</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="btn btn-sage">Refer a Client &#8599;</a>
+    <a href="mailto:hello@primrosetax.ca">Contact</a>
+    <a href="for-tax-advisors.html" class="btn btn-sage">Refer a Client &#8599;</a>
   </div>
 
   <!-- ============================================
        2. HERO
        ============================================ -->
-  <section class="hero">
+  <section class="about-hero">
     <div class="container">
-      <div class="hero-inner fade-in">
-        <div class="hero-label">For Business Owners</div>
-        <h1>Your accountant designed the strategy.<br><span class="accent-serif">We handle the legal side.</span></h1>
-        <p class="hero-sub">When your tax plan calls for corporate restructuring, estate freezes, or trust settlements&thinsp;&mdash;&thinsp;we implement the legal work your accountant has designed.</p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-dark">Get Started &#8599;</a>
-          <a href="#how-it-works" class="btn btn-outline-dark">Our Approach</a>
-        </div>
+      <div class="about-hero-inner">
+        <div class="about-hero-label fade-in">About the Firm</div>
+        <h1 class="about-hero-heading fade-in">A FOCUSED PRACTICE<br><span class="accent-serif">of one.</span></h1>
+        <p class="about-hero-sub fade-in">Primrose Tax Law is a Canadian tax law firm practising corporate tax and trust law for owner-managers. We handle corporate and trust reorganizations in collaboration with tax accountants across all nine common law provinces.</p>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       3. WHAT WE HANDLE
+       3. FOUNDER
        ============================================ -->
-  <section class="what-we-handle">
+  <section class="founder">
     <div class="container">
-      <div class="wwh-label fade-in">What We Handle</div>
-      <div class="wwh-grid fade-in">
-        <div class="wwh-card">
-          <div class="wwh-card-icon"></div>
-          <h3>Corporate Restructuring</h3>
-          <p>Reorganizations, amalgamations, and share exchanges to reshape your company's structure as your business evolves.</p>
+      <div class="founder-layout fade-in">
+        <div class="founder-photo">
+          <img src="assets/images/headshot.jpg" alt="Primrose Watson">
         </div>
-        <div class="wwh-card">
-          <div class="wwh-card-icon"></div>
-          <h3>Estate Freezes</h3>
-          <p>Locking the current value of your business for succession planning, so future growth passes to the next generation.</p>
-        </div>
-        <div class="wwh-card">
-          <div class="wwh-card-icon"></div>
-          <h3>Trust Settlements</h3>
-          <p>Family trusts, alter ego trusts, and joint spousal trusts&thinsp;&mdash;&thinsp;structured and settled to support your long-term plan.</p>
-        </div>
-        <div class="wwh-card">
-          <div class="wwh-card-icon"></div>
-          <h3>Tax Opinions</h3>
-          <p>Written legal opinions for complex transactions, giving you and your accountant confidence before you move forward.</p>
+        <div>
+          <div class="founder-name">Primrose Watson, JD</div>
+          <div class="founder-title">Founder & Counsel &middot; She/Her/Hers</div>
+          <div class="founder-bio">
+            <p>I designed Primrose Tax Law to be a place where I can be the tax enthusiast I am. We work collaboratively with tax advisors and business owners to provide timely and efficient corporate tax planning legal services.</p>
+            <p>Accountants design the strategy. We implement the legal structure&thinsp;&mdash;&thinsp;without conflict, without competition, on instruction.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       4. HOW IT WORKS
-       ============================================ -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <div class="hiw-label fade-in">How It Works</div>
-      <div class="hiw-steps fade-in">
-        <div class="hiw-step">
-          <div class="hiw-step-num">01</div>
-          <div class="hiw-step-title">Your Accountant Refers You</div>
-          <div class="hiw-step-desc">Your CPA or tax advisor connects you with us to handle the legal implementation. They stay involved throughout.</div>
-        </div>
-        <div class="hiw-step">
-          <div class="hiw-step-num">02</div>
-          <div class="hiw-step-title">We Work Together</div>
-          <div class="hiw-step-desc">We implement the legal structure your tax plan calls for. Fixed fee, clear scope, no surprises.</div>
-        </div>
-        <div class="hiw-step">
-          <div class="hiw-step-num">03</div>
-          <div class="hiw-step-title">You're Protected</div>
-          <div class="hiw-step-desc">Electronic minute books, secure document handling, and solicitor-client privilege where permissible.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       5. YOUR TEAM STAYS YOURS
-       ============================================ -->
-  <section class="reassurance">
-    <div class="container">
-      <div class="reassurance-card fade-in">
-        <h2>Your accountant stays your accountant.</h2>
-        <p>We work on instruction from your tax advisor. We implement the legal structure&thinsp;&mdash;&thinsp;we don't provide competing tax planning advice. Your existing advisory relationships stay exactly as they are.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       6. CREDENTIALS
+       4. CREDENTIALS
        ============================================ -->
   <section class="credentials">
     <div class="container">
-      <div class="cred-inner fade-in">
-        <img src="assets/images/headshot.jpg" alt="Primrose Watson" class="cred-headshot">
-        <div class="cred-content">
-          <div class="cred-label">Your Counsel</div>
-          <div class="cred-name">Primrose Watson</div>
-          <div class="cred-title">JD &middot; Founder & Counsel</div>
-          <div class="cred-grid">
-            <div>
-              <div class="cred-block-label">Bar Admissions</div>
-              <div class="cred-block-item">British Columbia &middot; Alberta &middot; Ontario &middot; Nova Scotia</div>
-            </div>
-            <div>
-              <div class="cred-block-label">Education</div>
-              <div class="cred-block-item">
-                JD, Schulich School of Law<br>
-                LLM (Candidate), Tax Reform<br>
-                B.Comm (Finance), Dalhousie
-              </div>
-            </div>
-            <div class="cred-bar">
-              <div class="cred-block-label">Professional</div>
-              <div class="cred-block-item">
-                CPA In-Depth Tax I, II & III<br>
-                Canadian Tax Foundation<br>
-                Canadian Bar Association
-              </div>
-            </div>
+      <div class="credentials-label fade-in">Credentials</div>
+      <div class="credentials-grid fade-in">
+        <div>
+          <div class="credential-col-label">Education</div>
+          <div class="credential-item">
+            LLM (Candidate) Tax Reform&thinsp;&mdash;&thinsp;Schulich School of Law, Dalhousie<br>
+            JD Business Law&thinsp;&mdash;&thinsp;Schulich School of Law, Dalhousie<br>
+            B.Comm Finance&thinsp;&mdash;&thinsp;Dalhousie
           </div>
+        </div>
+        <div>
+          <div class="credential-col-label">Professional</div>
+          <div class="credential-item">
+            CPA In-Depth Tax I, II, III<br>
+            Canadian Tax Foundation<br>
+            Canadian Bar Association
+          </div>
+        </div>
+        <div>
+          <div class="credential-col-label">Bar Admissions</div>
+          <div class="credential-item">
+            Law Society of British Columbia<br>
+            Law Society of Ontario<br>
+            Law Society of Alberta<br>
+            Nova Scotia Barristers' Society
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       5. VALUES
+       ============================================ -->
+  <section class="values">
+    <div class="container">
+      <div class="values-label fade-in">Our Values</div>
+      <div class="values-grid fade-in">
+        <div class="value-card">
+          <h3>Respect</h3>
+          <p>We respect the individuality of every firm member's talents, interests and needs to thrive.</p>
+        </div>
+        <div class="value-card">
+          <h3>Trust</h3>
+          <p>We trust every firm member's freedom to determine their work capacity. We trust in collaborative work.</p>
+        </div>
+        <div class="value-card">
+          <h3>Inspire</h3>
+          <p>We inspire sharing substantive legal knowledge, using technology and our collective lived experience to create value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       6. HOW WE WORK
+       ============================================ -->
+  <section class="how-we-work">
+    <div class="container">
+      <div class="hww-label fade-in">How We Work</div>
+      <div class="hww-grid fade-in">
+        <div class="hww-item">
+          <div class="hww-dot"></div>
+          <h4>Fixed-fee billing</h4>
+          <p>Clear scope, no surprises.</p>
+        </div>
+        <div class="hww-item">
+          <div class="hww-dot"></div>
+          <h4>Electronic signatures & minute books</h4>
+          <p>Streamlined document handling.</p>
+        </div>
+        <div class="hww-item">
+          <div class="hww-dot"></div>
+          <h4>Solicitor-client privilege</h4>
+          <p>Extended to tax planning communications where permissible.</p>
+        </div>
+        <div class="hww-item">
+          <div class="hww-dot"></div>
+          <h4>Secure workspace</h4>
+          <p>Data protection as core to operations.</p>
         </div>
       </div>
     </div>
@@ -1077,13 +989,13 @@
   <!-- ============================================
        7. CTA
        ============================================ -->
-  <section class="cta-section" id="contact">
+  <section class="cta-section">
     <div class="container fade-in">
-      <h2>Ready to get started?</h2>
-      <p class="cta-sub">Ask your accountant to refer you, or contact us directly.</p>
+      <h2>Ready to work together?</h2>
+      <p class="cta-sub">We respond within one business day.</p>
       <div class="cta-buttons">
-        <a href="mailto:hello@primrosetax.ca" class="btn btn-cream">Contact Us &#8599;</a>
-        <a href="mailto:hello@primrosetax.ca?subject=Referral%20from%20Accountant" class="btn btn-outline-cream">Refer via Your Accountant</a>
+        <a href="for-tax-advisors.html" class="btn btn-cream">Refer a Client &#8599;</a>
+        <a href="mailto:hello@primrosetax.ca" class="btn btn-outline-cream">Contact Us</a>
       </div>
     </div>
   </section>
@@ -1118,7 +1030,7 @@
           <a href="mailto:hello@primrosetax.ca">hello@primrosetax.ca</a>
           <a href="tel:+19025100430">+1 (902) 510-0430</a>
           <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="#contact">Refer a Client</a>
+          <a href="for-tax-advisors.html">Refer a Client</a>
         </div>
       </div>
       <div class="footer-bottom">

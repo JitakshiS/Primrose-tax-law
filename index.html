@@ -2167,25 +2167,7 @@
         letter-spacing: -2px;
       }
     }
-    /* Google Translate widget styling */
-    .goog-te-gadget { font-family: 'DM Sans', sans-serif !important; font-size: 0 !important; }
-    .goog-te-gadget .goog-te-combo { font-family: 'DM Sans', sans-serif; font-size: 11px; background: transparent; border: 1px solid rgba(245,240,235,0.2); color: rgba(245,240,235,0.6); padding: 4px 8px; border-radius: 4px; outline: none; cursor: pointer; }
-    .goog-te-banner-frame { display: none !important; }
-    body { top: 0 !important; }
-    .skiptranslate { display: none !important; }
-    #google_translate_element .skiptranslate { display: block !important; }
   </style>
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  <script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,fr,zh-CN,pa,es,tl,ar',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
 </head>
 <body>
 
@@ -2200,13 +2182,12 @@
       <div class="nav-links">
         <a href="for-tax-advisors.html">For Tax Advisors</a>
         <a href="for-business-owners.html">For Business Owners</a>
-        <a href="#about">About</a>
+        <a href="about.html">About</a>
         <a href="research.html">Publications</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 16px;">
-        <div id="google_translate_element"></div>
-        <a href="#contact" class="btn btn-sage">Refer a Client &#8599;</a>
+      <div class="nav-cta-wrap">
+        <a href="for-tax-advisors.html#refer" class="btn btn-sage">Refer a Client &#8599;</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span>
@@ -2220,10 +2201,10 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="for-tax-advisors.html">For Tax Advisors</a>
     <a href="for-business-owners.html">For Business Owners</a>
-    <a href="#about">About</a>
+    <a href="about.html">About</a>
     <a href="research.html">Publications</a>
     <a href="#contact">Contact</a>
-    <a href="#contact" class="btn btn-sage">Refer a Client &#8599;</a>
+    <a href="for-tax-advisors.html#refer" class="btn btn-sage">Refer a Client &#8599;</a>
   </div>
 
   <!-- ============================================
@@ -2266,7 +2247,7 @@
           <div class="hero-card-content">
             <h3>Refer the legal implementation.</h3>
             <p>You design the tax plan. We draft the resolutions, settle the trusts, and file the elections. Your client stays yours.</p>
-            <a href="#contact" class="arrow-cta">
+            <a href="for-tax-advisors.html#refer" class="arrow-cta">
               <span>REFER A CLIENT FILE</span>
               <span class="arrow-circle">&#8599;</span>
             </a>
@@ -2690,15 +2671,27 @@
   </section>
 
   <!-- ============================================
-       11. CTA
+       12. CONTACT / CTA
        ============================================ -->
   <section class="cta-section" id="contact">
     <div class="container fade-in">
-      <h2>Ready to refer a client?</h2>
+      <h2>Get in touch.</h2>
       <p class="cta-sub">We respond within one business day.</p>
-      <div class="cta-buttons">
-        <a href="#contact" class="btn btn-cream">Refer a Client &#8599;</a>
-        <a href="#contact" class="btn btn-outline-cream">Contact Us</a>
+      <form id="contactForm" style="max-width: 600px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <input type="text" id="contact-name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+          <input type="email" id="contact-email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+        </div>
+        <input type="text" id="contact-subject" placeholder="Subject" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+        <textarea id="contact-message" placeholder="Your message — please do not include confidential details of your matter." rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; resize: vertical;"></textarea>
+        <div style="display: flex; gap: 16px; justify-content: center; margin-top: 8px;">
+          <button type="submit" class="btn btn-cream">Send Message &#8599;</button>
+          <a href="for-tax-advisors.html#refer" class="btn btn-outline-cream">Refer a Client</a>
+        </div>
+      </form>
+      <div style="display: flex; justify-content: center; gap: 32px; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(245,240,235,0.5);">
+        <a href="mailto:hello@primrosetax.ca" style="color: rgba(245,240,235,0.5);">hello@primrosetax.ca</a>
+        <a href="tel:+19025100430" style="color: rgba(245,240,235,0.5);">+1 (902) 510-0430</a>
       </div>
     </div>
   </section>
@@ -2859,6 +2852,45 @@
 
     var processSection = document.querySelector('.process');
     if (processSection) processObserver.observe(processSection);
+
+    // ---- CONTACT FORM (SUPABASE) ----
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('https://gcrrvvwlxpgjjgnxizus.supabase.co/rest/v1/contacts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+              name: document.getElementById('contact-name').value,
+              email: document.getElementById('contact-email').value,
+              subject: document.getElementById('contact-subject').value,
+              message: document.getElementById('contact-message').value
+            })
+          });
+          if (res.ok) {
+            btn.innerHTML = 'Message Sent &#10003;';
+            btn.style.background = '#4A6B5D';
+            contactForm.reset();
+            setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 4000);
+          } else { throw new Error(); }
+        } catch (err) {
+          btn.innerHTML = 'Error — please try again';
+          btn.style.background = '#8C3A3A';
+          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+        }
+      });
+    }
   </script>
 
 </body>

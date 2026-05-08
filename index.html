@@ -2167,7 +2167,25 @@
         letter-spacing: -2px;
       }
     }
+    /* Google Translate widget styling */
+    .goog-te-gadget { font-family: 'DM Sans', sans-serif !important; font-size: 0 !important; }
+    .goog-te-gadget .goog-te-combo { font-family: 'DM Sans', sans-serif; font-size: 11px; background: transparent; border: 1px solid rgba(245,240,235,0.2); color: rgba(245,240,235,0.6); padding: 4px 8px; border-radius: 4px; outline: none; cursor: pointer; }
+    .goog-te-banner-frame { display: none !important; }
+    body { top: 0 !important; }
+    .skiptranslate { display: none !important; }
+    #google_translate_element .skiptranslate { display: block !important; }
   </style>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,fr,zh-CN,pa,es,tl,ar',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
 </head>
 <body>
 
@@ -2186,7 +2204,8 @@
         <a href="research.html">Publications</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="nav-cta-wrap">
+      <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 16px;">
+        <div id="google_translate_element"></div>
         <a href="#contact" class="btn btn-sage">Refer a Client &#8599;</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">

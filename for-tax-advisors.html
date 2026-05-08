@@ -1298,7 +1298,7 @@
       <div class="refer-cta-inner fade-in">
         <h2>Ready to refer a client?</h2>
         <p class="refer-cta-sub">We respond within one business day with a clear scope and fixed fee.</p>
-        <form class="referral-form" onsubmit="return false;">
+        <form class="referral-form" id="referralForm">
           <div class="form-row">
             <div class="form-field">
               <label for="your-name">Your Name</label>
@@ -1428,6 +1428,50 @@
         el.classList.add('visible');
       });
     }
+
+    // ---- REFERRAL FORM (SUPABASE) ----
+    const SUPABASE_URL = 'https://gcrrvvwlxpgjjgnxizus.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI';
+
+    document.getElementById('referralForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Submitting...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(SUPABASE_URL + '/rest/v1/referrals', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_KEY,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            your_name: document.getElementById('your-name').value,
+            your_firm: document.getElementById('your-firm').value,
+            client_name: document.getElementById('client-name').value,
+            matter_type: document.getElementById('matter-type').value,
+            message: document.getElementById('message').value
+          })
+        });
+
+        if (res.ok) {
+          btn.innerHTML = 'Referral Submitted &#10003;';
+          btn.style.background = '#4A6B5D';
+          this.reset();
+          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 4000);
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        btn.innerHTML = 'Error — please try again';
+        btn.style.background = '#8C3A3A';
+        setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+      }
+    });
 
     // ---- SMOOTH SCROLL FOR ANCHOR LINKS ----
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {

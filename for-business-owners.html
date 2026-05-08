@@ -522,53 +522,56 @@
       padding: 120px 0;
     }
 
-    .reassurance-card {
-      border-left: 4px solid #7C9A8E;
-      padding: 48px 56px;
-      background: #FAFAF8;
-      border-radius: 0 12px 12px 0;
+    .reassurance-inner {
       max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .reassurance-card h2 {
+    .reassurance-label {
       font-family: 'DM Sans', sans-serif;
-      font-weight: 900;
-      font-size: clamp(28px, 3.5vw, 40px);
-      line-height: 1.2;
-      letter-spacing: -1px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.35);
+      margin-bottom: 40px;
+    }
+
+    .reassurance-statement {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.5;
+      color: rgba(28, 28, 28, 0.7);
+    }
+
+    .reassurance-statement strong {
       color: #1C1C1C;
-      margin-bottom: 20px;
-    }
-
-    .reassurance-card p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(28, 28, 28, 0.5);
-      max-width: 640px;
+      font-weight: 900;
     }
 
     /* ============================================
        6. CREDENTIALS
        ============================================ */
     .credentials {
-      background: #F5F0EB;
-      padding: 0 0 120px;
+      background: #1C1C1C;
+      padding: 120px 0;
     }
 
     .cred-inner {
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 56px;
+      grid-template-columns: 280px 1fr;
+      gap: 64px;
       align-items: start;
     }
 
     .cred-headshot {
-      width: 200px;
-      height: 240px;
+      width: 100%;
+      aspect-ratio: 3/4;
       object-fit: cover;
       object-position: center 12%;
-      border-radius: 12px;
+      border-radius: 8px;
+      filter: contrast(1.05) brightness(0.95);
     }
 
     .cred-content {
@@ -576,34 +579,35 @@
     }
 
     .cred-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: rgba(28, 28, 28, 0.4);
+      color: #7C9A8E;
       margin-bottom: 24px;
     }
 
     .cred-name {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 28px;
-      letter-spacing: -0.5px;
-      color: #1C1C1C;
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: -2px;
+      color: #F5F0EB;
       margin-bottom: 4px;
     }
 
     .cred-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: rgba(28, 28, 28, 0.4);
-      margin-bottom: 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: rgba(245, 240, 235, 0.4);
+      letter-spacing: 0.04em;
+      margin-bottom: 40px;
     }
 
     .cred-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
     }
 
     .cred-block-label {
@@ -613,32 +617,14 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: #7C9A8E;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .cred-block-label::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #7C9A8E;
-      flex-shrink: 0;
+      margin-bottom: 14px;
     }
 
     .cred-block-item {
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: rgba(28, 28, 28, 0.55);
-      line-height: 1.8;
-      padding-left: 14px;
-      border-left: 2px solid rgba(124, 154, 142, 0.2);
-    }
-
-    .cred-bar {
-      margin-top: 28px;
+      font-size: 13px;
+      color: rgba(245, 240, 235, 0.55);
+      line-height: 1.9;
     }
 
     /* ============================================
@@ -1034,9 +1020,11 @@
        ============================================ -->
   <section class="reassurance">
     <div class="container">
-      <div class="reassurance-card fade-in">
-        <h2>Your accountant stays your accountant.</h2>
-        <p>We work on instruction from your tax advisor. We implement the legal structure&thinsp;&mdash;&thinsp;we don't provide competing tax planning advice. Your existing advisory relationships stay exactly as they are.</p>
+      <div class="reassurance-inner fade-in">
+        <div class="reassurance-label">Our Position</div>
+        <div class="reassurance-statement">
+          Your accountant stays your accountant. We work on instruction from your tax advisor. We implement the legal structure&thinsp;&mdash;&thinsp;<strong>we don't provide competing tax planning advice.</strong> Your existing advisory relationships stay exactly as they are.
+        </div>
       </div>
     </div>
   </section>
@@ -1051,27 +1039,19 @@
         <div class="cred-content">
           <div class="cred-label">Your Counsel</div>
           <div class="cred-name">Primrose Watson</div>
-          <div class="cred-title">JD &middot; Founder & Counsel</div>
+          <div class="cred-title">JD &middot; Founder &amp; Counsel</div>
           <div class="cred-grid">
             <div>
               <div class="cred-block-label">Bar Admissions</div>
-              <div class="cred-block-item">British Columbia &middot; Alberta &middot; Ontario &middot; Nova Scotia</div>
+              <div class="cred-block-item">British Columbia<br>Alberta<br>Ontario<br>Nova Scotia</div>
             </div>
             <div>
               <div class="cred-block-label">Education</div>
-              <div class="cred-block-item">
-                JD, Schulich School of Law<br>
-                LLM (Candidate), Tax Reform<br>
-                B.Comm (Finance), Dalhousie
-              </div>
+              <div class="cred-block-item">JD, Schulich School of Law<br>LLM (Candidate), Tax Reform<br>B.Comm (Finance), Dalhousie</div>
             </div>
-            <div class="cred-bar">
+            <div>
               <div class="cred-block-label">Professional</div>
-              <div class="cred-block-item">
-                CPA In-Depth Tax I, II & III<br>
-                Canadian Tax Foundation<br>
-                Canadian Bar Association
-              </div>
+              <div class="cred-block-item">CPA In-Depth Tax I, II &amp; III<br>Canadian Tax Foundation<br>Canadian Bar Association</div>
             </div>
           </div>
         </div>

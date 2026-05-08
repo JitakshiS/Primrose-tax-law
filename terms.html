@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service | Primrose Tax Law</title>
+  <meta name="description" content="Terms of Service for Primrose Tax Law. Review the terms governing your use of our website.">
+  <link rel="icon" href="assets/images/icon-gold.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1C1C1C;
+      background: #F5F0EB;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
+    }
+
+    .accent-serif {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================
+       COMPONENTS
+       ============================================ */
+    .sage-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-sage {
+      background: #7C9A8E;
+      color: #fff;
+    }
+
+    .btn-sage:hover {
+      background: #6b8a7d;
+      opacity: 1;
+    }
+
+    .btn-cream {
+      background: #F5F0EB;
+      color: #1C1C1C;
+    }
+
+    .btn-cream:hover {
+      background: #EDE7DF;
+      opacity: 1;
+    }
+
+    .btn-outline-cream {
+      background: transparent;
+      color: #F5F0EB;
+      border: 1.5px solid rgba(245, 240, 235, 0.3);
+    }
+
+    .btn-outline-cream:hover {
+      border-color: rgba(245, 240, 235, 0.6);
+      opacity: 1;
+    }
+
+    /* ============================================
+       FADE-IN ANIMATION
+       ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       1. NAVIGATION
+       ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background: #1C1C1C;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      color: #F5F0EB;
+    }
+
+    .nav-brand-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-brand-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      margin: 0 6px;
+      position: relative;
+      top: -1px;
+    }
+
+    .nav-brand-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      opacity: 0.55;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(245, 240, 235, 0.55);
+      letter-spacing: 0.01em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .nav-cta-wrap {
+      margin-left: 12px;
+    }
+
+    .nav-cta-wrap .btn {
+      padding: 10px 22px;
+      font-size: 13px;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #F5F0EB;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      background: #1C1C1C;
+      padding: 24px;
+      z-index: 999;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-menu a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 8px 0;
+      color: rgba(245, 240, 235, 0.7);
+    }
+
+    .mobile-menu .btn {
+      width: fit-content;
+      margin-top: 8px;
+    }
+
+    /* ============================================
+       2. PAGE HERO
+       ============================================ */
+    .page-hero {
+      padding: 64px 0 0 0;
+      background: #F5F0EB;
+    }
+
+    .page-hero-inner {
+      padding: 100px 0 80px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-hero-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: #1C1C1C;
+      margin-bottom: 20px;
+    }
+
+    .page-hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(28, 28, 28, 0.45);
+    }
+
+    /* ============================================
+       3. LEGAL CONTENT
+       ============================================ */
+    .legal-content {
+      background: #F5F0EB;
+      padding: 0 0 120px;
+    }
+
+    .legal-content-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .legal-notice {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #7C9A8E;
+      background: rgba(124, 154, 142, 0.08);
+      border: 1px solid rgba(124, 154, 142, 0.15);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 48px;
+    }
+
+    .legal-section {
+      margin-bottom: 40px;
+    }
+
+    .legal-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-section h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1C1C1C;
+      margin-bottom: 12px;
+    }
+
+    .legal-section p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(28, 28, 28, 0.6);
+    }
+
+    .legal-section p + p {
+      margin-top: 12px;
+    }
+
+    .legal-section a {
+      color: #7C9A8E;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .legal-section a:hover {
+      color: #4A6B5D;
+      opacity: 1;
+    }
+
+    /* ============================================
+       4. FOOTER
+       ============================================ */
+    .footer {
+      background: #111111;
+      padding: 80px 24px 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand img {
+      height: 24px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(245, 240, 235, 0.4);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h5 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(245, 240, 235, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245, 240, 235, 0.55);
+      margin-bottom: 12px;
+    }
+
+    .footer-col a:hover {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(245, 240, 235, 0.06);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    /* ============================================
+       RESPONSIVE -- 1024px
+       ============================================ */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE -- 768px
+       ============================================ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta-wrap {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .page-hero-heading {
+        font-size: clamp(28px, 7vw, 40px);
+        letter-spacing: -1.5px;
+      }
+
+      .page-hero-inner {
+        padding: 80px 0 60px;
+      }
+
+      .legal-content {
+        padding: 0 0 80px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE -- 480px
+       ============================================ */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .page-hero-heading {
+        font-size: 28px;
+        letter-spacing: -1px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       1. NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+        <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 28px;">
+      </a>
+      <div class="nav-links">
+        <a href="/for-tax-advisors">For Tax Advisors</a>
+        <a href="/for-business-owners">For Business Owners</a>
+        <a href="/about">About</a>
+        <a href="/research">Publications</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta-wrap">
+        <a href="/for-tax-advisors" class="btn btn-sage">Refer a Client &#8599;</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/for-tax-advisors">For Tax Advisors</a>
+    <a href="/for-business-owners">For Business Owners</a>
+    <a href="/about">About</a>
+    <a href="/research">Publications</a>
+    <a href="#contact">Contact</a>
+    <a href="/for-tax-advisors" class="btn btn-sage">Refer a Client &#8599;</a>
+  </div>
+
+  <!-- ============================================
+       2. HERO
+       ============================================ -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner fade-in">
+        <h1 class="page-hero-heading">TERMS OF SERVICE</h1>
+        <p class="page-hero-sub">Last updated: May 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       3. LEGAL CONTENT
+       ============================================ -->
+  <section class="legal-content">
+    <div class="container">
+      <div class="legal-content-inner fade-in">
+
+        <div class="legal-notice">
+          These terms are under review and will be updated prior to launch.
+        </div>
+
+        <div class="legal-section">
+          <h2>1. Agreement to Terms</h2>
+          <p>By accessing or using the Primrose Tax Law website, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this site.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>2. Use of Website</h2>
+          <p>The content on this website is provided for general informational purposes only and does not constitute legal advice. No information on this website should be relied upon as a substitute for professional legal counsel. You should not act or refrain from acting based on any content on this website without seeking appropriate legal advice from a qualified professional.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>3. No Solicitor-Client Relationship</h2>
+          <p>Your use of this website, including sending inquiries through the contact form or referral form, does not create a solicitor-client relationship between you and Primrose Tax Law Inc. A solicitor-client relationship is only established through a formal engagement agreement signed by both parties. Until such a relationship is formally established, any information you send to us may not be treated as privileged or confidential.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>4. Limitation of Liability</h2>
+          <p>Primrose Tax Law Inc. shall not be held liable for any damages arising from the use of or inability to use this website, including but not limited to direct, indirect, incidental, consequential, or punitive damages. This limitation applies whether the alleged liability is based on contract, tort, negligence, strict liability, or any other basis, even if we have been advised of the possibility of such damages.</p>
+        </div>
+
+        <div class="legal-section">
+          <h2>5. Governing Law</h2>
+          <p>These Terms of Service and any disputes arising out of or related to the use of this website shall be governed by and construed in accordance with the laws of the Province of Nova Scotia and the applicable federal laws of Canada, without regard to conflict of law principles. Any legal proceedings shall be brought exclusively in the courts of Nova Scotia.</p>
+        </div>
+
+        <div class="legal-section" id="contact">
+          <h2>6. Contact</h2>
+          <p>If you have any questions about these Terms of Service, please contact us:</p>
+          <p>
+            Primrose Tax Law Inc.<br>
+            1959 Upper Water Street, Suite 1301, Tower 1<br>
+            Halifax, NS B3J 3N2<br><br>
+            Email: <a href="mailto:hello@primrosetax.ca">hello@primrosetax.ca</a><br>
+            Phone: <a href="tel:+19025100430">+1 (902) 510-0430</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       4. FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-dark.png" alt="Primrose Tax Law">
+          <p>Implementing corporate and trust reorganizations across all nine common law provinces.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Practice</h5>
+          <a href="/#practice">Section 85 Rollovers</a>
+          <a href="/#practice">Estate Freezes</a>
+          <a href="/#practice">Trust Settlements</a>
+          <a href="/#practice">Butterfly Reorganizations</a>
+          <a href="/#practice">Tax Opinions</a>
+        </div>
+        <div class="footer-col">
+          <h5>Firm</h5>
+          <a href="/for-tax-advisors">For Tax Advisors</a>
+          <a href="/for-business-owners">For Business Owners</a>
+          <a href="/about">About</a>
+          <a href="/research">Writing</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="mailto:hello@primrosetax.ca">hello@primrosetax.ca</a>
+          <a href="tel:+19025100430">+1 (902) 510-0430</a>
+          <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="/for-tax-advisors">Refer a Client</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Primrose Tax Law Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    // ---- HAMBURGER MENU ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ---- FADE-IN ANIMATIONS (IntersectionObserver) ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      fadeEls.forEach(function (el) {
+        observer.observe(el);
+      });
+    } else {
+      fadeEls.forEach(function (el) {
+        el.classList.add('visible');
+      });
+    }
+
+    // ---- SMOOTH SCROLL FOR ANCHOR LINKS ----
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

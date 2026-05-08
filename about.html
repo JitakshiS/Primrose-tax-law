@@ -835,18 +835,18 @@
        ============================================ -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-brand">
+      <a href="/" class="nav-brand">
         <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 28px;">
       </a>
       <div class="nav-links">
-        <a href="for-tax-advisors.html">For Tax Advisors</a>
-        <a href="for-business-owners.html">For Business Owners</a>
-        <a href="about.html" class="nav-active" style="color: #F5F0EB; opacity: 1;">About</a>
-        <a href="research.html">Publications</a>
+        <a href="/for-tax-advisors">For Tax Advisors</a>
+        <a href="/for-business-owners">For Business Owners</a>
+        <a href="/about" class="nav-active" style="color: #F5F0EB; opacity: 1;">About</a>
+        <a href="/research">Publications</a>
         <a href="mailto:hello@primrosetax.ca">Contact</a>
       </div>
       <div class="nav-cta-wrap">
-        <a href="for-tax-advisors.html" class="btn btn-sage">Refer a Client &#8599;</a>
+        <a href="/for-tax-advisors" class="btn btn-sage">Refer a Client &#8599;</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span>
@@ -858,12 +858,12 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="for-tax-advisors.html">For Tax Advisors</a>
-    <a href="for-business-owners.html">For Business Owners</a>
-    <a href="about.html" style="color: #F5F0EB;">About</a>
-    <a href="research.html">Publications</a>
+    <a href="/for-tax-advisors">For Tax Advisors</a>
+    <a href="/for-business-owners">For Business Owners</a>
+    <a href="/about" style="color: #F5F0EB;">About</a>
+    <a href="/research">Publications</a>
     <a href="mailto:hello@primrosetax.ca">Contact</a>
-    <a href="for-tax-advisors.html" class="btn btn-sage">Refer a Client &#8599;</a>
+    <a href="/for-tax-advisors" class="btn btn-sage">Refer a Client &#8599;</a>
   </div>
 
   <!-- ============================================
@@ -999,7 +999,7 @@
       <p class="cta-sub">We respond within one business day.</p>
       <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
         <button class="btn btn-cream" onclick="var w=document.getElementById('aboutContactWrap'); w.style.display=w.style.display==='none'?'block':'none'; this.innerHTML=w.style.display==='none'?'Contact Us &#8599;':'Close &#10005;'">Contact Us &#8599;</button>
-        <a href="for-tax-advisors.html#refer" class="btn btn-outline-cream">Refer a Client</a>
+        <a href="/for-tax-advisors#refer" class="btn btn-outline-cream">Refer a Client</a>
       </div>
       <div id="aboutContactWrap" style="display: none; max-width: 600px; margin: 32px auto 0;">
         <style>#aboutContactForm input::placeholder, #aboutContactForm textarea::placeholder { color: rgba(245,240,235,0.5); opacity: 1; }</style>
@@ -1031,32 +1031,32 @@
         </div>
         <div class="footer-col">
           <h5>Practice</h5>
-          <a href="index.html#practice">Section 85 Rollovers</a>
-          <a href="index.html#practice">Estate Freezes</a>
-          <a href="index.html#practice">Trust Settlements</a>
-          <a href="index.html#practice">Butterfly Reorganizations</a>
-          <a href="index.html#practice">Tax Opinions</a>
+          <a href="/#practice">Section 85 Rollovers</a>
+          <a href="/#practice">Estate Freezes</a>
+          <a href="/#practice">Trust Settlements</a>
+          <a href="/#practice">Butterfly Reorganizations</a>
+          <a href="/#practice">Tax Opinions</a>
         </div>
         <div class="footer-col">
           <h5>Firm</h5>
-          <a href="for-tax-advisors.html">For Tax Advisors</a>
-          <a href="for-business-owners.html">For Business Owners</a>
-          <a href="about.html">About</a>
-          <a href="research.html">Writing</a>
+          <a href="/for-tax-advisors">For Tax Advisors</a>
+          <a href="/for-business-owners">For Business Owners</a>
+          <a href="/about">About</a>
+          <a href="/research">Writing</a>
         </div>
         <div class="footer-col">
           <h5>Connect</h5>
           <a href="mailto:hello@primrosetax.ca">hello@primrosetax.ca</a>
           <a href="tel:+19025100430">+1 (902) 510-0430</a>
           <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="for-tax-advisors.html">Refer a Client</a>
+          <a href="/for-tax-advisors">Refer a Client</a>
         </div>
       </div>
       <div class="footer-bottom">
         <span class="footer-copy">&copy; 2026 Primrose Tax Law Inc. All rights reserved.</span>
         <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
         </div>
       </div>
     </div>
@@ -1120,6 +1120,46 @@
         }
       });
     });
+
+    // ---- CONTACT FORM (SUPABASE) ----
+    var formId = 'aboutContactForm';
+    var form = document.getElementById(formId);
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('https://gcrrvvwlxpgjjgnxizus.supabase.co/rest/v1/contacts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+              name: this.querySelector('[name="name"]').value,
+              email: this.querySelector('[name="email"]').value,
+              subject: 'Contact from ' + window.location.pathname,
+              message: this.querySelector('[name="message"]').value
+            })
+          });
+          if (res.ok) {
+            btn.innerHTML = 'Message Sent &#10003;';
+            btn.style.background = '#4A6B5D';
+            form.reset();
+            setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 4000);
+          } else { throw new Error(); }
+        } catch (err) {
+          btn.innerHTML = 'Error — please try again';
+          btn.style.background = '#8C3A3A';
+          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+        }
+      });
+    }
   </script>
 
 </body>

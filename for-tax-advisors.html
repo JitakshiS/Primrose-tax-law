@@ -1070,7 +1070,30 @@
         font-size: 32px;
       }
     }
+    /* Language selector */
+    .lang-wrap { position: relative; display: flex; align-items: center; }
+    .lang-btn { background: none; border: 1px solid rgba(245,240,235,0.2); border-radius: 6px; padding: 6px 10px; cursor: pointer; display: flex; align-items: center; gap: 6px; color: rgba(245,240,235,0.6); font-family: 'DM Sans', sans-serif; font-size: 12px; transition: all 0.2s; }
+    .lang-btn:hover { border-color: rgba(245,240,235,0.4); color: #F5F0EB; }
+    .lang-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .lang-menu { display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; background: #1C1C1C; border: 1px solid rgba(245,240,235,0.15); border-radius: 8px; padding: 6px 0; min-width: 160px; z-index: 1001; box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+    .lang-menu.open { display: block; }
+    .lang-menu a { display: block; padding: 8px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.6); transition: all 0.15s; cursor: pointer; }
+    .lang-menu a:hover { background: rgba(245,240,235,0.06); color: #F5F0EB; opacity: 1; }
+    .goog-te-banner-frame, .skiptranslate, #google_translate_element { display: none !important; }
+    body { top: 0 !important; }
   </style>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateInit"></script>
+  <script>
+    function googleTranslateInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+    function setLang(code) {
+      var sel = document.querySelector('.goog-te-combo');
+      if (sel) { sel.value = code; sel.dispatchEvent(new Event('change')); }
+      document.querySelector('.lang-menu').classList.remove('open');
+      document.querySelector('.lang-label').textContent = code === 'en' ? 'EN' : code.toUpperCase().split('-')[0];
+    }
+  </script>
 </head>
 <body>
 
@@ -1089,7 +1112,22 @@
         <a href="/research">Publications</a>
         <a href="#contact">Contact</a>
       </div>
-      <div class="nav-cta-wrap">
+      <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 12px;">
+        <div class="lang-wrap">
+          <button class="lang-btn" onclick="this.nextElementSibling.classList.toggle('open')">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span class="lang-label">EN</span>
+          </button>
+          <div class="lang-menu">
+            <a onclick="setLang('en')">English</a>
+            <a onclick="setLang('fr')">Fran&ccedil;ais</a>
+            <a onclick="setLang('zh-CN')">&#20013;&#25991;</a>
+            <a onclick="setLang('pa')">&#2602;&#2672;&#2588;&#2622;&#2604;&#2624;</a>
+            <a onclick="setLang('es')">Espa&ntilde;ol</a>
+            <a onclick="setLang('tl')">Tagalog</a>
+            <a onclick="setLang('ar')">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</a>
+          </div>
+        </div>
         <a href="#refer" class="btn btn-sage">Refer a Client &#8599;</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -1099,6 +1137,7 @@
       </button>
     </div>
   </nav>
+  <div id="google_translate_element" style="display:none;"></div>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">

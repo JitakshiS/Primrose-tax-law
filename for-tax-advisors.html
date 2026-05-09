@@ -642,14 +642,14 @@
     }
 
     /* ============================================
-       8. TESTIMONIALS
+       8. PRICING GUIDE
        ============================================ */
-    .testimonials {
+    .pricing-guide {
       background: #F5F0EB;
       padding: 0 0 120px;
     }
 
-    .testimonial-label {
+    .pricing-label {
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       text-transform: uppercase;
@@ -658,45 +658,40 @@
       margin-bottom: 48px;
     }
 
-    .testimonial-grid {
+    .pricing-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 16px;
     }
 
-    .testimonial-card {
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 28px;
       background: #FAFAF8;
-      border-radius: 12px;
+      border-radius: 10px;
       border: 1px solid rgba(28, 28, 28, 0.06);
-      padding: 40px;
-      position: relative;
     }
 
-    .testimonial-quote-mark {
+    .pricing-row-label {
       font-family: 'DM Sans', sans-serif;
-      font-weight: 700;
-      font-size: 60px;
-      line-height: 1;
+      font-size: 15px;
+      font-weight: 500;
+      color: #1C1C1C;
+    }
+
+    .pricing-row-range {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
       color: #7C9A8E;
-      opacity: 0.15;
-      position: absolute;
-      top: 24px;
-      left: 36px;
     }
 
-    .testimonial-card p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: rgba(28, 28, 28, 0.45);
-      margin-top: 32px;
-      margin-bottom: 20px;
-    }
-
-    .testimonial-attr {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
+    .pricing-note {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
       color: rgba(28, 28, 28, 0.3);
+      margin-top: 20px;
     }
 
     /* ============================================
@@ -992,11 +987,11 @@
         padding: 0 0 80px;
       }
 
-      .testimonials {
+      .pricing-guide {
         padding: 0 0 80px;
       }
 
-      .testimonial-grid {
+      .pricing-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1312,23 +1307,46 @@
   </section>
 
   <!-- ============================================
-       8. TESTIMONIALS
+       8. PRICING GUIDE
        ============================================ -->
-  <section class="testimonials">
+  <section class="pricing-guide">
     <div class="container">
-      <div class="testimonial-label fade-in">What Tax Advisors Say</div>
-      <div class="testimonial-grid fade-in">
-        <div class="testimonial-card">
-          <span class="testimonial-quote-mark">&ldquo;</span>
-          <p>Testimonial pending&thinsp;&mdash;&thinsp;available upon launch.</p>
-          <span class="testimonial-attr">CPA Firm &middot; City &middot; Matter type</span>
+      <div class="pricing-label fade-in">Fee Guide</div>
+      <div class="pricing-grid fade-in">
+        <div class="pricing-row">
+          <span class="pricing-row-label">Section 85 Rollover</span>
+          <span class="pricing-row-range">From $3,500</span>
         </div>
-        <div class="testimonial-card">
-          <span class="testimonial-quote-mark">&ldquo;</span>
-          <p>Testimonial pending&thinsp;&mdash;&thinsp;available upon launch.</p>
-          <span class="testimonial-attr">CPA Firm &middot; City &middot; Matter type</span>
+        <div class="pricing-row">
+          <span class="pricing-row-label">Share Reorganization (S.86)</span>
+          <span class="pricing-row-range">From $4,000</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-row-label">Estate Freeze</span>
+          <span class="pricing-row-range">From $5,000</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-row-label">Family Trust Settlement</span>
+          <span class="pricing-row-range">From $4,500</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-row-label">Butterfly Reorganization</span>
+          <span class="pricing-row-range">From $7,500</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-row-label">21-Year Trust Planning</span>
+          <span class="pricing-row-range">From $5,000</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-row-label">Post-Mortem Pipeline</span>
+          <span class="pricing-row-range">From $5,000</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-row-label">Tax Opinion / Memo</span>
+          <span class="pricing-row-range">From $2,500</span>
         </div>
       </div>
+      <p class="pricing-note">All fees are fixed and quoted upfront before engagement. Complexity and multi-entity structures may affect final scope. Contact us for a file-specific quote.</p>
     </div>
   </section>
 

@@ -890,6 +890,8 @@
         align-items: flex-start;
       }
 
+      .bo-faq { padding: 80px 0; }
+
       .cta-section {
         padding: 80px 20px;
       }
@@ -902,6 +904,61 @@
         width: 100%;
       }
     }
+    /* FAQ */
+    .bo-faq {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .bo-faq-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 48px;
+    }
+
+    .bo-faq-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(32px, 4vw, 44px);
+      letter-spacing: -1px;
+      color: #1C1C1C;
+      margin-bottom: 48px;
+    }
+
+    .bo-faq-heading span {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .bo-faq-item {
+      border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+      padding: 24px 0;
+    }
+
+    .bo-faq-item:first-child {
+      border-top: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .bo-faq-q {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: #1C1C1C;
+      margin-bottom: 8px;
+    }
+
+    .bo-faq-a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(28, 28, 28, 0.55);
+      max-width: 680px;
+    }
+
     /* Language selector */
     .lang-wrap { position: relative; display: flex; align-items: center; }
     .lang-btn { background: none; border: 1px solid rgba(245,240,235,0.2); border-radius: 6px; padding: 6px 10px; cursor: pointer; display: flex; align-items: center; gap: 6px; color: rgba(245,240,235,0.6); font-family: 'DM Sans', sans-serif; font-size: 12px; transition: all 0.2s; }
@@ -1086,7 +1143,39 @@
   </section>
 
   <!-- ============================================
-       7. CTA
+       7. FAQ
+       ============================================ -->
+  <section class="bo-faq">
+    <div class="container">
+      <div class="bo-faq-label fade-in">Common Questions</div>
+      <div class="bo-faq-heading fade-in">What business owners <span>ask&nbsp;us.</span></div>
+      <div class="fade-in">
+        <div class="bo-faq-item">
+          <div class="bo-faq-q">How much does this cost?</div>
+          <div class="bo-faq-a">Every engagement is fixed-fee, quoted upfront before work begins. A straightforward rollover or trust settlement typically starts from $3,500. We provide a clear scope and fee within one business day of your initial&nbsp;contact.</div>
+        </div>
+        <div class="bo-faq-item">
+          <div class="bo-faq-q">How long does it take?</div>
+          <div class="bo-faq-a">Most implementations are completed within 4 to 8 weeks depending on complexity. We respond to your initial inquiry within one business day, and your engagement letter follows shortly&nbsp;after.</div>
+        </div>
+        <div class="bo-faq-item">
+          <div class="bo-faq-q">Does my accountant need to be involved?</div>
+          <div class="bo-faq-a">Your accountant designed the tax strategy, and they stay involved throughout. We implement the legal structure on their instruction, keeping them informed at every step. Your advisory relationships stay exactly as they&nbsp;are.</div>
+        </div>
+        <div class="bo-faq-item">
+          <div class="bo-faq-q">Will this disrupt my business?</div>
+          <div class="bo-faq-a">The legal implementation happens behind the scenes. We handle the resolutions, elections, and trust deeds. Your day-to-day operations continue as normal. Electronic minute books and secure document handling mean minimal administrative burden on your&nbsp;end.</div>
+        </div>
+        <div class="bo-faq-item">
+          <div class="bo-faq-q">What provinces do you cover?</div>
+          <div class="bo-faq-a">All nine common law provinces across Canada, from offices in Halifax, Toronto, Calgary, and Vancouver. Governed by the National Mobility&nbsp;Agreement.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       8. CTA
        ============================================ -->
   <section class="cta-section" id="contact">
     <div class="container fade-in">

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Rule For A Specific Instance — Connected And Control | Primrose Tax Law</title>
+  <meta name="description" content="Examines subsection 186(7) of the Income Tax Act regarding how 'connected' should be interpreted in the context of corporate control and Part IV tax.">
+  <meta name="keywords" content="subsection 186(7), connected corporation, control, Part IV tax, Income Tax Act, share reorganizations, Canadian tax law">
+  <meta property="og:title" content="Connected And Control — Subsection 186(7) | Primrose Tax Law">
+  <meta property="og:description" content="Examines subsection 186(7) of the Income Tax Act regarding how 'connected' should be interpreted.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://primrosetax.ca/publications/connected-and-control-subsection-186-7">
+  <link rel="canonical" href="https://primrosetax.ca/publications/connected-and-control-subsection-186-7">
+  <link rel="icon" href="../assets/images/icon-gold.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'DM Sans', sans-serif; color: #1C1C1C; background: #F5F0EB; line-height: 1.6; overflow-x: hidden; }
+    img { max-width: 100%; display: block; } a { text-decoration: none; color: inherit; transition: opacity 0.3s ease; } a:hover { opacity: 0.8; } ul { list-style: none; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-weight: 400; } .accent-serif { font-family: 'Instrument Serif', serif; font-style: italic; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .sage-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #7C9A8E; flex-shrink: 0; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 32px; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; border: none; text-decoration: none; }
+    .btn-sage { background: #7C9A8E; color: #fff; } .btn-sage:hover { background: #6b8a7d; opacity: 1; }
+    .btn-outline-cream { background: transparent; color: #F5F0EB; border: 1.5px solid rgba(245, 240, 235, 0.3); } .btn-outline-cream:hover { border-color: rgba(245, 240, 235, 0.6); opacity: 1; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; } .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .nav { position: fixed; top: 0; left: 0; width: 100%; height: 64px; background: #1C1C1C; z-index: 1000; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .nav-brand { display: flex; align-items: center; gap: 0; color: #F5F0EB; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: rgba(245, 240, 235, 0.55); letter-spacing: 0.01em; transition: color 0.3s ease; }
+    .nav-links a:hover { color: #F5F0EB; opacity: 1; } .nav-links a.nav-active { color: #F5F0EB; opacity: 1; }
+    .nav-cta-wrap { margin-left: 12px; } .nav-cta-wrap .btn { padding: 10px 22px; font-size: 13px; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #F5F0EB; border-radius: 2px; transition: all 0.3s ease; }
+    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; width: 100%; background: #1C1C1C; padding: 24px; z-index: 999; }
+    .mobile-menu.open { display: flex; flex-direction: column; gap: 16px; }
+    .mobile-menu a { font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 8px 0; color: rgba(245, 240, 235, 0.7); }
+    .mobile-menu a.nav-active { color: #F5F0EB; } .mobile-menu .btn { width: fit-content; margin-top: 8px; }
+    .pub-hero { padding-top: 64px; background: #1C1C1C; min-height: 420px; display: flex; align-items: flex-end; }
+    .pub-hero-inner { padding: 80px 0 72px; max-width: 800px; }
+    .pub-hero-back { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: rgba(245, 240, 235, 0.4); margin-bottom: 40px; transition: color 0.3s ease; }
+    .pub-hero-back:hover { color: #F5F0EB; opacity: 1; } .pub-hero-back svg { width: 16px; height: 16px; fill: currentColor; }
+    .pub-hero-tags { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .pub-hero-tag { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; padding: 5px 14px; border-radius: 100px; white-space: nowrap; }
+    .pub-hero-tag--sage { background: rgba(124, 154, 142, 0.2); color: #7C9A8E; }
+    .pub-hero-tag--sand { background: rgba(194, 185, 167, 0.2); color: #C2B9A7; }
+    .pub-hero h1 { font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.1; letter-spacing: -1.5px; color: #F5F0EB; margin-bottom: 24px; }
+    .pub-hero-meta { display: flex; flex-direction: column; gap: 8px; }
+    .pub-hero-source { font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; color: #7C9A8E; }
+    .pub-hero-author { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(245, 240, 235, 0.4); }
+    .pub-body { background: #F5F0EB; padding: 80px 0 0; }
+    .pub-body-layout { display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
+    .pub-main { max-width: 720px; }
+    .pub-summary { margin-bottom: 56px; }
+    .pub-summary-label { font-family: 'DM Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(28, 28, 28, 0.4); margin-bottom: 20px; }
+    .pub-summary-text { font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.7; color: rgba(28, 28, 28, 0.65); margin-bottom: 32px; }
+    .pub-takeaways { margin-bottom: 56px; }
+    .pub-takeaways-label { font-family: 'DM Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(28, 28, 28, 0.4); margin-bottom: 20px; }
+    .pub-takeaway-list { display: flex; flex-direction: column; gap: 20px; }
+    .pub-takeaway-item { display: flex; align-items: flex-start; gap: 16px; padding: 20px 24px; background: #FAFAF8; border-radius: 10px; border: 1px solid rgba(28, 28, 28, 0.06); }
+    .pub-takeaway-item .sage-dot { width: 8px; height: 8px; margin-top: 8px; flex-shrink: 0; }
+    .pub-takeaway-item p { font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.65; color: #1C1C1C; }
+    .pub-read-cta { padding: 32px 0; border-top: 1px solid rgba(28, 28, 28, 0.08); border-bottom: 1px solid rgba(28, 28, 28, 0.08); margin-bottom: 56px; }
+    .pub-read-cta a { display: inline-flex; align-items: center; gap: 10px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #4A6B5D; transition: all 0.3s ease; }
+    .pub-read-cta a:hover { color: #1C1C1C; opacity: 1; } .pub-read-cta a svg { width: 18px; height: 18px; fill: currentColor; }
+    .pub-read-cta .pub-read-note { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(28, 28, 28, 0.3); margin-top: 10px; }
+    .pub-sidebar { position: sticky; top: 96px; }
+    .pub-sidebar-section { margin-bottom: 40px; }
+    .pub-sidebar-label { font-family: 'DM Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(28, 28, 28, 0.4); margin-bottom: 16px; }
+    .pub-sidebar-link { display: flex; align-items: center; gap: 10px; padding: 14px 0; border-bottom: 1px solid rgba(28, 28, 28, 0.06); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #1C1C1C; transition: color 0.3s ease; }
+    .pub-sidebar-link:first-child { border-top: 1px solid rgba(28, 28, 28, 0.06); }
+    .pub-sidebar-link:hover { color: #4A6B5D; opacity: 1; } .pub-sidebar-link .sage-dot { width: 6px; height: 6px; }
+    .pub-sidebar-card { background: #1C1C1C; border-radius: 12px; padding: 28px 24px; }
+    .pub-sidebar-card-label { font-family: 'DM Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #7C9A8E; margin-bottom: 12px; }
+    .pub-sidebar-card p { font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; color: rgba(245, 240, 235, 0.55); margin-bottom: 20px; }
+    .pub-sidebar-card .btn { width: 100%; font-size: 13px; padding: 12px 20px; }
+    .pub-bottom-cta { background: #1C1C1C; padding: 100px 0; }
+    .pub-bottom-cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .pub-bottom-cta h2 { font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: clamp(28px, 4vw, 40px); color: #F5F0EB; letter-spacing: -0.5px; margin-bottom: 16px; line-height: 1.2; }
+    .pub-bottom-cta p { font-family: 'DM Sans', sans-serif; font-size: 16px; color: rgba(245, 240, 235, 0.5); margin-bottom: 36px; line-height: 1.6; }
+    .pub-bottom-cta .btn { margin: 0 8px; }
+    .footer { background: #111111; padding: 80px 24px 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand img { height: 24px; width: auto; margin-bottom: 16px; } .footer-brand p { font-size: 14px; color: rgba(245, 240, 235, 0.4); line-height: 1.7; max-width: 280px; }
+    .footer-col h5 { font-family: 'DM Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(245, 240, 235, 0.3); margin-bottom: 20px; }
+    .footer-col a { display: block; font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(245, 240, 235, 0.55); margin-bottom: 12px; }
+    .footer-col a:hover { color: #F5F0EB; opacity: 1; }
+    .footer-bottom { border-top: 1px solid rgba(245, 240, 235, 0.06); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(245, 240, 235, 0.25); }
+    .footer-legal { display: flex; gap: 24px; } .footer-legal a { font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(245, 240, 235, 0.25); }
+    @media (max-width: 1024px) { .pub-body-layout { grid-template-columns: 1fr; gap: 56px; } .pub-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; } .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+    @media (max-width: 768px) { .nav-links { display: none; } .nav-cta-wrap { display: none; } .hamburger { display: flex; } .pub-hero h1 { font-size: clamp(28px, 6vw, 40px); letter-spacing: -1px; } .pub-hero-inner { padding: 56px 0 56px; } .pub-body { padding: 56px 0 0; } .pub-sidebar { grid-template-columns: 1fr; } .pub-bottom-cta { padding: 72px 0; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .container { padding: 0 20px; } .pub-hero h1 { font-size: 28px; } .pub-hero-inner { padding: 48px 0 48px; } .pub-bottom-cta .btn { display: flex; width: 100%; margin: 8px 0; } .footer-grid { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; align-items: flex-start; } }
+    .lang-wrap { position: relative; display: flex; align-items: center; } .lang-btn { background: none; border: 1px solid rgba(245,240,235,0.2); border-radius: 6px; padding: 6px 10px; cursor: pointer; display: flex; align-items: center; gap: 6px; color: rgba(245,240,235,0.6); font-family: 'DM Sans', sans-serif; font-size: 12px; transition: all 0.2s; } .lang-btn:hover { border-color: rgba(245,240,235,0.4); color: #F5F0EB; } .lang-btn svg { width: 14px; height: 14px; fill: currentColor; } .lang-menu { display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; background: #1C1C1C; border: 1px solid rgba(245,240,235,0.15); border-radius: 8px; padding: 6px 0; min-width: 160px; z-index: 1001; box-shadow: 0 12px 32px rgba(0,0,0,0.3); } .lang-menu.open { display: block; } .lang-menu a { display: block; padding: 8px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.6); transition: all 0.15s; cursor: pointer; } .lang-menu a:hover { background: rgba(245,240,235,0.06); color: #F5F0EB; opacity: 1; } .goog-te-banner-frame, .skiptranslate, #google_translate_element { display: none !important; } body { top: 0 !important; }
+  </style>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateInit"></script>
+  <script>function googleTranslateInit(){new google.translate.TranslateElement({pageLanguage:'en',autoDisplay:false},'google_translate_element')}function setLang(code){var sel=document.querySelector('.goog-te-combo');if(sel){sel.value=code;sel.dispatchEvent(new Event('change'))}document.querySelector('.lang-menu').classList.remove('open');document.querySelector('.lang-label').textContent=code==='en'?'EN':code.toUpperCase().split('-')[0]}</script>
+</head>
+<body>
+  <nav class="nav" id="nav"><div class="nav-inner"><a href="/" class="nav-brand"><img src="../assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 28px;"></a><div class="nav-links"><a href="/for-tax-advisors">For Tax Advisors</a><a href="/for-business-owners">For Business Owners</a><a href="/about">About</a><a href="/research" class="nav-active" style="color: #F5F0EB; opacity: 1;">Publications</a><a href="/for-tax-advisors#refer">Contact</a></div><div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 12px;"><div class="lang-wrap"><button class="lang-btn" onclick="this.nextElementSibling.classList.toggle('open')"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg><span class="lang-label">EN</span></button><div class="lang-menu"><a onclick="setLang('en')">English</a><a onclick="setLang('fr')">Fran&ccedil;ais</a><a onclick="setLang('zh-CN')">&#20013;&#25991;</a><a onclick="setLang('pa')">&#2602;&#2672;&#2588;&#2622;&#2604;&#2624;</a><a onclick="setLang('es')">Espa&ntilde;ol</a><a onclick="setLang('tl')">Tagalog</a><a onclick="setLang('ar')">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</a></div></div><a href="/for-tax-advisors#refer" class="btn btn-sage">Refer a Client &#8599;</a></div><button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button></div></nav>
+  <div id="google_translate_element" style="display:none;"></div>
+  <div class="mobile-menu" id="mobileMenu"><a href="/for-tax-advisors">For Tax Advisors</a><a href="/for-business-owners">For Business Owners</a><a href="/about">About</a><a href="/research" class="nav-active">Publications</a><a href="/for-tax-advisors#refer">Contact</a><a href="/for-tax-advisors#refer" class="btn btn-sage">Refer a Client &#8599;</a></div>
+
+  <section class="pub-hero">
+    <div class="container">
+      <div class="pub-hero-inner fade-in">
+        <a href="/research" class="pub-hero-back"><svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>Back to Publications</a>
+        <div class="pub-hero-tags">
+          <span class="pub-hero-tag pub-hero-tag--sage">Tax Advisors</span>
+          <span class="pub-hero-tag pub-hero-tag--sand">2021</span>
+        </div>
+        <h1>A Special Rule For A Specific Instance &mdash; Connected And&nbsp;Control</h1>
+        <div class="pub-hero-meta">
+          <div class="pub-hero-source">Tax Hyperion &middot; Vol. 18, Issue 4, July&ndash;August&nbsp;2021</div>
+          <div class="pub-hero-author">Primrose Watson</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pub-body">
+    <div class="container">
+      <div class="pub-body-layout">
+        <div class="pub-main">
+          <div class="pub-summary fade-in">
+            <div class="pub-summary-label">Summary</div>
+            <p class="pub-summary-text">This publication provides a detailed analysis of subsection 186(7) of the Income Tax Act, which contains a specialized rule governing how the concept of &ldquo;connected&rdquo; should be interpreted for the purposes of Part IV tax on assessable dividends. The paper examines the interaction between corporate control and the connected corporation rules, and how this specific provision can affect dividend refund&nbsp;mechanics.</p>
+          </div>
+
+          <div class="pub-takeaways fade-in">
+            <div class="pub-takeaways-label">Key Takeaways</div>
+            <div class="pub-takeaway-list">
+              <div class="pub-takeaway-item">
+                <span class="sage-dot"></span>
+                <p>Subsection 186(7) modifies the standard &ldquo;connected&rdquo; test in specific circumstances, requiring practitioners to look beyond the general definitions in section 186 when determining whether Part IV tax applies to dividends received between related&nbsp;corporations.</p>
+              </div>
+              <div class="pub-takeaway-item">
+                <span class="sage-dot"></span>
+                <p>The distinction between de jure and de facto control has material consequences for whether corporations are considered &ldquo;connected&rdquo; under this provision, making share structure and voting rights critical planning&nbsp;considerations.</p>
+              </div>
+              <div class="pub-takeaway-item">
+                <span class="sage-dot"></span>
+                <p>Advisors structuring intercorporate dividend flows must carefully evaluate ss. 186(7) to avoid unintended Part IV tax exposure, particularly in multi-tiered corporate structures where ownership percentages sit near the statutory&nbsp;thresholds.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-read-cta fade-in">
+            <a href="https://v3.taxnetpro.com/Document/Icbe6733e676328cbe0540010e03eefe0/View/FullText.html" target="_blank" rel="noopener">
+              Read the full publication on TaxNet Pro
+              <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 16H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7H5z"/></svg>
+            </a>
+            <div class="pub-read-note">Available via Thomson Reuters &middot;&nbsp;TaxNet&nbsp;Pro</div>
+          </div>
+        </div>
+
+        <aside class="pub-sidebar fade-in">
+          <div class="pub-sidebar-section">
+            <div class="pub-sidebar-label">Related Practice Areas</div>
+            <a href="/for-tax-advisors#scope" class="pub-sidebar-link"><span class="sage-dot"></span>Share Reorganizations</a>
+          </div>
+          <div class="pub-sidebar-section">
+            <div class="pub-sidebar-card">
+              <div class="pub-sidebar-card-label">Work With Us</div>
+              <p>Need help with corporate control analysis or share reorganizations? We implement reorganizations across all nine common law&nbsp;provinces.</p>
+              <a href="/for-tax-advisors#refer" class="btn btn-sage">Refer a Client &#8599;</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="pub-bottom-cta">
+    <div class="container">
+      <div class="pub-bottom-cta-inner fade-in">
+        <h2>Need help with corporate control and share&nbsp;reorganizations?</h2>
+        <p>We implement share reorganizations and corporate restructurings across all nine common law&nbsp;provinces.</p>
+        <a href="/for-tax-advisors#refer" class="btn btn-sage">Refer a Client &#8599;</a>
+        <a href="/for-tax-advisors" class="btn btn-outline-cream">View Practice Areas &#8599;</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="../assets/images/logo-dark.png" alt="Primrose Tax Law"><p>Implementing corporate and trust reorganizations across all nine common law&nbsp;provinces.</p></div><div class="footer-col"><h5>Practice</h5><a href="/#practice">Section 85 Rollovers</a><a href="/#practice">Estate Freezes</a><a href="/#practice">Trust Settlements</a><a href="/#practice">Butterfly Reorganizations</a><a href="/#practice">Tax Opinions</a></div><div class="footer-col"><h5>Firm</h5><a href="/for-tax-advisors">For Tax Advisors</a><a href="/for-business-owners">For Business Owners</a><a href="/about">About</a><a href="/research">Writing</a></div><div class="footer-col"><h5>Connect</h5><a href="mailto:hello@primrosetax.ca">hello@primrosetax.ca</a><a href="tel:+19025100430">+1 (902) 510-0430</a><a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/for-tax-advisors#refer">Refer a Client</a></div></div><div class="footer-bottom"><span class="footer-copy">&copy; 2026 Primrose Tax Law Inc. All rights reserved.</span><div class="footer-legal"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms</a></div></div></div></footer>
+
+  <script>
+    const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',function(){mobileMenu.classList.toggle('open')});mobileMenu.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){mobileMenu.classList.remove('open')})});
+    const fadeEls=document.querySelectorAll('.fade-in');if('IntersectionObserver' in window){const observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});fadeEls.forEach(function(el){observer.observe(el)})}else{fadeEls.forEach(function(el){el.classList.add('visible')})}
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor){anchor.addEventListener('click',function(e){var targetId=this.getAttribute('href');if(targetId==='#')return;var target=document.querySelector(targetId);if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}})});
+  </script>
+</body>
+</html>

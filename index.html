@@ -1987,7 +1987,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center top;
       filter: contrast(1.05) brightness(0.95);
       border-radius: 2px;
     }
@@ -2082,55 +2082,48 @@
       color: #9AB5A8;
     }
 
-    /* ---- OFFICE BADGES (below business card, left column) ---- */
+    /* ---- OFFICES (below business card, text only, no card) ---- */
     .about-v2-offices-block {
       margin-top: 28px;
-      padding: 20px 24px;
-      border: 1px solid rgba(245,240,235,0.1);
-      border-radius: 4px;
-      background: rgba(245,240,235,0.02);
+      padding: 0 8px;
     }
 
     .about-v2-offices-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(245,240,235,0.45);
-      margin-bottom: 14px;
+      letter-spacing: 0.14em;
+      color: rgba(245,240,235,0.35);
+      margin-bottom: 12px;
     }
 
     .about-v2-offices-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 20px 28px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .about-v2-card-office {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(245,240,235,0.7);
-      border: 1px solid rgba(245,240,235,0.18);
-      padding: 6px 12px;
-      border-radius: 100px;
-      background: rgba(124,154,142,0.08);
+      color: rgba(245,240,235,0.55);
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      align-items: baseline;
+      gap: 8px;
       white-space: nowrap;
     }
 
     .about-v2-card-office strong {
       font-weight: 700;
       color: #9AB5A8;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
 
-    /* ---- FEATURED PUBLICATION CARD (right column top, latest research) ---- */
+    /* ---- FEATURED PUBLICATION CARD (latest research highlight) ---- */
     .about-v2-pub-card {
+      margin-top: 24px;
       margin-bottom: 32px;
       padding: 28px 24px;
       background: rgba(124,154,142,0.08);
@@ -2192,22 +2185,24 @@
 
     /* ---- ANNOTATION BAR (bottom) ---- */
     .about-v2-annotation-bar {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
+      display: flex;
+      justify-content: center;
+      gap: 64px;
       margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(245,240,235,0.1);
       position: relative;
       z-index: 2;
+      flex-wrap: wrap;
     }
 
     .about-v2-annotation-item {
-      border-top: 1px solid rgba(245,240,235,0.1);
-      padding-top: 16px;
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: rgba(245,240,235,0.35);
+      text-align: center;
     }
 
     /* ---- ABOUT V2 RESPONSIVE 768px ---- */
@@ -2310,7 +2305,7 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-brand">
-        <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 28px;">
+        <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 36px; width: auto; display: block;">
       </a>
       <div class="nav-links">
         <a href="for-tax-advisors.html">For Tax Advisors</a>
@@ -2417,7 +2412,10 @@
 
         <!-- Credentials Slip -->
         <div class="about-v2-right">
-          <!-- Featured: LLM Thesis publication card (latest research, top of column) -->
+          <div class="about-v2-quote">&ldquo;Built on quiet rigour and a deep respect for the work tax advisors already&nbsp;do.&rdquo;</div>
+          <div class="about-v2-quote-rule"></div>
+
+          <!-- Featured: LLM Thesis publication card (latest research highlight) -->
           <div class="about-v2-pub-card">
             <div class="about-v2-pub-tag">LLM Thesis<span class="about-v2-pub-badge">Grade A &middot; Approved</span></div>
             <div class="about-v2-pub-title">LLM Thesis on Canadian Tax&nbsp;Reform</div>
@@ -2425,8 +2423,6 @@
             <div class="about-v2-pub-oneline">Approved research on tax reform. Full publication coming&nbsp;soon.</div>
           </div>
 
-          <div class="about-v2-quote">&ldquo;Built on quiet rigour and a deep respect for the work tax advisors already&nbsp;do.&rdquo;</div>
-          <div class="about-v2-quote-rule"></div>
           <div class="about-v2-cred-group">
             <div class="about-v2-cred-label">Edu</div>
             <div class="about-v2-cred-item">JD &middot; Schulich Law (Dalhousie)</div>
@@ -2517,32 +2513,32 @@
 
       <!-- Audience CTA cards -->
       <div class="hero-cards">
-        <div class="hero-card hero-card--dark fade-in">
+        <a href="for-tax-advisors.html" class="hero-card hero-card--dark fade-in">
           <div class="hero-card-top">
             <span class="hero-card-tag">For Tax Advisors</span>
           </div>
           <div class="hero-card-content">
             <h3>Refer the legal implementation.</h3>
-            <p>You design the tax plan. We draft the resolutions, settle the trusts, and file the elections. Your client stays yours.</p>
-            <a href="for-tax-advisors.html#refer" class="arrow-cta">
+            <p>You design the tax plan. We draft the resolutions, settle the trusts, and file the elections. Your client stays&nbsp;yours.</p>
+            <span class="arrow-cta">
               <span>REFER A CLIENT FILE</span>
               <span class="arrow-circle">&#8599;</span>
-            </a>
+            </span>
           </div>
-        </div>
-        <div class="hero-card hero-card--forest fade-in">
+        </a>
+        <a href="for-business-owners.html" class="hero-card hero-card--forest fade-in">
           <div class="hero-card-top">
             <span class="hero-card-tag">For Business Owners</span>
           </div>
           <div class="hero-card-content">
             <h3>When your tax advisor says &lsquo;call a lawyer.&rsquo;</h3>
             <p>Your tax advisor designed the strategy. We handle what comes next&thinsp;&mdash;&thinsp;the legal documents, the corporate filings, the&nbsp;implementation.</p>
-            <a href="#contact" class="arrow-cta">
+            <span class="arrow-cta">
               <span>SPEAK WITH COUNSEL</span>
               <span class="arrow-circle">&#8599;</span>
-            </a>
+            </span>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>

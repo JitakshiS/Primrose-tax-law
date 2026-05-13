@@ -314,21 +314,13 @@
     .ta-hero {
       padding-top: 64px;
       background: #F5F0EB;
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
     }
 
     .ta-hero-inner {
-      padding: 80px 0 100px;
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    .ta-hero-left {
-      max-width: 560px;
+      padding: 100px 0 120px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .ta-hero-label {
@@ -341,17 +333,17 @@
       background: rgba(124, 154, 142, 0.12);
       padding: 6px 16px;
       border-radius: 100px;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     .ta-hero h1 {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: clamp(36px, 4.5vw, 60px);
+      font-size: clamp(40px, 5vw, 68px);
       line-height: 1.08;
-      letter-spacing: -2px;
+      letter-spacing: -2.5px;
       color: #1C1C1C;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .ta-hero h1 .accent-serif {
@@ -360,55 +352,63 @@
 
     .ta-hero-sub {
       font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
+      font-size: 18px;
       line-height: 1.65;
       color: rgba(28, 28, 28, 0.5);
-      margin-bottom: 0;
+      max-width: 580px;
+      margin: 0 auto 48px;
     }
 
-    .ta-hero-form-card {
+    /* Compact referral form below hero copy */
+    .ta-hero-form {
+      max-width: 520px;
+      margin: 0 auto;
       background: #FAFAF8;
       border: 1px solid rgba(28, 28, 28, 0.06);
       border-radius: 16px;
       padding: 32px;
+      text-align: left;
       box-shadow: 0 8px 32px rgba(28, 28, 28, 0.04);
     }
 
-    .ta-hero-form-card-label {
+    .ta-hero-form-label {
       display: block;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #7C9A8E;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      text-align: center;
     }
 
-    .ta-hero-form-card-title {
+    .ta-hero-form-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 700;
-      font-size: 22px;
+      font-size: 20px;
       color: #1C1C1C;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       letter-spacing: -0.5px;
+      text-align: center;
     }
 
-    .ta-hero-form-card-sub {
+    .ta-hero-form-sub {
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       color: rgba(28, 28, 28, 0.55);
       margin-bottom: 24px;
       line-height: 1.55;
+      text-align: center;
     }
 
-    .ta-hero-form-card .form-field {
+    .ta-hero-form .form-field {
       margin-bottom: 14px;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
-    .ta-hero-form-card label {
+    .ta-hero-form label {
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       text-transform: uppercase;
@@ -416,8 +416,8 @@
       color: rgba(28, 28, 28, 0.4);
     }
 
-    .ta-hero-form-card input,
-    .ta-hero-form-card textarea {
+    .ta-hero-form input,
+    .ta-hero-form textarea {
       font-family: 'DM Sans', sans-serif;
       font-size: 14px;
       padding: 12px 14px;
@@ -429,29 +429,19 @@
       transition: border-color 0.2s;
     }
 
-    .ta-hero-form-card input:focus,
-    .ta-hero-form-card textarea:focus {
+    .ta-hero-form input:focus,
+    .ta-hero-form textarea:focus {
       border-color: #7C9A8E;
     }
 
-    .ta-hero-form-card textarea {
+    .ta-hero-form textarea {
       min-height: 90px;
       resize: vertical;
     }
 
-    .ta-hero-form-card button {
+    .ta-hero-form button {
       width: 100%;
       margin-top: 8px;
-    }
-
-    @media (max-width: 900px) {
-      .ta-hero-inner {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .ta-hero-left {
-        max-width: 100%;
-      }
     }
 
     /* ============================================
@@ -591,23 +581,24 @@
 
     .process-steps {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
       border-top: 1px solid rgba(245, 240, 235, 0.08);
     }
 
     .process-step {
-      padding: 48px 32px 48px 0;
+      padding: 56px 48px 56px 0;
       border-right: 1px solid rgba(245, 240, 235, 0.06);
       position: relative;
     }
 
     .process-step:last-child {
       border-right: none;
+      padding-right: 0;
     }
 
     .process-step:not(:first-child) {
-      padding-left: 32px;
+      padding-left: 48px;
     }
 
     .process-step-num {
@@ -976,20 +967,29 @@
       }
 
       .process-steps {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-step {
+        padding: 40px 32px 40px 0;
+      }
+
+      .process-step:nth-child(2) {
+        border-right: none;
+        padding-right: 0;
       }
 
       .process-step:nth-child(3) {
-        border-right: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(245, 240, 235, 0.06);
+        border-right: 1px solid rgba(245, 240, 235, 0.06);
       }
 
       .process-step:nth-child(4) {
-        padding-left: 0;
         border-top: 1px solid rgba(245, 240, 235, 0.06);
-      }
-
-      .process-step:nth-child(5) {
-        border-top: 1px solid rgba(245, 240, 235, 0.06);
+        padding-left: 32px;
+        padding-right: 0;
+        border-right: none;
       }
 
       .footer-grid {
@@ -1190,7 +1190,7 @@
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="/" class="nav-brand">
-        <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 28px;">
+        <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 36px; width: auto; display: block;">
       </a>
       <div class="nav-links">
         <a href="/for-tax-advisors" class="nav-active" style="color: #F5F0EB; opacity: 1;">For Tax Advisors</a>
@@ -1240,15 +1240,14 @@
   <section class="ta-hero">
     <div class="container">
       <div class="ta-hero-inner fade-in">
-        <div class="ta-hero-left">
-          <span class="ta-hero-label">For Tax Advisors</span>
-          <h1>We implement the plan <span class="accent-serif">you design.</span></h1>
-          <p class="ta-hero-sub">You design the tax strategy. We handle the corporate and trust reorganizations that follow&thinsp;&mdash;&thinsp;across all nine common law provinces, on your&nbsp;instruction.</p>
-        </div>
-        <div class="ta-hero-form-card" id="refer">
-          <span class="ta-hero-form-card-label">Refer a Client</span>
-          <h2 class="ta-hero-form-card-title">Send us the plan.</h2>
-          <p class="ta-hero-form-card-sub">We respond within one business day with a clear scope and fixed&nbsp;fee.</p>
+        <span class="ta-hero-label">For Tax Advisors</span>
+        <h1>We implement the plan <span class="accent-serif">you design.</span></h1>
+        <p class="ta-hero-sub">You design the tax strategy. We handle the corporate and trust reorganizations that follow&thinsp;&mdash;&thinsp;across all nine common law provinces, on your&nbsp;instruction.</p>
+
+        <div class="ta-hero-form" id="refer">
+          <span class="ta-hero-form-label">Refer a Client</span>
+          <h2 class="ta-hero-form-title">Send us the plan.</h2>
+          <p class="ta-hero-form-sub">We respond within one business day with a clear scope and fixed&nbsp;fee.</p>
           <form class="referral-form" id="referralForm">
             <div class="form-field">
               <label for="your-name">Your Name</label>

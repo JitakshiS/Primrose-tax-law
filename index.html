@@ -813,69 +813,150 @@
     }
 
     /* ============================================
-       7. PROCESS (How It Works — 4-step clean grid)
+       7. PROCESS (How It Works — cycling 3-step with images)
        ============================================ */
     .process {
-      background: #1C1C1C;
+      background: #E9E2D2;
       padding: 120px 0;
-      color: #F5F0EB;
+      color: #1C1C1C;
     }
 
     .process-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: #7C9A8E;
       margin-bottom: 64px;
     }
 
-    .process-steps {
+    .process-content {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 1px solid rgba(245, 240, 235, 0.08);
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
     }
 
-    .process-step {
-      padding: 48px 32px 48px 0;
-      border-right: 1px solid rgba(245, 240, 235, 0.06);
+    .process-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .process-step-item {
+      padding: 28px 32px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
       position: relative;
     }
 
-    .process-step:last-child {
-      border-right: none;
+    .process-step-item:hover {
+      background: rgba(28, 28, 28, 0.03);
     }
 
-    .process-step:not(:first-child) {
-      padding-left: 32px;
+    .process-step-item.active {
+      background: rgba(28, 28, 28, 0.05);
     }
 
     .process-step-num {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 56px;
+      font-size: 14px;
       color: #7C9A8E;
-      line-height: 1;
-      margin-bottom: 20px;
-      letter-spacing: -2px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .process-step-num .step-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      opacity: 0.3;
+      transition: opacity 0.3s;
+    }
+
+    .process-step-item.active .step-dot {
+      opacity: 1;
     }
 
     .process-step-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 14px;
-      color: #F5F0EB;
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: rgba(28, 28, 28, 0.3);
+      transition: color 0.3s;
+    }
+
+    .process-step-item.active .process-step-title {
+      color: #1C1C1C;
     }
 
     .process-step-desc {
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.65;
-      color: rgba(245, 240, 235, 0.4);
+      color: rgba(28, 28, 28, 0.2);
+      transition: color 0.3s;
+      max-width: 400px;
+    }
+
+    .process-step-item.active .process-step-desc {
+      color: rgba(28, 28, 28, 0.5);
+    }
+
+    .process-progress-bar {
+      height: 3px;
+      background: rgba(28, 28, 28, 0.08);
+      border-radius: 2px;
+      margin-top: 16px;
+      overflow: hidden;
+    }
+
+    .process-progress-fill {
+      height: 100%;
+      background: #7C9A8E;
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .process-image-area {
+      position: relative;
+      height: 480px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .process-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(245, 240, 235, 0.12);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .process-image.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .process-image-credit {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(28,28,28,0.3);
+      text-align: right;
+      margin-top: 12px;
     }
 
     /* ============================================
@@ -1433,21 +1514,14 @@
         gap: 20px;
       }
 
-      .process-steps {
-        grid-template-columns: repeat(2, 1fr);
+      .process-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
       }
 
-      .process-step:nth-child(2) {
-        border-right: none;
-      }
-
-      .process-step:nth-child(3) {
-        padding-left: 0;
-        border-top: 1px solid rgba(245, 240, 235, 0.06);
-      }
-
-      .process-step:nth-child(4) {
-        border-top: 1px solid rgba(245, 240, 235, 0.06);
+      .process-image-area {
+        height: 360px;
+        order: -1;
       }
     }
 
@@ -1506,33 +1580,16 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .process-steps {
-        grid-template-columns: 1fr;
-        gap: 0;
+      .process-image-area {
+        height: 280px;
       }
 
-      .process-step {
-        border-right: none;
-        border-bottom: 1px solid rgba(245, 240, 235, 0.06);
-        padding: 36px 0;
+      .process-step-item {
+        padding: 20px 24px;
       }
 
-      .process-step:not(:first-child) {
-        padding-left: 0;
-      }
-
-      .process-step:last-child {
-        border-bottom: none;
-      }
-
-      .process-step:nth-child(2),
-      .process-step:nth-child(3),
-      .process-step:nth-child(4) {
-        border-top: none;
-      }
-
-      .process-step-num {
-        font-size: 44px;
+      .process-step-title {
+        font-size: 18px;
       }
 
       .about-card-layout {
@@ -2543,33 +2600,39 @@
   </section>
 
   <!-- ============================================
-       6. HOW IT WORKS — Simple 4-step
+       6. HOW IT WORKS — Cycling 3-step with images
        ============================================ -->
   <section class="process" id="process-section">
     <div class="container">
       <div class="process-label fade-in">How It Works</div>
-      <div class="process-steps fade-in">
-        <div class="process-step">
-          <div class="process-step-num">01</div>
-          <div class="process-step-title">Referral</div>
-          <div class="process-step-desc">You refer a client or reach out to discuss a&nbsp;file.</div>
+      <div class="process-content fade-in">
+        <div class="process-steps-list">
+          <div class="process-step-item active" data-step="0" onclick="setProcessStep(0)">
+            <div class="process-step-num"><span class="step-dot"></span>STEP 01</div>
+            <div class="process-step-title">Referral &amp; Quoting</div>
+            <div class="process-step-desc">You refer your client or reach out to discuss a file. We review and respond within one business day with a clear scope and fixed&nbsp;fee.</div>
+            <div class="process-progress-bar"><div class="process-progress-fill"></div></div>
+          </div>
+          <div class="process-step-item" data-step="1" onclick="setProcessStep(1)">
+            <div class="process-step-num"><span class="step-dot"></span>STEP 02</div>
+            <div class="process-step-title">Implementation</div>
+            <div class="process-step-desc">We work from your tax plan. Drafting resolutions, elections, and trust deeds. Electronic minute books maintained&nbsp;throughout.</div>
+            <div class="process-progress-bar"><div class="process-progress-fill"></div></div>
+          </div>
+          <div class="process-step-item" data-step="2" onclick="setProcessStep(2)">
+            <div class="process-step-num"><span class="step-dot"></span>STEP 03</div>
+            <div class="process-step-title">Completion</div>
+            <div class="process-step-desc">Closing book delivered to accompany your tax plan. Your client relationship stays with&nbsp;you.</div>
+            <div class="process-progress-bar"><div class="process-progress-fill"></div></div>
+          </div>
         </div>
-        <div class="process-step">
-          <div class="process-step-num">02</div>
-          <div class="process-step-title">Quoting</div>
-          <div class="process-step-desc">We review the file and provide a fixed-fee quote within one business day. Once accepted, we begin implementation from your tax&nbsp;plan.</div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">03</div>
-          <div class="process-step-title">Implementation</div>
-          <div class="process-step-desc">Drafting resolutions, elections, trust deeds. Electronic minute books maintained throughout.</div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">04</div>
-          <div class="process-step-title">Completion</div>
-          <div class="process-step-desc">Closing book delivered to accompany your tax plan. Your client relationship stays with&nbsp;you.</div>
+        <div class="process-image-area">
+          <img src="assets/images/step-1.jpg" alt="Referral &mdash; neon handshake" class="process-image active" data-step-img="0">
+          <img src="assets/images/step-2.jpg" alt="Collaboration &mdash; reviewing legal documents" class="process-image" data-step-img="1">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" alt="Financial documents and calculator &mdash; delivery" class="process-image" data-step-img="2">
         </div>
       </div>
+      <div class="process-image-credit fade-in">Images used for illustrative purposes only.</div>
     </div>
   </section>
 
@@ -3020,6 +3083,65 @@
         }
       });
     });
+
+    // ---- PROCESS SECTION AUTO-CYCLING ----
+    let currentProcessStep = 0;
+    let processProgress = 0;
+    let processInterval = null;
+    const PROCESS_DURATION = 10000; // 10 seconds per step
+    const PROCESS_TICK = 50; // update every 50ms
+
+    function setProcessStep(index) {
+      currentProcessStep = index;
+      processProgress = 0;
+
+      // Update active states
+      document.querySelectorAll('.process-step-item').forEach(function (item, i) {
+        item.classList.toggle('active', i === index);
+        var fill = item.querySelector('.process-progress-fill');
+        if (fill) fill.style.width = '0%';
+      });
+
+      // Update images
+      document.querySelectorAll('.process-image').forEach(function (img, i) {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    function startProcessCycle() {
+      if (processInterval) clearInterval(processInterval);
+
+      processInterval = setInterval(function () {
+        processProgress += (PROCESS_TICK / PROCESS_DURATION) * 100;
+
+        var activeItem = document.querySelector('.process-step-item.active');
+        if (activeItem) {
+          var fill = activeItem.querySelector('.process-progress-fill');
+          if (fill) fill.style.width = processProgress + '%';
+        }
+
+        if (processProgress >= 100) {
+          var nextStep = (currentProcessStep + 1) % 3;
+          setProcessStep(nextStep);
+        }
+      }, PROCESS_TICK);
+    }
+
+    // Start cycling when the process section is visible
+    if ('IntersectionObserver' in window) {
+      var processObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            startProcessCycle();
+          } else {
+            if (processInterval) clearInterval(processInterval);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      var processSection = document.querySelector('.process');
+      if (processSection) processObserver.observe(processSection);
+    }
 
     // ---- CONTACT FORM (SUPABASE) ----
     var contactForm = document.getElementById('contactForm');

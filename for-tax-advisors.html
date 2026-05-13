@@ -318,9 +318,14 @@
 
     .ta-hero-inner {
       padding: 100px 0 120px;
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .ta-hero-left {
+      max-width: 540px;
     }
 
     .ta-hero-label {
@@ -333,17 +338,17 @@
       background: rgba(124, 154, 142, 0.12);
       padding: 6px 16px;
       border-radius: 100px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .ta-hero h1 {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: clamp(40px, 5vw, 68px);
+      font-size: clamp(36px, 4.5vw, 60px);
       line-height: 1.08;
-      letter-spacing: -2.5px;
+      letter-spacing: -2px;
       color: #1C1C1C;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .ta-hero h1 .accent-serif {
@@ -352,19 +357,16 @@
 
     .ta-hero-sub {
       font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.65;
-      color: rgba(28, 28, 28, 0.5);
-      max-width: 580px;
-      margin: 0 auto 48px;
+      color: rgba(28, 28, 28, 0.55);
+      margin-bottom: 0;
     }
 
-    /* Compact referral form below hero copy */
+    /* Compact referral form on right side of hero */
     .ta-hero-form {
-      max-width: 520px;
-      margin: 0 auto;
       background: #FAFAF8;
-      border: 1px solid rgba(28, 28, 28, 0.06);
+      border: 1px solid rgba(28, 28, 28, 0.08);
       border-radius: 16px;
       padding: 32px;
       text-align: left;
@@ -379,17 +381,15 @@
       letter-spacing: 0.08em;
       color: #7C9A8E;
       margin-bottom: 8px;
-      text-align: center;
     }
 
     .ta-hero-form-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 22px;
       color: #1C1C1C;
       margin-bottom: 6px;
       letter-spacing: -0.5px;
-      text-align: center;
     }
 
     .ta-hero-form-sub {
@@ -398,7 +398,16 @@
       color: rgba(28, 28, 28, 0.55);
       margin-bottom: 24px;
       line-height: 1.55;
-      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .ta-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .ta-hero-left {
+        max-width: 100%;
+      }
     }
 
     .ta-hero-form .form-field {
@@ -1334,9 +1343,11 @@
   <section class="ta-hero">
     <div class="container">
       <div class="ta-hero-inner fade-in">
-        <span class="ta-hero-label">For Tax Advisors</span>
-        <h1>We implement the plan <span class="accent-serif">you design.</span></h1>
-        <p class="ta-hero-sub">You design the tax strategy. We handle the corporate and trust reorganizations that follow&thinsp;&mdash;&thinsp;across all nine common law provinces, on your&nbsp;instruction.</p>
+        <div class="ta-hero-left">
+          <span class="ta-hero-label">For Tax Advisors</span>
+          <h1>We implement the plan <span class="accent-serif">you design.</span></h1>
+          <p class="ta-hero-sub">You design the tax strategy. We handle the corporate and trust reorganizations that follow&thinsp;&mdash;&thinsp;across all nine common law provinces, on your&nbsp;instruction.</p>
+        </div>
 
         <div class="ta-hero-form" id="refer">
           <span class="ta-hero-form-label">Refer a Client</span>

@@ -327,10 +327,15 @@
     }
 
     .hero-inner {
-      padding: 80px 0 100px;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
+      padding: 100px 0 120px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-left {
+      max-width: 540px;
     }
 
     .hero-label {
@@ -339,7 +344,7 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: #7C9A8E;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -357,14 +362,11 @@
     .hero h1 {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: clamp(40px, 5vw, 64px);
+      font-size: clamp(36px, 4.5vw, 56px);
       line-height: 1.1;
       letter-spacing: -2px;
       color: #1C1C1C;
-      margin-bottom: 28px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 24px;
     }
 
     .hero h1 .accent-serif {
@@ -373,28 +375,23 @@
 
     .hero-sub {
       font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
-      line-height: 1.6;
-      color: rgba(28, 28, 28, 0.5);
-      max-width: 600px;
-      margin: 0 auto 40px;
+      font-size: 17px;
+      line-height: 1.65;
+      color: rgba(28, 28, 28, 0.55);
+      margin-bottom: 28px;
     }
 
     .hero-buttons {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-top: 24px;
     }
 
-    /* Compact contact form inside hero */
+    /* Compact contact form on right side of hero */
     .bo-hero-form {
-      max-width: 520px;
-      margin: 0 auto;
       background: #FAFAF8;
-      border: 1px solid rgba(28, 28, 28, 0.06);
+      border: 1px solid rgba(28, 28, 28, 0.08);
       border-radius: 16px;
       padding: 32px;
       text-align: left;
@@ -409,17 +406,15 @@
       letter-spacing: 0.08em;
       color: #7C9A8E;
       margin-bottom: 8px;
-      text-align: center;
     }
 
     .bo-hero-form-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 700;
-      font-size: 20px;
+      font-size: 22px;
       color: #1C1C1C;
       margin-bottom: 6px;
       letter-spacing: -0.5px;
-      text-align: center;
     }
 
     .bo-hero-form-sub {
@@ -428,7 +423,6 @@
       color: rgba(28, 28, 28, 0.55);
       margin-bottom: 24px;
       line-height: 1.55;
-      text-align: center;
     }
 
     .bo-hero-form .form-field {
@@ -835,6 +829,15 @@
         letter-spacing: -1.5px;
       }
 
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero-left {
+        max-width: 100%;
+      }
+
       .wwh-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -1183,9 +1186,14 @@
   <section class="hero">
     <div class="container">
       <div class="hero-inner fade-in">
-        <div class="hero-label">For Business Owners</div>
-        <h1>Your tax advisor designed the strategy.<br><span class="accent-serif">We handle the legal side.</span></h1>
-        <p class="hero-sub">When your tax plan calls for corporate restructuring, estate freezes, or trust settlements&thinsp;&mdash;&thinsp;we implement the legal work your tax advisor has&nbsp;designed.</p>
+        <div class="hero-left">
+          <div class="hero-label">For Business Owners</div>
+          <h1>Your tax advisor designed the strategy.<br><span class="accent-serif">We handle the legal side.</span></h1>
+          <p class="hero-sub">When your tax plan calls for corporate restructuring, estate freezes, or trust settlements&thinsp;&mdash;&thinsp;we implement the legal work your tax advisor has&nbsp;designed.</p>
+          <div class="hero-buttons">
+            <a href="#how-it-works" class="btn btn-outline-dark">Our Approach</a>
+          </div>
+        </div>
 
         <div class="bo-hero-form" id="contact">
           <span class="bo-hero-form-label">Contact Us</span>
@@ -1204,12 +1212,8 @@
               <label for="bo-message">Message</label>
               <textarea id="bo-message" name="message" placeholder="Please do not include confidential details."></textarea>
             </div>
-            <button type="submit" class="btn btn-dark">Send Message &#8599;</button>
+            <button type="submit" class="btn btn-sage">Send Message &#8599;</button>
           </form>
-        </div>
-
-        <div class="hero-buttons">
-          <a href="#how-it-works" class="btn btn-outline-dark">Our Approach</a>
         </div>
       </div>
     </div>

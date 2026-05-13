@@ -386,6 +386,92 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    /* Compact contact form inside hero */
+    .bo-hero-form {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #FAFAF8;
+      border: 1px solid rgba(28, 28, 28, 0.06);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: left;
+      box-shadow: 0 8px 32px rgba(28, 28, 28, 0.04);
+    }
+
+    .bo-hero-form-label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7C9A8E;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .bo-hero-form-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: #1C1C1C;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+      text-align: center;
+    }
+
+    .bo-hero-form-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(28, 28, 28, 0.55);
+      margin-bottom: 24px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .bo-hero-form .form-field {
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .bo-hero-form label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+    }
+
+    .bo-hero-form input,
+    .bo-hero-form textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(28, 28, 28, 0.1);
+      border-radius: 8px;
+      background: #fff;
+      color: #1C1C1C;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .bo-hero-form input:focus,
+    .bo-hero-form textarea:focus {
+      border-color: #7C9A8E;
+    }
+
+    .bo-hero-form textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .bo-hero-form button {
+      width: 100%;
+      margin-top: 8px;
     }
 
     /* ============================================
@@ -629,40 +715,7 @@
     }
 
     /* ============================================
-       7. CTA
-       ============================================ */
-    .cta-section {
-      background: #7C9A8E;
-      padding: 120px 24px;
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 900;
-      font-size: clamp(36px, 5vw, 52px);
-      color: #F5F0EB;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-    }
-
-    .cta-section .cta-sub {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      color: rgba(245, 240, 235, 0.55);
-      margin-bottom: 40px;
-    }
-
-    .cta-buttons {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    /* ============================================
-       8. FOOTER
+       7. FOOTER
        ============================================ */
     .footer {
       background: #111111;
@@ -892,16 +945,8 @@
 
       .bo-faq { padding: 80px 0; }
 
-      .cta-section {
-        padding: 80px 20px;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-      }
-
-      .cta-buttons .btn {
-        width: 100%;
+      .bo-hero-form {
+        padding: 24px;
       }
     }
     /* FAQ */
@@ -970,6 +1015,95 @@
     .lang-menu a:hover { background: rgba(245,240,235,0.06); color: #F5F0EB; opacity: 1; }
     .goog-te-banner-frame, .skiptranslate, #google_translate_element { display: none !important; }
     body { top: 0 !important; }
+
+    /* Contact Modal */
+    .contact-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28,28,28,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .contact-modal-backdrop.open { display: flex; }
+    .contact-modal {
+      background: #1C1C1C;
+      border: 1px solid rgba(245,240,235,0.1);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .contact-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(245,240,235,0.06);
+      border: none;
+      color: #F5F0EB;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .contact-modal-close:hover { background: rgba(245,240,235,0.12); }
+    .contact-modal-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: #F5F0EB;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .contact-modal-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245,240,235,0.5);
+      margin-bottom: 24px;
+    }
+    .contact-modal-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-modal-form input,
+    .contact-modal-form textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(245,240,235,0.15);
+      border-radius: 8px;
+      background: rgba(245,240,235,0.04);
+      color: #F5F0EB;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-modal-form input::placeholder,
+    .contact-modal-form textarea::placeholder { color: rgba(245,240,235,0.4); }
+    .contact-modal-form input:focus,
+    .contact-modal-form textarea:focus { border-color: #7C9A8E; }
+    .contact-modal-form textarea { min-height: 100px; resize: vertical; }
+    .contact-modal-form button {
+      background: #7C9A8E;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 100px;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+    .contact-modal-form button:hover { background: #6b8a7d; }
+    .contact-modal-form button:disabled { opacity: 0.6; cursor: not-allowed; }
   </style>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateInit"></script>
   <script>
@@ -999,7 +1133,7 @@
         <a href="/for-business-owners" class="nav-active" style="color: #F5F0EB; opacity: 1;">For Business Owners</a>
         <a href="/about">About</a>
         <a href="/research">Research &amp; Publications</a>
-        <a href="#contact">Contact</a>
+        <a href="#" onclick="openContactModal(event)">Contact</a>
       </div>
       <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 12px;">
         <div class="lang-wrap">
@@ -1034,7 +1168,7 @@
     <a href="/for-business-owners" class="nav-active">For Business Owners</a>
     <a href="/about">About</a>
     <a href="/research">Research &amp; Publications</a>
-    <a href="#contact">Contact</a>
+    <a href="#" onclick="openContactModal(event)">Contact</a>
     
   </div>
 
@@ -1047,8 +1181,29 @@
         <div class="hero-label">For Business Owners</div>
         <h1>Your tax advisor designed the strategy.<br><span class="accent-serif">We handle the legal side.</span></h1>
         <p class="hero-sub">When your tax plan calls for corporate restructuring, estate freezes, or trust settlements&thinsp;&mdash;&thinsp;we implement the legal work your tax advisor has&nbsp;designed.</p>
+
+        <div class="bo-hero-form" id="contact">
+          <span class="bo-hero-form-label">Contact Us</span>
+          <h2 class="bo-hero-form-title">Get in touch.</h2>
+          <p class="bo-hero-form-sub">Tell us a little about your situation. We respond within one business&nbsp;day.</p>
+          <form id="bo-contactForm">
+            <div class="form-field">
+              <label for="bo-name">Your Name</label>
+              <input type="text" id="bo-name" name="name" placeholder="Full name" required>
+            </div>
+            <div class="form-field">
+              <label for="bo-email">Your Email</label>
+              <input type="email" id="bo-email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-field">
+              <label for="bo-message">Message</label>
+              <textarea id="bo-message" name="message" placeholder="Please do not include confidential details."></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">Send Message &#8599;</button>
+          </form>
+        </div>
+
         <div class="hero-buttons">
-          <a href="#contact" class="btn btn-dark">Get Started &#8599;</a>
           <a href="#how-it-works" class="btn btn-outline-dark">Our Approach</a>
         </div>
       </div>
@@ -1165,35 +1320,6 @@
           <div class="bo-faq-q">What provinces do you cover?</div>
           <div class="bo-faq-a">All nine common law provinces across Canada, from offices in Halifax, Ottawa, Calgary, and Surrey. Governed by the National Mobility&nbsp;Agreement.</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       8. CTA
-       ============================================ -->
-  <section class="cta-section" id="contact">
-    <div class="container fade-in">
-      <h2>Ready to get started?</h2>
-      <p class="cta-sub">Ask your tax advisor to refer you, or contact us directly.</p>
-      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
-        <button id="contactToggle" class="btn btn-cream" onclick="var w=document.getElementById('contactFormWrap'); w.style.display=w.style.display==='none'?'block':'none'; this.innerHTML=w.style.display==='none'?'Contact Us &#8599;':'Close &#10005;'">Contact Us &#8599;</button>
-        <a href="/for-tax-advisors#refer" class="btn btn-outline-cream">Have Your Tax Advisor Refer You</a>
-      </div>
-      <div id="contactFormWrap" style="display: none; max-width: 600px; margin: 32px auto 0;">
-        <style>#bo-contactForm input::placeholder, #bo-contactForm textarea::placeholder { color: rgba(245,240,235,0.5); opacity: 1; }</style>
-        <form id="bo-contactForm" style="display: flex; flex-direction: column; gap: 16px;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <input type="text" name="name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
-            <input type="email" name="email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
-          </div>
-          <textarea name="message" placeholder="Your message — please do not include confidential details." rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; resize: vertical;"></textarea>
-          <div style="text-align: center;"><button type="submit" class="btn btn-cream">Send Message &#8599;</button></div>
-        </form>
-      </div>
-      <div style="display: flex; justify-content: center; gap: 32px; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(245,240,235,0.5);">
-        <a href="mailto:hello@primrosetax.ca" style="color: rgba(245,240,235,0.5);">hello@primrosetax.ca</a>
-        <a href="tel:+19025100430" style="color: rgba(245,240,235,0.5);">+1 (902) 510-0430</a>
       </div>
     </div>
   </section>
@@ -1339,7 +1465,74 @@
         }
       });
     }
+
+    // ---- CONTACT MODAL ----
+    function openContactModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('contactModalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('contactModalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeContactModal();
+    });
+    var navContactForm = document.getElementById('navContactForm');
+    if (navContactForm) {
+      navContactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('https://gcrrvvwlxpgjjgnxizus.supabase.co/rest/v1/contacts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+              name: this.querySelector('[name="name"]').value,
+              email: this.querySelector('[name="email"]').value,
+              subject: 'Contact from Nav Popup',
+              message: this.querySelector('[name="message"]').value
+            })
+          });
+          if (res.ok) {
+            btn.innerHTML = 'Message Sent &#10003;';
+            btn.style.background = '#4A6B5D';
+            this.reset();
+            setTimeout(function() { closeContactModal(); btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 2000);
+          } else { throw new Error(); }
+        } catch (err) {
+          btn.innerHTML = 'Error — please try again';
+          btn.style.background = '#8C3A3A';
+          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+        }
+      });
+    }
   </script>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal-backdrop" id="contactModalBackdrop" onclick="closeContactModal(event)">
+    <div class="contact-modal" onclick="event.stopPropagation()">
+      <button class="contact-modal-close" onclick="closeContactModal(event)" aria-label="Close">&times;</button>
+      <div class="contact-modal-heading">Get in touch</div>
+      <div class="contact-modal-sub">We respond within one business day.</div>
+      <form class="contact-modal-form" id="navContactForm">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message — please do not include confidential details." required></textarea>
+        <button type="submit">Send Message &#8599;</button>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>

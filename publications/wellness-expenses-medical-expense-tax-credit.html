@@ -147,6 +147,95 @@
     .lang-menu a:hover { background: rgba(245,240,235,0.06); color: #F5F0EB; opacity: 1; }
     .goog-te-banner-frame, .skiptranslate, #google_translate_element { display: none !important; }
     body { top: 0 !important; }
+
+    /* Contact Modal */
+    .contact-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28,28,28,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .contact-modal-backdrop.open { display: flex; }
+    .contact-modal {
+      background: #1C1C1C;
+      border: 1px solid rgba(245,240,235,0.1);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .contact-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(245,240,235,0.06);
+      border: none;
+      color: #F5F0EB;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .contact-modal-close:hover { background: rgba(245,240,235,0.12); }
+    .contact-modal-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: #F5F0EB;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .contact-modal-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245,240,235,0.5);
+      margin-bottom: 24px;
+    }
+    .contact-modal-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-modal-form input,
+    .contact-modal-form textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(245,240,235,0.15);
+      border-radius: 8px;
+      background: rgba(245,240,235,0.04);
+      color: #F5F0EB;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-modal-form input::placeholder,
+    .contact-modal-form textarea::placeholder { color: rgba(245,240,235,0.4); }
+    .contact-modal-form input:focus,
+    .contact-modal-form textarea:focus { border-color: #7C9A8E; }
+    .contact-modal-form textarea { min-height: 100px; resize: vertical; }
+    .contact-modal-form button {
+      background: #7C9A8E;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 100px;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+    .contact-modal-form button:hover { background: #6b8a7d; }
+    .contact-modal-form button:disabled { opacity: 0.6; cursor: not-allowed; }
   </style>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateInit"></script>
   <script>
@@ -164,7 +253,7 @@
         <a href="/for-business-owners">For Business Owners</a>
         <a href="/about">About</a>
         <a href="/research" class="nav-active" style="color: #F5F0EB; opacity: 1;">Research &amp; Publications</a>
-        <a href="/for-tax-advisors#refer">Contact</a>
+        <a href="#" onclick="openContactModal(event)">Contact</a>
       </div>
       <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 12px;">
         <div class="lang-wrap">
@@ -194,7 +283,7 @@
     <a href="/for-business-owners">For Business Owners</a>
     <a href="/about">About</a>
     <a href="/research" class="nav-active">Research &amp; Publications</a>
-    <a href="/for-tax-advisors#refer">Contact</a>
+    <a href="#" onclick="openContactModal(event)">Contact</a>
     
   </div>
 
@@ -325,6 +414,63 @@
       fadeEls.forEach(function (el) { observer.observe(el); });
     } else { fadeEls.forEach(function (el) { el.classList.add('visible'); }); }
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) { anchor.addEventListener('click', function (e) { var targetId = this.getAttribute('href'); if (targetId === '#') return; var target = document.querySelector(targetId); if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+
+    // ---- CONTACT MODAL ----
+    function openContactModal(e) { if (e) e.preventDefault(); document.getElementById('contactModalBackdrop').classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeContactModal(e) { if (e) e.preventDefault(); document.getElementById('contactModalBackdrop').classList.remove('open'); document.body.style.overflow = ''; }
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeContactModal(); });
+    var navContactForm = document.getElementById('navContactForm');
+    if (navContactForm) {
+      navContactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('https://gcrrvvwlxpgjjgnxizus.supabase.co/rest/v1/contacts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+              name: this.querySelector('[name="name"]').value,
+              email: this.querySelector('[name="email"]').value,
+              subject: 'Contact from Nav Popup',
+              message: this.querySelector('[name="message"]').value
+            })
+          });
+          if (res.ok) {
+            btn.innerHTML = 'Message Sent &#10003;';
+            btn.style.background = '#4A6B5D';
+            this.reset();
+            setTimeout(function () { closeContactModal(); btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 2000);
+          } else { throw new Error(); }
+        } catch (err) {
+          btn.innerHTML = 'Error — please try again';
+          btn.style.background = '#8C3A3A';
+          setTimeout(function () { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+        }
+      });
+    }
   </script>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal-backdrop" id="contactModalBackdrop" onclick="closeContactModal(event)">
+    <div class="contact-modal" onclick="event.stopPropagation()">
+      <button class="contact-modal-close" onclick="closeContactModal(event)" aria-label="Close">&times;</button>
+      <div class="contact-modal-heading">Get in touch</div>
+      <div class="contact-modal-sub">We respond within one business day.</div>
+      <form class="contact-modal-form" id="navContactForm">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message — please do not include confidential details." required></textarea>
+        <button type="submit">Send Message &#8599;</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

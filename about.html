@@ -419,71 +419,17 @@
     .credentials-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
-
-    .credential-col-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #7C9A8E;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .credential-col-label::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #7C9A8E;
-      flex-shrink: 0;
-    }
-
-    .credential-item {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      color: rgba(28, 28, 28, 0.55);
-      line-height: 1.8;
-      padding-left: 14px;
-      border-left: 2px solid rgba(124, 154, 142, 0.2);
-    }
-
-    /* ============================================
-       5. VALUES
-       ============================================ */
-    .values {
-      background: #F5F0EB;
-      padding: 120px 0;
-    }
-
-    .values-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: rgba(28, 28, 28, 0.4);
-      margin-bottom: 48px;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
 
-    .value-card {
+    .credential-card {
       background: #FAFAF8;
       border: 1px solid rgba(28, 28, 28, 0.06);
       border-radius: 12px;
       padding: 40px;
     }
 
-    .value-card h3 {
+    .credential-card h3 {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
       font-size: 24px;
@@ -492,15 +438,27 @@
       margin-bottom: 16px;
     }
 
-    .value-card p {
+    .credential-card p {
       font-family: 'DM Sans', sans-serif;
       font-size: 15px;
-      line-height: 1.65;
-      color: rgba(28, 28, 28, 0.5);
+      line-height: 1.75;
+      color: rgba(28, 28, 28, 0.55);
+    }
+
+    .credential-thesis-badge {
+      display: inline-block;
+      background: #7C9A8E;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
     }
 
     /* ============================================
-       6. HOW WE WORK
+       5. HOW WE WORK
        ============================================ */
     .how-we-work {
       background: #1C1C1C;
@@ -554,7 +512,7 @@
     }
 
     /* ============================================
-       7. CTA
+       6. CTA
        ============================================ */
     .cta-section {
       background: #4A6B5D;
@@ -587,7 +545,7 @@
     }
 
     /* ============================================
-       8. FOOTER
+       7. FOOTER
        ============================================ */
     .footer {
       background: #111111;
@@ -673,11 +631,6 @@
 
       .credentials-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-      }
-
-      .values-grid {
-        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
       }
 
@@ -736,15 +689,6 @@
 
       .credentials-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .values {
-        padding: 80px 0;
-      }
-
-      .values-grid {
-        grid-template-columns: 1fr;
         gap: 16px;
       }
 
@@ -785,14 +729,10 @@
 
       .credentials-grid {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 16px;
       }
 
-      .values-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .value-card {
+      .credential-card {
         padding: 28px;
       }
 
@@ -837,6 +777,95 @@
     .lang-menu a:hover { background: rgba(245,240,235,0.06); color: #F5F0EB; opacity: 1; }
     .goog-te-banner-frame, .skiptranslate, #google_translate_element { display: none !important; }
     body { top: 0 !important; }
+
+    /* Contact Modal */
+    .contact-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28,28,28,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .contact-modal-backdrop.open { display: flex; }
+    .contact-modal {
+      background: #1C1C1C;
+      border: 1px solid rgba(245,240,235,0.1);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .contact-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(245,240,235,0.06);
+      border: none;
+      color: #F5F0EB;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .contact-modal-close:hover { background: rgba(245,240,235,0.12); }
+    .contact-modal-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: #F5F0EB;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .contact-modal-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245,240,235,0.5);
+      margin-bottom: 24px;
+    }
+    .contact-modal-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-modal-form input,
+    .contact-modal-form textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(245,240,235,0.15);
+      border-radius: 8px;
+      background: rgba(245,240,235,0.04);
+      color: #F5F0EB;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-modal-form input::placeholder,
+    .contact-modal-form textarea::placeholder { color: rgba(245,240,235,0.4); }
+    .contact-modal-form input:focus,
+    .contact-modal-form textarea:focus { border-color: #7C9A8E; }
+    .contact-modal-form textarea { min-height: 100px; resize: vertical; }
+    .contact-modal-form button {
+      background: #7C9A8E;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 100px;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+    .contact-modal-form button:hover { background: #6b8a7d; }
+    .contact-modal-form button:disabled { opacity: 0.6; cursor: not-allowed; }
   </style>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateInit"></script>
   <script>
@@ -866,7 +895,7 @@
         <a href="/for-business-owners">For Business Owners</a>
         <a href="/about" class="nav-active" style="color: #F5F0EB; opacity: 1;">About</a>
         <a href="/research">Research &amp; Publications</a>
-        <a href="mailto:hello@primrosetax.ca">Contact</a>
+        <a href="#" onclick="openContactModal(event)">Contact</a>
       </div>
       <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 12px;">
         <div class="lang-wrap">
@@ -901,7 +930,7 @@
     <a href="/for-business-owners">For Business Owners</a>
     <a href="/about" style="color: #F5F0EB;">About</a>
     <a href="/research">Research &amp; Publications</a>
-    <a href="mailto:hello@primrosetax.ca">Contact</a>
+    <a href="#" onclick="openContactModal(event)">Contact</a>
     
   </div>
 
@@ -947,61 +976,38 @@
     <div class="container">
       <div class="credentials-label fade-in">Credentials</div>
       <div class="credentials-grid fade-in">
-        <div>
-          <div class="credential-col-label">Education</div>
-          <div class="credential-item">
-            <span style="display: inline-block; background: #7C9A8E; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 2px 8px; border-radius: 4px; letter-spacing: 0.05em; margin-bottom: 6px;">THESIS · GRADE A</span><br>
+        <div class="credential-card">
+          <h3>Education</h3>
+          <p>
+            <span class="credential-thesis-badge">THESIS &middot; GRADE A</span><br>
             LLM Tax Reform&thinsp;&mdash;&thinsp;Schulich School of Law, Dalhousie<br>
             JD Business Law&thinsp;&mdash;&thinsp;Schulich School of Law, Dalhousie<br>
             B.Comm Finance&thinsp;&mdash;&thinsp;Dalhousie
-          </div>
+          </p>
         </div>
-        <div>
-          <div class="credential-col-label">Professional</div>
-          <div class="credential-item">
+        <div class="credential-card">
+          <h3>Professional</h3>
+          <p>
             CPA In-Depth Tax I, II, III<br>
             Canadian Tax Foundation<br>
             Canadian Bar Association
-          </div>
+          </p>
         </div>
-        <div>
-          <div class="credential-col-label">Bar Admissions</div>
-          <div class="credential-item">
+        <div class="credential-card">
+          <h3>Bar Admissions</h3>
+          <p>
             Law Society of British Columbia<br>
             Law Society of Ontario<br>
             Law Society of Alberta<br>
-            Nova Scotia Barristers' Society
-          </div>
+            Nova Scotia Barristers'&nbsp;Society
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       5. VALUES
-       ============================================ -->
-  <section class="values">
-    <div class="container">
-      <div class="values-label fade-in">Our Values</div>
-      <div class="values-grid fade-in">
-        <div class="value-card">
-          <h3>Respect</h3>
-          <p>We respect the individuality of every firm member's talents, interests and needs to thrive.</p>
-        </div>
-        <div class="value-card">
-          <h3>Trust</h3>
-          <p>We trust every firm member's freedom to determine their work capacity. We trust in collaborative work.</p>
-        </div>
-        <div class="value-card">
-          <h3>Inspire</h3>
-          <p>We inspire sharing substantive legal knowledge, using technology and our collective lived experience to create value.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       6. HOW WE WORK
+       5. HOW WE WORK
        ============================================ -->
   <section class="how-we-work">
     <div class="container">
@@ -1032,7 +1038,7 @@
   </section>
 
   <!-- ============================================
-       7. CTA
+       6. CTA
        ============================================ -->
   <section class="cta-section" id="contact">
     <div class="container fade-in">
@@ -1061,7 +1067,7 @@
   </section>
 
   <!-- ============================================
-       8. FOOTER
+       7. FOOTER
        ============================================ -->
   <footer class="footer">
     <div class="container">
@@ -1201,7 +1207,74 @@
         }
       });
     }
+
+    // ---- CONTACT MODAL ----
+    function openContactModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('contactModalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('contactModalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeContactModal();
+    });
+    var navContactForm = document.getElementById('navContactForm');
+    if (navContactForm) {
+      navContactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('https://gcrrvvwlxpgjjgnxizus.supabase.co/rest/v1/contacts', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({
+              name: this.querySelector('[name="name"]').value,
+              email: this.querySelector('[name="email"]').value,
+              subject: 'Contact from Nav Popup',
+              message: this.querySelector('[name="message"]').value
+            })
+          });
+          if (res.ok) {
+            btn.innerHTML = 'Message Sent &#10003;';
+            btn.style.background = '#4A6B5D';
+            this.reset();
+            setTimeout(function() { closeContactModal(); btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 2000);
+          } else { throw new Error(); }
+        } catch (err) {
+          btn.innerHTML = 'Error — please try again';
+          btn.style.background = '#8C3A3A';
+          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+        }
+      });
+    }
   </script>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal-backdrop" id="contactModalBackdrop" onclick="closeContactModal(event)">
+    <div class="contact-modal" onclick="event.stopPropagation()">
+      <button class="contact-modal-close" onclick="closeContactModal(event)" aria-label="Close">&times;</button>
+      <div class="contact-modal-heading">Get in touch</div>
+      <div class="contact-modal-sub">We respond within one business day.</div>
+      <form class="contact-modal-form" id="navContactForm">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message — please do not include confidential details." required></textarea>
+        <button type="submit">Send Message &#8599;</button>
+      </form>
+    </div>
+  </div>
 
 </body>
 </html>

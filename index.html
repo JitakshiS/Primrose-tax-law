@@ -813,165 +813,69 @@
     }
 
     /* ============================================
-       7. PROCESS
+       7. PROCESS (How It Works — 4-step clean grid)
        ============================================ */
     .process {
-      background: #E9E2D2;
+      background: #1C1C1C;
       padding: 120px 0;
-      color: #1C1C1C;
+      color: #F5F0EB;
     }
 
     .process-label {
       font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: #7C9A8E;
       margin-bottom: 64px;
     }
 
-    .process-content {
+    .process-steps {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 64px;
-      align-items: center;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(245, 240, 235, 0.08);
     }
 
-    .process-steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .process-step-item {
-      padding: 28px 32px;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+    .process-step {
+      padding: 48px 32px 48px 0;
+      border-right: 1px solid rgba(245, 240, 235, 0.06);
       position: relative;
     }
 
-    .process-step-item:hover {
-      background: rgba(28, 28, 28, 0.03);
+    .process-step:last-child {
+      border-right: none;
     }
 
-    .process-step-item.active {
-      background: rgba(28, 28, 28, 0.05);
+    .process-step:not(:first-child) {
+      padding-left: 32px;
     }
 
     .process-step-num {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 14px;
+      font-size: 56px;
       color: #7C9A8E;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .process-step-num .step-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #7C9A8E;
-      opacity: 0.3;
-      transition: opacity 0.3s;
-    }
-
-    .process-step-item.active .step-dot {
-      opacity: 1;
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
     }
 
     .process-step-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 22px;
-      margin-bottom: 8px;
-      color: rgba(28, 28, 28, 0.3);
-      transition: color 0.3s;
-    }
-
-    .process-step-item.active .process-step-title {
-      color: #1C1C1C;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+      color: #F5F0EB;
     }
 
     .process-step-desc {
       font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.65;
-      color: rgba(28, 28, 28, 0.2);
-      transition: color 0.3s;
-      max-width: 400px;
-    }
-
-    .process-step-item.active .process-step-desc {
-      color: rgba(28, 28, 28, 0.5);
-    }
-
-    .process-progress-bar {
-      height: 3px;
-      background: rgba(28, 28, 28, 0.08);
-      border-radius: 2px;
-      margin-top: 16px;
-      overflow: hidden;
-    }
-
-    .process-progress-fill {
-      height: 100%;
-      background: #7C9A8E;
-      border-radius: 2px;
-      width: 0%;
-      transition: width 0.1s linear;
-    }
-
-    .process-image-area {
-      position: relative;
-      height: 480px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #111;
-    }
-
-    .process-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 1px solid rgba(245, 240, 235, 0.12);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .process-image.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .process-privilege {
-      margin-top: 48px;
-      padding: 24px 32px;
-      border: 1px solid rgba(124, 154, 142, 0.2);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .process-privilege .sage-dot {
-      width: 8px;
-      height: 8px;
-      flex-shrink: 0;
-    }
-
-    .process-privilege p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      color: rgba(28, 28, 28, 0.5);
-      line-height: 1.6;
+      color: rgba(245, 240, 235, 0.4);
     }
 
     /* ============================================
@@ -1529,13 +1433,21 @@
         gap: 20px;
       }
 
-      .process-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
+      .process-steps {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .process-image-area {
-        height: 360px;
+      .process-step:nth-child(2) {
+        border-right: none;
+      }
+
+      .process-step:nth-child(3) {
+        padding-left: 0;
+        border-top: 1px solid rgba(245, 240, 235, 0.06);
+      }
+
+      .process-step:nth-child(4) {
+        border-top: 1px solid rgba(245, 240, 235, 0.06);
       }
     }
 
@@ -1594,8 +1506,33 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .process-image-area {
-        height: 280px;
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .process-step {
+        border-right: none;
+        border-bottom: 1px solid rgba(245, 240, 235, 0.06);
+        padding: 36px 0;
+      }
+
+      .process-step:not(:first-child) {
+        padding-left: 0;
+      }
+
+      .process-step:last-child {
+        border-bottom: none;
+      }
+
+      .process-step:nth-child(2),
+      .process-step:nth-child(3),
+      .process-step:nth-child(4) {
+        border-top: none;
+      }
+
+      .process-step-num {
+        font-size: 44px;
       }
 
       .about-card-layout {
@@ -2088,6 +2025,98 @@
       color: #9AB5A8;
     }
 
+    /* ---- OFFICE BADGES (on business card) ---- */
+    .about-v2-card-offices {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .about-v2-card-office {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.55);
+      border: 1px solid rgba(28,28,28,0.18);
+      padding: 4px 8px;
+      border-radius: 100px;
+      background: rgba(124,154,142,0.06);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .about-v2-card-office strong {
+      font-weight: 700;
+      color: #4A6B5D;
+      letter-spacing: 0.05em;
+    }
+
+    /* ---- FEATURED PUBLICATION CARD (right column highlight) ---- */
+    .about-v2-pub-card {
+      margin-top: 28px;
+      padding: 28px 24px;
+      background: rgba(124,154,142,0.08);
+      border: 1px solid rgba(124,154,142,0.35);
+      border-left: 3px solid #7C9A8E;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .about-v2-pub-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9AB5A8;
+      margin-bottom: 14px;
+    }
+
+    .about-v2-pub-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1C1C1C;
+      background: #C2B9A7;
+      padding: 3px 8px;
+      border-radius: 100px;
+      margin-left: 8px;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+
+    .about-v2-pub-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 1.2;
+      color: #F5F0EB;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .about-v2-pub-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: rgba(245,240,235,0.55);
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+
+    .about-v2-pub-oneline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(245,240,235,0.75);
+    }
+
     /* ---- ANNOTATION BAR (bottom) ---- */
     .about-v2-annotation-bar {
       display: grid;
@@ -2255,7 +2284,131 @@
   </div>
 
   <!-- ============================================
-       2. HERO
+       2. ABOUT — Bold Editorial Calling Card (TOP HERO)
+       ============================================ -->
+  <section class="about-v2 fade-in" id="about">
+    <div class="container">
+
+      <!-- Section heading -->
+      <div class="about-v2-header">
+        <div class="about-v2-heading">
+          A FOCUSED PRACTICE<br><span class="accent-serif">of one.</span>
+        </div>
+        <div class="about-v2-header-meta">
+          Presented as a calling card &middot; HFX, NS &middot; 2026
+        </div>
+      </div>
+
+      <!-- Two-column: card + credentials slip -->
+      <div class="about-v2-layout">
+
+        <!-- Business Card -->
+        <div class="about-v2-card">
+          <div class="about-v2-card-corners">
+            <span class="corner corner--tl"></span>
+            <span class="corner corner--tr"></span>
+            <span class="corner corner--bl"></span>
+            <span class="corner corner--br"></span>
+          </div>
+          <div class="about-v2-card-inner">
+            <div class="about-v2-card-left">
+              <div class="about-v2-card-name">PRIM<span class="accent-serif">rose.</span></div>
+              <div class="about-v2-card-title">Watson, JD &middot; Founder &middot; Counsel</div>
+              <div class="about-v2-card-offices" aria-label="Office locations">
+                <span class="about-v2-card-office"><strong>HFX</strong> Nova&nbsp;Scotia</span>
+                <span class="about-v2-card-office"><strong>YOW</strong> Ontario</span>
+                <span class="about-v2-card-office"><strong>YYC</strong> Alberta</span>
+                <span class="about-v2-card-office"><strong>YVR</strong> British&nbsp;Columbia</span>
+              </div>
+              <div class="about-v2-card-contact">
+                hello@primrosetax.ca<br>
+                +1 (902) 510-0430<br>
+                1959 Upper Water St. Halifax<br>
+                CA &middot; NS &middot; B3J 3N2
+              </div>
+            </div>
+            <div class="about-v2-card-photo-col">
+              <img src="assets/images/headshot.jpg" alt="Primrose Watson">
+              <div class="about-v2-card-photo-overlay">
+                <span>Fig. 01</span>
+                <span>P. Watson</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-v2-card-edition">ED. I / I &mdash; 2026</div>
+        </div>
+
+        <!-- Credentials Slip -->
+        <div class="about-v2-right">
+          <div class="about-v2-quote">&ldquo;Built on quiet rigour and a deep respect for the work tax advisors already&nbsp;do.&rdquo;</div>
+          <div class="about-v2-quote-rule"></div>
+          <div class="about-v2-cred-group">
+            <div class="about-v2-cred-label">Edu</div>
+            <div class="about-v2-cred-item">JD &middot; Schulich Law (Dalhousie)</div>
+            <div class="about-v2-cred-item">LLM (Cand.) &middot; Tax Reform</div>
+            <div class="about-v2-cred-item">B.Comm Finance &middot; Dalhousie</div>
+          </div>
+          <div class="about-v2-cred-group">
+            <div class="about-v2-cred-label">Cert</div>
+            <div class="about-v2-cred-item">CPA In-Depth Tax I, II, III</div>
+            <div class="about-v2-cred-item">Canadian Tax Foundation</div>
+            <div class="about-v2-cred-item">Canadian Bar Association</div>
+          </div>
+          <div class="about-v2-cred-group">
+            <div class="about-v2-cred-label">Bar</div>
+            <div class="about-v2-cred-item">Law Society of BC, AB, ON</div>
+            <div class="about-v2-cred-item">Nova Scotia Barristers</div>
+          </div>
+
+          <!-- Featured: LLM Thesis publication card -->
+          <div class="about-v2-pub-card">
+            <div class="about-v2-pub-tag">LLM Thesis<span class="about-v2-pub-badge">Grade A &middot; Approved</span></div>
+            <div class="about-v2-pub-title">LLM Thesis on Canadian Tax&nbsp;Reform</div>
+            <div class="about-v2-pub-subtitle">Schulich School of Law &middot; Dalhousie</div>
+            <div class="about-v2-pub-oneline">Approved research on tax reform. Full publication coming&nbsp;soon.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Annotation bar -->
+      <div class="about-v2-annotation-bar">
+        <div class="about-v2-annotation-item">Member &middot; Canadian Tax Foundation</div>
+        <div class="about-v2-annotation-item">Available by referral &amp; appointment</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       3. PROVINCE MARQUEE
+       ============================================ -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">BC <span class="marquee-dot"></span></span>
+      <span class="marquee-item">ALBERTA <span class="marquee-dot"></span></span>
+      <span class="marquee-item">SASKATCHEWAN <span class="marquee-dot"></span></span>
+      <span class="marquee-item">MANITOBA <span class="marquee-dot"></span></span>
+      <span class="marquee-item">ONTARIO <span class="marquee-dot"></span></span>
+      <span class="marquee-item">NEW BRUNSWICK <span class="marquee-dot"></span></span>
+      <span class="marquee-item">NOVA SCOTIA <span class="marquee-dot"></span></span>
+      <span class="marquee-item">PEI <span class="marquee-dot"></span></span>
+      <span class="marquee-item">NEWFOUNDLAND &amp; LABRADOR <span class="marquee-dot"></span></span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">BC <span class="marquee-dot"></span></span>
+      <span class="marquee-item">ALBERTA <span class="marquee-dot"></span></span>
+      <span class="marquee-item">SASKATCHEWAN <span class="marquee-dot"></span></span>
+      <span class="marquee-item">MANITOBA <span class="marquee-dot"></span></span>
+      <span class="marquee-item">ONTARIO <span class="marquee-dot"></span></span>
+      <span class="marquee-item">NEW BRUNSWICK <span class="marquee-dot"></span></span>
+      <span class="marquee-item">NOVA SCOTIA <span class="marquee-dot"></span></span>
+      <span class="marquee-item">PEI <span class="marquee-dot"></span></span>
+      <span class="marquee-item">NEWFOUNDLAND &amp; LABRADOR <span class="marquee-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ============================================
+       4. HERO — Two-audience entry
        ============================================ -->
   <section class="hero">
     <div class="container">
@@ -2267,12 +2420,12 @@
 
       <!-- Headline -->
       <div class="hero-headline fade-in">
-        <h1>We implement the plan.<br><span class="accent-serif">You keep the client.</span></h1>
+        <h1>Built for tax advisors and business owners <span class="accent-serif">across&nbsp;Canada.</span></h1>
       </div>
 
       <!-- Sub grid -->
       <div class="hero-sub-grid fade-in">
-        <p class="hero-desc">We implement the legal structure your tax plan requires&thinsp;&mdash;&thinsp;without conflict, without competition, on your instruction. Corporate and trust reorganizations across all nine common law provinces. <img src="https://flagcdn.com/w40/ca.png" alt="Canada" style="display: inline-block; height: 18px; vertical-align: middle; margin: 0 4px; border-radius: 2px;"></p>
+        <p class="hero-desc">Two clear paths into the firm. Tax advisors refer the legal implementation. Business owners get the legal side handled&thinsp;&mdash;&thinsp;without conflict, without competition, on your tax advisor's instruction. <img src="https://flagcdn.com/w40/ca.png" alt="Canada" style="display: inline-block; height: 18px; vertical-align: middle; margin: 0 4px; border-radius: 2px;"></p>
         <div class="hero-meta-blocks">
           <div class="hero-meta-block">
             <span class="meta-label">THE WORK</span>
@@ -2318,34 +2471,7 @@
   </section>
 
   <!-- ============================================
-       3. PROVINCE MARQUEE
-       ============================================ -->
-  <div class="marquee-section">
-    <div class="marquee-track">
-      <span class="marquee-item">BC <span class="marquee-dot"></span></span>
-      <span class="marquee-item">ALBERTA <span class="marquee-dot"></span></span>
-      <span class="marquee-item">SASKATCHEWAN <span class="marquee-dot"></span></span>
-      <span class="marquee-item">MANITOBA <span class="marquee-dot"></span></span>
-      <span class="marquee-item">ONTARIO <span class="marquee-dot"></span></span>
-      <span class="marquee-item">NEW BRUNSWICK <span class="marquee-dot"></span></span>
-      <span class="marquee-item">NOVA SCOTIA <span class="marquee-dot"></span></span>
-      <span class="marquee-item">PEI <span class="marquee-dot"></span></span>
-      <span class="marquee-item">NEWFOUNDLAND &amp; LABRADOR <span class="marquee-dot"></span></span>
-      <!-- Duplicate for seamless loop -->
-      <span class="marquee-item">BC <span class="marquee-dot"></span></span>
-      <span class="marquee-item">ALBERTA <span class="marquee-dot"></span></span>
-      <span class="marquee-item">SASKATCHEWAN <span class="marquee-dot"></span></span>
-      <span class="marquee-item">MANITOBA <span class="marquee-dot"></span></span>
-      <span class="marquee-item">ONTARIO <span class="marquee-dot"></span></span>
-      <span class="marquee-item">NEW BRUNSWICK <span class="marquee-dot"></span></span>
-      <span class="marquee-item">NOVA SCOTIA <span class="marquee-dot"></span></span>
-      <span class="marquee-item">PEI <span class="marquee-dot"></span></span>
-      <span class="marquee-item">NEWFOUNDLAND &amp; LABRADOR <span class="marquee-dot"></span></span>
-    </div>
-  </div>
-
-  <!-- ============================================
-       4. PRACTICE AREAS
+       5. PRACTICE AREAS
        ============================================ -->
   <section class="practice" id="practice">
     <div class="container">
@@ -2397,132 +2523,38 @@
   </section>
 
   <!-- ============================================
-       7. PROCESS
+       6. HOW IT WORKS — Simple 4-step
        ============================================ -->
   <section class="process" id="process-section">
     <div class="container">
       <div class="process-label fade-in">How It Works</div>
-      <div class="process-content fade-in">
-        <div class="process-steps-list">
-          <div class="process-step-item active" data-step="0" onclick="setProcessStep(0)">
-            <div class="process-step-num"><span class="step-dot"></span>STEP 01</div>
-            <div class="process-step-title">Referral</div>
-            <div class="process-step-desc">You refer your client or reach out to discuss a file. We respond within one business day with a clear scope and fixed fee.</div>
-            <div class="process-progress-bar"><div class="process-progress-fill"></div></div>
-          </div>
-          <div class="process-step-item" data-step="1" onclick="setProcessStep(1)">
-            <div class="process-step-num"><span class="step-dot"></span>STEP 02</div>
-            <div class="process-step-title">Collaboration</div>
-            <div class="process-step-desc">We work from your tax plan. You design the strategy — we implement the legal structure, keeping you informed throughout.</div>
-            <div class="process-progress-bar"><div class="process-progress-fill"></div></div>
-          </div>
-          <div class="process-step-item" data-step="2" onclick="setProcessStep(2)">
-            <div class="process-step-num"><span class="step-dot"></span>STEP 03</div>
-            <div class="process-step-title">Delivery</div>
-            <div class="process-step-desc">Fixed-fee billing. Electronic minute books. Secure document handling throughout the engagement.</div>
-            <div class="process-progress-bar"><div class="process-progress-fill"></div></div>
-          </div>
+      <div class="process-steps fade-in">
+        <div class="process-step">
+          <div class="process-step-num">01</div>
+          <div class="process-step-title">Referral</div>
+          <div class="process-step-desc">You refer a client or reach out to discuss a&nbsp;file.</div>
         </div>
-        <div class="process-image-area">
-          <img src="assets/images/step-1.jpg" alt="Referral — neon handshake" class="process-image active" data-step-img="0">
-          <img src="assets/images/step-2.jpg" alt="Collaboration — reviewing legal documents" class="process-image" data-step-img="1">
-          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" alt="Financial documents and calculator — delivery" class="process-image" data-step-img="2">
+        <div class="process-step">
+          <div class="process-step-num">02</div>
+          <div class="process-step-title">Quoting</div>
+          <div class="process-step-desc">We review the file and provide a fixed-fee quote within one business day. Once accepted, we begin implementation from your tax&nbsp;plan.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">03</div>
+          <div class="process-step-title">Implementation</div>
+          <div class="process-step-desc">Drafting resolutions, elections, trust deeds. Electronic minute books maintained throughout.</div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">04</div>
+          <div class="process-step-title">Completion</div>
+          <div class="process-step-desc">Closing book delivered to accompany your tax plan. Your client relationship stays with&nbsp;you.</div>
         </div>
       </div>
-      <div class="process-image-credit fade-in" style="font-family: 'DM Sans', sans-serif; font-size: 11px; color: rgba(28,28,28,0.3); text-align: right; margin-top: 12px;">Images used for illustrative purposes only.</div>
     </div>
   </section>
 
   <!-- ============================================
-       8. ABOUT — Bold Editorial Calling Card
-       ============================================ -->
-  <section class="about-v2 fade-in" id="about">
-    <div class="container">
-
-      <!-- Section heading -->
-      <div class="about-v2-header">
-        <div class="about-v2-heading">
-          A FOCUSED PRACTICE<br><span class="accent-serif">of one.</span>
-        </div>
-        <div class="about-v2-header-meta">
-          Presented as a calling card — HFX, NS &middot; 2026
-        </div>
-      </div>
-
-      <!-- Two-column: card + credentials slip -->
-      <div class="about-v2-layout">
-
-        <!-- Business Card -->
-        <div class="about-v2-card">
-          <div class="about-v2-card-corners">
-            <span class="corner corner--tl"></span>
-            <span class="corner corner--tr"></span>
-            <span class="corner corner--bl"></span>
-            <span class="corner corner--br"></span>
-          </div>
-          <div class="about-v2-card-inner">
-            <div class="about-v2-card-left">
-              <div class="about-v2-card-name">PRIM<span class="accent-serif">rose.</span></div>
-              <div class="about-v2-card-title">Watson, JD &middot; Founder &middot; Counsel</div>
-              <div class="about-v2-card-contact">
-                hello@primrosetax.ca<br>
-                +1 (902) 510-0430<br>
-                1959 Upper Water St. Halifax<br>
-                CA &middot; NS &middot; B3J 3N2
-              </div>
-            </div>
-            <div class="about-v2-card-photo-col">
-              <img src="assets/images/headshot.jpg" alt="Primrose Watson">
-              <div class="about-v2-card-photo-overlay">
-                <span>Fig. 01</span>
-                <span>P. Watson</span>
-              </div>
-            </div>
-          </div>
-          <div class="about-v2-card-edition">ED. I / I &mdash; 2026</div>
-        </div>
-
-        <!-- Credentials Slip -->
-        <div class="about-v2-right">
-          <div class="about-v2-quote">&ldquo;Built on quiet rigour and a deep respect for the work tax advisors already&nbsp;do.&rdquo;</div>
-          <div class="about-v2-quote-rule"></div>
-          <div class="about-v2-cred-group">
-            <div class="about-v2-cred-label">Edu</div>
-            <div class="about-v2-cred-item">JD &middot; Schulich Law (Dalhousie)</div>
-            <div class="about-v2-cred-item">LLM (Cand.) &middot; Tax Reform</div>
-            <div class="about-v2-cred-item">B.Comm Finance &middot; Dalhousie</div>
-          </div>
-          <div class="about-v2-cred-group">
-            <div class="about-v2-cred-label">Cert</div>
-            <div class="about-v2-cred-item">CPA In-Depth Tax I, II, III</div>
-            <div class="about-v2-cred-item">Canadian Tax Foundation</div>
-            <div class="about-v2-cred-item">Canadian Bar Association</div>
-          </div>
-          <div class="about-v2-cred-group">
-            <div class="about-v2-cred-label">Bar</div>
-            <div class="about-v2-cred-item">Law Society of BC, AB, ON</div>
-            <div class="about-v2-cred-item">Nova Scotia Barristers</div>
-          </div>
-          <div class="about-v2-cred-group">
-            <div class="about-v2-cred-label">Reach</div>
-            <div class="about-v2-cred-item">9 common law provinces</div>
-            <div class="about-v2-cred-item">HFX &middot; YOW &middot; YYC &middot; YVR</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Annotation bar -->
-      <div class="about-v2-annotation-bar">
-        <div class="about-v2-annotation-item">Member &middot; Canadian Tax Foundation</div>
-        <div class="about-v2-annotation-item">Available by referral &amp; appointment</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================
-       9. FROM LINKEDIN
+       7. FROM LINKEDIN
        ============================================ -->
   <section style="background: #F5F0EB; padding: 100px 0;">
     <div class="container">
@@ -2613,7 +2645,7 @@
   </section>
 
   <!-- ============================================
-       10. PUBLICATIONS
+       8. PUBLICATIONS
        ============================================ -->
   <section class="publications" id="publications">
     <div class="container">
@@ -2723,7 +2755,7 @@
   </section>
 
   <!-- ============================================
-       10. OFFICES
+       9. OFFICES
        ============================================ -->
   <section class="offices" id="offices" style="background: #1C1C1C; padding: 100px 0;">
     <div class="container">
@@ -2764,7 +2796,7 @@
   </section>
 
   <!-- ============================================
-       11. FAQ
+       10. FAQ
        ============================================ -->
   <section style="background: #F5F0EB; padding: 100px 0;">
     <div class="container">
@@ -2795,7 +2827,7 @@
   </section>
 
   <!-- ============================================
-       12. RECENT ENGAGEMENTS
+       11. RECENT ENGAGEMENTS
        ============================================ -->
   <section class="engagements">
     <div class="container">
@@ -2868,7 +2900,7 @@
   </section>
 
   <!-- ============================================
-       12. FOOTER
+       13. FOOTER
        ============================================ -->
   <footer class="footer">
     <div class="container">
@@ -2968,61 +3000,6 @@
         }
       });
     });
-
-    // ---- PROCESS SECTION AUTO-CYCLING ----
-    let currentProcessStep = 0;
-    let processProgress = 0;
-    let processInterval = null;
-    const PROCESS_DURATION = 10000; // 10 seconds per step
-    const PROCESS_TICK = 50; // update every 50ms
-
-    function setProcessStep(index) {
-      currentProcessStep = index;
-      processProgress = 0;
-
-      // Update active states
-      document.querySelectorAll('.process-step-item').forEach(function (item, i) {
-        item.classList.toggle('active', i === index);
-        item.querySelector('.process-progress-fill').style.width = '0%';
-      });
-
-      // Update images
-      document.querySelectorAll('.process-image').forEach(function (img, i) {
-        img.classList.toggle('active', i === index);
-      });
-    }
-
-    function startProcessCycle() {
-      if (processInterval) clearInterval(processInterval);
-
-      processInterval = setInterval(function () {
-        processProgress += (PROCESS_TICK / PROCESS_DURATION) * 100;
-
-        var activeItem = document.querySelector('.process-step-item.active');
-        if (activeItem) {
-          activeItem.querySelector('.process-progress-fill').style.width = processProgress + '%';
-        }
-
-        if (processProgress >= 100) {
-          var nextStep = (currentProcessStep + 1) % 3;
-          setProcessStep(nextStep);
-        }
-      }, PROCESS_TICK);
-    }
-
-    // Start cycling when the process section is visible
-    var processObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          startProcessCycle();
-        } else {
-          if (processInterval) clearInterval(processInterval);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    var processSection = document.querySelector('.process');
-    if (processSection) processObserver.observe(processSection);
 
     // ---- CONTACT FORM (SUPABASE) ----
     var contactForm = document.getElementById('contactForm');

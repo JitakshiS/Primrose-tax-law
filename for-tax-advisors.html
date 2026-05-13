@@ -320,10 +320,15 @@
     }
 
     .ta-hero-inner {
-      padding: 100px 0 120px;
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
+      padding: 80px 0 100px;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .ta-hero-left {
+      max-width: 560px;
     }
 
     .ta-hero-label {
@@ -336,17 +341,17 @@
       background: rgba(124, 154, 142, 0.12);
       padding: 6px 16px;
       border-radius: 100px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .ta-hero h1 {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: clamp(40px, 5vw, 72px);
+      font-size: clamp(36px, 4.5vw, 60px);
       line-height: 1.08;
-      letter-spacing: -2.5px;
+      letter-spacing: -2px;
       color: #1C1C1C;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .ta-hero h1 .accent-serif {
@@ -355,11 +360,98 @@
 
     .ta-hero-sub {
       font-family: 'DM Sans', sans-serif;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.65;
       color: rgba(28, 28, 28, 0.5);
-      max-width: 600px;
-      margin: 0 auto 40px;
+      margin-bottom: 0;
+    }
+
+    .ta-hero-form-card {
+      background: #FAFAF8;
+      border: 1px solid rgba(28, 28, 28, 0.06);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 8px 32px rgba(28, 28, 28, 0.04);
+    }
+
+    .ta-hero-form-card-label {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7C9A8E;
+      margin-bottom: 10px;
+    }
+
+    .ta-hero-form-card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #1C1C1C;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .ta-hero-form-card-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(28, 28, 28, 0.55);
+      margin-bottom: 24px;
+      line-height: 1.55;
+    }
+
+    .ta-hero-form-card .form-field {
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ta-hero-form-card label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+    }
+
+    .ta-hero-form-card input,
+    .ta-hero-form-card textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(28, 28, 28, 0.1);
+      border-radius: 8px;
+      background: #fff;
+      color: #1C1C1C;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .ta-hero-form-card input:focus,
+    .ta-hero-form-card textarea:focus {
+      border-color: #7C9A8E;
+    }
+
+    .ta-hero-form-card textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .ta-hero-form-card button {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .ta-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .ta-hero-left {
+        max-width: 100%;
+      }
     }
 
     /* ============================================
@@ -1148,10 +1240,31 @@
   <section class="ta-hero">
     <div class="container">
       <div class="ta-hero-inner fade-in">
-        <span class="ta-hero-label">For Tax Advisors</span>
-        <h1>We implement the plan <span class="accent-serif">you design.</span></h1>
-        <p class="ta-hero-sub">You design the tax strategy. We handle the corporate and trust reorganizations that follow&thinsp;&mdash;&thinsp;across all nine common law provinces, on your instruction.</p>
-        <a href="#refer" class="btn btn-sage">Refer a Client &#8599;</a>
+        <div class="ta-hero-left">
+          <span class="ta-hero-label">For Tax Advisors</span>
+          <h1>We implement the plan <span class="accent-serif">you design.</span></h1>
+          <p class="ta-hero-sub">You design the tax strategy. We handle the corporate and trust reorganizations that follow&thinsp;&mdash;&thinsp;across all nine common law provinces, on your&nbsp;instruction.</p>
+        </div>
+        <div class="ta-hero-form-card" id="refer">
+          <span class="ta-hero-form-card-label">Refer a Client</span>
+          <h2 class="ta-hero-form-card-title">Send us the plan.</h2>
+          <p class="ta-hero-form-card-sub">We respond within one business day with a clear scope and fixed&nbsp;fee.</p>
+          <form class="referral-form" id="referralForm">
+            <div class="form-field">
+              <label for="your-name">Your Name</label>
+              <input type="text" id="your-name" name="your-name" placeholder="Full name" required>
+            </div>
+            <div class="form-field">
+              <label for="your-email">Your Email</label>
+              <input type="email" id="your-email" name="your-email" placeholder="you@firm.ca" required>
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about the file."></textarea>
+            </div>
+            <button type="submit" class="btn btn-sage">Submit Referral &#8599;</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -1226,7 +1339,7 @@
   </section>
 
   <!-- ============================================
-       5. HOW IT WORKS (5 Steps)
+       5. HOW IT WORKS (4 Steps)
        ============================================ -->
   <section class="process" id="process">
     <div class="container">
@@ -1239,23 +1352,18 @@
         </div>
         <div class="process-step">
           <div class="process-step-num">02</div>
-          <div class="process-step-title">Scoping</div>
-          <div class="process-step-desc">We review the file and provide a fixed-fee quote within one business day.</div>
+          <div class="process-step-title">Quoting</div>
+          <div class="process-step-desc">We review the file and provide a fixed-fee quote within one business day. Once accepted, we begin implementation from your tax&nbsp;plan.</div>
         </div>
         <div class="process-step">
           <div class="process-step-num">03</div>
-          <div class="process-step-title">Engagement</div>
-          <div class="process-step-desc">Letter of engagement signed. We begin implementation from your tax plan.</div>
-        </div>
-        <div class="process-step">
-          <div class="process-step-num">04</div>
           <div class="process-step-title">Implementation</div>
           <div class="process-step-desc">Drafting resolutions, elections, trust deeds. Electronic minute books maintained throughout.</div>
         </div>
         <div class="process-step">
-          <div class="process-step-num">05</div>
+          <div class="process-step-num">04</div>
           <div class="process-step-title">Completion</div>
-          <div class="process-step-desc">File delivered. Your client relationship stays with you. Ongoing registry renewals available.</div>
+          <div class="process-step-desc">Closing book delivered to accompany your tax plan. Your client relationship stays with&nbsp;you.</div>
         </div>
       </div>
     </div>
@@ -1301,38 +1409,7 @@
   </section>
 
   <!-- ============================================
-       9. REFER A CLIENT
-       ============================================ -->
-  <section class="refer-cta" id="refer">
-    <div class="container">
-      <div class="refer-cta-inner fade-in">
-        <h2>Ready to refer a client?</h2>
-        <p class="refer-cta-sub">We respond within one business day with a clear scope and fixed fee.</p>
-        <form class="referral-form" id="referralForm">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="your-name">Your Name</label>
-              <input type="text" id="your-name" name="your-name" placeholder="Full name" required>
-            </div>
-            <div class="form-field">
-              <label for="your-email">Your Email</label>
-              <input type="email" id="your-email" name="your-email" placeholder="you@firm.ca" required>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about the file. We&rsquo;ll respond within one business day."></textarea>
-          </div>
-          <div class="form-submit">
-            <button type="submit" class="btn btn-sage">Submit Referral &#8599;</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================
-       10. FOOTER
+       9. FOOTER
        ============================================ -->
   <footer class="footer">
     <div class="container">

@@ -408,20 +408,20 @@
       gap: 6px;
     }
 
-    .ta-hero-form label {
+    .ta-hero-form .form-field label {
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: rgba(28, 28, 28, 0.4);
+      color: rgba(28, 28, 28, 0.55);
     }
 
-    .ta-hero-form input,
-    .ta-hero-form textarea {
+    .ta-hero-form .form-field input,
+    .ta-hero-form .form-field textarea {
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      padding: 12px 14px;
-      border: 1px solid rgba(28, 28, 28, 0.1);
+      font-size: 15px;
+      padding: 14px 16px;
+      border: 1px solid rgba(28, 28, 28, 0.18);
       border-radius: 8px;
       background: #fff;
       color: #1C1C1C;
@@ -429,13 +429,18 @@
       transition: border-color 0.2s;
     }
 
-    .ta-hero-form input:focus,
-    .ta-hero-form textarea:focus {
+    .ta-hero-form .form-field input::placeholder,
+    .ta-hero-form .form-field textarea::placeholder {
+      color: rgba(28, 28, 28, 0.35);
+    }
+
+    .ta-hero-form .form-field input:focus,
+    .ta-hero-form .form-field textarea:focus {
       border-color: #7C9A8E;
     }
 
-    .ta-hero-form textarea {
-      min-height: 90px;
+    .ta-hero-form .form-field textarea {
+      min-height: 100px;
       resize: vertical;
     }
 

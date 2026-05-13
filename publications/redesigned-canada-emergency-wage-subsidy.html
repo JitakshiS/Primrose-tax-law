@@ -94,8 +94,8 @@
         <aside class="pub-sidebar fade-in">
           <div class="pub-sidebar-section">
             <div class="pub-sidebar-card">
-              <div class="pub-sidebar-card-label">Work With Us</div>
-              <p>Questions about government program compliance or corporate tax planning? We provide tax opinions across all nine common law&nbsp;provinces.</p>
+              <div class="pub-sidebar-card-label">Work With Me</div>
+              <p>Questions about government program compliance or corporate tax planning? I provide tax opinions across all nine common law&nbsp;provinces.</p>
               
             </div>
           </div>
@@ -108,7 +108,7 @@
     <div class="container">
       <div class="pub-bottom-cta-inner fade-in">
         <h2>Need help with corporate tax planning or government program&nbsp;compliance?</h2>
-        <p>We provide tax opinions and implement corporate reorganizations across all nine common law&nbsp;provinces.</p>
+        <p>I provide tax opinions and implement corporate reorganizations across all nine common law&nbsp;provinces.</p>
         
         <a href="/for-tax-advisors" class="btn btn-outline-cream">View Practice Areas &#8599;</a>
       </div>
@@ -127,6 +127,6 @@
     var navContactForm=document.getElementById('navContactForm');
     if(navContactForm){navContactForm.addEventListener('submit',async function(e){e.preventDefault();var btn=this.querySelector('button[type="submit"]');var originalText=btn.innerHTML;btn.innerHTML='Sending...';btn.disabled=true;try{var res=await fetch('https://gcrrvvwlxpgjjgnxizus.supabase.co/rest/v1/contacts',{method:'POST',headers:{'Content-Type':'application/json','apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI','Prefer':'return=minimal'},body:JSON.stringify({name:this.querySelector('[name="name"]').value,email:this.querySelector('[name="email"]').value,subject:'Contact from Nav Popup',message:this.querySelector('[name="message"]').value})});if(res.ok){btn.innerHTML='Message Sent &#10003;';btn.style.background='#4A6B5D';this.reset();setTimeout(function(){closeContactModal();btn.innerHTML=originalText;btn.disabled=false;btn.style.background=''},2000)}else{throw new Error()}}catch(err){btn.innerHTML='Error — please try again';btn.style.background='#8C3A3A';setTimeout(function(){btn.innerHTML=originalText;btn.disabled=false;btn.style.background=''},3000)}})}
   </script>
-  <div class="contact-modal-backdrop" id="contactModalBackdrop" onclick="closeContactModal(event)"><div class="contact-modal" onclick="event.stopPropagation()"><button class="contact-modal-close" onclick="closeContactModal(event)" aria-label="Close">&times;</button><div class="contact-modal-heading">Get in touch</div><div class="contact-modal-sub">We respond within one business day.</div><form class="contact-modal-form" id="navContactForm"><input type="text" name="name" placeholder="Your name" required><input type="email" name="email" placeholder="Your email" required><textarea name="message" placeholder="Your message — please do not include confidential details." required></textarea><button type="submit">Send Message &#8599;</button></form></div></div>
+  <div class="contact-modal-backdrop" id="contactModalBackdrop" onclick="closeContactModal(event)"><div class="contact-modal" onclick="event.stopPropagation()"><button class="contact-modal-close" onclick="closeContactModal(event)" aria-label="Close">&times;</button><div class="contact-modal-heading">Get in touch</div><div class="contact-modal-sub">I respond within one business day.</div><form class="contact-modal-form" id="navContactForm"><input type="text" name="name" placeholder="Your name" required><input type="email" name="email" placeholder="Your email" required><textarea name="message" placeholder="Your message — please do not include confidential details." required></textarea><button type="submit">Send Message &#8599;</button></form></div></div>
 </body>
 </html>

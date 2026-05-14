@@ -531,54 +531,84 @@
     }
 
     .research-card {
-      background: #FAFAF8;
-      border: 1px solid rgba(28, 28, 28, 0.06);
-      border-left: 4px solid #7C9A8E;
-      border-radius: 12px;
-      padding: 56px;
-      max-width: 980px;
+      max-width: 880px;
       margin: 0 auto;
+      padding: 0 8px;
+    }
+
+    .research-tag-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .research-tag-row::before {
+      content: '';
+      flex: 0 0 32px;
+      height: 1px;
+      background: #7C9A8E;
     }
 
     .research-tag {
-      display: inline-block;
-      background: #7C9A8E;
-      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7C9A8E;
+    }
+
+    .research-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124, 154, 142, 0.12);
+      color: #4A6B5D;
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
-      padding: 4px 10px;
-      border-radius: 4px;
-      letter-spacing: 0.06em;
-      margin-bottom: 24px;
+      padding: 5px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .research-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #7C9A8E;
     }
 
     .research-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: clamp(28px, 3.5vw, 40px);
-      line-height: 1.15;
-      letter-spacing: -1px;
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
       color: #1C1C1C;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .research-subtitle {
       font-family: 'Instrument Serif', serif;
       font-style: italic;
-      font-size: 22px;
-      line-height: 1.4;
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.35;
       color: #4A6B5D;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+      max-width: 760px;
     }
 
     .research-school {
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
-      letter-spacing: 0.04em;
-      color: rgba(28, 28, 28, 0.5);
-      margin-bottom: 36px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+      letter-spacing: 0.05em;
+      color: rgba(28, 28, 28, 0.45);
+      margin-bottom: 48px;
     }
 
     .research-abstract-label {
@@ -586,15 +616,26 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #7C9A8E;
-      margin-bottom: 14px;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 16px;
     }
 
     .research-abstract {
       font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.75;
-      color: rgba(28, 28, 28, 0.75);
+      color: rgba(28, 28, 28, 0.7);
+      max-width: 760px;
+    }
+
+    .research-abstract::first-letter {
+      font-family: 'Instrument Serif', serif;
+      font-size: 56px;
+      line-height: 1;
+      float: left;
+      margin: 6px 12px 0 0;
+      color: #4A6B5D;
+      font-style: italic;
     }
 
     /* ============================================
@@ -1061,7 +1102,11 @@
       }
 
       .research-card {
-        padding: 36px 28px;
+        padding: 0;
+      }
+
+      .research-tag-row::before {
+        flex-basis: 16px;
       }
 
       .teaching {
@@ -1451,7 +1496,10 @@
     <div class="container">
       <div class="research-label fade-in">Current Research</div>
       <div class="research-card fade-in">
-        <span class="research-tag">LLM THESIS &middot; GRADE A &middot; APPROVED</span>
+        <div class="research-tag-row">
+          <span class="research-tag">LLM Thesis</span>
+          <span class="research-badge">Grade A &middot; Approved</span>
+        </div>
         <h2 class="research-title">Tax Reform in Canada: Renovate or Reconstruct the Income Tax Act for Economic&nbsp;Equality</h2>
         <div class="research-subtitle">A Normative Comparative Analysis of Tax Reform, Tax Mix, and Redistribution in Germany and&nbsp;Estonia</div>
         <div class="research-school">Schulich School of Law &middot; Dalhousie University &middot; Candidate&nbsp;2027</div>

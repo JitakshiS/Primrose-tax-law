@@ -339,21 +339,20 @@
        3. FOUNDER
        ============================================ */
     .founder {
-      background: #4A6B5D;
+      background: #F5F0EB;
       padding: 120px 0;
     }
 
     .founder-layout {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 64px;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px;
       align-items: center;
     }
 
     .founder-photo {
-      border-radius: 12px;
+      position: relative;
       overflow: hidden;
-      border: 1px solid rgba(245, 240, 235, 0.12);
     }
 
     .founder-photo img {
@@ -362,13 +361,22 @@
       object-fit: cover;
       object-position: center center;
       aspect-ratio: 3 / 4;
+      filter: grayscale(0.05);
+    }
+
+    .founder-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(28, 28, 28, 0.08);
+      pointer-events: none;
     }
 
     .founder-name {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(32px, 4vw, 48px);
-      color: #F5F0EB;
+      color: #1C1C1C;
       letter-spacing: -1.5px;
       line-height: 1.05;
       margin-bottom: 8px;
@@ -379,7 +387,7 @@
       font-size: 12px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(245, 240, 235, 0.75);
+      color: #4A6B5D;
       margin-bottom: 32px;
     }
 
@@ -387,7 +395,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       line-height: 1.7;
-      color: rgba(245, 240, 235, 0.82);
+      color: rgba(28, 28, 28, 0.7);
       max-width: 520px;
     }
 
@@ -404,7 +412,7 @@
       font-style: italic;
       font-size: clamp(28px, 3.5vw, 44px);
       line-height: 1.2;
-      color: #F5F0EB;
+      color: #4A6B5D;
       padding: 24px 0 24px 24px;
       border-left: 2px solid #7C9A8E;
       max-width: 540px;
@@ -415,64 +423,107 @@
        4. CREDENTIALS
        ============================================ */
     .credentials {
-      background: #FAFAF8;
+      background: #F5F0EB;
       padding: 120px 0;
     }
 
+    .credentials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 48px;
+      margin-bottom: 80px;
+      flex-wrap: wrap;
+    }
+
     .credentials-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
       text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(28, 28, 28, 0.45);
+      margin-bottom: 16px;
+    }
+
+    .credentials-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 6vw, 72px);
+      color: #1C1C1C;
+      letter-spacing: -3px;
+      line-height: 0.95;
+      margin: 0;
+    }
+
+    .credentials-heading .accent-serif {
+      color: #4A6B5D;
+    }
+
+    .credentials-thesis-feature {
+      max-width: 300px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(28, 28, 28, 0.55);
+    }
+
+    .credentials-thesis-feature strong {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
       letter-spacing: 0.1em;
-      color: rgba(28, 28, 28, 0.4);
-      margin-bottom: 48px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #4A6B5D;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+      font-weight: 500;
     }
 
     .credentials-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid rgba(28, 28, 28, 0.12);
+      padding-top: 56px;
     }
 
-    .credential-card {
-      background: #FAFAF8;
-      border: 1px solid rgba(28, 28, 28, 0.06);
-      border-radius: 12px;
-      padding: 40px;
+    .credential-column {
+      padding: 0 40px;
+      border-right: 1px solid rgba(28, 28, 28, 0.08);
     }
 
-    .credential-card h3 {
+    .credential-column:first-child {
+      padding-left: 0;
+    }
+
+    .credential-column:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
+
+    .credential-column-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #7C9A8E;
+      margin-bottom: 8px;
+    }
+
+    .credential-column-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 24px;
-      letter-spacing: -0.5px;
+      font-size: 22px;
       color: #1C1C1C;
-      margin-bottom: 16px;
-    }
-
-    .credential-card p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.75;
-      color: rgba(28, 28, 28, 0.55);
-    }
-
-    .credential-thesis-badge {
-      display: inline-block;
-      background: #7C9A8E;
-      color: #fff;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.05em;
-      margin-bottom: 16px;
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
     }
 
     .credential-list {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 22px;
     }
 
     .credential-item {
@@ -482,17 +533,17 @@
     .credential-item-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 15px;
       color: #1C1C1C;
       line-height: 1.4;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
     .credential-item-meta {
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       color: rgba(28, 28, 28, 0.5);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .credential-item-meta em {
@@ -500,26 +551,40 @@
       font-style: italic;
       color: #4A6B5D;
       font-size: 14px;
+      letter-spacing: 0;
     }
 
     .credential-bar-number {
       display: block;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      color: #7C9A8E;
+      color: #4A6B5D;
       letter-spacing: 0.04em;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .credential-award {
       padding-top: 4px;
     }
 
+    .credential-award-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+      padding: 3px 8px;
+      border: 1px solid rgba(74, 107, 93, 0.3);
+      border-radius: 100px;
+      margin-bottom: 6px;
+    }
+
     .credential-hidden { display: none; }
     .credential-hidden.open {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 22px;
     }
     .credential-toggle {
       font-family: 'JetBrains Mono', monospace;
@@ -1115,8 +1180,19 @@
       }
 
       .credentials-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px 0;
+      }
+      .credential-column { padding: 0 32px; }
+      .credential-column:nth-child(1) { padding-left: 0; }
+      .credential-column:nth-child(2) { padding-right: 0; border-right: none; }
+      .credential-column:nth-child(3) {
+        padding-left: 0;
+        padding-top: 56px;
+        border-top: 1px solid rgba(28, 28, 28, 0.08);
+        border-right: none;
+        grid-column: span 2;
+        max-width: 480px;
       }
 
       .hww-grid {
@@ -1174,7 +1250,25 @@
 
       .credentials-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 48px;
+      }
+      .credential-column {
+        padding: 0 0 48px 0 !important;
+        border-right: none !important;
+        border-top: none !important;
+        border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+        grid-column: span 1 !important;
+        max-width: 100% !important;
+        padding-top: 0 !important;
+      }
+      .credential-column:last-child {
+        padding-bottom: 0 !important;
+        border-bottom: none;
+      }
+      .credentials-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
       }
 
       .research {
@@ -1241,15 +1335,6 @@
 
       .founder-name {
         font-size: 28px;
-      }
-
-      .credentials-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .credential-card {
-        padding: 28px;
       }
 
       .hww-grid {
@@ -1494,11 +1579,21 @@
        ============================================ -->
   <section class="credentials">
     <div class="container">
-      <div class="credentials-label fade-in">Credentials</div>
+      <div class="credentials-header fade-in">
+        <div>
+          <div class="credentials-label">Credentials</div>
+          <h2 class="credentials-heading">Trained, tested, <span class="accent-serif">admitted.</span></h2>
+        </div>
+        <div class="credentials-thesis-feature">
+          <strong>LLM Thesis &middot; Grade A</strong>
+          Currently a candidate for the Master of Laws (2027), Dalhousie &mdash; researching Canadian tax reform comparatively against Germany and&nbsp;Estonia.
+        </div>
+      </div>
+
       <div class="credentials-grid fade-in">
-        <div class="credential-card">
-          <span class="credential-thesis-badge">THESIS &middot; GRADE A</span>
-          <h3>Education</h3>
+        <div class="credential-column">
+          <div class="credential-column-num">01</div>
+          <div class="credential-column-title">Education</div>
           <div class="credential-list">
             <div class="credential-item">
               <div class="credential-item-title">Master of&nbsp;Laws</div>
@@ -1522,7 +1617,7 @@
                 <div class="credential-item-meta">2018 &middot; Schulich School of Law, Dalhousie&nbsp;University</div>
               </div>
               <div class="credential-item">
-                <div class="credential-item-title">Bachelor of Commerce <span style="font-weight: 400; color: rgba(28,28,28,0.5);">(Co-op, Finance major)</span></div>
+                <div class="credential-item-title">Bachelor of Commerce <span style="font-weight: 400; color: rgba(28,28,28,0.5);">(Co-op, Finance)</span></div>
                 <div class="credential-item-meta">2013 &middot; Dalhousie&nbsp;University</div>
               </div>
               <div class="credential-item">
@@ -1533,8 +1628,33 @@
             <button type="button" class="credential-toggle" onclick="toggleEducation(this)">+ Full education</button>
           </div>
         </div>
-        <div class="credential-card">
-          <h3>Professional</h3>
+
+        <div class="credential-column">
+          <div class="credential-column-num">02</div>
+          <div class="credential-column-title">Bar Admissions</div>
+          <div class="credential-list">
+            <div class="credential-item">
+              <div class="credential-item-title">Nova Scotia Barristers&rsquo;&nbsp;Society</div>
+              <span class="credential-bar-number">Member 2018-0077</span>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Law Society of&nbsp;Ontario</div>
+              <span class="credential-bar-number">Member 90949F</span>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Law Society of British&nbsp;Columbia</div>
+              <span class="credential-bar-number">Member 522462</span>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Law Society of&nbsp;Alberta</div>
+              <span class="credential-bar-number">Member 28336</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="credential-column">
+          <div class="credential-column-num">03</div>
+          <div class="credential-column-title">Professional</div>
           <div class="credential-list">
             <div class="credential-item">
               <div class="credential-item-title">Canadian Tax&nbsp;Foundation</div>
@@ -1548,27 +1668,6 @@
               <span class="credential-award-tag">Recognition</span>
               <div class="credential-item-title">Most Inspiring Immigrants in the&nbsp;Maritimes</div>
               <div class="credential-item-meta">2020 &middot; My East Coast&nbsp;Experience</div>
-            </div>
-          </div>
-        </div>
-        <div class="credential-card">
-          <h3>Bar Admissions</h3>
-          <div class="credential-list">
-            <div class="credential-item">
-              <div class="credential-item-title">Law Society of&nbsp;Ontario</div>
-              <span class="credential-bar-number">Member 90949F</span>
-            </div>
-            <div class="credential-item">
-              <div class="credential-item-title">Law Society of British&nbsp;Columbia</div>
-              <span class="credential-bar-number">Member 522462</span>
-            </div>
-            <div class="credential-item">
-              <div class="credential-item-title">Law Society of&nbsp;Alberta</div>
-              <span class="credential-bar-number">Member 28336</span>
-            </div>
-            <div class="credential-item">
-              <div class="credential-item-title">Nova Scotia Barristers&rsquo;&nbsp;Society</div>
-              <span class="credential-bar-number">Member 2018-0077</span>
             </div>
           </div>
         </div>

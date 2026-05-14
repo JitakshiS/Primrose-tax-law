@@ -1481,6 +1481,47 @@
     /* ============================================
        RESPONSIVE -- 1024px
        ============================================ */
+    @media (max-width: 900px) {
+      .offices-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 56px 0 !important;
+      }
+      .office-cell {
+        padding: 0 24px !important;
+        border-right: none !important;
+      }
+      .office-cell.office-cell-1,
+      .office-cell.office-cell-3 {
+        padding-left: 0 !important;
+        border-right: 1px solid rgba(245,240,235,0.12) !important;
+      }
+      .office-cell.office-cell-2,
+      .office-cell.office-cell-4 {
+        padding-right: 0 !important;
+        border-right: none !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .offices-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+      }
+      .office-cell,
+      .office-cell.office-cell-1,
+      .office-cell.office-cell-2,
+      .office-cell.office-cell-3,
+      .office-cell.office-cell-4 {
+        padding: 0 0 40px 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(245,240,235,0.12);
+      }
+      .office-cell.office-cell-4 {
+        padding-bottom: 0 !important;
+        border-bottom: none;
+      }
+    }
+
     @media (max-width: 1024px) {
       .hero-cards {
         grid-template-columns: 1fr 1fr;
@@ -2926,41 +2967,45 @@
   <!-- ============================================
        9. OFFICES
        ============================================ -->
-  <section class="offices" id="offices" style="background: #1C1C1C; padding: 100px 0;">
+  <section class="offices" id="offices" style="background: #4A6B5D; padding: 120px 0;">
     <div class="container">
-      <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 64px;">
+      <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 80px; gap: 48px; flex-wrap: wrap;">
         <div>
-          <div style="font-family: 'DM Sans', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: #7C9A8E; margin-bottom: 16px;">My Offices</div>
-          <div style="font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: clamp(40px, 6vw, 72px); color: #F5F0EB; letter-spacing: -3px; line-height: 0.95;">FOUR OFFICES.<br><span class="accent-serif" style="color: #C2B9A7;">Nine provinces.</span></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(245,240,235,0.5); margin-bottom: 24px;">Offices</div>
+          <h2 style="font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: clamp(40px, 6vw, 72px); color: #F5F0EB; letter-spacing: -3px; line-height: 0.95; margin: 0;">Four offices.<br><span class="accent-serif" style="color: rgba(245,240,235,0.55);">Nine provinces.</span></h2>
         </div>
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(245,240,235,0.3); text-align: right; max-width: 200px; line-height: 1.6; margin-top: 8px;">Practising across all nine common law provinces via the National Mobility Agreement</div>
+        <div style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(245,240,235,0.55); max-width: 280px; line-height: 1.6; margin-top: 12px;">Practising across all nine common law provinces via the National Mobility&nbsp;Agreement.</div>
       </div>
-      <div class="fade-in" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
-        <div style="border: 1px solid rgba(245,240,235,0.1); border-radius: 8px; padding: 28px 24px;">
-          <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: #F5F0EB; margin-bottom: 4px;">Nova Scotia</div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #7C9A8E; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">HFX &middot; Head Office</div>
-          <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.65); line-height: 1.7;">1959 Upper Water Street<br>Suite 1301, Tower 1<br>Halifax, NS B3J 3N2</div>
+      <div class="fade-in offices-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;">
+        <div class="office-cell office-cell-1" style="padding: 0 32px 0 0; border-right: 1px solid rgba(245,240,235,0.12);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 64px; font-weight: 400; color: #F5F0EB; letter-spacing: -2px; line-height: 1; margin-bottom: 28px;">YHZ</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(245,240,235,0.5); margin-bottom: 6px;">Halifax &middot; Head Office</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 15px; color: #F5F0EB; margin-bottom: 16px;">Nova Scotia</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.65); line-height: 1.8;">1959 Upper Water Street<br>Suite 1301, Tower 1<br>Halifax, NS B3J 3N2</div>
         </div>
-        <div style="border: 1px solid rgba(245,240,235,0.1); border-radius: 8px; padding: 28px 24px;">
-          <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: #F5F0EB; margin-bottom: 4px;">Ontario</div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #7C9A8E; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">YOW</div>
-          <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.65); line-height: 1.7;">116 Albert Street<br>Suite 200<br>Ottawa, ON K1P 5G3</div>
+        <div class="office-cell office-cell-2" style="padding: 0 32px; border-right: 1px solid rgba(245,240,235,0.12);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 64px; font-weight: 400; color: #F5F0EB; letter-spacing: -2px; line-height: 1; margin-bottom: 28px;">YOW</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(245,240,235,0.5); margin-bottom: 6px;">Ottawa</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 15px; color: #F5F0EB; margin-bottom: 16px;">Ontario</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.65); line-height: 1.8;">116 Albert Street<br>Suite 200<br>Ottawa, ON K1P 5G3</div>
         </div>
-        <div style="border: 1px solid rgba(245,240,235,0.1); border-radius: 8px; padding: 28px 24px;">
-          <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: #F5F0EB; margin-bottom: 4px;">Alberta</div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #7C9A8E; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">YYC</div>
-          <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.65); line-height: 1.7;">500 - 4th Avenue SW<br>Suite 2500<br>Calgary, AB T2P 2V6</div>
+        <div class="office-cell office-cell-3" style="padding: 0 32px; border-right: 1px solid rgba(245,240,235,0.12);">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 64px; font-weight: 400; color: #F5F0EB; letter-spacing: -2px; line-height: 1; margin-bottom: 28px;">YYC</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(245,240,235,0.5); margin-bottom: 6px;">Calgary</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 15px; color: #F5F0EB; margin-bottom: 16px;">Alberta</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.65); line-height: 1.8;">500 &ndash; 4th Avenue SW<br>Suite 2500<br>Calgary, AB T2P 2V6</div>
         </div>
-        <div style="border: 1px solid rgba(245,240,235,0.1); border-radius: 8px; padding: 28px 24px;">
-          <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; color: #F5F0EB; margin-bottom: 4px;">British Columbia</div>
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #7C9A8E; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px;">YVR</div>
-          <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.65); line-height: 1.7;">15300 Croydon Drive<br>Suite 300<br>Surrey, BC V3Z 0Z5</div>
+        <div class="office-cell office-cell-4" style="padding: 0 0 0 32px;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 64px; font-weight: 400; color: #F5F0EB; letter-spacing: -2px; line-height: 1; margin-bottom: 28px;">YVR</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(245,240,235,0.5); margin-bottom: 6px;">Surrey</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 15px; color: #F5F0EB; margin-bottom: 16px;">British Columbia</div>
+          <div style="font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.65); line-height: 1.8;">15300 Croydon Drive<br>Suite 300<br>Surrey, BC V3Z 0Z5</div>
         </div>
       </div>
-      <div class="fade-in" style="margin-top: 32px; display: flex; gap: 32px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(245,240,235,0.45); flex-wrap: wrap;">
-        <span>hello@primrosetax.ca</span>
-        <span>+1 (902) 510-0430</span>
-        <span>+1 (343) 300-3479</span>
+      <div class="fade-in" style="margin-top: 80px; padding-top: 32px; border-top: 1px solid rgba(245,240,235,0.12); display: flex; gap: 48px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(245,240,235,0.55); flex-wrap: wrap; letter-spacing: 0.04em;">
+        <a href="mailto:hello@primrosetax.ca" style="color: rgba(245,240,235,0.7);">hello@primrosetax.ca</a>
+        <a href="tel:+19025100430" style="color: rgba(245,240,235,0.7);">+1 (902) 510-0430</a>
+        <a href="tel:+13433003479" style="color: rgba(245,240,235,0.7);">+1 (343) 300-3479</a>
       </div>
     </div>
   </section>

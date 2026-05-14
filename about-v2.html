@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Primrose Tax Law</title>
+  <meta name="description" content="Primrose Tax Law is a Canadian tax law firm practising corporate tax and trust law for owner-managers across all nine common law provinces.">
+  <link rel="icon" href="assets/images/icon-gold.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #1C1C1C;
+      background: #F5F0EB;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 400;
+    }
+
+    .accent-serif {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+    }
+
+    /* ============================================
+       LAYOUT
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 120px 0;
+    }
+
+    /* ============================================
+       COMPONENTS
+       ============================================ */
+    .sage-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-sage {
+      background: #4A6B5D;
+      color: #fff;
+    }
+
+    .btn-sage:hover {
+      background: #4A6B5D;
+      opacity: 0.9;
+    }
+
+    .btn-cream {
+      background: #F5F0EB;
+      color: #1C1C1C;
+    }
+
+    .btn-cream:hover {
+      background: #F5F0EB;
+      opacity: 1;
+    }
+
+    .btn-outline-cream {
+      background: transparent;
+      color: #F5F0EB;
+      border: 1.5px solid rgba(245, 240, 235, 0.3);
+    }
+
+    .btn-outline-cream:hover {
+      border-color: rgba(245, 240, 235, 0.6);
+      opacity: 1;
+    }
+
+    /* ============================================
+       FADE-IN ANIMATION
+       ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       1. NAVIGATION
+       ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background: #1C1C1C;
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      color: #F5F0EB;
+    }
+
+    .nav-brand-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-brand-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      margin: 0 6px;
+      position: relative;
+      top: -1px;
+    }
+
+    .nav-brand-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      opacity: 0.55;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(245, 240, 235, 0.55);
+      letter-spacing: 0.01em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .nav-cta-wrap {
+      margin-left: 12px;
+    }
+
+    .nav-cta-wrap .btn {
+      padding: 10px 22px;
+      font-size: 13px;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #F5F0EB;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      background: #1C1C1C;
+      padding: 24px;
+      z-index: 999;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-menu a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 8px 0;
+      color: rgba(245, 240, 235, 0.7);
+    }
+
+    .mobile-menu .btn {
+      width: fit-content;
+      margin-top: 8px;
+    }
+
+    /* ============================================
+       2. ABOUT HERO
+       ============================================ */
+    .about-hero {
+      padding: 64px 0 0 0;
+      background: #F5F0EB;
+    }
+
+    .about-hero-inner {
+      padding: 100px 0 120px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-hero-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 48px;
+    }
+
+    .about-hero-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(48px, 6vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      color: #1C1C1C;
+      margin-bottom: 40px;
+    }
+
+    .about-hero-heading .accent-serif {
+      color: #4A6B5D;
+    }
+
+    .about-hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(28, 28, 28, 0.55);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       3. FOUNDER
+       ============================================ */
+    .founder {
+      background: #4A6B5D;
+      padding: 120px 0;
+    }
+
+    .founder-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .founder-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(245, 240, 235, 0.12);
+    }
+
+    .founder-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      aspect-ratio: 3 / 4;
+    }
+
+    .founder-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(32px, 4vw, 48px);
+      color: #F5F0EB;
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+
+    .founder-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(245, 240, 235, 0.75);
+      margin-bottom: 32px;
+    }
+
+    .founder-bio {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(245, 240, 235, 0.82);
+      max-width: 520px;
+    }
+
+    .founder-bio p {
+      margin-bottom: 20px;
+    }
+
+    .founder-bio p:last-child {
+      margin-bottom: 0;
+    }
+
+    .founder-pull-quote {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.2;
+      color: #F5F0EB;
+      padding: 24px 0 24px 24px;
+      border-left: 2px solid #7C9A8E;
+      max-width: 540px;
+      margin: 28px 0;
+    }
+
+    /* ============================================
+       4. CREDENTIALS
+       ============================================ */
+    .credentials {
+      background: #FAFAF8;
+      padding: 120px 0;
+    }
+
+    .credentials-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 48px;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .credential-card {
+      background: #FAFAF8;
+      border: 1px solid rgba(28, 28, 28, 0.06);
+      border-radius: 12px;
+      padding: 40px;
+    }
+
+    .credential-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      color: #1C1C1C;
+      margin-bottom: 16px;
+    }
+
+    .credential-card p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(28, 28, 28, 0.55);
+    }
+
+    .credential-thesis-badge {
+      display: inline-block;
+      background: #7C9A8E;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .credential-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .credential-item {
+      display: block;
+    }
+
+    .credential-item-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      color: #1C1C1C;
+      line-height: 1.4;
+      margin-bottom: 3px;
+    }
+
+    .credential-item-meta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(28, 28, 28, 0.5);
+      line-height: 1.5;
+    }
+
+    .credential-item-meta em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      color: #4A6B5D;
+      font-size: 14px;
+    }
+
+    .credential-bar-number {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #7C9A8E;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+
+    .credential-award {
+      padding-top: 4px;
+    }
+
+    .credential-hidden { display: none; }
+    .credential-hidden.open {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .credential-toggle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #4A6B5D;
+      background: transparent;
+      border: none;
+      padding: 12px 0 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .credential-toggle:hover { opacity: 0.7; }
+
+    .credential-award-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: #7C9A8E;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    /* ============================================
+       5. CURRENT RESEARCH (LLM THESIS)
+       ============================================ */
+    .research {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .research-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 48px;
+    }
+
+    .research-card {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 8px;
+    }
+
+    .research-tag-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+    }
+
+    .research-tag-row::before {
+      content: '';
+      flex: 0 0 32px;
+      height: 1px;
+      background: #7C9A8E;
+    }
+
+    .research-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7C9A8E;
+    }
+
+    .research-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124, 154, 142, 0.12);
+      color: #4A6B5D;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      padding: 5px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .research-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #7C9A8E;
+    }
+
+    .research-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      color: #1C1C1C;
+      margin-bottom: 20px;
+    }
+
+    .research-subtitle {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.35;
+      color: #4A6B5D;
+      margin-bottom: 28px;
+      max-width: 760px;
+    }
+
+    .research-school {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: rgba(28, 28, 28, 0.45);
+      margin-bottom: 48px;
+    }
+
+    .research-abstract-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .research-abstract {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: rgba(28, 28, 28, 0.7);
+      max-width: 760px;
+    }
+
+    .research-abstract::first-letter {
+      font-family: 'Instrument Serif', serif;
+      font-size: 56px;
+      line-height: 1;
+      float: left;
+      margin: 6px 12px 0 0;
+      color: #4A6B5D;
+      font-style: italic;
+    }
+
+    .abstract-rest { display: none; }
+    .abstract-rest.open { display: inline; }
+    .abstract-toggle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #4A6B5D;
+      background: transparent;
+      border: none;
+      padding: 16px 0 0;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .abstract-toggle:hover { opacity: 0.85; }
+
+    /* ============================================
+       6. TEACHING
+       ============================================ */
+    .teaching {
+      background: #FAFAF8;
+      padding: 120px 0;
+    }
+
+    .teaching-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .teaching-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 32px;
+    }
+
+    .teaching-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 4.5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      color: #1C1C1C;
+      margin-bottom: 40px;
+    }
+
+    .teaching-heading .accent-serif {
+      color: #4A6B5D;
+    }
+
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 56px;
+      border-top: 1px solid rgba(28, 28, 28, 0.08);
+      padding-top: 56px;
+    }
+
+    .teaching-beat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7C9A8E;
+      margin-bottom: 16px;
+    }
+
+    .teaching-beat-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1C1C1C;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .teaching-beat-meta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(28, 28, 28, 0.55);
+      line-height: 1.5;
+    }
+
+    .teaching-beat-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(28, 28, 28, 0.7);
+      margin-bottom: 16px;
+    }
+
+    .teaching-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .teaching-keywords span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #4A6B5D;
+      background: rgba(74, 107, 93, 0.08);
+      padding: 5px 10px;
+      border-radius: 100px;
+    }
+
+    @media (max-width: 900px) {
+      .teaching-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ============================================
+       7. CONFERENCES
+       ============================================ */
+    .conferences {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .conferences-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(28, 28, 28, 0.4);
+      margin-bottom: 24px;
+    }
+
+    .conferences-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -1.2px;
+      color: #1C1C1C;
+      margin-bottom: 20px;
+      max-width: 780px;
+    }
+
+    .conferences-intro {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: rgba(28, 28, 28, 0.6);
+      max-width: 680px;
+      margin-bottom: 64px;
+    }
+
+    .conf-year-block {
+      padding: 28px 0;
+      border-top: 1px solid rgba(28, 28, 28, 0.1);
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .conf-year-block:last-of-type {
+      border-bottom: 1px solid rgba(28, 28, 28, 0.1);
+    }
+
+    .conf-year-block.upcoming {
+      background: rgba(124, 154, 142, 0.06);
+      border-top: 1px solid rgba(124, 154, 142, 0.25);
+      border-bottom: 1px solid rgba(124, 154, 142, 0.25);
+      padding: 28px 24px;
+      margin: 0 -24px 12px;
+      border-radius: 8px;
+    }
+
+    .conf-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      color: rgba(28, 28, 28, 0.5);
+      text-transform: uppercase;
+      padding-top: 4px;
+    }
+
+    .conf-year-block.upcoming .conf-year {
+      color: #4A6B5D;
+      font-weight: 400;
+    }
+
+    .conf-year-tag {
+      display: inline-block;
+      background: #7C9A8E;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    .conf-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .conf-item {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #1C1C1C;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .conf-item::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      flex-shrink: 0;
+      transform: translateY(-3px);
+    }
+
+    .conf-item-name {
+      font-weight: 500;
+    }
+
+    .conf-item-loc {
+      color: rgba(28, 28, 28, 0.5);
+      font-size: 14px;
+    }
+
+    .conf-toggle {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .conf-toggle-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4A6B5D;
+      background: none;
+      border: none;
+      border-bottom: 1px solid rgba(74, 107, 93, 0.3);
+      padding: 4px 0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .conf-toggle-btn:hover {
+      color: #1C1C1C;
+      border-bottom-color: #1C1C1C;
+    }
+
+    .conf-earlier {
+      display: none;
+      margin-top: 16px;
+    }
+
+    .conf-earlier.open {
+      display: block;
+    }
+
+    /* ============================================
+       8. HOW WE WORK
+       ============================================ */
+    .how-we-work {
+      background: #1C1C1C;
+      padding: 120px 0;
+    }
+
+    .hww-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7C9A8E;
+      margin-bottom: 48px;
+    }
+
+    .hww-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .hww-item {
+      border: 1px solid rgba(245, 240, 235, 0.08);
+      border-radius: 12px;
+      padding: 32px 24px;
+    }
+
+    .hww-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7C9A8E;
+      margin-bottom: 20px;
+    }
+
+    .hww-item h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #F5F0EB;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .hww-item p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(245, 240, 235, 0.4);
+    }
+
+    /* ============================================
+       6. CTA
+       ============================================ */
+    .cta-section {
+      background: #4A6B5D;
+      padding: 120px 24px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 5vw, 52px);
+      color: #F5F0EB;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .cta-section .cta-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: rgba(245, 240, 235, 0.5);
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================
+       7. FOOTER
+       ============================================ */
+    .footer {
+      background: #1C1C1C;
+      padding: 80px 24px 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand img {
+      height: 24px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: rgba(245, 240, 235, 0.4);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h5 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(245, 240, 235, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245, 240, 235, 0.55);
+      margin-bottom: 12px;
+    }
+
+    .footer-col a:hover {
+      color: #F5F0EB;
+      opacity: 1;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(245, 240, 235, 0.06);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-legal a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      color: rgba(245, 240, 235, 0.25);
+    }
+
+    /* ============================================
+       RESPONSIVE -- 1024px
+       ============================================ */
+    @media (max-width: 1024px) {
+      .founder-layout {
+        gap: 48px;
+      }
+
+      .credentials-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .hww-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE -- 768px
+       ============================================ */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta-wrap {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .about-hero-heading {
+        font-size: clamp(36px, 8vw, 56px);
+        letter-spacing: -2px;
+      }
+
+      .about-hero-inner {
+        padding: 80px 0 80px;
+      }
+
+      .founder {
+        padding: 80px 0;
+      }
+
+      .founder-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .founder-photo img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .credentials {
+        padding: 80px 0;
+      }
+
+      .credentials-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .research {
+        padding: 80px 0;
+      }
+
+      .research-card {
+        padding: 0;
+      }
+
+      .research-tag-row::before {
+        flex-basis: 16px;
+      }
+
+      .teaching {
+        padding: 80px 0;
+      }
+
+      .conferences {
+        padding: 80px 0;
+      }
+
+      .conf-year-block {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px 0;
+      }
+
+      .conf-year-block.upcoming {
+        padding: 24px 20px;
+        margin: 0 -20px 12px;
+      }
+
+      .how-we-work {
+        padding: 80px 0;
+      }
+
+      .hww-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-padding {
+        padding: 80px 0;
+      }
+    }
+
+    /* ============================================
+       RESPONSIVE -- 480px
+       ============================================ */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .about-hero-heading {
+        font-size: 36px;
+        letter-spacing: -1.5px;
+      }
+
+      .founder-name {
+        font-size: 28px;
+      }
+
+      .credentials-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .credential-card {
+        padding: 28px;
+      }
+
+      .hww-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hww-item {
+        padding: 24px 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta-section {
+        padding: 80px 20px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-buttons .btn {
+        width: 100%;
+      }
+    }
+    /* Language selector */
+    .lang-wrap { position: relative; display: flex; align-items: center; }
+    .lang-btn { background: none; border: 1px solid rgba(245,240,235,0.2); border-radius: 6px; padding: 6px 10px; cursor: pointer; display: flex; align-items: center; gap: 6px; color: rgba(245,240,235,0.6); font-family: 'DM Sans', sans-serif; font-size: 12px; transition: all 0.2s; }
+    .lang-btn:hover { border-color: rgba(245,240,235,0.4); color: #F5F0EB; }
+    .lang-btn svg { width: 14px; height: 14px; fill: currentColor; }
+    .lang-menu { display: none; position: absolute; top: 100%; right: 0; margin-top: 8px; background: #1C1C1C; border: 1px solid rgba(245,240,235,0.15); border-radius: 8px; padding: 6px 0; min-width: 160px; z-index: 1001; box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+    .lang-menu.open { display: block; }
+    .lang-menu a { display: block; padding: 8px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.6); transition: all 0.15s; cursor: pointer; }
+    .lang-menu a:hover { background: rgba(245,240,235,0.06); color: #F5F0EB; opacity: 1; }
+    .goog-te-banner-frame, .skiptranslate, #google_translate_element { display: none !important; }
+    body { top: 0 !important; }
+
+    /* Contact Modal */
+    .contact-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28,28,28,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .contact-modal-backdrop.open { display: flex; }
+    .contact-modal {
+      background: #1C1C1C;
+      border: 1px solid rgba(245,240,235,0.1);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .contact-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(245,240,235,0.06);
+      border: none;
+      color: #F5F0EB;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .contact-modal-close:hover { background: rgba(245,240,235,0.12); }
+    .contact-modal-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: #F5F0EB;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+    .contact-modal-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(245,240,235,0.5);
+      margin-bottom: 24px;
+    }
+    .contact-modal-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-modal-form input,
+    .contact-modal-form textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(245,240,235,0.15);
+      border-radius: 8px;
+      background: rgba(245,240,235,0.04);
+      color: #F5F0EB;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-modal-form input::placeholder,
+    .contact-modal-form textarea::placeholder { color: rgba(245,240,235,0.4); }
+    .contact-modal-form input:focus,
+    .contact-modal-form textarea:focus { border-color: #7C9A8E; }
+    .contact-modal-form textarea { min-height: 100px; resize: vertical; }
+    .contact-modal-form button {
+  background: #4A6B5D;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 100px;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+    .contact-modal-form button:hover { background: #4A6B5D; }
+    .contact-modal-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+  </style>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateInit"></script>
+  <script>
+    function googleTranslateInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+    function setLang(code) {
+      var sel = document.querySelector('.goog-te-combo');
+      if (sel) { sel.value = code; sel.dispatchEvent(new Event('change')); }
+      document.querySelector('.lang-menu').classList.remove('open');
+      document.querySelector('.lang-label').textContent = code === 'en' ? 'EN' : code.toUpperCase().split('-')[0];
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================
+       1. NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">
+        <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 36px; width: auto; display: block;">
+      </a>
+      <div class="nav-links">
+        <a href="/for-tax-advisors">For Tax Advisors</a>
+        <a href="/for-business-owners">For Business Owners</a>
+        <a href="/about" class="nav-active" style="color: #F5F0EB; opacity: 1;">About</a>
+        <a href="/research">Research &amp; Publications</a>
+        <a href="#" onclick="openContactModal(event)">Contact</a>
+      </div>
+      <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 12px;">
+        <div class="lang-wrap">
+          <button class="lang-btn" onclick="this.nextElementSibling.classList.toggle('open')">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            <span class="lang-label">EN</span>
+          </button>
+          <div class="lang-menu">
+            <a onclick="setLang('en')">English</a>
+            <a onclick="setLang('fr')">Fran&ccedil;ais</a>
+            <a onclick="setLang('zh-CN')">&#20013;&#25991;</a>
+            <a onclick="setLang('pa')">&#2602;&#2672;&#2588;&#2622;&#2604;&#2624;</a>
+            <a onclick="setLang('es')">Espa&ntilde;ol</a>
+            <a onclick="setLang('tl')">Tagalog</a>
+            <a onclick="setLang('ar')">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</a>
+          </div>
+        </div>
+        
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <div id="google_translate_element" style="display:none;"></div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/for-tax-advisors">For Tax Advisors</a>
+    <a href="/for-business-owners">For Business Owners</a>
+    <a href="/about" style="color: #F5F0EB;">About</a>
+    <a href="/research">Research &amp; Publications</a>
+    <a href="#" onclick="openContactModal(event)">Contact</a>
+    
+  </div>
+
+  <!-- ============================================
+       2. HERO
+       ============================================ -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-inner">
+        <div class="about-hero-label fade-in">About the Firm</div>
+        <h1 class="about-hero-heading fade-in">A FOCUSED PRACTICE<br><span class="accent-serif">of one.</span></h1>
+        <p class="about-hero-sub fade-in">Primrose Tax Law is a Canadian tax law firm practising corporate tax and trust law for owner-managers. I handle the legal side of implementing corporate and trust reorganizations prepared by your tax advisor across all nine common law&nbsp;provinces.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       3. FOUNDER
+       ============================================ -->
+  <section class="founder">
+    <div class="container">
+      <div class="founder-layout fade-in">
+        <div class="founder-photo">
+          <img src="assets/images/headshot.jpg" alt="Primrose Watson">
+        </div>
+        <div>
+          <div class="founder-name">Primrose Watson, JD</div>
+          <div class="founder-title">Founder & Counsel &middot; She/Her/Hers</div>
+          <div class="founder-bio">
+            <p class="founder-bio-lead">I designed Primrose Tax Law to be a place where I can be the tax enthusiast I am. The firm runs on one principle: collaborate with tax advisors, never compete with&nbsp;them.</p>
+
+            <div class="founder-pull-quote">
+              &ldquo;I implement the plan. I don&rsquo;t compete for&nbsp;it.&rdquo;
+            </div>
+
+            <p class="founder-bio-body">Tax advisors design the strategy. I implement the legal structure &mdash; resolutions, incorporations, trust deeds &mdash; on the tax advisor&rsquo;s instruction. I work across all nine common law provinces with offices in Halifax, Ottawa, Calgary, and Surrey. Every file is fixed-fee. Every file handled with&nbsp;care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       4. CREDENTIALS
+       ============================================ -->
+  <section class="credentials">
+    <div class="container">
+      <div class="credentials-label fade-in">Credentials</div>
+      <div class="credentials-grid fade-in">
+        <div class="credential-card">
+          <span class="credential-thesis-badge">THESIS &middot; GRADE A</span>
+          <h3>Education</h3>
+          <div class="credential-list">
+            <div class="credential-item">
+              <div class="credential-item-title">Master of&nbsp;Laws</div>
+              <div class="credential-item-meta"><em>Candidate 2027</em> &middot; Schulich School of Law, Dalhousie&nbsp;University</div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">In-Depth Tax&nbsp;Program</div>
+              <div class="credential-item-meta">2024 &middot; Chartered Professional Accountants&nbsp;Canada</div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Income Tax for the General Practitioner&nbsp;Course</div>
+              <div class="credential-item-meta">2022 &middot; Chartered Professional Accountants&nbsp;Canada</div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Juris&nbsp;Doctor</div>
+              <div class="credential-item-meta">2018 &middot; Schulich School of Law, Dalhousie&nbsp;University</div>
+            </div>
+            <div class="credential-hidden" id="educationMore">
+              <div class="credential-item">
+                <div class="credential-item-title">Certificate in Business&nbsp;Law</div>
+                <div class="credential-item-meta">2018 &middot; Schulich School of Law, Dalhousie&nbsp;University</div>
+              </div>
+              <div class="credential-item">
+                <div class="credential-item-title">Bachelor of Commerce <span style="font-weight: 400; color: rgba(28,28,28,0.5);">(Co-op, Finance major)</span></div>
+                <div class="credential-item-meta">2013 &middot; Dalhousie&nbsp;University</div>
+              </div>
+              <div class="credential-item">
+                <div class="credential-item-title">Certificate in Business&nbsp;Accounting</div>
+                <div class="credential-item-meta">2005 &middot; Chartered Institute of Management Accountants&nbsp;(UK)</div>
+              </div>
+            </div>
+            <button type="button" class="credential-toggle" onclick="toggleEducation(this)">+ Full education</button>
+          </div>
+        </div>
+        <div class="credential-card">
+          <h3>Professional</h3>
+          <div class="credential-list">
+            <div class="credential-item">
+              <div class="credential-item-title">Canadian Tax&nbsp;Foundation</div>
+              <div class="credential-item-meta">Member</div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Canadian Bar&nbsp;Association</div>
+              <div class="credential-item-meta">Member since&nbsp;2015</div>
+            </div>
+            <div class="credential-item credential-award">
+              <span class="credential-award-tag">Recognition</span>
+              <div class="credential-item-title">Most Inspiring Immigrants in the&nbsp;Maritimes</div>
+              <div class="credential-item-meta">2020 &middot; My East Coast&nbsp;Experience</div>
+            </div>
+          </div>
+        </div>
+        <div class="credential-card">
+          <h3>Bar Admissions</h3>
+          <div class="credential-list">
+            <div class="credential-item">
+              <div class="credential-item-title">Law Society of&nbsp;Ontario</div>
+              <span class="credential-bar-number">Member 90949F</span>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Law Society of British&nbsp;Columbia</div>
+              <span class="credential-bar-number">Member 522462</span>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Law Society of&nbsp;Alberta</div>
+              <span class="credential-bar-number">Member 28336</span>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Nova Scotia Barristers&rsquo;&nbsp;Society</div>
+              <span class="credential-bar-number">Member 2018-0077</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       5. CURRENT RESEARCH (LLM THESIS)
+       ============================================ -->
+  <section class="research">
+    <div class="container">
+      <div class="research-label fade-in">Current Research</div>
+      <div class="research-card fade-in">
+        <div class="research-tag-row">
+          <span class="research-tag">LLM Thesis</span>
+          <span class="research-badge">Grade A &middot; Approved</span>
+        </div>
+        <h2 class="research-title">Tax Reform in Canada: Renovate or Reconstruct the Income Tax Act for Economic&nbsp;Equality</h2>
+        <div class="research-subtitle">A Normative Comparative Analysis of Tax Reform, Tax Mix, and Redistribution in Germany and&nbsp;Estonia</div>
+        <div class="research-school">Schulich School of Law &middot; Dalhousie University &middot; Candidate&nbsp;2027</div>
+        <div class="research-abstract-label">Abstract</div>
+        <p class="research-abstract">My LLM dissertation asks whether Canada should renovate the existing Income Tax Act or pursue a more comprehensive reconstruction of its tax mix to better advance economic equality. Drawing on critical tax theory and a comparative analysis of Germany&rsquo;s 2000 reform cycle and Estonia&rsquo;s flat-rate, distributed-profit regime, the dissertation evaluates what model of reform best serves Canada&rsquo;s constitutional, policy, and equity commitments. <span class="abstract-rest" id="abstractRest">Canada has not undertaken a comprehensive review of its tax system since the Carter Commission of 1966. The research engages that gap directly &mdash; framing income tax reform not as a neutral exercise in administrative rationalization but as a question about whose interests the law serves and what values it should&nbsp;embody.</span></p>
+        <button type="button" class="abstract-toggle" onclick="toggleAbstract(this)">Read full abstract &nbsp;&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       6. TEACHING
+       ============================================ -->
+  <section class="teaching">
+    <div class="container">
+      <div class="teaching-inner">
+        <div class="teaching-label fade-in">In the Classroom</div>
+        <h2 class="teaching-heading fade-in">Teaching the next generation <span class="accent-serif">of tax&nbsp;lawyers.</span></h2>
+
+        <div class="teaching-grid fade-in">
+          <!-- Beat 1: Role -->
+          <div class="teaching-beat">
+            <div class="teaching-beat-label">Role</div>
+            <div class="teaching-beat-title">Assistant Professor, Dalhousie&nbsp;University</div>
+            <div class="teaching-beat-meta">Schulich School of Law &middot; 2024&ndash;2025</div>
+            <div class="teaching-beat-meta">LAWS 2106 &middot; Taxation of&nbsp;Corporations</div>
+          </div>
+
+          <!-- Beat 2: I teach what I practice -->
+          <div class="teaching-beat">
+            <div class="teaching-beat-label">What I&nbsp;teach</div>
+            <p class="teaching-beat-body">The curriculum is the same playbook I implement for clients &mdash; your client isn&rsquo;t paying for my learning&nbsp;curve.</p>
+            <div class="teaching-keywords">
+              <span>Section&nbsp;85</span>
+              <span>Share Reorganizations</span>
+              <span>Butterflies</span>
+              <span>Estate Freezes</span>
+              <span>TOSI</span>
+              <span>Owner-Manager Remuneration</span>
+            </div>
+          </div>
+
+          <!-- Beat 3: AI fluency -->
+          <div class="teaching-beat">
+            <div class="teaching-beat-label">How I&nbsp;teach</div>
+            <p class="teaching-beat-body">I built the course around Blue J Tax and Microsoft Copilot &mdash; teaching prompt engineering for Canadian corporate tax research. Deep statutory knowledge meets modern&nbsp;tools.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       7. CONFERENCES / CONTINUING ENGAGEMENT
+       ============================================ -->
+  <section class="conferences">
+    <div class="container">
+      <div class="conferences-label fade-in">Continuing Engagement</div>
+      <h2 class="conferences-heading fade-in">Conferences &amp;&nbsp;Convenings</h2>
+      <p class="conferences-intro fade-in">Active participation in the Canadian tax community keeps my practice current. Below are upcoming and recent conferences attended &mdash; a record of where the conversations are happening and where I show&nbsp;up.</p>
+
+      <div class="fade-in">
+        <div class="conf-year-block upcoming">
+          <div class="conf-year">
+            Upcoming 2026
+            <span class="conf-year-tag">SCHEDULED</span>
+          </div>
+          <div class="conf-list">
+            <div class="conf-item"><span class="conf-item-name">Prairie Provinces Tax Conference</span> <span class="conf-item-loc">&middot; Winnipeg,&nbsp;MB</span></div>
+            <div class="conf-item"><span class="conf-item-name">Young Practitioners Webinar</span> <span class="conf-item-loc">&middot; Calgary&nbsp;Chapter</span></div>
+            <div class="conf-item"><span class="conf-item-name">Virtual Tax Writing Workshop for Young&nbsp;Practitioners</span></div>
+            <div class="conf-item"><span class="conf-item-name">British Columbia Tax Conference</span> <span class="conf-item-loc">&middot; CPA&nbsp;Canada</span></div>
+            <div class="conf-item"><span class="conf-item-name">Ontario Tax Conference</span> <span class="conf-item-loc">&middot; CPA&nbsp;Canada</span></div>
+            <div class="conf-item"><span class="conf-item-name">78th Annual Tax Conference</span> <span class="conf-item-loc">&middot; CPA&nbsp;Canada</span></div>
+            <div class="conf-item"><span class="conf-item-name">In-Depth Corporate Reorganizations</span> <span class="conf-item-loc">&middot; CPA Canada 2026&nbsp;program</span></div>
+            <div class="conf-item"><span class="conf-item-name">In-Depth Tax Issues for the Owner-Managed&nbsp;Business</span> <span class="conf-item-loc">&middot; CPA Canada 2026&nbsp;program</span></div>
+          </div>
+        </div>
+
+        <div class="conf-year-block">
+          <div class="conf-year">2025</div>
+          <div class="conf-list">
+            <div class="conf-item"><span class="conf-item-name">77th Annual Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Calgary</span></div>
+            <div class="conf-item"><span class="conf-item-name">Atlantic Provinces Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Halifax</span></div>
+            <div class="conf-item"><span class="conf-item-name">Ontario Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Toronto</span></div>
+            <div class="conf-item"><span class="conf-item-name">Tax Policy Symposium</span> <span class="conf-item-loc">&middot;&nbsp;Toronto</span></div>
+            <div class="conf-item"><span class="conf-item-name">Mississauga Young Practitioners Networking&nbsp;Event</span></div>
+            <div class="conf-item"><span class="conf-item-name">British Columbia Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Vancouver</span></div>
+            <div class="conf-item"><span class="conf-item-name">Prairie Provinces Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Calgary</span></div>
+            <div class="conf-item"><span class="conf-item-name">Canadian Taxation of Trusts Conference</span> <span class="conf-item-loc">&middot;&nbsp;Toronto</span></div>
+          </div>
+        </div>
+
+        <div class="conf-year-block">
+          <div class="conf-year">2024</div>
+          <div class="conf-list">
+            <div class="conf-item"><span class="conf-item-name">Atlantic Provinces Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Halifax</span></div>
+          </div>
+        </div>
+
+        <div class="conf-toggle">
+          <button class="conf-toggle-btn" id="confToggle" onclick="toggleEarlierConferences()">View earlier conferences (2018&ndash;2023) &rarr;</button>
+        </div>
+
+        <div class="conf-earlier" id="confEarlier">
+          <div class="conf-year-block">
+            <div class="conf-year">2023</div>
+            <div class="conf-list">
+              <div class="conf-item"><span class="conf-item-name">75th Annual Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Montr&eacute;al</span></div>
+              <div class="conf-item"><span class="conf-item-name">Board of Governors Mentorship Dinner&nbsp;Gala</span> <span class="conf-item-loc">&middot;&nbsp;Montr&eacute;al</span></div>
+              <div class="conf-item"><span class="conf-item-name">Atlantic Provinces Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Halifax</span></div>
+              <div class="conf-item"><span class="conf-item-name">Women in Tax Halifax&nbsp;Networking</span></div>
+              <div class="conf-item"><span class="conf-item-name">Ontario Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Toronto</span></div>
+              <div class="conf-item"><span class="conf-item-name">Young Practitioner&nbsp;Focus</span></div>
+            </div>
+          </div>
+          <div class="conf-year-block">
+            <div class="conf-year">2022</div>
+            <div class="conf-list">
+              <div class="conf-item"><span class="conf-item-name">Young Practitioner Webinar Series</span> <span class="conf-item-loc">&middot;&nbsp;Vancouver</span></div>
+              <div class="conf-item"><span class="conf-item-name">Atlantic Provinces Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Halifax</span></div>
+              <div class="conf-item"><span class="conf-item-name">Young Practitioner Webinar Series</span> <span class="conf-item-loc">&middot; Toronto&nbsp;(x2)</span></div>
+            </div>
+          </div>
+          <div class="conf-year-block">
+            <div class="conf-year">2020</div>
+            <div class="conf-list">
+              <div class="conf-item"><span class="conf-item-name">Young Practitioner&nbsp;Focus</span></div>
+            </div>
+          </div>
+          <div class="conf-year-block">
+            <div class="conf-year">2019</div>
+            <div class="conf-list">
+              <div class="conf-item"><span class="conf-item-name">Atlantic Provinces Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Halifax</span></div>
+              <div class="conf-item"><span class="conf-item-name">Halifax Young Practitioners&nbsp;Networking</span></div>
+            </div>
+          </div>
+          <div class="conf-year-block">
+            <div class="conf-year">2018</div>
+            <div class="conf-list">
+              <div class="conf-item"><span class="conf-item-name">Atlantic Provinces Tax Conference</span> <span class="conf-item-loc">&middot;&nbsp;Halifax</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       8. HOW I WORK
+       ============================================ -->
+  <section class="how-we-work">
+    <div class="container">
+      <div class="hww-label fade-in">How I Work</div>
+      <div class="hww-grid fade-in">
+        <div class="hww-item">
+          <div class="hww-dot"></div>
+          <h4>Fixed-fee billing</h4>
+          <p>Clear scope, no surprises.</p>
+        </div>
+        <div class="hww-item">
+          <div class="hww-dot"></div>
+          <h4>Electronic signatures & minute books</h4>
+          <p>Streamlined document handling.</p>
+        </div>
+        <div class="hww-item">
+          <div class="hww-dot"></div>
+          <h4>Secure workspace</h4>
+          <p>Data protection as core to operations.</p>
+        </div>
+        <div class="hww-item">
+          <div class="hww-dot"></div>
+          <h4>Care on every file</h4>
+          <p>Quiet rigour. Considered work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       9. CTA
+       ============================================ -->
+  <section class="cta-section" id="contact">
+    <div class="container fade-in">
+      <h2>Ready to work together?</h2>
+      <p class="cta-sub">I respond within one business day.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
+        <button class="btn btn-cream" onclick="var w=document.getElementById('aboutContactWrap'); w.style.display=w.style.display==='none'?'block':'none'; this.innerHTML=w.style.display==='none'?'Contact &#8599;':'Close &#10005;'">Contact &#8599;</button>
+        <a href="/for-tax-advisors#refer" class="btn btn-outline-cream">Refer a Client</a>
+      </div>
+      <div id="aboutContactWrap" style="display: none; max-width: 600px; margin: 32px auto 0;">
+        <style>#aboutContactForm input::placeholder, #aboutContactForm textarea::placeholder { color: rgba(245,240,235,0.5); opacity: 1; }</style>
+        <form id="aboutContactForm" style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <input type="text" name="name" placeholder="Your name" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+            <input type="email" name="email" placeholder="Your email" required style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none;">
+          </div>
+          <textarea name="message" placeholder="Your message — please do not include confidential details." rows="4" style="font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 14px 18px; border: 1px solid rgba(245,240,235,0.2); border-radius: 8px; background: rgba(245,240,235,0.08); color: #F5F0EB; outline: none; resize: vertical;"></textarea>
+          <div style="text-align: center;"><button type="submit" class="btn btn-cream">Send Message &#8599;</button></div>
+        </form>
+      </div>
+      <div style="display: flex; justify-content: center; gap: 32px; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(245,240,235,0.5);">
+        <a href="mailto:hello@primrosetax.ca" style="color: rgba(245,240,235,0.5);">hello@primrosetax.ca</a>
+        <a href="tel:+19025100430" style="color: rgba(245,240,235,0.5);">+1 (902) 510-0430</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       10. FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/images/logo-dark.png" alt="Primrose Tax Law">
+          <p>Implementing corporate and trust reorganizations across all nine common law provinces.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Practice</h5>
+          <a href="/#practice">Section 85 Rollovers</a>
+          <a href="/#practice">Estate Freezes</a>
+          <a href="/#practice">Trust Settlements</a>
+          <a href="/#practice">Butterfly Reorganizations</a>
+          
+        </div>
+        <div class="footer-col">
+          <h5>Firm</h5>
+          <a href="/for-tax-advisors">For Tax Advisors</a>
+          <a href="/for-business-owners">For Business Owners</a>
+          <a href="/about">About</a>
+          <a href="/research">Writing</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="mailto:hello@primrosetax.ca">hello@primrosetax.ca</a>
+          <a href="tel:+19025100430">+1 (902) 510-0430</a>
+          <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="/for-tax-advisors">Refer a Client</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Primrose Tax Law Inc. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    // ---- HAMBURGER MENU ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function () {
+      mobileMenu.classList.toggle('open');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ---- FADE-IN ANIMATIONS (IntersectionObserver) ----
+    const fadeEls = document.querySelectorAll('.fade-in');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      fadeEls.forEach(function (el) {
+        observer.observe(el);
+      });
+    } else {
+      fadeEls.forEach(function (el) {
+        el.classList.add('visible');
+      });
+    }
+
+    // ---- SMOOTH SCROLL FOR ANCHOR LINKS ----
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // ---- CONTACT FORM ----
+    var formId = 'aboutContactForm';
+    var form = document.getElementById(formId);
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: this.querySelector('[name="name"]').value,
+              email: this.querySelector('[name="email"]').value,
+              subject: 'Contact from ' + window.location.pathname,
+              message: this.querySelector('[name="message"]').value
+            })
+          });
+          if (res.ok) {
+            btn.innerHTML = 'Message Sent &#10003;';
+            btn.style.background = '#4A6B5D';
+            form.reset();
+            setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 4000);
+          } else { throw new Error(); }
+        } catch (err) {
+          btn.innerHTML = 'Error — please try again';
+          btn.style.background = '#8C3A3A';
+          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+        }
+      });
+    }
+
+    // ---- EARLIER CONFERENCES TOGGLE ----
+    function toggleEarlierConferences() {
+      var earlier = document.getElementById('confEarlier');
+      var btn = document.getElementById('confToggle');
+      if (!earlier || !btn) return;
+      var isOpen = earlier.classList.toggle('open');
+      btn.innerHTML = isOpen
+        ? 'Hide earlier conferences &uarr;'
+        : 'View earlier conferences (2018&ndash;2023) &rarr;';
+    }
+
+    // ---- EDUCATION TOGGLE ----
+    function toggleEducation(btn) {
+      var hidden = document.getElementById('educationMore');
+      if (!hidden) return;
+      var isOpen = hidden.classList.toggle('open');
+      btn.textContent = isOpen ? '− Show less' : '+ Full education';
+    }
+
+    // ---- ABSTRACT TOGGLE ----
+    function toggleAbstract(btn) {
+      var rest = document.getElementById('abstractRest');
+      if (!rest) return;
+      var isOpen = rest.classList.toggle('open');
+      btn.innerHTML = isOpen ? 'Show less' : 'Read full abstract &nbsp;&#8594;';
+    }
+
+    // ---- CONTACT MODAL ----
+    function openContactModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('contactModalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('contactModalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeContactModal();
+    });
+    var navContactForm = document.getElementById('navContactForm');
+    if (navContactForm) {
+      navContactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        var originalText = btn.innerHTML;
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        try {
+          var res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: this.querySelector('[name="name"]').value,
+              email: this.querySelector('[name="email"]').value,
+              subject: 'Contact from Nav Popup',
+              message: this.querySelector('[name="message"]').value
+            })
+          });
+          if (res.ok) {
+            btn.innerHTML = 'Message Sent &#10003;';
+            btn.style.background = '#4A6B5D';
+            this.reset();
+            setTimeout(function() { closeContactModal(); btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 2000);
+          } else { throw new Error(); }
+        } catch (err) {
+          btn.innerHTML = 'Error — please try again';
+          btn.style.background = '#8C3A3A';
+          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+        }
+      });
+    }
+  </script>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal-backdrop" id="contactModalBackdrop" onclick="closeContactModal(event)">
+    <div class="contact-modal" onclick="event.stopPropagation()">
+      <button class="contact-modal-close" onclick="closeContactModal(event)" aria-label="Close">&times;</button>
+      <div class="contact-modal-heading">Get in touch</div>
+      <div class="contact-modal-sub">I respond within one business day.</div>
+      <form class="contact-modal-form" id="navContactForm">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message — please do not include confidential details." required></textarea>
+        <button type="submit">Send Message &#8599;</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

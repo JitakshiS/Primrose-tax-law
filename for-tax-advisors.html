@@ -462,16 +462,36 @@
        3. NON-COMPETITION PROMISE
        ============================================ */
     .promise {
-      background: #1C1C1C;
+      background: #4A6B5D;
       padding: 120px 0;
     }
 
+    .promise-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(245, 240, 235, 0.7);
+      margin-bottom: 24px;
+    }
+
     .promise-headline {
-      font-size: clamp(48px, 6vw, 80px);
-      line-height: 1.08;
-      letter-spacing: -3px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 5.4vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -2.5px;
       color: #F5F0EB;
-      margin-bottom: 64px;
+      margin-bottom: 72px;
+      max-width: 880px;
+    }
+
+    .promise-headline .accent-serif {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #F5F0EB;
+      letter-spacing: -1.5px;
     }
 
     .promise-headline .heavy {
@@ -479,10 +499,53 @@
       font-weight: 900;
     }
 
-    .promise-headline .accent-serif {
-      color: #F5F0EB;
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(245, 240, 235, 0.18);
     }
 
+    .promise-col {
+      padding: 40px 28px 0 0;
+      border-right: 1px solid rgba(245, 240, 235, 0.14);
+    }
+
+    .promise-col:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .promise-col:not(:first-child) {
+      padding-left: 28px;
+    }
+
+    .promise-col-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: rgba(245, 240, 235, 0.75);
+      margin-bottom: 24px;
+    }
+
+    .promise-col-lead {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 1.3;
+      letter-spacing: -0.4px;
+      color: #F5F0EB;
+      margin-bottom: 16px;
+    }
+
+    .promise-col-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(245, 240, 235, 0.78);
+    }
+
+    /* Legacy 3-point styles retained for backward compat (unused after refactor) */
     .promise-points {
       display: flex;
       flex-direction: column;
@@ -495,7 +558,7 @@
       align-items: flex-start;
       gap: 20px;
       padding-left: 20px;
-      border-left: 2px solid rgba(124, 154, 142, 0.3);
+      border-left: 2px solid rgba(245, 240, 235, 0.3);
     }
 
     .promise-point .sage-dot {
@@ -508,14 +571,14 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       line-height: 1.65;
-      color: rgba(245, 240, 235, 0.6);
+      color: rgba(245, 240, 235, 0.85);
     }
 
     /* ============================================
        4. IMPLEMENTATION SCOPE (Practice Areas)
        ============================================ */
     .scope {
-      background: #F5F0EB;
+      background: #4A6B5D;
       padding: 120px 0;
     }
 
@@ -524,14 +587,14 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: rgba(28, 28, 28, 0.4);
+      color: rgba(245, 240, 235, 0.7);
       margin-bottom: 12px;
     }
 
     .scope-desc {
       font-family: 'DM Sans', sans-serif;
       font-size: 18px;
-      color: rgba(28, 28, 28, 0.5);
+      color: rgba(245, 240, 235, 0.85);
       margin-bottom: 48px;
     }
 
@@ -542,8 +605,8 @@
     }
 
     .scope-cell {
-      background: #1C1C1C;
-      border: 1px solid rgba(245, 240, 235, 0.06);
+      background: rgba(245, 240, 235, 0.06);
+      border: 1px solid rgba(245, 240, 235, 0.14);
       padding: 36px 28px;
       border-radius: 12px;
       transition: all 0.3s ease;
@@ -554,15 +617,15 @@
     }
 
     .scope-cell:hover {
-      background: #1C1C1C;
-      border-color: rgba(124, 154, 142, 0.2);
+      background: rgba(245, 240, 235, 0.1);
+      border-color: rgba(245, 240, 235, 0.28);
       transform: translateY(-2px);
     }
 
     .scope-cell-code {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      color: #7C9A8E;
+      color: rgba(245, 240, 235, 0.75);
       margin-bottom: auto;
       letter-spacing: 0.06em;
     }
@@ -980,6 +1043,33 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .promise-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .promise-col {
+        padding: 36px 24px 8px 0;
+      }
+
+      .promise-col:nth-child(2) {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      .promise-col:nth-child(3) {
+        padding-left: 0;
+        padding-top: 36px;
+        border-top: 1px solid rgba(245, 240, 235, 0.18);
+        border-right: 1px solid rgba(245, 240, 235, 0.14);
+      }
+
+      .promise-col:nth-child(4) {
+        padding-left: 24px;
+        padding-top: 36px;
+        border-top: 1px solid rgba(245, 240, 235, 0.18);
+        border-right: none;
+      }
+
       .process-steps {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1043,6 +1133,24 @@
 
       .promise {
         padding: 80px 0;
+      }
+
+      .promise-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promise-col,
+      .promise-col:not(:first-child),
+      .promise-col:nth-child(2),
+      .promise-col:nth-child(3),
+      .promise-col:nth-child(4) {
+        padding: 32px 0;
+        border-right: none;
+        border-top: 1px solid rgba(245, 240, 235, 0.18);
+      }
+
+      .promise-col:first-child {
+        border-top: none;
       }
 
       .scope {
@@ -1374,25 +1482,32 @@
   </section>
 
   <!-- ============================================
-       3. NON-COMPETITION PROMISE
+       3. WHY ADVISORS TRUST ME
        ============================================ -->
   <section class="promise fade-in">
     <div class="container">
-      <div class="promise-headline">
-        <span class="heavy">YOUR CLIENT </span><span class="accent-serif">stays yours.</span>
-      </div>
-      <div class="promise-points">
-        <div class="promise-point">
-          <span class="sage-dot"></span>
-          <p>I don't provide tax planning advice to your client.</p>
+      <div class="promise-label">The Trust Panel</div>
+      <h2 class="promise-headline"><span class="heavy">Why advisors </span><span class="accent-serif">trust&nbsp;me.</span></h2>
+      <div class="promise-grid">
+        <div class="promise-col">
+          <div class="promise-col-num">01 &middot; CURRICULUM</div>
+          <div class="promise-col-lead">I teach what I&nbsp;practice.</div>
+          <p class="promise-col-body">Same curriculum I taught at Dalhousie law school. Section 85 rollovers, butterflies, TOSI &mdash; your client isn&rsquo;t paying for my learning&nbsp;curve.</p>
         </div>
-        <div class="promise-point">
-          <span class="sage-dot"></span>
-          <p>I implement the tax plan you design. Your client relationship stays with&nbsp;you.</p>
+        <div class="promise-col">
+          <div class="promise-col-num">02 &middot; NON-COMPETE</div>
+          <div class="promise-col-lead">I never compete for your&nbsp;client.</div>
+          <p class="promise-col-body">I don&rsquo;t provide tax planning advice. I implement what you design. Your client relationship stays with&nbsp;you.</p>
         </div>
-        <div class="promise-point">
-          <span class="sage-dot"></span>
-          <p>I provide a closing book to accompany your tax&nbsp;plan.</p>
+        <div class="promise-col">
+          <div class="promise-col-num">03 &middot; PRICING</div>
+          <div class="promise-col-lead">Fixed fees, quoted in one business&nbsp;day.</div>
+          <p class="promise-col-body">No hourly billing. No surprises. Clear scope and price before work&nbsp;begins.</p>
+        </div>
+        <div class="promise-col">
+          <div class="promise-col-num">04 &middot; TOOLING</div>
+          <div class="promise-col-lead">AI-fluent for fast tax&nbsp;research.</div>
+          <p class="promise-col-body">I built my law-school course around Blue J Tax and Copilot. Deep statutory knowledge plus modern tools means faster turnaround without sacrificing&nbsp;precision.</p>
         </div>
       </div>
     </div>

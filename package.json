@@ -4,7 +4,7 @@
   "private": true,
   "description": "Primrose Tax Law website. Static HTML + Vercel serverless function for form submissions.",
   "engines": {
-    "node": "20.x"
+    "node": "22.x"
   },
   "dependencies": {
     "firebase-admin": "^12.7.0",

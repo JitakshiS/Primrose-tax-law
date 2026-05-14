@@ -1,0 +1,13 @@
+{
+  "name": "primrose-tax-law",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Primrose Tax Law website. Static HTML + Vercel serverless function for form submissions.",
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "resend": "^4.0.1"
+  }
+}

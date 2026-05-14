@@ -393,13 +393,10 @@
         btn.innerHTML = 'Sending...';
         btn.disabled = true;
         try {
-          var res = await fetch('https://gcrrvvwlxpgjjgnxizus.supabase.co/rest/v1/contacts', {
+          var res = await fetch('/api/contact', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
-              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcnJ2dndseHBnampnbnhpenVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgyNTI0NTMsImV4cCI6MjA5MzgyODQ1M30.27wNxDVwNlWPFiiaWLnM5o0LbeVI_IkqRPPSMjyLSLI',
-              'Prefer': 'return=minimal'
             },
             body: JSON.stringify({
               name: this.querySelector('[name="name"]').value,

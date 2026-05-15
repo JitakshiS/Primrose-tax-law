@@ -1033,9 +1033,39 @@
     }
 
     .hww-item {
+      position: relative;
+      background: rgba(245, 240, 235, 0.03);
       border: 1px solid rgba(245, 240, 235, 0.08);
       border-radius: 12px;
       padding: 32px 24px;
+      overflow: hidden;
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hww-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #7C9A8E;
+      transition: width 0.35s ease;
+    }
+
+    .hww-item:hover {
+      background: rgba(245, 240, 235, 0.06);
+      border-color: rgba(245, 240, 235, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .hww-item:hover::before {
+      width: 32px;
+    }
+
+    .hww-item:hover .hww-dot {
+      transform: scale(1.25);
+      background: #F5F0EB;
     }
 
     .hww-dot {
@@ -1045,6 +1075,7 @@
       border-radius: 50%;
       background: #7C9A8E;
       margin-bottom: 20px;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .hww-item h4 {

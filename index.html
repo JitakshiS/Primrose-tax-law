@@ -771,21 +771,46 @@
     }
 
     .practice-cell {
-      background: transparent;
-      border: 1px solid rgba(28, 28, 28, 0.08);
+      position: relative;
+      background: #FAFAF8;
+      border: 1px solid rgba(28, 28, 28, 0.06);
       padding: 36px 28px;
       border-radius: 12px;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
       cursor: default;
       min-height: 180px;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
+    }
+
+    .practice-cell::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #4A6B5D;
+      transition: width 0.35s ease;
     }
 
     .practice-cell:hover {
-      background: rgba(28, 28, 28, 0.02);
-      border-color: rgba(74, 107, 93, 0.3);
+      background: #ffffff;
+      border-color: rgba(28, 28, 28, 0.1);
       transform: translateY(-2px);
+    }
+
+    .practice-cell:hover::before {
+      width: 32px;
+    }
+
+    .practice-cell:hover .practice-cell-code {
+      color: #1C1C1C;
+    }
+
+    .practice-cell-code {
+      transition: color 0.3s ease;
     }
 
     .practice-cell-code {
@@ -1216,6 +1241,37 @@
       font-size: 14px;
       font-weight: 500;
       color: #7C9A8E;
+    }
+
+    /* ============================================
+       8. FROM LINKEDIN
+       ============================================ */
+    .linkedin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+
+    .linkedin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .linkedin-grid {
+        grid-template-columns: 1fr;
+      }
+      .linkedin-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .linkedin-heading {
+        font-size: clamp(28px, 7vw, 36px) !important;
+        letter-spacing: -1px !important;
+      }
     }
 
     /* ============================================
@@ -2790,16 +2846,16 @@
   <!-- ============================================
        7. FROM LINKEDIN
        ============================================ -->
-  <section style="background: #F5F0EB; padding: 100px 0;">
+  <section class="linkedin-section" style="background: #F5F0EB; padding: 100px 0;">
     <div class="container">
-      <div class="fade-in" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px;">
+      <div class="linkedin-header fade-in">
         <div>
           <div style="font-family: 'DM Sans', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(28,28,28,0.35); margin-bottom: 16px;">From LinkedIn</div>
-          <div style="font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: clamp(32px, 4vw, 48px); color: #1C1C1C; letter-spacing: -2px; line-height: 1.1;">What Primrose is <span class="accent-serif" style="color: #4A6B5D;">sharing.</span></div>
+          <div class="linkedin-heading" style="font-family: 'DM Sans', sans-serif; font-weight: 900; font-size: clamp(32px, 4vw, 48px); color: #1C1C1C; letter-spacing: -2px; line-height: 1.1;">What Primrose is <span class="accent-serif" style="color: #4A6B5D;">sharing.</span></div>
         </div>
         <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer" style="font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #7C9A8E; border: 1px solid rgba(124,154,142,0.3); padding: 10px 20px; border-radius: 100px; white-space: nowrap;">Follow on LinkedIn &#8599;</a>
       </div>
-      <div class="fade-in" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div class="linkedin-grid fade-in">
 
         <a href="https://www.linkedin.com/posts/primrosewatson_alberta-corporatereorgs-estatefreeze-activity-7420200758488309761-aOsa" target="_blank" rel="noopener noreferrer" style="background: #fff; border-radius: 8px; padding: 0; border: 1px solid rgba(28,28,28,0.08); transition: all 0.3s ease; display: flex; flex-direction: column; text-decoration: none; color: inherit; overflow: hidden;">
           <div style="padding: 20px 20px 0; display: flex; align-items: center; justify-content: space-between;">

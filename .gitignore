@@ -23,3 +23,6 @@ yarn-error.log
 
 # Vercel
 .vercel
+
+# Deliverables (kept local, shared separately)
+brand-kit/

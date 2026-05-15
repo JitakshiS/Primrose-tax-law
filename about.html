@@ -339,21 +339,20 @@
        3. FOUNDER
        ============================================ */
     .founder {
-      background: #4A6B5D;
+      background: #F5F0EB;
       padding: 120px 0;
     }
 
     .founder-layout {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 64px;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 80px;
       align-items: center;
     }
 
     .founder-photo {
-      border-radius: 12px;
+      position: relative;
       overflow: hidden;
-      border: 1px solid rgba(245, 240, 235, 0.12);
     }
 
     .founder-photo img {
@@ -362,13 +361,22 @@
       object-fit: cover;
       object-position: center center;
       aspect-ratio: 3 / 4;
+      filter: grayscale(0.05);
+    }
+
+    .founder-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(28, 28, 28, 0.08);
+      pointer-events: none;
     }
 
     .founder-name {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
       font-size: clamp(32px, 4vw, 48px);
-      color: #F5F0EB;
+      color: #1C1C1C;
       letter-spacing: -1.5px;
       line-height: 1.05;
       margin-bottom: 8px;
@@ -379,7 +387,7 @@
       font-size: 12px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(245, 240, 235, 0.75);
+      color: #4A6B5D;
       margin-bottom: 32px;
     }
 
@@ -387,7 +395,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 16px;
       line-height: 1.7;
-      color: rgba(245, 240, 235, 0.82);
+      color: rgba(28, 28, 28, 0.7);
       max-width: 520px;
     }
 
@@ -399,68 +407,123 @@
       margin-bottom: 0;
     }
 
+    .founder-pull-quote {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.2;
+      color: #4A6B5D;
+      padding: 24px 0 24px 24px;
+      border-left: 2px solid #7C9A8E;
+      max-width: 540px;
+      margin: 28px 0;
+    }
+
     /* ============================================
        4. CREDENTIALS
        ============================================ */
     .credentials {
-      background: #FAFAF8;
+      background: #F5F0EB;
       padding: 120px 0;
     }
 
+    .credentials-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 48px;
+      margin-bottom: 80px;
+      flex-wrap: wrap;
+    }
+
     .credentials-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
       text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(28, 28, 28, 0.45);
+      margin-bottom: 16px;
+    }
+
+    .credentials-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 6vw, 72px);
+      color: #1C1C1C;
+      letter-spacing: -3px;
+      line-height: 0.95;
+      margin: 0;
+    }
+
+    .credentials-heading .accent-serif {
+      color: #4A6B5D;
+    }
+
+    .credentials-thesis-feature {
+      max-width: 300px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+      color: rgba(28, 28, 28, 0.55);
+    }
+
+    .credentials-thesis-feature strong {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
       letter-spacing: 0.1em;
-      color: rgba(28, 28, 28, 0.4);
-      margin-bottom: 48px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #4A6B5D;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+      font-weight: 500;
     }
 
     .credentials-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid rgba(28, 28, 28, 0.12);
+      padding-top: 56px;
     }
 
-    .credential-card {
-      background: #FAFAF8;
-      border: 1px solid rgba(28, 28, 28, 0.06);
-      border-radius: 12px;
-      padding: 40px;
+    .credential-column {
+      padding: 0 40px;
+      border-right: 1px solid rgba(28, 28, 28, 0.08);
     }
 
-    .credential-card h3 {
+    .credential-column:first-child {
+      padding-left: 0;
+    }
+
+    .credential-column:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
+
+    .credential-column-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: #7C9A8E;
+      margin-bottom: 8px;
+    }
+
+    .credential-column-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 900;
-      font-size: 24px;
-      letter-spacing: -0.5px;
+      font-size: 22px;
       color: #1C1C1C;
-      margin-bottom: 16px;
-    }
-
-    .credential-card p {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.75;
-      color: rgba(28, 28, 28, 0.55);
-    }
-
-    .credential-thesis-badge {
-      display: inline-block;
-      background: #7C9A8E;
-      color: #fff;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.05em;
-      margin-bottom: 16px;
+      margin-bottom: 32px;
+      letter-spacing: -0.5px;
     }
 
     .credential-list {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 22px;
     }
 
     .credential-item {
@@ -470,17 +533,17 @@
     .credential-item-title {
       font-family: 'DM Sans', sans-serif;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 15px;
       color: #1C1C1C;
       line-height: 1.4;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
     .credential-item-meta {
       font-family: 'DM Sans', sans-serif;
       font-size: 13px;
       color: rgba(28, 28, 28, 0.5);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .credential-item-meta em {
@@ -488,20 +551,56 @@
       font-style: italic;
       color: #4A6B5D;
       font-size: 14px;
+      letter-spacing: 0;
     }
 
     .credential-bar-number {
       display: block;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      color: #7C9A8E;
+      color: #4A6B5D;
       letter-spacing: 0.04em;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
     .credential-award {
       padding-top: 4px;
     }
+
+    .credential-award-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+      padding: 3px 8px;
+      border: 1px solid rgba(74, 107, 93, 0.3);
+      border-radius: 100px;
+      margin-bottom: 6px;
+    }
+
+    .credential-hidden { display: none; }
+    .credential-hidden.open {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .credential-toggle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #4A6B5D;
+      background: transparent;
+      border: none;
+      padding: 12px 0 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .credential-toggle:hover { opacity: 0.7; }
 
     .credential-award-tag {
       display: inline-block;
@@ -517,7 +616,7 @@
        5. CURRENT RESEARCH (LLM THESIS)
        ============================================ */
     .research {
-      background: #F5F0EB;
+      background: #4A6B5D;
       padding: 120px 0;
     }
 
@@ -526,7 +625,7 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: rgba(28, 28, 28, 0.4);
+      color: rgba(245, 240, 235, 0.5);
       margin-bottom: 48px;
     }
 
@@ -542,14 +641,14 @@
       gap: 16px;
       margin-bottom: 32px;
       padding-bottom: 24px;
-      border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+      border-bottom: 1px solid rgba(245, 240, 235, 0.12);
     }
 
     .research-tag-row::before {
       content: '';
       flex: 0 0 32px;
       height: 1px;
-      background: #7C9A8E;
+      background: rgba(245, 240, 235, 0.35);
     }
 
     .research-tag {
@@ -557,15 +656,15 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #7C9A8E;
+      color: rgba(245, 240, 235, 0.7);
     }
 
     .research-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(124, 154, 142, 0.12);
-      color: #4A6B5D;
+      background: rgba(245, 240, 235, 0.12);
+      color: #F5F0EB;
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
       padding: 5px 12px;
@@ -580,7 +679,7 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: #7C9A8E;
+      background: #F5F0EB;
     }
 
     .research-title {
@@ -589,7 +688,7 @@
       font-size: clamp(28px, 3.5vw, 44px);
       line-height: 1.12;
       letter-spacing: -1.5px;
-      color: #1C1C1C;
+      color: #F5F0EB;
       margin-bottom: 20px;
     }
 
@@ -598,7 +697,7 @@
       font-style: italic;
       font-size: clamp(20px, 2.2vw, 26px);
       line-height: 1.35;
-      color: #4A6B5D;
+      color: rgba(245, 240, 235, 0.85);
       margin-bottom: 28px;
       max-width: 760px;
     }
@@ -607,7 +706,7 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
       letter-spacing: 0.05em;
-      color: rgba(28, 28, 28, 0.45);
+      color: rgba(245, 240, 235, 0.5);
       margin-bottom: 48px;
     }
 
@@ -616,7 +715,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: rgba(28, 28, 28, 0.4);
+      color: rgba(245, 240, 235, 0.5);
       margin-bottom: 16px;
     }
 
@@ -624,7 +723,7 @@
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       line-height: 1.75;
-      color: rgba(28, 28, 28, 0.7);
+      color: rgba(245, 240, 235, 0.78);
       max-width: 760px;
     }
 
@@ -634,9 +733,25 @@
       line-height: 1;
       float: left;
       margin: 6px 12px 0 0;
-      color: #4A6B5D;
+      color: #F5F0EB;
       font-style: italic;
     }
+
+    .abstract-rest { display: none; }
+    .abstract-rest.open { display: inline; }
+    .abstract-toggle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #F5F0EB;
+      background: transparent;
+      border: none;
+      padding: 16px 0 0;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .abstract-toggle:hover { opacity: 0.85; }
 
     /* ============================================
        6. TEACHING
@@ -674,82 +789,70 @@
       color: #4A6B5D;
     }
 
-    .teaching-role {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 700;
-      font-size: 20px;
-      color: #1C1C1C;
-      margin-bottom: 6px;
-    }
-
-    .teaching-where {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      color: rgba(28, 28, 28, 0.5);
-      margin-bottom: 24px;
-    }
-
-    .teaching-body {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(28, 28, 28, 0.7);
-      margin-bottom: 32px;
-    }
-
-    .teaching-course {
-      display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      color: #4A6B5D;
-      background: #FAFAF8;
-      border: 1px solid rgba(28, 28, 28, 0.08);
-      border-radius: 6px;
-      padding: 10px 16px;
-    }
-
-    .teaching-curriculum {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(28, 28, 28, 0.7);
-      margin-top: 32px;
-      padding-top: 32px;
+    .teaching-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      margin-top: 56px;
       border-top: 1px solid rgba(28, 28, 28, 0.08);
+      padding-top: 56px;
     }
 
-    .teaching-curriculum strong {
-      font-weight: 700;
-      color: #1C1C1C;
-    }
-
-    .practice-note {
-      margin-top: 40px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(28, 28, 28, 0.08);
-    }
-
-    .practice-note-label {
+    .teaching-beat-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
-      letter-spacing: 0.1em;
       text-transform: uppercase;
+      letter-spacing: 0.12em;
       color: #7C9A8E;
       margin-bottom: 16px;
     }
 
-    .practice-note p {
+    .teaching-beat-title {
       font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(28, 28, 28, 0.7);
+      font-weight: 700;
+      font-size: 18px;
+      color: #1C1C1C;
+      margin-bottom: 8px;
+      line-height: 1.3;
     }
 
-    .practice-note p strong {
-      font-weight: 700;
-      color: #1C1C1C;
+    .teaching-beat-meta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(28, 28, 28, 0.55);
+      line-height: 1.5;
+    }
+
+    .teaching-beat-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(28, 28, 28, 0.7);
+      margin-bottom: 16px;
+    }
+
+    .teaching-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .teaching-keywords span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #4A6B5D;
+      background: rgba(74, 107, 93, 0.08);
+      padding: 5px 10px;
+      border-radius: 100px;
+    }
+
+    @media (max-width: 900px) {
+      .teaching-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
     }
 
     /* ============================================
@@ -1077,8 +1180,19 @@
       }
 
       .credentials-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px 0;
+      }
+      .credential-column { padding: 0 32px; }
+      .credential-column:nth-child(1) { padding-left: 0; }
+      .credential-column:nth-child(2) { padding-right: 0; border-right: none; }
+      .credential-column:nth-child(3) {
+        padding-left: 0;
+        padding-top: 56px;
+        border-top: 1px solid rgba(28, 28, 28, 0.08);
+        border-right: none;
+        grid-column: span 2;
+        max-width: 480px;
       }
 
       .hww-grid {
@@ -1136,7 +1250,25 @@
 
       .credentials-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 48px;
+      }
+      .credential-column {
+        padding: 0 0 48px 0 !important;
+        border-right: none !important;
+        border-top: none !important;
+        border-bottom: 1px solid rgba(28, 28, 28, 0.08);
+        grid-column: span 1 !important;
+        max-width: 100% !important;
+        padding-top: 0 !important;
+      }
+      .credential-column:last-child {
+        padding-bottom: 0 !important;
+        border-bottom: none;
+      }
+      .credentials-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
       }
 
       .research {
@@ -1203,15 +1335,6 @@
 
       .founder-name {
         font-size: 28px;
-      }
-
-      .credentials-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-      }
-
-      .credential-card {
-        padding: 28px;
       }
 
       .hww-grid {
@@ -1438,9 +1561,13 @@
           <div class="founder-name">Primrose Watson, JD</div>
           <div class="founder-title">Founder & Counsel &middot; She/Her/Hers</div>
           <div class="founder-bio">
-            <p>I designed Primrose Tax Law to be a place where I can be the tax enthusiast I am. I wanted to build a firm around one principle: collaborate with tax advisors, never compete with&nbsp;them.</p>
-            <p>Tax advisors design the tax strategy. I implement the legal structure&thinsp;&mdash;&thinsp;the resolutions, the incorporations, the trust deeds&thinsp;&mdash;&thinsp;without conflict, without competition, and on the tax advisor&rsquo;s&nbsp;instruction.</p>
-            <p>I work across all nine common law provinces, with offices in Halifax, Ottawa, Calgary, and Surrey. Every engagement is fixed-fee. Every file handled with&nbsp;care.</p>
+            <p class="founder-bio-lead">I designed Primrose Tax Law to be a place where I can be the tax enthusiast I am. The firm runs on one principle: collaborate with tax advisors, never compete with&nbsp;them.</p>
+
+            <div class="founder-pull-quote">
+              &ldquo;I implement the plan. I don&rsquo;t compete for&nbsp;it.&rdquo;
+            </div>
+
+            <p class="founder-bio-body">Tax advisors design the strategy. I implement the legal structure &mdash; resolutions, incorporations, trust deeds &mdash; on the tax advisor&rsquo;s instruction. I work across all nine common law provinces with offices in Halifax, Ottawa, Calgary, and Surrey. Every file is fixed-fee. Every file handled with&nbsp;care.</p>
           </div>
         </div>
       </div>
@@ -1452,11 +1579,21 @@
        ============================================ -->
   <section class="credentials">
     <div class="container">
-      <div class="credentials-label fade-in">Credentials</div>
+      <div class="credentials-header fade-in">
+        <div>
+          <div class="credentials-label">Credentials</div>
+          <h2 class="credentials-heading">Trained, tested, <span class="accent-serif">admitted.</span></h2>
+        </div>
+        <div class="credentials-thesis-feature">
+          <strong>LLM Thesis &middot; Grade A</strong>
+          Currently a candidate for the Master of Laws (2027), Dalhousie &mdash; researching Canadian tax reform comparatively against Germany and&nbsp;Estonia.
+        </div>
+      </div>
+
       <div class="credentials-grid fade-in">
-        <div class="credential-card">
-          <span class="credential-thesis-badge">THESIS &middot; GRADE A</span>
-          <h3>Education</h3>
+        <div class="credential-column">
+          <div class="credential-column-num">01</div>
+          <div class="credential-column-title">Education</div>
           <div class="credential-list">
             <div class="credential-item">
               <div class="credential-item-title">Master of&nbsp;Laws</div>
@@ -1474,22 +1611,50 @@
               <div class="credential-item-title">Juris&nbsp;Doctor</div>
               <div class="credential-item-meta">2018 &middot; Schulich School of Law, Dalhousie&nbsp;University</div>
             </div>
+            <div class="credential-hidden" id="educationMore">
+              <div class="credential-item">
+                <div class="credential-item-title">Certificate in Business&nbsp;Law</div>
+                <div class="credential-item-meta">2018 &middot; Schulich School of Law, Dalhousie&nbsp;University</div>
+              </div>
+              <div class="credential-item">
+                <div class="credential-item-title">Bachelor of Commerce <span style="font-weight: 400; color: rgba(28,28,28,0.5);">(Co-op, Finance)</span></div>
+                <div class="credential-item-meta">2013 &middot; Dalhousie&nbsp;University</div>
+              </div>
+              <div class="credential-item">
+                <div class="credential-item-title">Certificate in Business&nbsp;Accounting</div>
+                <div class="credential-item-meta">2005 &middot; Chartered Institute of Management Accountants&nbsp;(UK)</div>
+              </div>
+            </div>
+            <button type="button" class="credential-toggle" onclick="toggleEducation(this)">+ Full education</button>
+          </div>
+        </div>
+
+        <div class="credential-column">
+          <div class="credential-column-num">02</div>
+          <div class="credential-column-title">Bar Admissions</div>
+          <div class="credential-list">
             <div class="credential-item">
-              <div class="credential-item-title">Certificate in Business&nbsp;Law</div>
-              <div class="credential-item-meta">2018 &middot; Schulich School of Law, Dalhousie&nbsp;University</div>
+              <div class="credential-item-title">Nova Scotia Barristers&rsquo;&nbsp;Society</div>
+              <span class="credential-bar-number">Member 2018-0077</span>
             </div>
             <div class="credential-item">
-              <div class="credential-item-title">Bachelor of Commerce <span style="font-weight: 400; color: rgba(28,28,28,0.5);">(Co-op, Finance major)</span></div>
-              <div class="credential-item-meta">2013 &middot; Dalhousie&nbsp;University</div>
+              <div class="credential-item-title">Law Society of&nbsp;Ontario</div>
+              <span class="credential-bar-number">Member 90949F</span>
             </div>
             <div class="credential-item">
-              <div class="credential-item-title">Certificate in Business&nbsp;Accounting</div>
-              <div class="credential-item-meta">2005 &middot; Chartered Institute of Management Accountants&nbsp;(UK)</div>
+              <div class="credential-item-title">Law Society of British&nbsp;Columbia</div>
+              <span class="credential-bar-number">Member 522462</span>
+            </div>
+            <div class="credential-item">
+              <div class="credential-item-title">Law Society of&nbsp;Alberta</div>
+              <span class="credential-bar-number">Member 28336</span>
             </div>
           </div>
         </div>
-        <div class="credential-card">
-          <h3>Professional</h3>
+
+        <div class="credential-column">
+          <div class="credential-column-num">03</div>
+          <div class="credential-column-title">Professional</div>
           <div class="credential-list">
             <div class="credential-item">
               <div class="credential-item-title">Canadian Tax&nbsp;Foundation</div>
@@ -1503,27 +1668,6 @@
               <span class="credential-award-tag">Recognition</span>
               <div class="credential-item-title">Most Inspiring Immigrants in the&nbsp;Maritimes</div>
               <div class="credential-item-meta">2020 &middot; My East Coast&nbsp;Experience</div>
-            </div>
-          </div>
-        </div>
-        <div class="credential-card">
-          <h3>Bar Admissions</h3>
-          <div class="credential-list">
-            <div class="credential-item">
-              <div class="credential-item-title">Law Society of&nbsp;Ontario</div>
-              <span class="credential-bar-number">Member 90949F</span>
-            </div>
-            <div class="credential-item">
-              <div class="credential-item-title">Law Society of British&nbsp;Columbia</div>
-              <span class="credential-bar-number">Member 522462</span>
-            </div>
-            <div class="credential-item">
-              <div class="credential-item-title">Law Society of&nbsp;Alberta</div>
-              <span class="credential-bar-number">Member 28336</span>
-            </div>
-            <div class="credential-item">
-              <div class="credential-item-title">Nova Scotia Barristers&rsquo;&nbsp;Society</div>
-              <span class="credential-bar-number">Member 2018-0077</span>
             </div>
           </div>
         </div>
@@ -1546,7 +1690,8 @@
         <div class="research-subtitle">A Normative Comparative Analysis of Tax Reform, Tax Mix, and Redistribution in Germany and&nbsp;Estonia</div>
         <div class="research-school">Schulich School of Law &middot; Dalhousie University &middot; Candidate&nbsp;2027</div>
         <div class="research-abstract-label">Abstract</div>
-        <p class="research-abstract">My LLM dissertation asks whether Canada should renovate the existing Income Tax Act or pursue a more comprehensive reconstruction of its tax mix to better advance economic equality. Drawing on critical tax theory and a comparative analysis of Germany&rsquo;s 2000 reform cycle and Estonia&rsquo;s flat-rate, distributed-profit regime, the dissertation evaluates what model of reform best serves Canada&rsquo;s constitutional, policy, and equity commitments. Canada has not undertaken a comprehensive review of its tax system since the Carter Commission of 1966. The research engages that gap directly &mdash; framing income tax reform not as a neutral exercise in administrative rationalization but as a question about whose interests the law serves and what values it should&nbsp;embody.</p>
+        <p class="research-abstract">My LLM dissertation asks whether Canada should renovate the existing Income Tax Act or pursue a more comprehensive reconstruction of its tax mix to better advance economic equality. Drawing on critical tax theory and a comparative analysis of Germany&rsquo;s 2000 reform cycle and Estonia&rsquo;s flat-rate, distributed-profit regime, the dissertation evaluates what model of reform best serves Canada&rsquo;s constitutional, policy, and equity commitments. <span class="abstract-rest" id="abstractRest">Canada has not undertaken a comprehensive review of its tax system since the Carter Commission of 1966. The research engages that gap directly &mdash; framing income tax reform not as a neutral exercise in administrative rationalization but as a question about whose interests the law serves and what values it should&nbsp;embody.</span></p>
+        <button type="button" class="abstract-toggle" onclick="toggleAbstract(this)">Read full abstract &nbsp;&#8594;</button>
       </div>
     </div>
   </section>
@@ -1559,15 +1704,34 @@
       <div class="teaching-inner">
         <div class="teaching-label fade-in">In the Classroom</div>
         <h2 class="teaching-heading fade-in">Teaching the next generation <span class="accent-serif">of tax&nbsp;lawyers.</span></h2>
-        <div class="fade-in">
-          <div class="teaching-role">Assistant Professor, Dalhousie&nbsp;University</div>
-          <div class="teaching-where">Schulich School of Law &middot; 2024&ndash;2025</div>
-          <p class="teaching-body">In addition to private practice, I taught final-year law students in a lecture format &mdash; building out the curriculum, leading seminars, and grading work for a course that introduces future practitioners to one of the most complex areas of Canadian&nbsp;tax.</p>
-          <div class="teaching-course">LAWS 2106 &middot; Taxation of Corporations</div>
-          <p class="teaching-curriculum">The curriculum I taught at Dalhousie covers the same playbook I implement for clients: Section 85 rollovers, share reorganizations under sections 86 and 51, butterfly transactions, capital gains exemption planning, the tax on split income (TOSI) rules, and owner-manager remuneration. When I draft your client&rsquo;s resolutions, I&rsquo;m working from the same statutory framework I taught the next generation of tax lawyers to&nbsp;read.</p>
-          <div class="practice-note">
-            <div class="practice-note-label">Practice Note</div>
-            <p><strong>AI-fluent practice.</strong> I built my Dalhousie course around AI research tools &mdash; Blue J Tax and Microsoft Copilot &mdash; and taught students prompt engineering for Canadian corporate tax research. The same fluency informs my practice. The Income Tax Act is dense; modern tools, paired with deep statutory knowledge, surface the right answer&nbsp;faster.</p>
+
+        <div class="teaching-grid fade-in">
+          <!-- Beat 1: Role -->
+          <div class="teaching-beat">
+            <div class="teaching-beat-label">Role</div>
+            <div class="teaching-beat-title">Assistant Professor, Dalhousie&nbsp;University</div>
+            <div class="teaching-beat-meta">Schulich School of Law &middot; 2024&ndash;2025</div>
+            <div class="teaching-beat-meta">LAWS 2106 &middot; Taxation of&nbsp;Corporations</div>
+          </div>
+
+          <!-- Beat 2: I teach what I practice -->
+          <div class="teaching-beat">
+            <div class="teaching-beat-label">What I&nbsp;teach</div>
+            <p class="teaching-beat-body">The curriculum is the same playbook I implement for clients &mdash; your client isn&rsquo;t paying for my learning&nbsp;curve.</p>
+            <div class="teaching-keywords">
+              <span>Section&nbsp;85</span>
+              <span>Share Reorganizations</span>
+              <span>Butterflies</span>
+              <span>Estate Freezes</span>
+              <span>TOSI</span>
+              <span>Owner-Manager Remuneration</span>
+            </div>
+          </div>
+
+          <!-- Beat 3: AI fluency -->
+          <div class="teaching-beat">
+            <div class="teaching-beat-label">How I&nbsp;teach</div>
+            <p class="teaching-beat-body">I built the course around Blue J Tax and Microsoft Copilot &mdash; teaching prompt engineering for Canadian corporate tax research. Deep statutory knowledge meets modern&nbsp;tools.</p>
           </div>
         </div>
       </div>
@@ -1878,6 +2042,22 @@
       btn.innerHTML = isOpen
         ? 'Hide earlier conferences &uarr;'
         : 'View earlier conferences (2018&ndash;2023) &rarr;';
+    }
+
+    // ---- EDUCATION TOGGLE ----
+    function toggleEducation(btn) {
+      var hidden = document.getElementById('educationMore');
+      if (!hidden) return;
+      var isOpen = hidden.classList.toggle('open');
+      btn.textContent = isOpen ? '− Show less' : '+ Full education';
+    }
+
+    // ---- ABSTRACT TOGGLE ----
+    function toggleAbstract(btn) {
+      var rest = document.getElementById('abstractRest');
+      if (!rest) return;
+      var isOpen = rest.classList.toggle('open');
+      btn.innerHTML = isOpen ? 'Show less' : 'Read full abstract &nbsp;&#8594;';
     }
 
     // ---- CONTACT MODAL ----

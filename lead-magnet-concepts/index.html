@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead Magnet Concepts — Primrose Tax Law</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared/base.css">
+  <style>
+    body { background: #1C1C1C; color: #F5F0EB; }
+
+    .hero {
+      padding: 100px 0 80px;
+      border-bottom: 1px solid rgba(245,240,235,0.08);
+    }
+
+    .hero-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7C9A8E;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: #7C9A8E;
+    }
+
+    .hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(48px, 6vw, 88px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      margin-bottom: 28px;
+      max-width: 9in;
+    }
+
+    .hero h1 .accent-serif {
+      color: #7C9A8E;
+      font-size: clamp(40px, 5vw, 72px);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(245,240,235,0.7);
+      max-width: 620px;
+    }
+
+    .meta-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(245,240,235,0.08);
+    }
+
+    .meta-cell-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,235,0.4);
+      margin-bottom: 8px;
+    }
+
+    .meta-cell-value {
+      font-size: 14px;
+      color: rgba(245,240,235,0.85);
+      line-height: 1.5;
+    }
+
+    .concepts {
+      padding: 80px 0 100px;
+    }
+
+    .concepts-intro {
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    .concepts-intro-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7C9A8E;
+      margin-bottom: 16px;
+    }
+
+    .concepts-intro h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .concepts-intro h2 .accent-serif {
+      color: #7C9A8E;
+    }
+
+    .concepts-intro p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(245,240,235,0.65);
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .concept-card {
+      background: rgba(245,240,235,0.03);
+      border: 1px solid rgba(245,240,235,0.08);
+      border-radius: 16px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .concept-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0;
+      background: #7C9A8E;
+      transition: width 0.4s ease;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-3px);
+      background: rgba(245,240,235,0.05);
+      border-color: rgba(245,240,235,0.15);
+    }
+
+    .concept-card:hover::before { width: 48px; }
+
+    .concept-card-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: #7C9A8E;
+      margin-bottom: 24px;
+    }
+
+    .concept-card-pill {
+      display: inline-block;
+      background: rgba(124,154,142,0.18);
+      color: #7C9A8E;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .concept-card-pill--featured {
+      background: #7C9A8E;
+      color: #1C1C1C;
+    }
+
+    .concept-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .concept-card h3 .accent-serif { color: #7C9A8E; }
+
+    .concept-card-tagline {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: #7C9A8E;
+      margin-bottom: 24px;
+    }
+
+    .concept-card-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(245,240,235,0.65);
+      margin-bottom: 28px;
+    }
+
+    .concept-card-spec {
+      border-top: 1px solid rgba(245,240,235,0.08);
+      padding-top: 20px;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .concept-card-spec-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 12px;
+    }
+
+    .concept-card-spec-row span:first-child {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,235,0.4);
+    }
+
+    .concept-card-spec-row span:last-child {
+      color: rgba(245,240,235,0.85);
+    }
+
+    .concept-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7C9A8E;
+      padding: 12px 0;
+      border-top: 1px solid rgba(245,240,235,0.08);
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .concept-card:hover .concept-card-cta {
+      color: #F5F0EB;
+      gap: 14px;
+    }
+
+    .footer-note {
+      margin-top: 80px;
+      padding: 32px 36px;
+      background: rgba(124,154,142,0.08);
+      border-left: 2px solid #7C9A8E;
+      border-radius: 0 12px 12px 0;
+      max-width: 720px;
+    }
+
+    .footer-note-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7C9A8E;
+      margin-bottom: 10px;
+    }
+
+    .footer-note p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(245,240,235,0.75);
+    }
+
+    .footer-note p + p { margin-top: 12px; }
+
+    @media (max-width: 900px) {
+      .concept-grid { grid-template-columns: 1fr; }
+      .meta-strip { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="container">
+      <div class="hero-label">Lead Magnet — Concept Review</div>
+      <h1>Three ways to <span class="accent-serif">capture a referral.</span></h1>
+      <p class="hero-sub">
+        Per the SOW, the lead magnet is one downloadable resource designed to attract referral inquiries from tax accountants.
+        Three concept directions to choose from below. Each is a working simulation &mdash; click through to experience the full flow.
+      </p>
+
+      <div class="meta-strip">
+        <div>
+          <div class="meta-cell-label">For</div>
+          <div class="meta-cell-value">Primrose Tax Law</div>
+        </div>
+        <div>
+          <div class="meta-cell-label">Audience</div>
+          <div class="meta-cell-value">Canadian tax accountants</div>
+        </div>
+        <div>
+          <div class="meta-cell-label">Goal</div>
+          <div class="meta-cell-value">Capture referral inquiries</div>
+        </div>
+        <div>
+          <div class="meta-cell-label">Stage</div>
+          <div class="meta-cell-value">Concept review &middot; pre-build</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="concepts">
+    <div class="container">
+
+      <div class="concepts-intro">
+        <div class="concepts-intro-label">How to read this</div>
+        <h2>Pick one to <span class="accent-serif">build for real.</span></h2>
+        <p>
+          Each card opens a working prototype: how an accountant discovers the magnet, what the lead-capture form looks like,
+          and what they actually download. The flows are real &mdash; you can submit the form, see the success state, preview the asset.
+          When you're ready, tell me which to ship and I'll wire it into the live site and Firestore.
+        </p>
+      </div>
+
+      <div class="concept-grid">
+
+        <!-- CONCEPT 1 -->
+        <a href="concept-1-referral-brief/index.html" class="concept-card">
+          <div class="concept-card-num">01</div>
+          <div class="concept-card-pill concept-card-pill--featured">Recommended</div>
+          <h3>The Referral <span class="accent-serif">Brief.</span></h3>
+          <div class="concept-card-tagline">A one-page handoff.</div>
+          <div class="concept-card-desc">
+            A fillable PDF an accountant uses when handing legal implementation to outside counsel.
+            Pre-fielded for client structure, intended outcome, scope, timeline.
+            Branded throughout. Every download moves a referral closer.
+          </div>
+          <div class="concept-card-spec">
+            <div class="concept-card-spec-row"><span>Format</span><span>Fillable PDF</span></div>
+            <div class="concept-card-spec-row"><span>Length</span><span>1 page</span></div>
+            <div class="concept-card-spec-row"><span>Conversion</span><span>High</span></div>
+            <div class="concept-card-spec-row"><span>Lead intent</span><span>Near-referral</span></div>
+          </div>
+          <div class="concept-card-cta">Open simulation &nbsp;&rarr;</div>
+        </a>
+
+        <!-- CONCEPT 2 -->
+        <a href="concept-2-readiness-checklist/index.html" class="concept-card">
+          <div class="concept-card-num">02</div>
+          <div class="concept-card-pill">Interactive</div>
+          <h3>Implementation <span class="accent-serif">Readiness.</span></h3>
+          <div class="concept-card-tagline">A 10-question check.</div>
+          <div class="concept-card-desc">
+            An interactive assessment for accountants nearing handoff.
+            Quick yes/no questions across structure, documents, timeline, scope.
+            Output: ready / not ready, with what's missing. Captures email for the action-step PDF.
+          </div>
+          <div class="concept-card-spec">
+            <div class="concept-card-spec-row"><span>Format</span><span>Interactive + PDF</span></div>
+            <div class="concept-card-spec-row"><span>Length</span><span>10 questions</span></div>
+            <div class="concept-card-spec-row"><span>Conversion</span><span>Medium-high</span></div>
+            <div class="concept-card-spec-row"><span>Lead intent</span><span>Active planning</span></div>
+          </div>
+          <div class="concept-card-cta">Open simulation &nbsp;&rarr;</div>
+        </a>
+
+        <!-- CONCEPT 3 -->
+        <a href="concept-3-practice-note/index.html" class="concept-card">
+          <div class="concept-card-num">03</div>
+          <div class="concept-card-pill">Editorial</div>
+          <h3>Section 85 <span class="accent-serif">Practice Note.</span></h3>
+          <div class="concept-card-tagline">A six-page brief.</div>
+          <div class="concept-card-desc">
+            A short, well-written practice note on a single reorg scenario.
+            Editorial tone, real precedent and analysis. Builds Primrose's authority as the implementer.
+            Lower volume, higher quality of lead.
+          </div>
+          <div class="concept-card-spec">
+            <div class="concept-card-spec-row"><span>Format</span><span>Editorial PDF</span></div>
+            <div class="concept-card-spec-row"><span>Length</span><span>~6 pages</span></div>
+            <div class="concept-card-spec-row"><span>Conversion</span><span>Lower</span></div>
+            <div class="concept-card-spec-row"><span>Lead intent</span><span>Awareness</span></div>
+          </div>
+          <div class="concept-card-cta">Open simulation &nbsp;&rarr;</div>
+        </a>
+
+      </div>
+
+      <div class="footer-note">
+        <div class="footer-note-label">A note on the recommendation</div>
+        <p>
+          <strong style="color: #F5F0EB;">Concept 1 (Referral Brief)</strong> is my pick because it does the actual job of the SOW:
+          capture referral inquiries. The other two build awareness; this one structures a referral. It's also the one tax accountants
+          are most likely to share with each other, which extends the reach without paid distribution.
+        </p>
+        <p>
+          That said, the three are not mutually exclusive long-term. Start with one, layer the others later if the funnel needs more entry points.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

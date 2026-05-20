@@ -423,33 +423,64 @@
       margin: 28px 0;
     }
 
-    /* Business-card style for founder section (from homepage) */
+    /* Business-card style for founder section (restored editorial charm) */
+    .founder { background: #FAFAF8; }
+
     .founder-card-layout {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 72px;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 88px;
       align-items: start;
     }
 
     .founder-card-wrap {
       position: relative;
+      padding-top: 24px;
     }
 
     .founder-card {
       background: #F5F0EB;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
-      aspect-ratio: 7 / 4;
-      border-radius: 12px;
-      border: 1px solid rgba(28,28,28,0.08);
-      padding: 32px 36px;
+      aspect-ratio: 7 / 4.4;
+      border-radius: 8px;
+      padding: 40px 44px;
       position: relative;
-      overflow: hidden;
+      transform: rotate(-1.4deg);
+      box-shadow: 0 60px 80px -40px rgba(28,28,28,0.35), 0 24px 32px -16px rgba(28,28,28,0.18);
+      transition: transform 0.4s ease;
+    }
+
+    .founder-card:hover {
+      transform: rotate(-0.6deg) translateY(-4px);
+    }
+
+    /* Corner markers — small dots at each corner */
+    .founder-card::before,
+    .founder-card::after,
+    .founder-card-corners::before,
+    .founder-card-corners::after {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(28,28,28,0.18);
+    }
+    .founder-card::before { top: 14px; left: 14px; }
+    .founder-card::after { top: 14px; right: 14px; }
+    .founder-card-corners::before { bottom: 14px; left: 14px; }
+    .founder-card-corners::after { bottom: 14px; right: 14px; }
+
+    .founder-card-corners {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
     }
 
     .founder-card-inner {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 24px;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 28px;
       height: 100%;
       align-items: center;
     }
@@ -561,6 +592,116 @@
 
     .founder-card-bio {
       padding-top: 8px;
+    }
+
+    /* Watermark line on bottom edge of business card */
+    .founder-card-watermark {
+      position: absolute;
+      left: 44px;
+      right: 44px;
+      bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.35);
+      text-align: center;
+      padding-top: 8px;
+      border-top: 1px solid rgba(28,28,28,0.08);
+    }
+
+    /* Right column — editorial */
+    .founder-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .founder-meta-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+      background: rgba(74,107,93,0.1);
+      padding: 6px 12px;
+      border-radius: 100px;
+    }
+
+    .founder-meta-divider {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(28,28,28,0.25);
+    }
+
+    .founder-meta-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.55);
+    }
+
+    .founder-editorial-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      color: #1C1C1C;
+      margin-bottom: 36px;
+    }
+
+    .founder-editorial-heading .accent-serif {
+      color: #4A6B5D;
+      font-weight: 400;
+    }
+
+    .founder-highlights {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .founder-highlight {
+      background: #fff;
+      border: 1px solid rgba(28,28,28,0.08);
+      border-radius: 12px;
+      padding: 24px 28px;
+      transition: border-color 0.3s ease;
+    }
+
+    .founder-highlight:hover {
+      border-color: rgba(74,107,93,0.4);
+    }
+
+    .founder-highlight-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+      margin-bottom: 10px;
+    }
+
+    .founder-highlight-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: #1C1C1C;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .founder-highlight-meta {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(28,28,28,0.6);
     }
 
     @media (max-width: 900px) {
@@ -1726,9 +1867,10 @@
     <div class="container">
       <div class="founder-card-layout fade-in">
 
-        <!-- Business card style (matches former homepage element) -->
+        <!-- Business card style (restored editorial charm) -->
         <div class="founder-card-wrap">
           <div class="founder-card">
+            <div class="founder-card-corners"></div>
             <div class="founder-card-inner">
               <div class="founder-card-left">
                 <div class="founder-card-name">PRIM<span class="accent-serif">rose.</span></div>
@@ -1749,9 +1891,10 @@
                 </div>
               </div>
             </div>
+            <div class="founder-card-watermark">EST. HALIFAX &middot; CANADIAN TAX LAW</div>
           </div>
 
-          <!-- Offices block -->
+          <!-- Offices block (sits below the tilted card) -->
           <div class="founder-card-offices">
             <div class="founder-card-offices-label">Called to four&nbsp;provinces</div>
             <div class="founder-card-offices-list">
@@ -1763,20 +1906,38 @@
           </div>
         </div>
 
-        <!-- Bio + lead quote -->
+        <!-- Right column: editorial bio (no name/title duplication) -->
         <div class="founder-card-bio">
-          <div class="founder-name">Primrose Watson, JD</div>
-          <div class="founder-title">Founder &amp; Counsel &middot; She/Her/Hers</div>
+          <div class="founder-meta-row">
+            <span class="founder-meta-pill">She/Her/Hers</span>
+            <span class="founder-meta-divider"></span>
+            <span class="founder-meta-text">Founder &amp; Counsel since&nbsp;2026</span>
+          </div>
+
+          <h2 class="founder-editorial-heading">Built on quiet rigour and a deep respect for the work tax advisors <span class="accent-serif">already&nbsp;do.</span></h2>
+
           <div class="founder-bio">
-            <p class="founder-bio-lead">I designed Primrose Tax Law to be a place where I can be the tax enthusiast I am. The firm runs on one principle: I collaborate with tax advisors on the legal implementation of their&nbsp;plans.</p>
+            <p class="founder-bio-lead">I designed Primrose Tax Law to be a place where I can be the tax enthusiast I am. The firm runs on one principle&thinsp;&mdash;&thinsp;I collaborate with tax advisors on the legal implementation of their&nbsp;plans.</p>
 
             <div class="founder-pull-quote">
               &ldquo;I implement the plan. I don&rsquo;t compete for&nbsp;it.&rdquo;
             </div>
 
-            <p class="founder-bio-body">Tax advisors design the strategy. I implement the legal structure &mdash; resolutions, incorporations, trust deeds &mdash; on the tax advisor&rsquo;s instruction. I am called to four provinces with offices registered for service in Halifax, Ottawa, Calgary, and Surrey. Every file is fixed-fee. Every file handled with&nbsp;care.</p>
+            <p class="founder-bio-body">Tax advisors design the strategy. I implement the legal structure&thinsp;&mdash;&thinsp;resolutions, incorporations, trust deeds&thinsp;&mdash;&thinsp;on the tax advisor&rsquo;s instruction. Every file is fixed-fee. Every file handled with&nbsp;care.</p>
+          </div>
 
-            <p class="founder-bio-body">Most recently, I served as Assistant Professor at the Schulich School of Law (Dalhousie), teaching LAWS&nbsp;2106 &mdash; Taxation of Corporations &mdash; to JD students in 2024&ndash;2025. I am not currently&nbsp;teaching.</p>
+          <!-- Notable highlight strip -->
+          <div class="founder-highlights">
+            <div class="founder-highlight">
+              <div class="founder-highlight-label">Most Recent</div>
+              <div class="founder-highlight-title">Assistant Professor, Schulich Law</div>
+              <div class="founder-highlight-meta">Taught LAWS&nbsp;2106 (Taxation of Corporations) to JD students at Dalhousie, 2024&ndash;2025. Not currently&nbsp;teaching.</div>
+            </div>
+            <div class="founder-highlight">
+              <div class="founder-highlight-label">In Progress</div>
+              <div class="founder-highlight-title">LLM in Tax Reform &middot; Research Proposal Approved</div>
+              <div class="founder-highlight-meta">Master of Laws candidate (2027), Dalhousie. Comparative analysis of tax reform in Germany and&nbsp;Estonia.</div>
+            </div>
           </div>
         </div>
 

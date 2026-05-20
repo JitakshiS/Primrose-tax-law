@@ -1406,28 +1406,11 @@
         <img src="assets/images/logo-dark.png" alt="Primrose Tax Law" style="height: 36px; width: auto; display: block;">
       </a>
       <div class="nav-links">
-        <a href="/for-tax-advisors" class="nav-active" style="color: #F5F0EB; opacity: 1;">For Tax Advisors</a>
-        <a href="/for-business-owners">For Business Owners</a>
-        <a href="/about">About</a>
-        <a href="/research">Research &amp; Publications</a>
-        <a href="#" onclick="openContactModal(event)">Contact</a>
-      </div>
-      <div class="nav-cta-wrap" style="display: flex; align-items: center; gap: 12px;">
-        <div class="lang-wrap">
-          <button class="lang-btn" onclick="this.nextElementSibling.classList.toggle('open')">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            <span class="lang-label">EN</span>
-          </button>
-          <div class="lang-menu">
-            <a onclick="setLang('en')">English</a>
-            <a onclick="setLang('fr')">Fran&ccedil;ais</a>
-            <a onclick="setLang('zh-CN')">&#20013;&#25991;</a>
-            <a onclick="setLang('pa')">&#2602;&#2672;&#2588;&#2622;&#2604;&#2624;</a>
-            <a onclick="setLang('es')">Espa&ntilde;ol</a>
-            <a onclick="setLang('tl')">Tagalog</a>
-            <a onclick="setLang('ar')">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</a>
-          </div>
-        </div>
+        <a href="for-tax-advisors.html" class="nav-active" style="color: #F5F0EB; opacity: 1;">For Tax Advisors</a>
+        <a href="for-business-owners.html">For Business Owners</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research &amp; Publications</a>
+        <a href="contact.html">Contact</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span>
@@ -1436,15 +1419,14 @@
       </button>
     </div>
   </nav>
-  <div id="google_translate_element" style="display:none;"></div>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="/for-tax-advisors" class="nav-active">For Tax Advisors</a>
-    <a href="/for-business-owners">For Business Owners</a>
-    <a href="/about">About</a>
-    <a href="/research">Research &amp; Publications</a>
-    <a href="#" onclick="openContactModal(event)">Contact</a>
+    <a href="for-tax-advisors.html" class="nav-active">For Tax Advisors</a>
+    <a href="for-business-owners.html">For Business Owners</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research &amp; Publications</a>
+    <a href="contact.html">Contact</a>
   </div>
 
   <!-- ============================================
@@ -1456,14 +1438,14 @@
         <div class="ta-hero-left">
           <span class="ta-hero-label">For Tax Advisors</span>
           <h1>I implement the tax plan <span class="accent-serif">you design.</span></h1>
-          <p class="ta-hero-sub">You design the tax strategy. I handle the corporate and trust reorganizations that follow&thinsp;&mdash;&thinsp;across all nine common law provinces, on your&nbsp;instruction.</p>
+          <p class="ta-hero-sub">You design the tax strategy. I handle the corporate and trust reorganizations that follow, on your&nbsp;instruction. Fixed fees, quoted in one business day. Files typically complete in two to six weeks depending on&nbsp;complexity.</p>
         </div>
 
         <div class="ta-hero-form" id="refer">
-          <span class="ta-hero-form-label">Refer a Client</span>
+          <span class="ta-hero-form-label">Send Tax Plan for Quote</span>
           <h2 class="ta-hero-form-title">Send me the tax plan.</h2>
-          <p class="ta-hero-form-sub">I respond within one business day with a clear scope and fixed&nbsp;fee.</p>
-          <form class="referral-form" id="referralForm">
+          <p class="ta-hero-form-sub">I respond within one business day with an implementation timeline and fixed&nbsp;fee.</p>
+          <form class="referral-form" id="referralForm" enctype="multipart/form-data">
             <div class="form-field">
               <label for="your-name">Your Name</label>
               <input type="text" id="your-name" name="your-name" placeholder="Full name" required>
@@ -1473,8 +1455,36 @@
               <input type="email" id="your-email" name="your-email" placeholder="you@firm.ca" required>
             </div>
             <div class="form-field">
+              <label for="your-firm">Your Firm</label>
+              <input type="text" id="your-firm" name="your-firm" placeholder="Firm name">
+            </div>
+            <div class="form-field">
+              <label for="province">Province of Incorporation</label>
+              <select id="province" name="province">
+                <option value="">Select province</option>
+                <option value="AB">Alberta</option>
+                <option value="BC">British Columbia</option>
+                <option value="MB">Manitoba</option>
+                <option value="NB">New Brunswick</option>
+                <option value="NL">Newfoundland and Labrador</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="ON">Ontario</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="federal">Federal</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="target-date">Target Completion Date</label>
+              <input type="date" id="target-date" name="target-date">
+            </div>
+            <div class="form-field">
+              <label for="tax-plan">Anonymized Tax Plan <span style="font-weight: 400; color: rgba(28,28,28,0.45); font-size: 11px; margin-left: 6px;">(PDF or DOCX, optional)</span></label>
+              <input type="file" id="tax-plan" name="tax-plan" accept=".pdf,.doc,.docx" style="font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 12px 14px; border: 1px solid rgba(28,28,28,0.12); border-radius: 8px; background: #FAFAF8; width: 100%;">
+            </div>
+            <div class="form-field">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell me about the file."></textarea>
+              <textarea id="message" name="message" placeholder="Tell me about the file at a high level. Please do not include confidential client details."></textarea>
             </div>
             <button type="submit" class="btn btn-sage">Submit Referral &#8599;&#65038;</button>
           </form>
@@ -1509,7 +1519,7 @@
         <div class="promise-col">
           <div class="promise-col-num">04 &middot; TOOLING</div>
           <div class="promise-col-lead">AI-fluent for fast tax&nbsp;research.</div>
-          <p class="promise-col-body">I built my law-school course around Blue J Tax and Copilot. Deep statutory knowledge plus modern tools means faster turnaround without sacrificing&nbsp;precision.</p>
+          <p class="promise-col-body">Deep statutory knowledge paired with modern research tools means faster turnaround without sacrificing&nbsp;precision.</p>
         </div>
       </div>
     </div>
@@ -1536,24 +1546,8 @@
           <div class="scope-cell-title">Share Conversions</div>
         </div>
         <div class="scope-cell">
-          <div class="scope-cell-code">BFLY</div>
-          <div class="scope-cell-title">Butterfly Reorganizations</div>
-        </div>
-        <div class="scope-cell">
           <div class="scope-cell-code">EFRZ</div>
           <div class="scope-cell-title">Estate Freezes</div>
-        </div>
-        <div class="scope-cell">
-          <div class="scope-cell-code">FAM-T</div>
-          <div class="scope-cell-title">Family Trust Settlements</div>
-        </div>
-        <div class="scope-cell">
-          <div class="scope-cell-code">21YR</div>
-          <div class="scope-cell-title">21-Year Trust Planning</div>
-        </div>
-        <div class="scope-cell">
-          <div class="scope-cell-code">PMP</div>
-          <div class="scope-cell-title">Post-Mortem Pipeline</div>
         </div>
       </div>
     </div>
@@ -1568,18 +1562,18 @@
       <div class="process-steps fade-in">
         <div class="process-step">
           <div class="process-step-num">01</div>
-          <div class="process-step-title">Referral</div>
-          <div class="process-step-desc">You refer a client or reach out to discuss a file.</div>
+          <div class="process-step-title">Send Tax Plan</div>
+          <div class="process-step-desc">Send me the anonymized tax plan through the form or by email.</div>
         </div>
         <div class="process-step">
           <div class="process-step-num">02</div>
           <div class="process-step-title">Quoting</div>
-          <div class="process-step-desc">I review the file and provide a fixed-fee quote within one business day. Once accepted, I begin implementation from your tax&nbsp;plan.</div>
+          <div class="process-step-desc">I review the file and provide a fixed-fee quote and implementation timeline within one business&nbsp;day.</div>
         </div>
         <div class="process-step">
           <div class="process-step-num">03</div>
           <div class="process-step-title">Implementation</div>
-          <div class="process-step-desc">Drafting resolutions, elections, trust deeds. Electronic minute books maintained throughout.</div>
+          <div class="process-step-desc">Drafting resolutions, filings, and trust deeds. Typically two to six weeks depending on&nbsp;complexity.</div>
         </div>
         <div class="process-step">
           <div class="process-step-num">04</div>
@@ -1596,10 +1590,10 @@
   <section class="coverage fade-in">
     <div class="container">
       <div class="coverage-headline">
-        <span class="heavy">NINE PROVINCES. </span><span class="accent-serif">Four offices.</span>
+        <span class="heavy">Four offices. </span><span class="accent-serif">Called to four&nbsp;provinces.</span>
       </div>
       <p class="coverage-offices">Halifax &middot; Ottawa &middot; Calgary &middot; Surrey</p>
-      <p class="coverage-provinces">BC, Alberta, Saskatchewan, Manitoba, Ontario, New Brunswick, Nova Scotia, PEI, Newfoundland &amp; Labrador</p>
+      <p class="coverage-provinces">Offices registered for service in Nova Scotia, Ontario, Alberta, and British&nbsp;Columbia.</p>
     </div>
   </section>
 
@@ -1610,7 +1604,7 @@
     <div class="container fade-in">
       <div class="fee-card">
         <h3>Transparent Fixed Fees</h3>
-        <p class="fee-card-desc">Every engagement starts with a clear scope and a fixed fee&thinsp;&mdash;&thinsp;quoted before work begins. No hourly billing, no surprises.</p>
+        <p class="fee-card-desc">Every engagement starts with an anonymized tax plan, a clear implementation timeline, and a fixed fee&thinsp;&mdash;&thinsp;quoted before work begins. No hourly billing, no&nbsp;surprises.</p>
         <div class="fee-points">
           <div class="fee-point">
             <span class="sage-dot"></span>
@@ -1618,7 +1612,11 @@
           </div>
           <div class="fee-point">
             <span class="sage-dot"></span>
-            <p>Scope and fee quoted within one business day</p>
+            <p>Implementation timeline and fee quoted within one business&nbsp;day</p>
+          </div>
+          <div class="fee-point">
+            <span class="sage-dot"></span>
+            <p>Files typically complete in two to six weeks depending on&nbsp;complexity</p>
           </div>
           <div class="fee-point">
             <span class="sage-dot"></span>
@@ -1637,36 +1635,37 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="assets/images/logo-dark.png" alt="Primrose Tax Law">
-          <p>Implementing corporate and trust reorganizations across all nine common law provinces.</p>
+          <p>Implementing the legal side of corporate and trust reorganizations across Halifax, Ottawa, Calgary, and&nbsp;Surrey.</p>
         </div>
         <div class="footer-col">
           <h5>Practice</h5>
-          <a href="/#practice">Section 85 Rollovers</a>
-          <a href="/#practice">Estate Freezes</a>
-          <a href="/#practice">Trust Settlements</a>
-          <a href="/#practice">Butterfly Reorganizations</a>
-          
+          <a href="for-tax-advisors.html#scope">Section 85 Rollovers</a>
+          <a href="for-tax-advisors.html#scope">Share Reorganizations</a>
+          <a href="for-tax-advisors.html#scope">Share Conversions</a>
+          <a href="for-tax-advisors.html#scope">Estate Freezes</a>
         </div>
         <div class="footer-col">
           <h5>Firm</h5>
-          <a href="/for-tax-advisors">For Tax Advisors</a>
-          <a href="/for-business-owners">For Business Owners</a>
-          <a href="/about">About</a>
-          <a href="/research">Writing</a>
+          <a href="for-tax-advisors.html">For Tax Advisors</a>
+          <a href="for-business-owners.html">For Business Owners</a>
+          <a href="about.html">About</a>
+          <a href="research.html">Writing</a>
+          <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h5>Connect</h5>
           <a href="mailto:hello@primrosetax.ca">hello@primrosetax.ca</a>
+          <a href="tel:+13433003479">+1 (343) 300-3479</a>
           <a href="tel:+19025100430">+1 (902) 510-0430</a>
           <a href="https://www.linkedin.com/in/primrosewatson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="#refer">Refer a Client</a>
+          <a href="#refer">Send Tax Plan for Quote</a>
         </div>
       </div>
       <div class="footer-bottom">
         <span class="footer-copy">&copy; 2026 Primrose Tax Law Inc. All rights reserved.</span>
         <div class="footer-legal">
-          <a href="privacy">Privacy Policy</a>
-          <a href="terms">Terms</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
         </div>
       </div>
     </div>

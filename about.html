@@ -423,6 +423,162 @@
       margin: 28px 0;
     }
 
+    /* Business-card style for founder section (from homepage) */
+    .founder-card-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .founder-card-wrap {
+      position: relative;
+    }
+
+    .founder-card {
+      background: #F5F0EB;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+      aspect-ratio: 7 / 4;
+      border-radius: 12px;
+      border: 1px solid rgba(28,28,28,0.08);
+      padding: 32px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founder-card-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      height: 100%;
+      align-items: center;
+    }
+
+    .founder-card-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(38px, 4vw, 56px);
+      color: #1C1C1C;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .founder-card-name .accent-serif {
+      color: #4A6B5D;
+      font-weight: 400;
+    }
+
+    .founder-card-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.5);
+      margin-bottom: 24px;
+    }
+
+    .founder-card-contact {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.02em;
+      color: rgba(28,28,28,0.7);
+      line-height: 1.9;
+    }
+
+    .founder-card-photo-col {
+      position: relative;
+      height: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .founder-card-photo-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 18%;
+      display: block;
+    }
+
+    .founder-card-photo-overlay {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,235,0.85);
+      pointer-events: none;
+    }
+
+    .founder-card-photo-col::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(28,28,28,0.55), transparent);
+      pointer-events: none;
+    }
+
+    .founder-card-offices {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(28,28,28,0.08);
+    }
+
+    .founder-card-offices-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+      margin-bottom: 12px;
+    }
+
+    .founder-card-offices-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+    }
+
+    .founder-card-offices-list span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: rgba(28,28,28,0.65);
+    }
+
+    .founder-card-offices-list strong {
+      font-weight: 700;
+      color: #1C1C1C;
+      letter-spacing: 0.04em;
+    }
+
+    .founder-card-bio {
+      padding-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .founder-card-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .founder-card-inner {
+        grid-template-columns: 1fr;
+      }
+      .founder-card-photo-col {
+        aspect-ratio: 4/5;
+      }
+      .founder-card {
+        aspect-ratio: auto;
+      }
+    }
+
     /* ============================================
        4. CREDENTIALS
        ============================================ */
@@ -1568,11 +1724,47 @@
        ============================================ -->
   <section class="founder">
     <div class="container">
-      <div class="founder-layout fade-in">
-        <div class="founder-photo">
-          <img src="assets/images/headshot.jpg" alt="Primrose Watson">
+      <div class="founder-card-layout fade-in">
+
+        <!-- Business card style (matches former homepage element) -->
+        <div class="founder-card-wrap">
+          <div class="founder-card">
+            <div class="founder-card-inner">
+              <div class="founder-card-left">
+                <div class="founder-card-name">PRIM<span class="accent-serif">rose.</span></div>
+                <div class="founder-card-title">Watson, JD &middot; Founder &middot; Counsel</div>
+                <div class="founder-card-contact">
+                  hello@primrosetax.ca<br>
+                  +1 (343) 300-3479<br>
+                  +1 (902) 510-0430<br>
+                  1959 Upper Water St. Halifax<br>
+                  CA &middot; NS &middot; B3J 3N2
+                </div>
+              </div>
+              <div class="founder-card-photo-col">
+                <img src="assets/images/headshot.jpg" alt="Primrose Watson, JD &mdash; Founder &amp; Counsel">
+                <div class="founder-card-photo-overlay">
+                  <span>Fig. 01</span>
+                  <span>P. Watson</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offices block -->
+          <div class="founder-card-offices">
+            <div class="founder-card-offices-label">Called to four&nbsp;provinces</div>
+            <div class="founder-card-offices-list">
+              <span><strong>Halifax</strong> Nova&nbsp;Scotia</span>
+              <span><strong>Ottawa</strong> Ontario</span>
+              <span><strong>Calgary</strong> Alberta</span>
+              <span><strong>Surrey</strong> British&nbsp;Columbia</span>
+            </div>
+          </div>
         </div>
-        <div>
+
+        <!-- Bio + lead quote -->
+        <div class="founder-card-bio">
           <div class="founder-name">Primrose Watson, JD</div>
           <div class="founder-title">Founder &amp; Counsel &middot; She/Her/Hers</div>
           <div class="founder-bio">
@@ -1584,14 +1776,10 @@
 
             <p class="founder-bio-body">Tax advisors design the strategy. I implement the legal structure &mdash; resolutions, incorporations, trust deeds &mdash; on the tax advisor&rsquo;s instruction. I am called to four provinces with offices registered for service in Halifax, Ottawa, Calgary, and Surrey. Every file is fixed-fee. Every file handled with&nbsp;care.</p>
 
-            <!-- Featured credential: Schulich teaching (single strongest credential) -->
-            <div class="founder-teaching-card" style="margin-top: 32px; padding: 28px 32px; background: rgba(74,107,93,0.06); border-left: 3px solid #4A6B5D; border-radius: 0 12px 12px 0;">
-              <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #4A6B5D; margin-bottom: 12px;">Past appointment &middot; not currently teaching</div>
-              <div style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 20px; color: #1C1C1C; margin-bottom: 6px;">Assistant Professor &middot; Schulich School of Law, Dalhousie</div>
-              <div style="font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(28,28,28,0.65); line-height: 1.6;">LAWS 2106 &middot; Taxation of Corporations &middot; 2024&ndash;2025. Taught the corporate-tax course to JD&nbsp;students.</div>
-            </div>
+            <p class="founder-bio-body">Most recently, I served as Assistant Professor at the Schulich School of Law (Dalhousie), teaching LAWS&nbsp;2106 &mdash; Taxation of Corporations &mdash; to JD students in 2024&ndash;2025. I am not currently&nbsp;teaching.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>

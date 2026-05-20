@@ -641,6 +641,196 @@
     }
 
     /* ============================================
+       4.5 SAMPLE QUOTES — engagement fee examples
+       ============================================ */
+    .sample-quotes {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .sample-quotes-header {
+      max-width: 760px;
+      margin-bottom: 64px;
+    }
+
+    .sample-quotes-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sample-quotes-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #4A6B5D;
+    }
+
+    .sample-quotes-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -2.5px;
+      color: #1C1C1C;
+      margin-bottom: 28px;
+    }
+    .sample-quotes-heading .accent-serif { color: #4A6B5D; }
+
+    .sample-quotes-intro {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+      color: rgba(28,28,28,0.62);
+      max-width: 660px;
+    }
+
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .quote-card {
+      background: #FAFAF8;
+      border: 1px solid rgba(28,28,28,0.08);
+      border-radius: 16px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quote-card-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+      background: rgba(74,107,93,0.1);
+      padding: 5px 10px;
+      border-radius: 100px;
+      align-self: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .quote-card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+      color: #1C1C1C;
+      margin-bottom: 12px;
+    }
+
+    .quote-card-context {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(28,28,28,0.6);
+      margin-bottom: 28px;
+    }
+
+    .quote-table {
+      border-top: 1px solid rgba(28,28,28,0.08);
+      margin-bottom: 8px;
+    }
+
+    .quote-row {
+      display: grid;
+      grid-template-columns: 28px 1fr auto;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(28,28,28,0.06);
+      align-items: baseline;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+    }
+
+    .quote-row-head {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(28,28,28,0.18);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(28,28,28,0.5);
+    }
+
+    .quote-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: rgba(28,28,28,0.45);
+    }
+
+    .quote-step {
+      color: #1C1C1C;
+      line-height: 1.5;
+    }
+
+    .quote-fee {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #1C1C1C;
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .quote-totals {
+      margin-top: 8px;
+    }
+
+    .quote-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(28,28,28,0.7);
+    }
+
+    .quote-total-row span:last-child {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+
+    .quote-total-row-final {
+      margin-top: 8px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(28,28,28,0.2);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #1C1C1C;
+    }
+
+    .quote-total-row-final span:last-child {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: #4A6B5D;
+    }
+
+    .sample-quotes-footnote {
+      margin-top: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(28,28,28,0.5);
+      max-width: 760px;
+    }
+
+    @media (max-width: 900px) {
+      .quotes-grid { grid-template-columns: 1fr; gap: 20px; }
+      .quote-card { padding: 28px; }
+    }
+
+    /* ============================================
        5. HOW IT WORKS (5-Step Process)
        ============================================ */
     .process {
@@ -1550,6 +1740,145 @@
           <div class="scope-cell-title">Estate Freezes</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       4.5 SAMPLE QUOTES — Engagement Examples
+       ============================================ -->
+  <section class="sample-quotes fade-in">
+    <div class="container">
+      <div class="sample-quotes-header">
+        <div class="sample-quotes-label">Sample Engagements</div>
+        <h2 class="sample-quotes-heading">What a quote <span class="accent-serif">looks&nbsp;like.</span></h2>
+        <p class="sample-quotes-intro">Every quote is broken down step-by-step before work begins. Two real examples below, anonymized&thinsp;&mdash;&thinsp;your file may differ in scope, but the line-item structure will&nbsp;match.</p>
+      </div>
+
+      <div class="quotes-grid">
+
+        <!-- Example A -->
+        <div class="quote-card">
+          <div class="quote-card-tag">Example A</div>
+          <div class="quote-card-title">Estate freeze with family&nbsp;trust</div>
+          <div class="quote-card-context">Family trust takes future growth of the operating company. Five-step engagement, common for owner-managed&nbsp;businesses.</div>
+
+          <div class="quote-table">
+            <div class="quote-row quote-row-head">
+              <span class="quote-num">#</span>
+              <span class="quote-step">Step in the reorganization</span>
+              <span class="quote-fee">Fee (CAD)</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">1</span>
+              <span class="quote-step">Establish family trust with third-party loan</span>
+              <span class="quote-fee">$2,000</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">2</span>
+              <span class="quote-step">Increase Opco preferred shares</span>
+              <span class="quote-fee">$500</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">3</span>
+              <span class="quote-step">Section 86 freeze of Opco common shares</span>
+              <span class="quote-fee">$1,000</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">4</span>
+              <span class="quote-step">Family trust subscribes for Opco common shares</span>
+              <span class="quote-fee">$300</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">5</span>
+              <span class="quote-step">Dividend</span>
+              <span class="quote-fee">$300</span>
+            </div>
+          </div>
+
+          <div class="quote-totals">
+            <div class="quote-total-row">
+              <span>Subtotal &middot; legal fees</span>
+              <span>$4,100</span>
+            </div>
+            <div class="quote-total-row">
+              <span>Disbursements &middot; registry fees</span>
+              <span>$150</span>
+            </div>
+            <div class="quote-total-row quote-total-row-final">
+              <span>Estimated total before tax</span>
+              <span>$4,250</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example B -->
+        <div class="quote-card">
+          <div class="quote-card-tag">Example B</div>
+          <div class="quote-card-title">Estate freeze with Newco and S.85&nbsp;rollover</div>
+          <div class="quote-card-context">Larger reorganization including a Newco and a Section 85 rollover of personal property. Seven-step&nbsp;engagement.</div>
+
+          <div class="quote-table">
+            <div class="quote-row quote-row-head">
+              <span class="quote-num">#</span>
+              <span class="quote-step">Step in the reorganization</span>
+              <span class="quote-fee">Fee (CAD)</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">1</span>
+              <span class="quote-step">Establish family trust with third-party loan</span>
+              <span class="quote-fee">$2,000</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">2</span>
+              <span class="quote-step">Establish Newco</span>
+              <span class="quote-fee">$700</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">3</span>
+              <span class="quote-step">Section 85 rollover for personal property</span>
+              <span class="quote-fee">$1,000</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">4</span>
+              <span class="quote-step">Increase Opco preferred shares</span>
+              <span class="quote-fee">$500</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">5</span>
+              <span class="quote-step">Section 86 freeze of Opco common shares</span>
+              <span class="quote-fee">$1,000</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">6</span>
+              <span class="quote-step">Family trust subscribes for Opco common shares</span>
+              <span class="quote-fee">$300</span>
+            </div>
+            <div class="quote-row">
+              <span class="quote-num">7</span>
+              <span class="quote-step">Dividend</span>
+              <span class="quote-fee">$300</span>
+            </div>
+          </div>
+
+          <div class="quote-totals">
+            <div class="quote-total-row">
+              <span>Subtotal &middot; legal fees</span>
+              <span>$5,800</span>
+            </div>
+            <div class="quote-total-row">
+              <span>Disbursements &middot; registry fees</span>
+              <span>$500</span>
+            </div>
+            <div class="quote-total-row quote-total-row-final">
+              <span>Estimated total before tax</span>
+              <span>$6,300</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="sample-quotes-footnote">Disbursements are pass-through. Tax (HST/GST) is added at billing. Each engagement is quoted on its own facts &mdash; complexity, jurisdiction, and document count will&nbsp;vary.</p>
     </div>
   </section>
 

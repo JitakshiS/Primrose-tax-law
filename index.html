@@ -2110,6 +2110,121 @@
       .about-feature-more { margin-left: 0; }
     }
 
+    /* Testimonials */
+    .testimonials {
+      background: #F5F0EB;
+      padding: 120px 0;
+    }
+
+    .testimonials-header {
+      max-width: 800px;
+      margin-bottom: 72px;
+    }
+
+    .testimonials-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonials-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #4A6B5D;
+    }
+
+    .testimonials-heading {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 5.5vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -2.5px;
+      color: #1C1C1C;
+    }
+
+    .testimonials-heading .accent-serif {
+      color: #4A6B5D;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #FAFAF8;
+      border: 1px solid rgba(28,28,28,0.08);
+      border-radius: 16px;
+      padding: 36px 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(74,107,93,0.35);
+    }
+
+    .testimonial-quote-mark {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-size: 88px;
+      line-height: 0.5;
+      color: #4A6B5D;
+      margin-bottom: 12px;
+      margin-left: -4px;
+      height: 32px;
+    }
+
+    .testimonial-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(28,28,28,0.82);
+      margin: 0 0 32px 0;
+      flex-grow: 1;
+    }
+
+    .testimonial-attribution {
+      padding-top: 20px;
+      border-top: 1px solid rgba(28,28,28,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .testimonial-role {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      color: #1C1C1C;
+      letter-spacing: 0.01em;
+    }
+
+    .testimonial-province {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4A6B5D;
+    }
+
+    @media (max-width: 900px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
     /* Legacy about-v2 section (kept hidden for reference) */
     .about-v2 {
       background: #1C1C1C;
@@ -2964,6 +3079,47 @@
         <span>Available by referral &amp; appointment</span>
         <span class="about-feature-divider"></span>
         <a href="about.html" class="about-feature-more">Read full bio &#8594;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       7.5 TESTIMONIALS
+       ============================================ -->
+  <section class="testimonials fade-in">
+    <div class="container">
+      <div class="testimonials-header">
+        <div class="testimonials-label">From Referral Partners</div>
+        <h2 class="testimonials-heading">Said about the&nbsp;<span class="accent-serif">firm.</span></h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <figure class="testimonial-card">
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <blockquote class="testimonial-body">The engagement went very smoothly. I appreciated that you reached out to the client directly to obtain the necessary signatures and answer any legal queries. We will for sure be in contact for future&nbsp;engagements.</blockquote>
+          <figcaption class="testimonial-attribution">
+            <span class="testimonial-role">Tax advisor</span>
+            <span class="testimonial-province">Ontario</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial-card">
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <blockquote class="testimonial-body">I have really enjoyed working with you, and I am sure we will work plenty together going&nbsp;forward.</blockquote>
+          <figcaption class="testimonial-attribution">
+            <span class="testimonial-role">Tax advisor</span>
+            <span class="testimonial-province">British Columbia</span>
+          </figcaption>
+        </figure>
+
+        <figure class="testimonial-card">
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <blockquote class="testimonial-body">We appreciate all your work on this and for getting everything completed. Thanks again for your help throughout the&nbsp;process.</blockquote>
+          <figcaption class="testimonial-attribution">
+            <span class="testimonial-role">Client</span>
+            <span class="testimonial-province">Following a corporate reorganization</span>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>

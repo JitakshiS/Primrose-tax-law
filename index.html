@@ -375,12 +375,12 @@
 
     .hero-text-col h1 {
       font-family: 'DM Sans', sans-serif;
-      font-weight: 800;
-      font-size: clamp(34px, 3.4vw, 48px);
-      line-height: 1.12;
-      letter-spacing: -1.2px;
+      font-weight: 900;
+      font-size: clamp(40px, 4.6vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -2px;
       color: #1C1C1C;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     .hero-text-col h1 .accent-serif {
@@ -465,6 +465,39 @@
 
     .hero-card:hover {
       transform: translateY(-4px);
+    }
+
+    /* Subtle "learn more" arrow that fades in on hover */
+    .hero-card::after {
+      content: '\2197';
+      position: absolute;
+      top: 36px;
+      right: 36px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-card--dark::after {
+      background: rgba(245,240,235,0.12);
+      color: #F5F0EB;
+    }
+
+    .hero-card--forest::after {
+      background: rgba(74,107,93,0.12);
+      color: #4A6B5D;
+    }
+
+    .hero-card:hover::after {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .hero-card--dark {
@@ -2931,32 +2964,24 @@
         </div>
       </div>
 
-      <!-- Audience CTA cards -->
+      <!-- Audience cards (silently clickable — primary CTAs are the buttons above) -->
       <div class="hero-cards">
-        <a href="for-tax-advisors.html" class="hero-card hero-card--dark fade-in">
+        <a href="for-tax-advisors.html" class="hero-card hero-card--dark fade-in" aria-label="For Tax Advisors — learn more">
           <div class="hero-card-top">
             <span class="hero-card-tag">For Tax Advisors</span>
           </div>
           <div class="hero-card-content">
             <h3>Refer the legal implementation.</h3>
             <p>You design the tax plan. I draft the resolutions, settle the trust, make the filings, and provide the closing book. Your client stays&nbsp;yours.</p>
-            <span class="arrow-cta">
-              <span>SEND TAX PLAN FOR QUOTE</span>
-              <span class="arrow-circle">&#8599;&#65038;</span>
-            </span>
           </div>
         </a>
-        <a href="for-business-owners.html" class="hero-card hero-card--forest fade-in">
+        <a href="for-business-owners.html" class="hero-card hero-card--forest fade-in" aria-label="For Business Owners — learn more">
           <div class="hero-card-top">
             <span class="hero-card-tag">For Business Owners</span>
           </div>
           <div class="hero-card-content">
             <h3>When your tax advisor says &lsquo;call a lawyer.&rsquo;</h3>
             <p>Your tax advisor designed the strategy. I handle what comes next&thinsp;&mdash;&thinsp;the legal documents, the corporate filings, the&nbsp;implementation.</p>
-            <span class="arrow-cta">
-              <span>SPEAK WITH COUNSEL</span>
-              <span class="arrow-circle">&#8599;&#65038;</span>
-            </span>
           </div>
         </a>
       </div>

@@ -22,8 +22,13 @@ function getDb() {
 }
 
 // ----- Helpers -----
-const CLIENT_EMAIL = process.env.CLIENT_EMAIL;
-const FROM_EMAIL = 'Primrose Tax Law <onboarding@resend.dev>';
+// CLIENT_EMAIL accepts a single address or a comma-separated list.
+// Update in Vercel env without redeploying code when removing the QA recipient.
+const CLIENT_EMAILS = (process.env.CLIENT_EMAIL || '')
+  .split(',')
+  .map((e) => e.trim())
+  .filter(Boolean);
+const FROM_EMAIL = 'Primrose Tax Law <noreply@primrosetax.ca>';
 
 const escapeHtml = (s) =>
   String(s ?? '')
@@ -63,7 +68,7 @@ function buildEmailHtml({ name, email, subject, message, source }) {
 
 // ----- Handler -----
 export default async function handler(req, res) {
-  // CORS (allow form posts from primrosetax.com + vercel preview)
+  // CORS (allow form posts from primrosetax.ca, primrosetax.com, and Vercel previews)
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -107,11 +112,11 @@ export default async function handler(req, res) {
 
     // 2) Send email via Resend
     let emailId = null;
-    if (process.env.resend_api_key && CLIENT_EMAIL) {
+    if (process.env.resend_api_key && CLIENT_EMAILS.length) {
       const resend = new Resend(process.env.resend_api_key);
       const { data, error } = await resend.emails.send({
         from: FROM_EMAIL,
-        to: [CLIENT_EMAIL],
+        to: CLIENT_EMAILS,
         reply_to: email,
         subject: subject ? `New inquiry: ${subject}` : `New inquiry from ${name}`,
         html: buildEmailHtml({ name, email, subject, message, source }),

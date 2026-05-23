@@ -1473,6 +1473,18 @@
     });
 
     // ---- CONTACT FORM ----
+    function readFileAsBase64(file) {
+      return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          var result = reader.result || '';
+          var commaIdx = String(result).indexOf(',');
+          resolve(commaIdx >= 0 ? String(result).slice(commaIdx + 1) : String(result));
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
     var formId = 'bo-contactForm';
     var form = document.getElementById(formId);
     if (form) {
@@ -1483,16 +1495,27 @@
         btn.innerHTML = 'Sending...';
         btn.disabled = true;
         try {
+          var fileInput = this.querySelector('input[type="file"]');
+          var file = fileInput && fileInput.files && fileInput.files[0];
+          var attachment = null;
+          if (file) {
+            if (file.size > 8 * 1024 * 1024) { throw new Error('File too large'); }
+            var base64 = await readFileAsBase64(file);
+            attachment = { filename: file.name, content: base64, contentType: file.type, size: file.size };
+          }
           var res = await fetch('/api/contact', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               name: this.querySelector('[name="name"]').value,
               email: this.querySelector('[name="email"]').value,
+              firm: this.querySelector('[name="firm"]') ? this.querySelector('[name="firm"]').value : '',
+              province: this.querySelector('[name="province"]') ? this.querySelector('[name="province"]').value : '',
+              targetDate: this.querySelector('[name="target-date"]') ? this.querySelector('[name="target-date"]').value : '',
               subject: 'Contact from ' + window.location.pathname,
-              message: this.querySelector('[name="message"]').value
+              source: 'Business Owner Form',
+              message: this.querySelector('[name="message"]').value,
+              attachment: attachment
             })
           });
           if (res.ok) {
@@ -1502,9 +1525,9 @@
             setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 4000);
           } else { throw new Error(); }
         } catch (err) {
-          btn.innerHTML = 'Error — please try again';
+          btn.innerHTML = (err && err.message && err.message.indexOf('too large') >= 0) ? 'File too large (max 8 MB)' : 'Error — please try again';
           btn.style.background = '#8C3A3A';
-          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+          setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3500);
         }
       });
     }

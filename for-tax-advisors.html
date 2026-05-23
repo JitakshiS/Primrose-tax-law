@@ -2039,6 +2039,20 @@
     }
 
     // ---- REFERRAL FORM ----
+    // Helper: read a File as base64 (without the data:...;base64, prefix)
+    function readFileAsBase64(file) {
+      return new Promise(function(resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          var result = reader.result || '';
+          var commaIdx = String(result).indexOf(',');
+          resolve(commaIdx >= 0 ? String(result).slice(commaIdx + 1) : String(result));
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
     document.getElementById('referralForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const btn = this.querySelector('button[type="submit"]');
@@ -2047,15 +2061,31 @@
       btn.disabled = true;
 
       try {
+        // Read optional file attachment
+        var fileInput = document.getElementById('tax-plan');
+        var file = fileInput && fileInput.files && fileInput.files[0];
+        var attachment = null;
+        if (file) {
+          if (file.size > 8 * 1024 * 1024) {
+            throw new Error('File is too large (max 8 MB).');
+          }
+          var base64 = await readFileAsBase64(file);
+          attachment = { filename: file.name, content: base64, contentType: file.type, size: file.size };
+        }
+
         const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             name: document.getElementById('your-name').value,
             email: document.getElementById('your-email').value,
+            firm: document.getElementById('your-firm') ? document.getElementById('your-firm').value : '',
+            province: document.getElementById('province') ? document.getElementById('province').value : '',
+            targetDate: document.getElementById('target-date') ? document.getElementById('target-date').value : '',
             subject: 'Referral from Tax Advisor',
             source: 'Tax Advisor Referral Form',
-            message: document.getElementById('message').value
+            message: document.getElementById('message').value,
+            attachment: attachment
           })
         });
 
@@ -2068,9 +2098,9 @@
           throw new Error('Submission failed');
         }
       } catch (err) {
-        btn.innerHTML = 'Error — please try again';
+        btn.innerHTML = (err && err.message && err.message.indexOf('too large') >= 0) ? 'File too large (max 8 MB)' : 'Error — please try again';
         btn.style.background = '#8C3A3A';
-        setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3000);
+        setTimeout(function() { btn.innerHTML = originalText; btn.disabled = false; btn.style.background = ''; }, 3500);
       }
     });
 

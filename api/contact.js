@@ -1,9 +1,19 @@
 // Vercel Serverless Function: /api/contact
-// Receives form POSTs, saves to Firestore, emails Primrose via Resend.
+// Receives form POSTs (incl. optional base64 file attachment),
+// saves metadata to Firestore, emails Primrose via Resend with attachment.
 
 import { initializeApp, cert, getApps } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import { Resend } from 'resend';
+
+// Raise body limit so base64-encoded attachments fit (default Vercel: ~1MB)
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '10mb',
+    },
+  },
+};
 
 // ----- Firebase Admin (lazy init, singleton across cold starts) -----
 function getDb() {
@@ -38,12 +48,16 @@ const escapeHtml = (s) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
-function buildEmailHtml({ name, email, subject, message, source }) {
+function buildEmailHtml({ name, email, subject, message, source, firm, province, targetDate, attachmentName }) {
   const sentAt = new Date().toLocaleString('en-CA', {
     timeZone: 'America/Halifax',
     dateStyle: 'medium',
     timeStyle: 'short',
   });
+
+  const row = (label, value) => value
+    ? `<tr><td style="padding:8px 0;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(0,0,0,.45);width:140px;">${label}</td><td style="padding:8px 0;font-size:15px;color:#1C1C1C;">${value}</td></tr>`
+    : '';
 
   return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1C1C1C;max-width:600px;margin:0 auto;padding:24px;background:#F5F0EB;">
@@ -53,9 +67,13 @@ function buildEmailHtml({ name, email, subject, message, source }) {
   </div>
   <div style="background:#FAFAF8;padding:32px;border-radius:0 0 12px 12px;border:1px solid rgba(0,0,0,.06);border-top:none;">
     <table style="width:100%;border-collapse:collapse;">
-      <tr><td style="padding:8px 0;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(0,0,0,.45);width:90px;">From</td><td style="padding:8px 0;font-size:15px;color:#1C1C1C;font-weight:500;">${escapeHtml(name) || '&mdash;'}</td></tr>
-      <tr><td style="padding:8px 0;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(0,0,0,.45);">Email</td><td style="padding:8px 0;font-size:15px;color:#1C1C1C;"><a href="mailto:${escapeHtml(email)}" style="color:#4A6B5D;text-decoration:none;">${escapeHtml(email) || '&mdash;'}</a></td></tr>
-      ${subject ? `<tr><td style="padding:8px 0;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(0,0,0,.45);">Subject</td><td style="padding:8px 0;font-size:14px;color:rgba(0,0,0,.7);">${escapeHtml(subject)}</td></tr>` : ''}
+      ${row('From', `<span style="font-weight:500;">${escapeHtml(name) || '&mdash;'}</span>`)}
+      ${row('Email', `<a href="mailto:${escapeHtml(email)}" style="color:#4A6B5D;text-decoration:none;">${escapeHtml(email) || '&mdash;'}</a>`)}
+      ${row('Firm', escapeHtml(firm))}
+      ${row('Province', escapeHtml(province))}
+      ${row('Target date', escapeHtml(targetDate))}
+      ${row('Subject', `<span style="color:rgba(0,0,0,.7);font-size:14px;">${escapeHtml(subject)}</span>`)}
+      ${row('Attachment', attachmentName ? `<span style="color:#4A6B5D;font-weight:500;">&#128206; ${escapeHtml(attachmentName)} <span style="color:rgba(0,0,0,.4);font-weight:400;">(attached to this email)</span></span>` : '')}
     </table>
     <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(0,0,0,.08);">
       <div style="font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(0,0,0,.45);margin-bottom:12px;">Message</div>
@@ -82,6 +100,19 @@ export default async function handler(req, res) {
     const subject = String(body.subject || '').trim().slice(0, 300);
     const message = String(body.message || '').trim().slice(0, 5000);
     const source = String(body.source || body.subject || 'Website').trim().slice(0, 100);
+    const firm = String(body.firm || '').trim().slice(0, 200);
+    const province = String(body.province || '').trim().slice(0, 100);
+    const targetDate = String(body.targetDate || '').trim().slice(0, 50);
+
+    // Optional file attachment (base64 from client; { filename, content, contentType, size })
+    const attachment = body.attachment && body.attachment.content && body.attachment.filename
+      ? {
+          filename: String(body.attachment.filename).slice(0, 200),
+          content: body.attachment.content, // base64 string
+          contentType: body.attachment.contentType || 'application/octet-stream',
+          size: Number(body.attachment.size || 0),
+        }
+      : null;
 
     // Basic validation
     if (!name || !email || !message) {
@@ -91,7 +122,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ ok: false, error: 'Invalid email address.' });
     }
 
-    // 1) Save to Firestore
+    // 1) Save to Firestore (metadata only — we don't store the file body)
     let firestoreId = null;
     try {
       const db = getDb();
@@ -101,6 +132,11 @@ export default async function handler(req, res) {
         subject: subject || null,
         message,
         source,
+        firm: firm || null,
+        province: province || null,
+        targetDate: targetDate || null,
+        attachmentName: attachment ? attachment.filename : null,
+        attachmentSize: attachment ? attachment.size : null,
         userAgent: req.headers['user-agent'] || null,
         createdAt: new Date(),
       });
@@ -114,13 +150,20 @@ export default async function handler(req, res) {
     let emailId = null;
     if (process.env.resend_api_key && CLIENT_EMAILS.length) {
       const resend = new Resend(process.env.resend_api_key);
-      const { data, error } = await resend.emails.send({
+      const payload = {
         from: FROM_EMAIL,
         to: CLIENT_EMAILS,
         reply_to: email,
         subject: subject ? `New inquiry: ${subject}` : `New inquiry from ${name}`,
-        html: buildEmailHtml({ name, email, subject, message, source }),
-      });
+        html: buildEmailHtml({ name, email, subject, message, source, firm, province, targetDate, attachmentName: attachment?.filename }),
+      };
+      if (attachment) {
+        payload.attachments = [{
+          filename: attachment.filename,
+          content: attachment.content, // Resend accepts base64 string for `content`
+        }];
+      }
+      const { data, error } = await resend.emails.send(payload);
       if (error) {
         console.error('Resend error:', error);
       } else {

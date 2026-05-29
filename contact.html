@@ -176,7 +176,8 @@
     /* Responsive */
     @media (max-width: 900px) {
       .offices-grid { grid-template-columns: 1fr 1fr; gap: 48px 32px; }
-      .office-cell { border-right: none; padding: 0 !important; padding-bottom: 32px !important; border-bottom: 1px solid rgba(245,240,235,0.18); }
+      .office-cell { min-width: 0; border-right: none; padding: 0 !important; padding-bottom: 32px !important; border-bottom: 1px solid rgba(245,240,235,0.18); }
+      .office-city { font-size: clamp(30px, 8vw, 56px); word-break: break-word; }
       .office-cell:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0 !important; }
       .linkedin-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }

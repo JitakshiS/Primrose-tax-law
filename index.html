@@ -155,6 +155,7 @@
       transition: all 0.3s ease;
       border: none;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .btn-sage {
@@ -1670,6 +1671,13 @@
       .offices-grid {
         grid-template-columns: 1fr 1fr !important;
         gap: 56px 0 !important;
+      }
+      .offices-grid .office-cell {
+        min-width: 0;
+      }
+      .offices-grid .office-cell > div:first-child {
+        font-size: clamp(30px, 8vw, 56px) !important;
+        word-break: break-word;
       }
       .office-cell {
         padding: 0 24px !important;
@@ -3322,7 +3330,7 @@
     <div class="container fade-in">
       <h2>Ready to work together?</h2>
       <p class="cta-sub">I respond within one business day.</p>
-      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
+      <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px; flex-wrap: wrap;">
         <a href="contact.html" class="btn btn-cream">Contact &#8599;&#65038;</a>
         <a href="for-tax-advisors.html#refer" class="btn btn-outline-cream">Send Tax Plan for Quote</a>
       </div>

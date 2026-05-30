@@ -130,13 +130,6 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
-
-    // Honeypot: a hidden field real users never fill. If it's set, it's a bot —
-    // pretend success (so the bot moves on) but drop the submission entirely.
-    if (body._hp && String(body._hp).trim()) {
-      return res.status(200).json({ ok: true, id: null });
-    }
-
     const name = String(body.name || '').trim().slice(0, 200);
     const email = String(body.email || '').trim().slice(0, 200);
     const subject = String(body.subject || '').trim().slice(0, 300);

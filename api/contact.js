@@ -40,6 +40,28 @@ const CLIENT_EMAILS = (process.env.CLIENT_EMAIL || '')
   .filter(Boolean);
 const FROM_EMAIL = 'Primrose Tax Law <noreply@primrosetax.ca>';
 
+// ----- Allowed origins (CORS + light anti-abuse) -----
+const ALLOWED_ORIGINS = [
+  'https://primrosetax.ca',
+  'https://www.primrosetax.ca',
+  'https://primrosetax.com',
+  'https://www.primrosetax.com',
+];
+const isAllowedOrigin = (o) =>
+  !!o && (ALLOWED_ORIGINS.includes(o) || /^https:\/\/[a-z0-9-]+\.vercel\.app$/.test(o));
+
+// ----- Best-effort in-memory rate limit (per warm serverless instance) -----
+const RATE_BUCKET = new Map();
+function isRateLimited(ip) {
+  const now = Date.now();
+  const WINDOW_MS = 60000; // 1 minute
+  const MAX_HITS = 6;
+  const hits = (RATE_BUCKET.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+  hits.push(now);
+  RATE_BUCKET.set(ip, hits);
+  return hits.length > MAX_HITS;
+}
+
 const escapeHtml = (s) =>
   String(s ?? '')
     .replace(/&/g, '&amp;')
@@ -86,15 +108,35 @@ function buildEmailHtml({ name, email, subject, message, source, firm, province,
 
 // ----- Handler -----
 export default async function handler(req, res) {
-  // CORS (allow form posts from primrosetax.ca, primrosetax.com, and Vercel previews)
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  // CORS — echo the request origin only if it's primrosetax.ca/.com or a Vercel preview
+  const origin = req.headers.origin || '';
+  res.setHeader('Access-Control-Allow-Origin', isAllowedOrigin(origin) ? origin : 'https://www.primrosetax.ca');
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).json({ ok: false, error: 'Method not allowed' });
 
+  // Block cross-site browser submissions (lenient: only when an Origin is present and foreign)
+  if (origin && !isAllowedOrigin(origin)) {
+    return res.status(403).json({ ok: false, error: 'Forbidden' });
+  }
+
+  // Basic per-IP rate limiting
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  if (isRateLimited(ip)) {
+    return res.status(429).json({ ok: false, error: 'Too many requests. Please try again shortly.' });
+  }
+
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+
+    // Honeypot: a hidden field real users never fill. If it's set, it's a bot —
+    // pretend success (so the bot moves on) but drop the submission entirely.
+    if (body._hp && String(body._hp).trim()) {
+      return res.status(200).json({ ok: true, id: null });
+    }
+
     const name = String(body.name || '').trim().slice(0, 200);
     const email = String(body.email || '').trim().slice(0, 200);
     const subject = String(body.subject || '').trim().slice(0, 300);

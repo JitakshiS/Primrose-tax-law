@@ -18,8 +18,57 @@
   style.textContent =
     'body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;}' +
     EXEMPT + '{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;-webkit-touch-callout:default;}' +
-    'img{-webkit-user-drag:none;}';
+    'img{-webkit-user-drag:none;}' +
+    '.hp-field{position:absolute!important;left:-9999px!important;top:auto;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none;}';
   (document.head || document.documentElement).appendChild(style);
+
+  /* ---- Spam honeypot (anti-bot) ----
+   * Inject an off-screen field into every form. Humans never fill it; bots do.
+   * The patched fetch below forwards its value to the server as `_hp`, and the
+   * backend silently drops any submission where it's filled. Zero impact on
+   * real visitors, and no per-form code needed. */
+  function addHoneypots() {
+    var forms = document.querySelectorAll('form');
+    for (var i = 0; i < forms.length; i++) {
+      if (forms[i].querySelector('.hp-field')) continue;
+      var hp = document.createElement('input');
+      hp.type = 'text';
+      hp.name = 'website_url';
+      hp.className = 'hp-field';
+      hp.tabIndex = -1;
+      hp.setAttribute('autocomplete', 'off');
+      hp.setAttribute('aria-hidden', 'true');
+      forms[i].appendChild(hp);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addHoneypots);
+  } else {
+    addHoneypots();
+  }
+
+  // Forward the honeypot value on contact-form submissions (defensive: any
+  // problem leaves the request completely untouched).
+  var _fetch = window.fetch;
+  if (typeof _fetch === 'function') {
+    window.fetch = function (input, init) {
+      try {
+        if (init && typeof init.body === 'string' &&
+            String(init.method || '').toUpperCase() === 'POST') {
+          var u = typeof input === 'string' ? input : (input && input.url) || '';
+          if (u.indexOf('/api/contact') !== -1) {
+            var trap = '';
+            var traps = document.querySelectorAll('.hp-field');
+            for (var j = 0; j < traps.length; j++) { if (traps[j].value) trap = traps[j].value; }
+            var data = JSON.parse(init.body);
+            data._hp = trap;
+            init = Object.assign({}, init, { body: JSON.stringify(data) });
+          }
+        }
+      } catch (e) { /* leave the request unchanged */ }
+      return _fetch.call(this, input, init);
+    };
+  }
 
   function exempt(target) {
     return target && target.closest && target.closest(EXEMPT);

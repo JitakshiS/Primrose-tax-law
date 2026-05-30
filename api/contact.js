@@ -106,6 +106,28 @@ function buildEmailHtml({ name, email, subject, message, source, firm, province,
 </body></html>`;
 }
 
+// Auto-reply sent to the person who submitted the form.
+function buildConfirmationHtml({ name, message }) {
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1C1C1C;max-width:600px;margin:0 auto;padding:24px;background:#F5F0EB;">
+  <div style="background:#1C1C1C;color:#F5F0EB;padding:24px 32px;border-radius:12px 12px 0 0;">
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#7C9A8E;margin-bottom:8px;">Message received</div>
+    <div style="font-size:20px;font-weight:700;">Primrose Tax Law</div>
+  </div>
+  <div style="background:#FAFAF8;padding:32px;border-radius:0 0 12px 12px;border:1px solid rgba(0,0,0,.06);border-top:none;">
+    <p style="font-size:15px;line-height:1.6;margin:0 0 16px;">Hi ${escapeHtml(name) || 'there'},</p>
+    <p style="font-size:15px;line-height:1.6;margin:0 0 16px;">Thank you for reaching out. I&rsquo;ve received your message and will respond within one business&nbsp;day.</p>
+    <div style="margin:24px 0;padding:16px 20px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;">
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:rgba(0,0,0,.45);margin-bottom:8px;">Your message</div>
+      <div style="font-size:14px;line-height:1.6;color:rgba(0,0,0,.7);white-space:pre-wrap;">${escapeHtml(message)}</div>
+    </div>
+    <p style="font-size:13px;line-height:1.6;color:rgba(0,0,0,.55);margin:0 0 16px;">Sending this message does not create a solicitor&ndash;client relationship. Please don&rsquo;t include confidential or privileged information until that relationship has been&nbsp;established.</p>
+    <p style="font-size:15px;line-height:1.6;margin:0;">&mdash; Primrose Watson<br><span style="color:rgba(0,0,0,.5);font-size:13px;">Primrose Tax Law</span></p>
+  </div>
+  <div style="text-align:center;padding:16px;font-size:11px;color:rgba(0,0,0,.4);">Automated confirmation &middot; reply to this email to reach&nbsp;us.</div>
+</body></html>`;
+}
+
 // ----- Handler -----
 export default async function handler(req, res) {
   // CORS — echo the request origin only if it's primrosetax.ca/.com or a Vercel preview
@@ -183,26 +205,43 @@ export default async function handler(req, res) {
 
     // 2) Send email via Resend
     let emailId = null;
-    if (process.env.resend_api_key && CLIENT_EMAILS.length) {
+    if (process.env.resend_api_key) {
       const resend = new Resend(process.env.resend_api_key);
-      const payload = {
-        from: FROM_EMAIL,
-        to: CLIENT_EMAILS,
-        reply_to: email,
-        subject: subject ? `New inquiry: ${subject}` : `New inquiry from ${name}`,
-        html: buildEmailHtml({ name, email, subject, message, source, firm, province, targetDate, attachmentName: attachment?.filename }),
-      };
-      if (attachment) {
-        payload.attachments = [{
-          filename: attachment.filename,
-          content: attachment.content, // Resend accepts base64 string for `content`
-        }];
+
+      // 2a) Notification to the firm
+      if (CLIENT_EMAILS.length) {
+        const payload = {
+          from: FROM_EMAIL,
+          to: CLIENT_EMAILS,
+          reply_to: email,
+          subject: subject ? `New inquiry: ${subject}` : `New inquiry from ${name}`,
+          html: buildEmailHtml({ name, email, subject, message, source, firm, province, targetDate, attachmentName: attachment?.filename }),
+        };
+        if (attachment) {
+          payload.attachments = [{
+            filename: attachment.filename,
+            content: attachment.content, // Resend accepts base64 string for `content`
+          }];
+        }
+        const { data, error } = await resend.emails.send(payload);
+        if (error) {
+          console.error('Resend error:', error);
+        } else {
+          emailId = data?.id;
+        }
       }
-      const { data, error } = await resend.emails.send(payload);
-      if (error) {
-        console.error('Resend error:', error);
-      } else {
-        emailId = data?.id;
+
+      // 2b) Confirmation auto-reply to the person who submitted (best-effort)
+      try {
+        await resend.emails.send({
+          from: FROM_EMAIL,
+          to: [email],
+          reply_to: 'hello@primrosetax.ca',
+          subject: 'We received your message — Primrose Tax Law',
+          html: buildConfirmationHtml({ name, message }),
+        });
+      } catch (confErr) {
+        console.error('Confirmation email failed:', confErr);
       }
     }
 

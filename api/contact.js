@@ -256,10 +256,19 @@ export default async function handler(req, res) {
         }
       }
 
-      // Confirmation auto-reply to the sender is temporarily disabled while spam
-      // bots are hitting the form: it doubled email volume and sent mail to fake
-      // addresses. Re-enable once a CAPTCHA (Turnstile) blocks the bots.
-      // (buildConfirmationHtml is kept above, ready to switch back on.)
+      // Confirmation auto-reply to the person who submitted (best-effort).
+      // Safe to send now that Turnstile blocks bots before they reach this point.
+      try {
+        await resend.emails.send({
+          from: FROM_EMAIL,
+          to: [email],
+          reply_to: 'hello@primrosetax.ca',
+          subject: 'We received your message — Primrose Tax Law',
+          html: buildConfirmationHtml({ name, message }),
+        });
+      } catch (confErr) {
+        console.error('Confirmation email failed:', confErr);
+      }
     }
 
     if (!firestoreId && !emailId) {

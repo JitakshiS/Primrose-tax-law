@@ -152,6 +152,31 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+
+    // Verify Cloudflare Turnstile (bot protection). Only enforced when the secret
+    // is configured, so a missing env var can never break the live form. If
+    // Cloudflare itself is unreachable, fail open rather than lose a real lead.
+    const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET_KEY;
+    if (TURNSTILE_SECRET) {
+      const token = String(body.turnstileToken || body['cf-turnstile-response'] || '');
+      if (!token) {
+        return res.status(400).json({ ok: false, error: 'Please complete the verification and try again.' });
+      }
+      try {
+        const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ secret: TURNSTILE_SECRET, response: token, remoteip: ip }),
+        });
+        const verify = await verifyRes.json();
+        if (!verify.success) {
+          return res.status(403).json({ ok: false, error: 'Verification failed. Please refresh and try again.' });
+        }
+      } catch (tsErr) {
+        console.error('Turnstile verify unreachable, allowing through:', tsErr);
+      }
+    }
+
     const name = String(body.name || '').trim().slice(0, 200);
     const email = String(body.email || '').trim().slice(0, 200);
     const subject = String(body.subject || '').trim().slice(0, 300);

@@ -1,5 +1,9 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/for-tax-advisors", "destination": "/for-tax-planners", "permanent": true },
+    { "source": "/for-tax-advisors.html", "destination": "/for-tax-planners", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

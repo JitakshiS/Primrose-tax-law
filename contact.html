@@ -100,7 +100,8 @@
     .office-cell { padding: 0 32px; border-right: 1px solid rgba(245,240,235,0.18); }
     .office-cell:first-child { padding-left: 0; }
     .office-cell:last-child { border-right: none; padding-right: 0; }
-    .office-city { font-family: 'JetBrains Mono', monospace; font-size: 56px; font-weight: 400; color: #F5F0EB; letter-spacing: -2px; line-height: 1; margin-bottom: 28px; }
+    /* Big heading now shows the province (small label shows the city); two-line names sit level with one-line names, same as the homepage */
+    .office-city { font-family: 'JetBrains Mono', monospace; font-size: clamp(36px, 3.9vw, 56px); font-weight: 400; color: #F5F0EB; letter-spacing: -2px; line-height: 1; margin-bottom: 28px; min-height: 2em; display: flex; align-items: flex-end; }
     .office-province { font-family: 'DM Sans', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(245,240,235,0.7); margin-bottom: 6px; }
     .office-status { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 15px; color: #F5F0EB; margin-bottom: 16px; }
     .office-address { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(245,240,235,0.85); line-height: 1.8; }
@@ -194,6 +195,7 @@
       .contact-hero h1 { font-size: 38px; letter-spacing: -1.5px; }
       .offices-heading { font-size: clamp(36px, 9vw, 56px); }
       .offices-grid { grid-template-columns: 1fr; }
+      .office-city { min-height: 0; }
       .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -258,29 +260,29 @@
       </div>
       <div class="offices-grid fade-in">
         <div class="office-cell">
-          <div class="office-city">Ottawa</div>
-          <div class="office-province">Ontario</div>
+          <div class="office-city">Ontario</div>
+          <div class="office-province">Ottawa</div>
           <div class="office-status">Registered for service</div>
           <div class="office-address">275 Slater Street<br>Suite 900<br>Ottawa, ON K1P 5H9</div>
           <div class="office-legal">Legal services in Ontario are provided by Primrose Tax Law Professional Corporation.</div>
         </div>
         <div class="office-cell">
-          <div class="office-city">Surrey</div>
-          <div class="office-province">British Columbia</div>
+          <div class="office-city">British Columbia</div>
+          <div class="office-province">Surrey</div>
           <div class="office-status">Registered for service</div>
           <div class="office-address">15300 Croydon Drive<br>Suite 300<br>Surrey, BC V3Z 0Z5</div>
           <div class="office-legal">Legal services in British Columbia are provided by Primrose Watson, Barrister and Solicitor, personally.</div>
         </div>
         <div class="office-cell">
-          <div class="office-city">Calgary</div>
-          <div class="office-province">Alberta</div>
+          <div class="office-city">Alberta</div>
+          <div class="office-province">Calgary</div>
           <div class="office-status">Registered for service</div>
           <div class="office-address">500 &ndash; 4th Avenue SW<br>Suite 2500<br>Calgary, AB T2P 2V6</div>
           <div class="office-legal">Legal services in Alberta are provided by Primrose Watson, Barrister and Solicitor, personally.</div>
         </div>
         <div class="office-cell">
-          <div class="office-city">Halifax</div>
-          <div class="office-province">Nova Scotia</div>
+          <div class="office-city">Nova Scotia</div>
+          <div class="office-province">Halifax</div>
           <div class="office-status">Registered for service</div>
           <div class="office-address">1959 Upper Water Street<br>Suite 1301, Tower 1<br>Halifax, NS B3J 3N2</div>
           <div class="office-legal">Legal services in Nova Scotia are provided by Primrose Tax Law.</div>
